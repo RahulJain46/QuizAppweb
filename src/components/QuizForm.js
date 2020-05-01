@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { v5 as uuidv5 } from "uuid";
 
-import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form/dist/react-hook-form.ie11";
 import { useHistory } from "react-router-dom";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
