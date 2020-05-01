@@ -13,14 +13,18 @@ const useStyles = makeStyles(theme => ({
   navheader: {
     position: "relative",
     padding: 30,
-    color: "#1d1d1f"
+    color: "#f5f5f5",
+    "&:hover": {
+      color: "#b0bec5"
+    }
   },
   root: {
     flexGrow: 1
   },
   paper: {
     padding: theme.spacing(2),
-    textAlign: "center"
+    textAlign: "center",
+    backgroundColor: "#ac7818"
   },
   header: {
     position: "fixed",
@@ -31,13 +35,14 @@ const useStyles = makeStyles(theme => ({
   upperheader: {
     padding: theme.spacing(2),
     textAlign: "center",
-    background: "#00acc1"
+    background: "#234f64",
+    color: "#fafafa"
   }
 }));
 
 const Header = () => {
   const classes = useStyles();
-  const activeStyle = { color: "#ffebee" };
+  const activeStyle = { color: "#4fc3f7" };
   return (
     <div className={classes.header}>
       <nav className={classes.navlinks}>
