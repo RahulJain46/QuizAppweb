@@ -236,7 +236,8 @@ export default function QuizResult(props) {
         //   usersJson.push(user.userAnswer);
         // });
         // setUsers(usersJson);
-      });
+      })
+      .catch(error => console.log("error is", error));
   }, []);
 
   return (
