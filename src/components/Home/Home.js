@@ -31,7 +31,10 @@ const useStyles = makeStyles(theme => ({
 function Home() {
   const classes = useStyles();
   const date = new Date();
-  const day = new Date().getDate();
+  const day =
+    new Date().getDate() > 9
+      ? new Date().getDate()
+      : "0" + new Date().getDate();
   const year = new Date().getFullYear();
   const month = date
     .toLocaleString("default", { month: "short" })
