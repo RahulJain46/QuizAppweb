@@ -78,10 +78,50 @@ const useStyles = makeStyles(theme => ({
       content: "'⚠ '"
     }
   },
-  required: {
+  asteriskField: {
     marginLeft: 24,
     color: error
+  },
+  [theme.breakpoints.down("361")]: {
+    container: {
+      maxWidth: "100%",
+      top: 176,
+      marginBottom: "22%",
+      left: "0%",
+    },
+    input: {
+      width: "100%",
+      margin: 0,
+      fontSize: 10,
+      padding: "8px 8px",
+      boxShadow: "3px 3px #eeeeee",
+    },
+    label: {
+      marginBottom: 2,
+      marginTop: 1,
+      fontSize: 10,
+      marginLeft: 8,
+      
+    },
+    asteriskField: {
+      fontSize: 12,
+      marginLeft: "4%"
+    }
+  },
+  [theme.breakpoints.between("361", "xs")]: {
+    container: {
+      maxWidth: "100%",
+      top: 176,
+      marginBottom: "22%",
+      left: "0%",
+    },
+    input: {
+      width: "100%",
+      margin: 0,
+      fontSize: 13
+    },
   }
+  
 }));
 
 function QuizForm(props) {
@@ -238,7 +278,7 @@ function QuizForm(props) {
             onSubmit(data, questions, questionsId)
           )}
         >
-          <Typography variant="h9" component="h9" className={classes.required}>
+          <Typography variant="h9" component="h9" className={classes.asteriskField}>
             * Required field
           </Typography>
           <label className={classes.label}>Full Name *</label>
