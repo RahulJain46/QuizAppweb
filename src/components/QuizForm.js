@@ -8,6 +8,9 @@ import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+import red from "@material-ui/core/colors/red";
+const error = red[700];
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -74,13 +77,24 @@ const useStyles = makeStyles(theme => ({
     "&::before": {
       content: "'⚠ '"
     }
+  },
+  required: {
+    marginLeft: 24,
+    color: error
   }
 }));
 
 function QuizForm(props) {
   const classes = new useStyles();
   const history = useHistory();
-  const { register, handleSubmit, watch, errors, control } = useForm();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    errors,
+    control,
+    setError
+  } = useForm();
   const [questions, setQuestions] = useState([]);
   const [questionsId, setQuestionsId] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -224,7 +238,10 @@ function QuizForm(props) {
             onSubmit(data, questions, questionsId)
           )}
         >
-          <label className={classes.label}>Full Name</label>
+          <Typography variant="h9" component="h9" className={classes.required}>
+            * Required field
+          </Typography>
+          <label className={classes.label}>Full Name *</label>
           <input
             className={classes.input}
             placeholder="Full Name"
@@ -234,7 +251,7 @@ function QuizForm(props) {
           {errors.fullname && (
             <p className={classes.error}> This field is required</p>
           )}
-          <label className={classes.label}>CITY/TOWN/VILLAGE</label>
+          <label className={classes.label}>CITY/TOWN/VILLAGE *</label>
           <input
             className={classes.input}
             placeholder="City"
@@ -244,7 +261,7 @@ function QuizForm(props) {
           {errors.city && (
             <p className={classes.error}>This field is required</p>
           )}
-          <label className={classes.label}>Address In Short</label>
+          <label className={classes.label}>Address In Short *</label>
           <input
             className={classes.input}
             placeholder="Address"
@@ -254,7 +271,7 @@ function QuizForm(props) {
           {errors.address && (
             <p className={classes.error}>This field is required</p>
           )}
-          <label className={classes.label}>Mobile No.</label>
+          <label className={classes.label}>Mobile No. *</label>
           <input
             className={classes.input}
             placeholder="Mobile Number"
@@ -271,7 +288,7 @@ function QuizForm(props) {
                   <fieldset>
                     <fieldset className={classes.questionContent}>
                       <label className={classes.label}>
-                        {index + 1}. {row.question}
+                        {index + 1}. {row.question} *
                       </label>
                     </fieldset>
                     <fieldset className={classes.questionOption}>
