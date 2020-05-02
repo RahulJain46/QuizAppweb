@@ -78,10 +78,124 @@ const useStyles = makeStyles(theme => ({
       content: "'⚠ '"
     }
   },
-  required: {
+  asteriskField: {
     marginLeft: 24,
     color: error
+  },
+  radioButton: {
+    height: 12
+  },
+  [theme.breakpoints.down("361")]: {
+    container: {
+      maxWidth: "100%",
+      top: 176,
+      marginBottom: "22%",
+      left: "0%",
+    },
+    input: {
+      width: "100%",
+      margin: 0,
+      fontSize: 10,
+      padding: "8px 8px",
+      boxShadow: "3px 3px #eeeeee",
+    },
+    label: {
+      marginBottom: 2,
+      marginTop: 4,
+      fontSize: 10,
+      marginLeft: 8,
+      
+    },
+    asteriskField: {
+      fontSize: 12,
+      marginLeft: "4%"
+    },
+    questionfields: {
+      boxShadow: "3px 3px #eeeeee",
+      margin: 4,
+    },
+    questionContent: {
+      marginLeft: "0%",
+      maxWidth: "100%"
+    },
+    questionOption: {
+      marginLeft: "3%",
+      fontSize: 13
+    },
+    radioButton: {
+      height: 10
+    },
+    questionLabel:{
+      fontSize: 14
+    },
+  
+  button: {    
+    width: 90,
+    marginTop: 8,
+    marginLeft: 7,
+    height: 38,
+  },
+  error: {
+    fontSize: 9
+    }
+
+
+  },
+
+  [theme.breakpoints.between("361", "xs")]: {
+    container: {
+      maxWidth: "100%",
+      top: 176,
+      marginBottom: "22%",
+      left: "0%",
+    },
+    input: {
+      width: "100%",
+      margin: 0,
+      fontSize: 12,
+      padding: "5px 8px",
+      boxShadow: "4px 4px #eeeeee",
+    },
+    label: {
+      marginBottom: 2,
+      marginTop: 1,
+      fontSize: 13,
+      marginLeft: 8,
+      
+    },
+    asteriskField: {
+      fontSize: 13,
+      marginLeft: "4%"
+    },
+    questionfields: {
+      boxShadow: "4px 3px #eeeeee",
+      margin: 5,
+    },
+    questionContent: {
+      marginLeft: "0%",
+      maxWidth: "100%"
+    },
+    questionOption: {
+      marginLeft: "3%",
+      fontSize: 15
+    },
+    radioButton: {
+      height: 11
+    },
+    questionLabel:{
+      fontSize: 16
+    },
+    button: {    
+      width: 95,
+      marginTop: 7,
+      marginLeft: 8,
+      height: 40,
+    },
+    error: {
+      fontSize: 11
+      }
   }
+  
 }));
 
 function QuizForm(props) {
@@ -238,7 +352,7 @@ function QuizForm(props) {
             onSubmit(data, questions, questionsId)
           )}
         >
-          <Typography variant="h9" component="h9" className={classes.required}>
+          <Typography variant="h9" component="h9" className={classes.asteriskField}>
             * Required field
           </Typography>
           <label className={classes.label}>Full Name *</label>
@@ -287,13 +401,14 @@ function QuizForm(props) {
                 <CardContent>
                   <fieldset>
                     <fieldset className={classes.questionContent}>
-                      <label className={classes.label}>
+                      <label className={classes.questionLabel}>
                         {index + 1}. {row.question} *
                       </label>
                     </fieldset>
                     <fieldset className={classes.questionOption}>
                       <input
                         type="radio"
+                        className={classes.radioButton}
                         value="YES"
                         name={row.question}
                         ref={register({ required: true })}
@@ -304,6 +419,7 @@ function QuizForm(props) {
                     <fieldset className={classes.questionOption}>
                       <input
                         type="radio"
+                        className={classes.radioButton}
                         value="NO"
                         name={row.question}
                         ref={register({ required: true })}

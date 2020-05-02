@@ -11,7 +11,18 @@ const useStyles = makeStyles(theme => ({
   footer: {
     position: "fixed",
     bottom: 0,
+    left: "0%",
     width: widthProportion
+  },
+  [theme.breakpoints.down("400")]: {
+    footerFont: {
+      fontSize: 8
+    }
+  },
+  [theme.breakpoints.between("400", "xs")]: {
+    footerFont: {
+      fontSize: 10
+    }
   }
 }));
 
@@ -20,13 +31,13 @@ const Footer = () => {
   return (
     <div className={classes.footer}>
       <BottomNavigation>
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h6" className={classes.footerFont} gutterBottom>
           Developed by:
         </Typography>
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h6" className={classes.footerFont} gutterBottom>
           RAJESH JAIN & GAUTAM KOCHAR UJJAIN UJJAIN,
         </Typography>
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h6" className={classes.footerFont} gutterBottom>
           MOB:8989984415
         </Typography>
       </BottomNavigation>
