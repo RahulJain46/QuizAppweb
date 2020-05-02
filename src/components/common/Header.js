@@ -38,6 +38,16 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center",
     background: "#234f64",
     color: "#fafafa"
+  },
+  [theme.breakpoints.down("361")]: {
+    paper: {
+      fontSize: 9
+    }
+  },
+  [theme.breakpoints.between("361", "sm")]: {
+    paper: {
+      fontSize: 12
+    }
   }
 }));
 

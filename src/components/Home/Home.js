@@ -7,14 +7,6 @@ import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-    marginTop: 150,
-    position: "absolute",
-    marginBottom: 73,
-    left: "25%",
-    right: "25%"
-  },
   paper: {
     padding: theme.spacing(2),
     textAlign: "center"
@@ -24,6 +16,33 @@ const useStyles = makeStyles(theme => ({
     color: "#fff",
     "&:hover": {
       backgroundColor: "#303f9f"
+    }
+  },
+  home: {
+    flexGrow: 1,
+    marginTop: 150,
+    position: "absolute",
+    marginBottom: 73,
+    left: "25%",
+    right: "25%"
+  },
+  [theme.breakpoints.down("sm")]: {
+    home: {
+      width: "100%",
+      left: "0%",
+      right: "0%",
+      top: "10%"
+    },
+    quizbutton: {
+      display: "inline-block"
+    },
+    quizitems: {
+      maxWidth: "100%",
+      padding: "0px ! important",
+      paddingTop: "10px ! important"
+    },
+    button: {
+      padding: "4px 6px"
     }
   }
 }));
@@ -40,9 +59,9 @@ function Home() {
     .toLocaleString("default", { month: "short" })
     .toUpperCase();
   return (
-    <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={6}>
+    <div className={classes.home}>
+      <Grid container spacing={3} className={classes.quizbutton}>
+        <Grid item xs={6} className={classes.quizitems}>
           <Link to={`/datemonthquiz` + `/${day + "-" + month}`}>
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.button}>
@@ -51,7 +70,7 @@ function Home() {
             </Paper>
           </Link>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={6} className={classes.quizitems}>
           <Link to={`/quizresult` + `/${day + "-" + month}`}>
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.button}>
@@ -60,7 +79,7 @@ function Home() {
             </Paper>
           </Link>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} className={classes.quizitems}>
           <Link to="/oldquizresults">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.button}>
