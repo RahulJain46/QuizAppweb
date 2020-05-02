@@ -48,10 +48,18 @@ const useStyles = makeStyles(theme => ({
     paper: {
       fontSize: 12
     }
+  },
+  [theme.breakpoints.between("1120", "1380")]: {
+    navheader: {
+      paddingLeft: 14,
+      paddingRight: 0,
+      paddingTop: 0,
+      paddingbotton: 0
+    }
   }
 }));
 
-const Header = () => {
+const DesktopHeader = () => {
   const classes = useStyles();
   const activeStyle = { color: "#4fc3f7" };
   return (
@@ -100,4 +108,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default DesktopHeader;

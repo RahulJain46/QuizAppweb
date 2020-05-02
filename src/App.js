@@ -7,7 +7,8 @@ import QuizAnswers from "./components/QuizAnswers";
 import QuizResult from "./components/QuizResult";
 import UserResponse from "./components/UserResponse";
 import QuizAnswer from "./components/QuizAnswer";
-import Header from "./components/common/Header";
+import DesktopHeader from "./components/common/DesktopHeader";
+import AppBar from "./components/common/AppBar";
 import Footer from "./components/common/Footer";
 import PageNotFound from "./components/PageNotFound";
 import { ToastContainer } from "react-toastify";
@@ -16,7 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <div className="container-fluid">
-      <Header />
+      <AppBar />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/oldquizresults" component={OldQuiz} />
