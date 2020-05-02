@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
       fontSize: 9
     }
   },
-  [theme.breakpoints.between("361", "sm")]: {
+  [theme.breakpoints.between("361", "xs")]: {
     paper: {
       fontSize: 12
     }
