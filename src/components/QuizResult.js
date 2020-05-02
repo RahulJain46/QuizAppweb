@@ -12,7 +12,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   paper: {
     height: 708,
     position: "relative",
@@ -47,8 +47,48 @@ const useStyles = makeStyles({
   insideTable: {
     marginLeft: "1%",
     position: "absolute"
+  },
+  [theme.breakpoints.down("361")]: {
+    totalCount: {
+      top: 190,
+      marginLeft: "0%",
+      fontSize: 17,
+      fontWeight: 600
+    },
+    paper: {
+      top: 196,
+      marginLeft: "0%",
+      marginRight: "0%",
+    },
+    root: {
+      flexGrow: 1,
+      marginTop: 150,
+      position: "absolute",
+      marginBottom: 73,
+      left: "25%",
+      right: "25%"
+    },
+    bullet: {
+      display: "inline-block",
+      margin: "0 2px",
+      transform: "scale(0.8)"
+    },
+    title: {
+      fontSize: 14
+    },
+
+    insideTable: {
+      marginLeft: "1%",
+      position: "absolute"
+    }
+  },
+
+
+
+  [theme.breakpoints.between("361", "xs")]: {
+
   }
-});
+}));
 
 const styles = theme => ({
   flexContainer: {
