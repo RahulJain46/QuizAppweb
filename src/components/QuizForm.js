@@ -82,6 +82,9 @@ const useStyles = makeStyles(theme => ({
     marginLeft: 24,
     color: error
   },
+  radioButton: {
+    height: 12
+  },
   [theme.breakpoints.down("361")]: {
     container: {
       maxWidth: "100%",
@@ -98,7 +101,7 @@ const useStyles = makeStyles(theme => ({
     },
     label: {
       marginBottom: 2,
-      marginTop: 1,
+      marginTop: 4,
       fontSize: 10,
       marginLeft: 8,
       
@@ -106,8 +109,39 @@ const useStyles = makeStyles(theme => ({
     asteriskField: {
       fontSize: 12,
       marginLeft: "4%"
-    }
+    },
+    questionfields: {
+      boxShadow: "3px 3px #eeeeee",
+      margin: 4,
+    },
+    questionContent: {
+      marginLeft: "0%",
+      maxWidth: "100%"
+    },
+    questionOption: {
+      marginLeft: "3%",
+      fontSize: 13
+    },
+    radioButton: {
+      height: 10
+    },
+    questionLabel:{
+      fontSize: 14
+    },
+  
+  button: {    
+    width: 90,
+    marginTop: 8,
+    marginLeft: 7,
+    height: 38,
   },
+  error: {
+    fontSize: 9
+    }
+
+
+  },
+
   [theme.breakpoints.between("361", "xs")]: {
     container: {
       maxWidth: "100%",
@@ -132,7 +166,34 @@ const useStyles = makeStyles(theme => ({
     asteriskField: {
       fontSize: 13,
       marginLeft: "4%"
-    }
+    },
+    questionfields: {
+      boxShadow: "4px 3px #eeeeee",
+      margin: 5,
+    },
+    questionContent: {
+      marginLeft: "0%",
+      maxWidth: "100%"
+    },
+    questionOption: {
+      marginLeft: "3%",
+      fontSize: 15
+    },
+    radioButton: {
+      height: 11
+    },
+    questionLabel:{
+      fontSize: 16
+    },
+    button: {    
+      width: 95,
+      marginTop: 7,
+      marginLeft: 8,
+      height: 40,
+    },
+    error: {
+      fontSize: 11
+      }
   }
   
 }));
@@ -340,13 +401,14 @@ function QuizForm(props) {
                 <CardContent>
                   <fieldset>
                     <fieldset className={classes.questionContent}>
-                      <label className={classes.label}>
+                      <label className={classes.questionLabel}>
                         {index + 1}. {row.question} *
                       </label>
                     </fieldset>
                     <fieldset className={classes.questionOption}>
                       <input
                         type="radio"
+                        className={classes.radioButton}
                         value="YES"
                         name={row.question}
                         ref={register({ required: true })}
@@ -357,6 +419,7 @@ function QuizForm(props) {
                     <fieldset className={classes.questionOption}>
                       <input
                         type="radio"
+                        className={classes.radioButton}
                         value="NO"
                         name={row.question}
                         ref={register({ required: true })}
