@@ -118,8 +118,21 @@ const useStyles = makeStyles(theme => ({
     input: {
       width: "100%",
       margin: 0,
-      fontSize: 13
+      fontSize: 12,
+      padding: "5px 8px",
+      boxShadow: "4px 4px #eeeeee",
     },
+    label: {
+      marginBottom: 2,
+      marginTop: 1,
+      fontSize: 13,
+      marginLeft: 8,
+      
+    },
+    asteriskField: {
+      fontSize: 13,
+      marginLeft: "4%"
+    }
   }
   
 }));
