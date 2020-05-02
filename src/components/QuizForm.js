@@ -293,6 +293,9 @@ function QuizForm(props) {
                       />
                       <label>NO</label>
                     </fieldset>
+                    {errors[row.question] && (
+                      <p className={classes.error}>This field is required</p>
+                    )}
                   </fieldset>
                 </CardContent>
               </Card>
