@@ -26,6 +26,11 @@ const useStyles = makeStyles(theme => ({
     "&:hover": {
       backgroundColor: "#303f9f"
     }
+  },
+  loading: {
+    position: "relative",
+    top: 77,
+    left: "38%"
   }
 }));
 

@@ -24,7 +24,8 @@ const useStyles = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: "center",
-    backgroundColor: "#ac7818"
+    backgroundColor: "#ac7818",
+    color: "#e9ecef"
   },
   header: {
     position: "fixed",

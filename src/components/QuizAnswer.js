@@ -66,16 +66,28 @@ export default function QuizAnswer1(props) {
         <Table stickyHeader aria-label="sticky table">
           <TableHead className={classes.tablecolumns}>
             <TableRow>
-              <TableCell key="name" style={{ minWidth: 60 }}>
+              <TableCell
+                key="name"
+                style={{ minWidth: 60, backgroundColor: "#e9ecef" }}
+              >
                 NUMBER
               </TableCell>
-              <TableCell key="name" style={{ minWidth: 200 }}>
+              <TableCell
+                key="name"
+                style={{ minWidth: 200, backgroundColor: "#e9ecef" }}
+              >
                 QUESTIONS
               </TableCell>
-              <TableCell key="code" style={{ minWidth: 60 }}>
+              <TableCell
+                key="code"
+                style={{ minWidth: 60, backgroundColor: "#e9ecef" }}
+              >
                 ANSWER
               </TableCell>
-              <TableCell key="population" style={{ minWidth: 170 }}>
+              <TableCell
+                key="population"
+                style={{ minWidth: 170, backgroundColor: "#e9ecef" }}
+              >
                 REMARKS
               </TableCell>
             </TableRow>
