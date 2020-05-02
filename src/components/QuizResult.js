@@ -13,7 +13,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme => ({
-  paper: {
+  paperTable: {
     height: 708,
     position: "relative",
     top: 166,
@@ -21,22 +21,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: "30%",
     border: "1px solid #bdbdbd"
   },
-  root: {
-    flexGrow: 1,
-    marginTop: 150,
-    position: "absolute",
-    marginBottom: 73,
-    left: "25%",
-    right: "25%"
-  },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)"
-  },
-  title: {
-    fontSize: 14
-  },
+
   totalCount: {
     position: "relative",
     top: 153,
@@ -50,37 +35,22 @@ const useStyles = makeStyles(theme => ({
   },
   [theme.breakpoints.down("361")]: {
     totalCount: {
-      top: 190,
+      top: 5,
       marginLeft: "0%",
-      fontSize: 17,
+      fontSize: 16,
       fontWeight: 600
     },
-    paper: {
-      top: 196,
-      marginLeft: "0%",
-      marginRight: "0%",
+    paperTable: {
+      top: 7,
+      marginLeft: "-2%",
+      marginRight: "-2%"      
     },
-    root: {
-      flexGrow: 1,
-      marginTop: 150,
-      position: "absolute",
-      marginBottom: 73,
-      left: "25%",
-      right: "25%"
-    },
-    bullet: {
-      display: "inline-block",
-      margin: "0 2px",
-      transform: "scale(0.8)"
-    },
-    title: {
-      fontSize: 14
+    insideTable: {
+      marginLeft: "-3%",
+      position: "absolute"
     },
 
-    insideTable: {
-      marginLeft: "1%",
-      position: "absolute"
-    }
+
   },
 
 
@@ -285,7 +255,7 @@ export default function QuizResult(props) {
       <Typography className={classes.totalCount} color="textSecondary">
         Total Number of participants: {users.length}
       </Typography>
-      <Paper className={classes.paper}>
+      <Paper className={classes.paperTable}>
         <VirtualizedTable
           rowCount={users.length}
           className={classes.insideTable}
@@ -294,7 +264,7 @@ export default function QuizResult(props) {
             {
               width: 200,
               label: "Time",
-              dataKey: "time"
+              dataKey: "time"           
             },
             {
               width: 200,
