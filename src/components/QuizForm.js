@@ -68,6 +68,12 @@ const useStyles = makeStyles(theme => ({
     "&:hover": {
       backgroundColor: "#303f9f"
     }
+  },
+  error: {
+    color: "#bf1650",
+    "&::before": {
+      content: "'⚠ '"
+    }
   }
 }));
 
@@ -78,6 +84,7 @@ function QuizForm(props) {
   const [questions, setQuestions] = useState([]);
   const [questionsId, setQuestionsId] = useState([]);
   const [loading, setLoading] = useState(true);
+  let result = "";
 
   useEffect(() => {
     const questionsArray = [];
@@ -224,6 +231,9 @@ function QuizForm(props) {
             name="fullname"
             ref={register({ required: true })}
           />
+          {errors.fullname && (
+            <p className={classes.error}> This field is required</p>
+          )}
           <label className={classes.label}>CITY/TOWN/VILLAGE</label>
           <input
             className={classes.input}
@@ -231,6 +241,9 @@ function QuizForm(props) {
             name="city"
             ref={register({ required: true })}
           />
+          {errors.city && (
+            <p className={classes.error}>This field is required</p>
+          )}
           <label className={classes.label}>Address In Short</label>
           <input
             className={classes.input}
@@ -238,6 +251,9 @@ function QuizForm(props) {
             name="address"
             ref={register({ required: true })}
           />
+          {errors.address && (
+            <p className={classes.error}>This field is required</p>
+          )}
           <label className={classes.label}>Mobile No.</label>
           <input
             className={classes.input}
@@ -245,6 +261,9 @@ function QuizForm(props) {
             name="mobile"
             ref={register({ required: true })}
           />
+          {errors.mobile && (
+            <p className={classes.error}>This field is required</p>
+          )}
           {questions.map(question => {
             return question.map((row, index) => (
               <Card className={classes.questionfields}>
@@ -279,7 +298,6 @@ function QuizForm(props) {
               </Card>
             ));
           })}
-          {errors.exampleRequired && <p>This field is required</p>}
           <Button variant="contained" className={classes.button} type="submit">
             Submit
           </Button>
