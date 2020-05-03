@@ -9,6 +9,7 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Paper from "@material-ui/core/Paper";
 import DesktopHeader from "./DesktopHeader";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   appbar: {
@@ -53,6 +54,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function appBar() {
   const classes = useStyles();
+  const history = useHistory();
   const [width, setWidth] = useState(window.innerWidth);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -76,7 +78,7 @@ export default function appBar() {
   };
 
   function handleNavClose(nav) {
-    window.location.href = nav;
+    history.push(`${nav}`);
   }
   return (
     <div className={classes.appbar}>
