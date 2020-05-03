@@ -85,6 +85,9 @@ const useStyles = makeStyles(theme => ({
   radioButton: {
     height: 12
   },
+  optionLabel: {
+    paddingLeft: 8
+  },
   [theme.breakpoints.down("361")]: {
     container: {
       maxWidth: "100%",
@@ -112,7 +115,7 @@ const useStyles = makeStyles(theme => ({
     },
     questionfields: {
       boxShadow: "3px 3px #eeeeee",
-      margin: 4,
+      margin: 6,
     },
     questionContent: {
       marginLeft: "0%",
@@ -123,12 +126,12 @@ const useStyles = makeStyles(theme => ({
       fontSize: 13
     },
     radioButton: {
-      height: 11
+      height: 13
     },
     questionLabel:{
       fontSize: 14
     },
-  
+      
   button: {    
     width: 90,
     marginTop: 8,
@@ -137,8 +140,10 @@ const useStyles = makeStyles(theme => ({
   },
   error: {
     fontSize: 9
+    },
+    optionLabel: {
+      paddingLeft: 8
     }
-
 
   },
 
@@ -169,7 +174,7 @@ const useStyles = makeStyles(theme => ({
     },
     questionfields: {
       boxShadow: "4px 3px #eeeeee",
-      margin: 5,
+      margin: 10,
     },
     questionContent: {
       marginLeft: "0%",
@@ -180,7 +185,7 @@ const useStyles = makeStyles(theme => ({
       fontSize: 15
     },
     radioButton: {
-      height: 13
+      height: 15
     },
     questionLabel:{
       fontSize: 16
@@ -193,6 +198,9 @@ const useStyles = makeStyles(theme => ({
     },
     error: {
       fontSize: 11
+      },
+      optionLabel: {
+        paddingLeft: 8
       }
   }
   
@@ -365,7 +373,7 @@ function QuizForm(props) {
           {errors.fullname && (
             <p className={classes.error}> This field is required</p>
           )}
-          <label className={classes.label}>CITY/TOWN/VILLAGE *</label>
+          <label className={classes.label}>City/Town/Village *</label>
           <input
             className={classes.input}
             placeholder="City"
@@ -414,7 +422,7 @@ function QuizForm(props) {
                         ref={register({ required: true })}
                         label="YES"
                       />
-                      <label>YES</label>
+                      <label className={classes.optionLabel}>YES</label>
                     </fieldset>
                     <fieldset className={classes.questionOption}>
                       <input
@@ -424,7 +432,7 @@ function QuizForm(props) {
                         name={row.question}
                         ref={register({ required: true })}
                       />
-                      <label>NO</label>
+                      <label className={classes.optionLabel}>NO</label>
                     </fieldset>
                     {errors[row.question] && (
                       <p className={classes.error}>This field is required</p>

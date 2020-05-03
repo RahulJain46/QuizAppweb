@@ -44,7 +44,9 @@ const useStyles = makeStyles(theme => ({
     border: "1px solid #bdbdbd",
     padding: "10px 15px",
     margin: 10,
-    fontSize: 14
+    fontSize: 14,
+    fontWeight: "500"
+
   },
   label: {
     lineHeight: 2,
@@ -118,6 +120,7 @@ const useStyles = makeStyles(theme => ({
       fontSize: 16,
       padding: "8px 8px",
       boxShadow: "3px 3px #eeeeee",
+      fontWeight: "500"
     },   
     correct: {
       color: success,
@@ -171,6 +174,7 @@ const useStyles = makeStyles(theme => ({
       fontSize: 16,
       padding: "8px 8px",
       boxShadow: "3px 3px #eeeeee",
+      fontWeight: "500"
     },   
     correct: {
       color: success,
