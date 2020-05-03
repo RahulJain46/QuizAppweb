@@ -58,7 +58,20 @@ const useStyles = makeStyles(theme => ({
     marginLeft: 14,
     fontFamily: "sans-serif"
   },
-  button: {
+  questionContent:{
+      lineHeight: 2,
+      textAlign: "left",
+      display: "block",
+      marginBottom: 13,
+      marginTop: 20,
+      fontSize: 19,
+      color: "black",
+      fontWeight: 500,
+      marginLeft: 14,
+      fontFamily: "sans-serif"
+    
+  },
+  lastButton: {
     backgroundColor: "#1976d2",
     color: "#fff",
     marginLeft: 15,
@@ -80,7 +93,113 @@ const useStyles = makeStyles(theme => ({
   incorrect: {
     marginLeft: 24,
     color: error
+  },
+
+
+  [theme.breakpoints.down("361")]: {
+    scoreCard: {
+      fontSize: 17
+    },
+    container: {
+      maxWidth: "100%",
+      top: 176,
+      marginBottom: "22%",
+      left: "0%",
+    },
+    label: {
+      marginBottom: 2,
+      marginTop: 4,
+      fontSize: 16,
+      marginLeft: 8,
+    },
+    input: {
+      width: "100%",
+      margin: 0,
+      fontSize: 16,
+      padding: "8px 8px",
+      boxShadow: "3px 3px #eeeeee",
+    },   
+    correct: {
+      color: success,
+      fontSize: 16,
+      margin: 8
+    },
+    incorrect: {
+      color: error,
+      fontSize: 16,
+      margin: 8
+    },
+    questionContent:{
+      marginBottom: 5,
+      fontSize: 16,
+      marginLeft: 8
+    },  
+   lastButton: {    
+    width: "76%",
+    marginTop: 0,
+    marginLeft: 0,
+    height: 47,
+    fontSize: 13
+  },
+  paper: {
+    padding: 8,
+    marginBottom: 8
+  },
+
+
+  },
+  [theme.breakpoints.between("361", "xs")]: {
+    scoreCard: {
+      fontSize: 17
+    },
+    container: {
+      maxWidth: "100%",
+      top: 176,
+      marginBottom: "22%",
+      left: "0%",
+    },
+    label: {
+      marginBottom: 2,
+      marginTop: 4,
+      fontSize: 16,
+      marginLeft: 8,
+    },
+    input: {
+      width: "100%",
+      margin: 0,
+      fontSize: 16,
+      padding: "8px 8px",
+      boxShadow: "3px 3px #eeeeee",
+    },   
+    correct: {
+      color: success,
+      fontSize: 16,
+      margin: 8
+    },
+    incorrect: {
+      color: error,
+      fontSize: 16,
+      margin: 8
+    },
+    questionContent:{
+      marginBottom: 5,
+      fontSize: 16,
+      marginLeft: 8
+    },  
+   lastButton: {    
+    width: "76%",
+    marginTop: 0,
+    marginLeft: 0,
+    height: 47,
+    fontSize: 13
+  },
+  paper: {
+    padding: 8,
+    marginBottom: 8
+  },
+
   }
+
 }));
 
 function UserResponse(props) {
@@ -126,11 +245,11 @@ function UserResponse(props) {
     <Card className={classes.container}>
       <CardContent>
         <form>
-          <div>
-            <Typography variant="h4" component="h4">
+          <div >
+            <Typography variant="h4" component="h4" className={classes.scoreCard}>
               Your Score : {props.location.state["score"]}
             </Typography>
-            <Typography variant="h4" component="h4">
+            <Typography variant="h4" component="h4" className={classes.scoreCard}>
               Time : {props.location.state["time"]}
             </Typography>
           </div>
@@ -148,7 +267,7 @@ function UserResponse(props) {
                 ) : items === "id" || items === "score" || items === "time" ? (
                   ""
                 ) : (
-                  <label className={classes.label}>
+                  <label className={classes.questionContent}>
                     {index - 3}. {items}
                   </label>
                 )}
@@ -207,7 +326,7 @@ function UserResponse(props) {
         <Grid item xs={6}>
           <Link to={`/`}>
             <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.button}>
+              <Button variant="contained" className={classes.lastButton}>
                 Home
               </Button>
             </Paper>
@@ -216,7 +335,7 @@ function UserResponse(props) {
         <Grid item xs={6}>
           <Link to={`/quizresult/${date}`}>
             <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.button}>
+              <Button variant="contained" className={classes.lastButton}>
                 View Results
               </Button>
             </Paper>
