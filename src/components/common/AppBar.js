@@ -36,6 +36,18 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1
+  },
+  [theme.breakpoints.between("345", "xs")]: {
+    barheading: {
+      fontSize: 20,
+      left: 17
+    }
+  },
+  [theme.breakpoints.down("345")]: {
+    barheading: {
+      fontSize: 16,
+      left: 17
+    }
   }
 }));
 

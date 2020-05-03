@@ -11,12 +11,25 @@ import DesktopHeader from "./components/common/DesktopHeader";
 import AppBar from "./components/common/AppBar";
 import Footer from "./components/common/Footer";
 import PageNotFound from "./components/PageNotFound";
+import { makeStyles } from "@material-ui/core/styles";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const useStyles = makeStyles(theme => ({
+  [theme.breakpoints.down("1124")]: {
+    container: {
+      width: "100%",
+      left: "0%",
+      right: "0%",
+      top: "0%"
+    }
+  }
+}));
+
 function App() {
+  const classes = useStyles();
   return (
-    <div className="container-fluid">
+    <div className={classes.container}>
       <AppBar />
       <Switch>
         <Route exact path="/" component={HomePage} />
