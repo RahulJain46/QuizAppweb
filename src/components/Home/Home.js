@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     left: "25%",
     right: "25%"
   },
-  [theme.breakpoints.down("xs")]: {
+  [theme.breakpoints.down("1123")]: {
     home: {
       width: "100%",
       left: "0%",
