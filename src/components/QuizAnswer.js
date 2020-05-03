@@ -9,7 +9,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   tableheading: {
     // width: "%",
     position: "fixed",
@@ -24,8 +24,72 @@ const useStyles = makeStyles({
   },
   tablecolumns: {
     background: "blue"
+  },
+  tableNumber: {
+    minWidth: 27,
+    backgroundColor: "#e9ecef"
+  },
+  tableQuestion: {
+    minWidth: 200,
+    backgroundColor: "#e9ecef"
+  },
+  tableAnswer: {
+    minWidth: 60,
+    backgroundColor: "#e9ecef"
+  },
+  tableRemarks: {
+    minWidth: 170,
+    backgroundColor: "#e9ecef"
+  },
+  [theme.breakpoints.down("345")]: {
+    tableheading: {
+      left: 0,
+      right: 0,
+      paddingRight: 24
+    },
+    container: {
+      left: 0
+    },
+    tableNumber: {
+      fontSize: 10,
+      borderRight: "1px solid",
+      paddingRight: 0,
+      paddingLeft: 5
+    },
+    tableQuestion: {
+      fontSize: 10,
+      borderRight: "1px solid",
+      paddingRight: 0,
+      minWidth: 127,
+      paddingLeft: 9
+    },
+    tableAnswer: {
+      fontSize: 10,
+      minWidth: 53,
+      borderRight: "1px solid",
+      paddingRight: 0,
+      paddingLeft: 4
+    },
+    tableRemarks: {
+      fontSize: 10,
+      minWidth: 100,
+      borderRight: "1px solid",
+      paddingRight: 0,
+      paddingLeft: 4
+    },
+    tableCell: {
+      fontSize: 11,
+      borderRight: "1px solid",
+      paddingLeft: 5,
+      paddingRight: 5,
+      paddingTop: 1,
+      paddingBottom: 1
+    },
+    tableHeader: {
+      marginLeft: 3
+    }
   }
-});
+}));
 
 export default function QuizAnswer1(props) {
   const classes = useStyles();
@@ -63,31 +127,23 @@ export default function QuizAnswer1(props) {
   return (
     <Paper className={classes.tableheading}>
       <TableContainer className={classes.container}>
-        <Table stickyHeader aria-label="sticky table">
+        <Table
+          stickyHeader
+          aria-label="sticky table"
+          className={classes.tableHeader}
+        >
           <TableHead className={classes.tablecolumns}>
             <TableRow>
-              <TableCell
-                key="name"
-                style={{ minWidth: 60, backgroundColor: "#e9ecef" }}
-              >
-                NUMBER
+              <TableCell key="name" className={classes.tableNumber}>
+                No.
               </TableCell>
-              <TableCell
-                key="name"
-                style={{ minWidth: 200, backgroundColor: "#e9ecef" }}
-              >
+              <TableCell key="name" className={classes.tableQuestion}>
                 QUESTIONS
               </TableCell>
-              <TableCell
-                key="code"
-                style={{ minWidth: 60, backgroundColor: "#e9ecef" }}
-              >
+              <TableCell key="code" className={classes.tableAnswer}>
                 ANSWER
               </TableCell>
-              <TableCell
-                key="population"
-                style={{ minWidth: 170, backgroundColor: "#e9ecef" }}
-              >
+              <TableCell key="population" className={classes.tableRemarks}>
                 REMARKS
               </TableCell>
             </TableRow>
@@ -96,12 +152,22 @@ export default function QuizAnswer1(props) {
             {answers.map(answer => {
               return answer.map((row, index) => (
                 <TableRow>
-                  <TableCell>{index + 1}</TableCell>
-                  <TableCell component="th" scope="row">
+                  <TableCell className={classes.tableCell}>
+                    {index + 1}
+                  </TableCell>
+                  <TableCell
+                    component="th"
+                    scope="row"
+                    className={classes.tableCell}
+                  >
                     {row.question}
                   </TableCell>
-                  <TableCell>{row.answer}</TableCell>
-                  <TableCell>{row.remark}</TableCell>
+                  <TableCell className={classes.tableCell}>
+                    {row.answer}
+                  </TableCell>
+                  <TableCell className={classes.tableCell}>
+                    {row.remark}
+                  </TableCell>
                 </TableRow>
               ));
             })}
