@@ -42,7 +42,8 @@ const useStyles = makeStyles(theme => ({
       paddingTop: "10px ! important"
     },
     button: {
-      padding: "4px 6px"
+      padding: "4px 6px",
+      width: 185
     }
   }
 }));
@@ -65,7 +66,7 @@ function Home() {
           <Link to={`/datemonthquiz` + `/${day + "-" + month}`}>
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.button}>
-                QUIZ {day + "-" + month + "-" + year}
+                QUIZ {day + "-" + month}
               </Button>
             </Paper>
           </Link>
@@ -74,7 +75,7 @@ function Home() {
           <Link to={`/quizresult` + `/${day + "-" + month}`}>
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.button}>
-                QUIZ RESULT {day + "-" + month + "-" + year}
+                QUIZ RESULT {day + "-" + month}
               </Button>
             </Paper>
           </Link>

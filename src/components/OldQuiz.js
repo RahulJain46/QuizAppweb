@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useStyles = makeStyles(theme => ({
-  root: {
+  oldQuiz: {
     flexGrow: 1,
     marginTop: 150,
     position: "absolute",
@@ -31,6 +31,33 @@ const useStyles = makeStyles(theme => ({
     position: "relative",
     top: 77,
     left: "38%"
+  },
+  [theme.breakpoints.down("1105")]: {
+    oldQuiz: {
+      width: "100%",
+      left: "0%",
+      right: "0%",
+      top: "0%"
+    },
+    oldQuizButton: {
+      minWidth: "100%",
+      maxWidth: "100%",
+      padding: "1px ! important"
+    },
+    quizbuttons: {
+      display: "inlineBlock"
+    },
+    oldQuizHeading: {
+      fontSize: 22
+    },
+    quizbuttonsItem: {
+      padding: 1,
+      padding: "1px ! important"
+    },
+    button: {
+      padding: "4px 6px",
+      width: 185
+    }
   }
 }));
 
@@ -55,11 +82,15 @@ function OldQuiz() {
   }, []);
 
   return (
-    <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
+    <div className={classes.oldQuiz}>
+      <Grid container spacing={3} className={classes.quizbuttons}>
+        <Grid item xs={12} className={classes.quizbuttonsItem}>
           <Paper className={classes.paper}>
-            <Typography variant="h4" gutterBottom>
+            <Typography
+              variant="h4"
+              gutterBottom
+              className={classes.oldQuizHeading}
+            >
               OLD QUIZ & RESULTS
             </Typography>
           </Paper>
@@ -67,7 +98,7 @@ function OldQuiz() {
         {dates.length != 0 && !loading ? (
           dates.map(date => (
             <React.Fragment>
-              <Grid item xs={6}>
+              <Grid item xs={6} className={classes.oldQuizButton}>
                 <Link to={`/datemonthquiz` + `/${date}`}>
                   <Paper className={classes.paper}>
                     <Button variant="contained" className={classes.button}>
@@ -76,7 +107,7 @@ function OldQuiz() {
                   </Paper>
                 </Link>
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={6} className={classes.oldQuizButton}>
                 <Link to={`/quizresult` + `/${date}`}>
                   <Paper className={classes.paper}>
                     <Button variant="contained" className={classes.button}>
