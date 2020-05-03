@@ -135,11 +135,12 @@ const useStyles = makeStyles(theme => ({
       marginLeft: 8
     },  
    lastButton: {    
-    width: "76%",
+    width: "65%",
     marginTop: 0,
     marginLeft: 0,
-    height: 47,
-    fontSize: 13
+    height: 44,
+    fontSize: 12,
+    padding: 1
   },
   paper: {
     padding: 8,
@@ -187,11 +188,12 @@ const useStyles = makeStyles(theme => ({
       marginLeft: 8
     },  
    lastButton: {    
-    width: "76%",
+    width: "65%",
     marginTop: 0,
     marginLeft: 0,
-    height: 47,
-    fontSize: 13
+    height: 44,
+    fontSize: 12,
+    padding: 1
   },
   paper: {
     padding: 8,
