@@ -35,18 +35,19 @@ const useStyles = makeStyles(theme => ({
   },
   [theme.breakpoints.down("361")]: {
     totalCount: {
-      top: 5,
-      marginLeft: "0%",
+      top: 43,
+      marginLeft: "1%",
       fontSize: 16,
       fontWeight: 600
     },
     paperTable: {
-      top: 7,
-      marginLeft: "-2%",
-      marginRight: "-2%"      
+      top: 45,
+      marginLeft: "1%",
+      marginRight: "-3.5%",
+      marginBottom: "24%"      
     },
     insideTable: {
-      marginLeft: "-3%",
+      marginLeft: "0%",
       position: "absolute"
     },
 
@@ -56,7 +57,22 @@ const useStyles = makeStyles(theme => ({
 
 
   [theme.breakpoints.between("361", "xs")]: {
-
+    totalCount: {
+      top: 43,
+      marginLeft: "1%",
+      fontSize: 16,
+      fontWeight: 600
+    },
+    paperTable: {
+      top: 45,
+      marginLeft: "1%",
+      marginRight: "-3.5%",
+      marginBottom: "24%"      
+    },
+    insideTable: {
+      marginLeft: "0%",
+      position: "absolute"
+    },
   }
 }));
 

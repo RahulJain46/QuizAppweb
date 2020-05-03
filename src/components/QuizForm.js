@@ -123,7 +123,7 @@ const useStyles = makeStyles(theme => ({
       fontSize: 13
     },
     radioButton: {
-      height: 11
+      height: 13
     },
     questionLabel:{
       fontSize: 14
@@ -180,7 +180,7 @@ const useStyles = makeStyles(theme => ({
       fontSize: 15
     },
     radioButton: {
-      height: 13
+      height: 15
     },
     questionLabel:{
       fontSize: 16
