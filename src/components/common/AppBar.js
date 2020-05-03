@@ -79,6 +79,7 @@ export default function appBar() {
 
   function handleNavClose(nav) {
     history.push(`${nav}`);
+    setAnchorEl(null);
   }
   return (
     <div className={classes.appbar}>
