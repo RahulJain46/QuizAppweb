@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
     minWidth: 170,
     backgroundColor: "#e9ecef"
   },
-  [theme.breakpoints.down("345")]: {
+  [theme.breakpoints.down("1124")]: {
     tableheading: {
       left: 0,
       right: 0,
@@ -53,12 +53,15 @@ const useStyles = makeStyles(theme => ({
     tableNumber: {
       fontSize: 10,
       borderRight: "1px solid",
+      borderLeft: "1px solid",
+      borderTop: "1px solid",
       paddingRight: 0,
       paddingLeft: 5
     },
     tableQuestion: {
       fontSize: 10,
       borderRight: "1px solid",
+      borderTop: "1px solid",
       paddingRight: 0,
       minWidth: 127,
       paddingLeft: 9
@@ -67,23 +70,46 @@ const useStyles = makeStyles(theme => ({
       fontSize: 10,
       minWidth: 53,
       borderRight: "1px solid",
+      borderTop: "1px solid",
       paddingRight: 0,
       paddingLeft: 4
     },
     tableRemarks: {
       fontSize: 10,
       minWidth: 100,
-      borderRight: "1px solid",
+      borderRight: "4px solid",
+      borderTop: "1px solid",
       paddingRight: 0,
       paddingLeft: 4
     },
     tableCell: {
-      fontSize: 11,
+      fontSize: 13,
       borderRight: "1px solid",
       paddingLeft: 5,
       paddingRight: 5,
-      paddingTop: 1,
-      paddingBottom: 1
+      paddingTop: 10,
+      paddingBottom: 10,
+      lineHeight: "21px"
+    },
+    tableRemarkCell: {
+      fontSize: 13,
+      borderRight: "1px solid",
+      paddingLeft: 5,
+      paddingRight: 5,
+      paddingTop: 10,
+      paddingBottom: 10,
+      lineHeight: "21px",
+      borderRight: "4px solid"
+    },
+    tableNumberCell: {
+      fontSize: 13,
+      borderRight: "1px solid",
+      paddingLeft: 5,
+      paddingRight: 5,
+      paddingTop: 10,
+      paddingBottom: 10,
+      lineHeight: "21px",
+      borderLeft: "1px solid"
     },
     tableHeader: {
       marginLeft: 3
@@ -152,7 +178,7 @@ export default function QuizAnswer1(props) {
             {answers.map(answer => {
               return answer.map((row, index) => (
                 <TableRow>
-                  <TableCell className={classes.tableCell}>
+                  <TableCell className={classes.tableNumberCell}>
                     {index + 1}
                   </TableCell>
                   <TableCell
@@ -165,7 +191,7 @@ export default function QuizAnswer1(props) {
                   <TableCell className={classes.tableCell}>
                     {row.answer}
                   </TableCell>
-                  <TableCell className={classes.tableCell}>
+                  <TableCell className={classes.tableRemarkCell}>
                     {row.remark}
                   </TableCell>
                 </TableRow>

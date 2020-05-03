@@ -42,12 +42,18 @@ const useStyles = makeStyles(theme => ({
     barheading: {
       fontSize: 20,
       left: 17
+    },
+    appbar: {
+      marginRight: -9
     }
   },
   [theme.breakpoints.down("345")]: {
     barheading: {
       fontSize: 16,
       left: 17
+    },
+    appbar: {
+      marginRight: -14
     }
   }
 }));
