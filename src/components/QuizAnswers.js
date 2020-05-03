@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useStyles = makeStyles(theme => ({
-  root: {
+  answers: {
     flexGrow: 1,
     marginTop: 150,
     position: "absolute",
@@ -30,6 +30,33 @@ const useStyles = makeStyles(theme => ({
     color: "#fff",
     "&:hover": {
       backgroundColor: "#303f9f"
+    }
+  },
+  [theme.breakpoints.down("1105")]: {
+    answers: {
+      width: "100%",
+      left: "0%",
+      right: "0%",
+      top: "0%"
+    },
+    answerButton: {
+      minWidth: "100%",
+      maxWidth: "100%",
+      padding: "1px ! important"
+    },
+    answerbuttons: {
+      display: "inlineBlock"
+    },
+    answersHeading: {
+      fontSize: 22
+    },
+    answerbuttonsItem: {
+      padding: 1,
+      padding: "1px ! important"
+    },
+    button: {
+      padding: "4px 6px",
+      width: 185
     }
   }
 }));
@@ -55,18 +82,22 @@ function QuizAnswers() {
   }, []);
 
   return (
-    <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
+    <div className={classes.answers}>
+      <Grid container spacing={3} className={classes.answerbuttons}>
+        <Grid item xs={12} className={classes.answerbuttonsItem}>
           <Paper className={classes.paper}>
-            <Typography variant="h4" gutterBottom>
+            <Typography
+              variant="h4"
+              gutterBottom
+              className={classes.answersHeading}
+            >
               ANSWER SHEETS
             </Typography>
           </Paper>
         </Grid>
         {dates.length != 0 && !loading ? (
           dates.map(date => (
-            <Grid item xs={6}>
+            <Grid item xs={6} className={classes.answerButton}>
               <Link to={`/answersheet` + `/${date}`}>
                 <Paper className={classes.paper}>
                   <Button variant="contained" className={classes.button}>
