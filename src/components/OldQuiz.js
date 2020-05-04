@@ -65,6 +65,15 @@ function OldQuiz() {
   const classes = useStyles();
   const [dates, setDates] = useState([]);
   const [loading, setLoading] = useState(true);
+  const date = new Date();
+  const day =
+    new Date().getDate() > 9
+      ? new Date().getDate()
+      : "0" + new Date().getDate();
+  const month = date
+    .toLocaleString("default", { month: "short" })
+    .toUpperCase();
+  const presentDate = `${day}-${month}`;
 
   useEffect(() => {
     const dateArray = [];
@@ -74,7 +83,11 @@ function OldQuiz() {
       })
       .then(questions => {
         questions.map(question => {
-          dateArray.push(question.date);
+          if (
+            new Date(question.date).getTime() < new Date(presentDate).getTime()
+          ) {
+            dateArray.push(question.date);
+          }
         });
         setDates(dateArray);
         setLoading(false);
