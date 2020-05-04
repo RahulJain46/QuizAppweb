@@ -14,15 +14,18 @@ const useStyles = makeStyles(theme => ({
     left: "0%",
     width: widthProportion
   },
+  BottomNavigationClass: {height: 30},
   [theme.breakpoints.down("400")]: {
     footerFont: {
       fontSize: 8
-    }
+    },
+    BottomNavigationClass: {height: 19},
   },
   [theme.breakpoints.between("400", "xs")]: {
     footerFont: {
       fontSize: 10
-    }
+    },
+    BottomNavigationClass: {height: 21},
   }
 }));
 
@@ -30,7 +33,7 @@ const Footer = () => {
   const classes = useStyles();
   return (
     <div className={classes.footer}>
-      <BottomNavigation>
+      <BottomNavigation className={classes.BottomNavigationClass}>
         <Typography variant="h6" className={classes.footerFont} gutterBottom>
           Developed by:
         </Typography>
