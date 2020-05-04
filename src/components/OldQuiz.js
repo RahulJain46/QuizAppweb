@@ -5,6 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
+import Fade from "@material-ui/core/Fade";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useStyles = makeStyles(theme => ({
@@ -133,8 +134,15 @@ function OldQuiz() {
           ))
         ) : (
           <div className={classes.loading}>
-            Loading
-            <CircularProgress />
+            <Fade
+              in={loading}
+              style={{
+                transitionDelay: loading ? "800ms" : "0ms"
+              }}
+              unmountOnExit
+            >
+              <CircularProgress />
+            </Fade>
           </div>
         )}
       </Grid>
