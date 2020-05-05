@@ -82,7 +82,7 @@ function OldQuiz() {
 
   useEffect(() => {
     const dateArray = [];
-    fetch("https://samplecovide19s.herokuapp.com/data")
+    fetch("https://samplecovide19s.herokuapp.com/data/")
       .then(questionJson => {
         return questionJson.json();
       })
