@@ -77,6 +77,10 @@ function OldQuiz() {
   const presentDate = `${day}-${month}`;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const dateArray = [];
     fetch("https://samplecovide19s.herokuapp.com/data")
       .then(questionJson => {

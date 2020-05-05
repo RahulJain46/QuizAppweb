@@ -93,21 +93,20 @@ const useStyles = makeStyles(theme => ({
       maxWidth: "100%",
       top: 176,
       marginBottom: "22%",
-      left: "0%",
+      left: "0%"
     },
     input: {
       width: "100%",
       margin: 0,
       fontSize: 10,
       padding: "8px 8px",
-      boxShadow: "3px 3px #eeeeee",
+      boxShadow: "3px 3px #eeeeee"
     },
     label: {
       marginBottom: 2,
       marginTop: 4,
       fontSize: 10,
-      marginLeft: 8,
-      
+      marginLeft: 8
     },
     asteriskField: {
       fontSize: 12,
@@ -115,7 +114,7 @@ const useStyles = makeStyles(theme => ({
     },
     questionfields: {
       boxShadow: "3px 3px #eeeeee",
-      margin: 6,
+      margin: 6
     },
     questionContent: {
       marginLeft: "0%",
@@ -128,23 +127,22 @@ const useStyles = makeStyles(theme => ({
     radioButton: {
       height: 13
     },
-    questionLabel:{
+    questionLabel: {
       fontSize: 14
     },
-      
-  button: {    
-    width: 90,
-    marginTop: 8,
-    marginLeft: 7,
-    height: 38,
-  },
-  error: {
-    fontSize: 9
+
+    button: {
+      width: 90,
+      marginTop: 8,
+      marginLeft: 7,
+      height: 38
+    },
+    error: {
+      fontSize: 9
     },
     optionLabel: {
       paddingLeft: 8
     }
-
   },
 
   [theme.breakpoints.between("361", "xs")]: {
@@ -152,21 +150,20 @@ const useStyles = makeStyles(theme => ({
       maxWidth: "100%",
       top: 176,
       marginBottom: "22%",
-      left: "0%",
+      left: "0%"
     },
     input: {
       width: "100%",
       margin: 0,
       fontSize: 12,
       padding: "5px 8px",
-      boxShadow: "4px 4px #eeeeee",
+      boxShadow: "4px 4px #eeeeee"
     },
     label: {
       marginBottom: 2,
       marginTop: 1,
       fontSize: 13,
-      marginLeft: 8,
-      
+      marginLeft: 8
     },
     asteriskField: {
       fontSize: 13,
@@ -174,7 +171,7 @@ const useStyles = makeStyles(theme => ({
     },
     questionfields: {
       boxShadow: "4px 3px #eeeeee",
-      margin: 10,
+      margin: 10
     },
     questionContent: {
       marginLeft: "0%",
@@ -187,23 +184,22 @@ const useStyles = makeStyles(theme => ({
     radioButton: {
       height: 15
     },
-    questionLabel:{
+    questionLabel: {
       fontSize: 16
     },
-    button: {    
+    button: {
       width: 95,
       marginTop: 7,
       marginLeft: 8,
-      height: 40,
+      height: 40
     },
     error: {
       fontSize: 11
-      },
-      optionLabel: {
-        paddingLeft: 8
-      }
+    },
+    optionLabel: {
+      paddingLeft: 8
+    }
   }
-  
 }));
 
 function QuizForm(props) {
@@ -221,6 +217,10 @@ function QuizForm(props) {
   const [questionsId, setQuestionsId] = useState([]);
   const [loading, setLoading] = useState(true);
   let result = "";
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const questionsArray = [];
@@ -360,7 +360,11 @@ function QuizForm(props) {
             onSubmit(data, questions, questionsId)
           )}
         >
-          <Typography variant="h9" component="h9" className={classes.asteriskField}>
+          <Typography
+            variant="h9"
+            component="h9"
+            className={classes.asteriskField}
+          >
             * Required field
           </Typography>
           <label className={classes.label}>Full Name *</label>

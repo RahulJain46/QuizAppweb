@@ -126,6 +126,10 @@ export default function QuizAnswer1(props) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const questionsArray = [];
     const date = props.match.params.date;
     fetch(`https://samplecovide19s.herokuapp.com/data?date=${date}`)

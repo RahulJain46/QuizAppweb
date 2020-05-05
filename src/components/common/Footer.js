@@ -35,7 +35,7 @@ const Footer = () => {
           Developed by:
         </Typography>
         <Typography variant="h6" className={classes.footerFont} gutterBottom>
-          RAJESH JAIN & GAUTAM KOCHAR UJJAIN UJJAIN,
+          RAJESH JAIN & GAUTAM KOCHAR UJJAIN,
         </Typography>
         <Typography variant="h6" className={classes.footerFont} gutterBottom>
           MOB:8989984415

@@ -44,17 +44,13 @@ const useStyles = makeStyles(theme => ({
       top: 45,
       marginLeft: "1%",
       marginRight: "-3.5%",
-      marginBottom: "24%"      
+      marginBottom: "24%"
     },
     insideTable: {
       marginLeft: "0%",
       position: "absolute"
-    },
-
-
+    }
   },
-
-
 
   [theme.breakpoints.between("361", "xs")]: {
     totalCount: {
@@ -67,12 +63,12 @@ const useStyles = makeStyles(theme => ({
       top: 45,
       marginLeft: "1%",
       marginRight: "-3.5%",
-      marginBottom: "24%"      
+      marginBottom: "24%"
     },
     insideTable: {
       marginLeft: "0%",
       position: "absolute"
-    },
+    }
   }
 }));
 
@@ -250,6 +246,11 @@ export default function QuizResult(props) {
   const classes = useStyles();
   const [users, setUsers] = useState([]);
   const date = props.match.params.date;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     fetch(`https://samplecovide19s.herokuapp.com/users?date=${date}`)
       .then(response => {
@@ -280,7 +281,7 @@ export default function QuizResult(props) {
             {
               width: 200,
               label: "Time",
-              dataKey: "time"           
+              dataKey: "time"
             },
             {
               width: 200,

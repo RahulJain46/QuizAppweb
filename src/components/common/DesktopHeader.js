@@ -79,7 +79,7 @@ const DesktopHeader = () => {
           activeStyle={activeStyle}
           className={classes.navheader}
         >
-          Old Quiz & Result
+          Old Quiz & Results
         </NavLink>
         {" | "}
         <NavLink

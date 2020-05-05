@@ -46,7 +46,6 @@ const useStyles = makeStyles(theme => ({
     margin: 10,
     fontSize: 14,
     fontWeight: "500"
-
   },
   label: {
     lineHeight: 2,
@@ -60,24 +59,23 @@ const useStyles = makeStyles(theme => ({
     marginLeft: 14,
     fontFamily: "sans-serif"
   },
-  questionContent:{
-      lineHeight: 2,
-      textAlign: "left",
-      display: "block",
-      marginBottom: 13,
-      marginTop: 20,
-      fontSize: 19,
-      color: "black",
-      fontWeight: 500,
-      marginLeft: 14,
-      fontFamily: "sans-serif"
-    
+  questionContent: {
+    lineHeight: 2,
+    textAlign: "left",
+    display: "block",
+    marginBottom: 13,
+    marginTop: 20,
+    fontSize: 19,
+    color: "black",
+    fontWeight: 500,
+    marginLeft: 14,
+    fontFamily: "sans-serif"
   },
   lastButton: {
     backgroundColor: "#1976d2",
     color: "#fff",
     marginLeft: 15,
-    width: 123,
+    width: 140,
     marginTop: 13,
     height: 44,
     "&:hover": {
@@ -97,7 +95,6 @@ const useStyles = makeStyles(theme => ({
     color: error
   },
 
-
   [theme.breakpoints.down("361")]: {
     scoreCard: {
       fontSize: 17
@@ -106,13 +103,13 @@ const useStyles = makeStyles(theme => ({
       maxWidth: "100%",
       top: 176,
       marginBottom: "22%",
-      left: "0%",
+      left: "0%"
     },
     label: {
       marginBottom: 2,
       marginTop: 4,
       fontSize: 16,
-      marginLeft: 8,
+      marginLeft: 8
     },
     input: {
       width: "100%",
@@ -121,7 +118,7 @@ const useStyles = makeStyles(theme => ({
       padding: "8px 8px",
       boxShadow: "3px 3px #eeeeee",
       fontWeight: "500"
-    },   
+    },
     correct: {
       color: success,
       fontSize: 16,
@@ -132,25 +129,23 @@ const useStyles = makeStyles(theme => ({
       fontSize: 16,
       margin: 8
     },
-    questionContent:{
+    questionContent: {
       marginBottom: 5,
       fontSize: 16,
       marginLeft: 8
-    },  
-   lastButton: {    
-    width: "65%",
-    marginTop: 0,
-    marginLeft: 0,
-    height: 44,
-    fontSize: 12,
-    padding: 1
-  },
-  paper: {
-    padding: 8,
-    marginBottom: 8
-  },
-
-
+    },
+    lastButton: {
+      width: "65%",
+      marginTop: 0,
+      marginLeft: 0,
+      height: 44,
+      fontSize: 12,
+      padding: 1
+    },
+    paper: {
+      padding: 8,
+      marginBottom: 8
+    }
   },
   [theme.breakpoints.between("361", "xs")]: {
     scoreCard: {
@@ -160,13 +155,13 @@ const useStyles = makeStyles(theme => ({
       maxWidth: "100%",
       top: 176,
       marginBottom: "22%",
-      left: "0%",
+      left: "0%"
     },
     label: {
       marginBottom: 2,
       marginTop: 4,
       fontSize: 16,
-      marginLeft: 8,
+      marginLeft: 8
     },
     input: {
       width: "100%",
@@ -175,7 +170,7 @@ const useStyles = makeStyles(theme => ({
       padding: "8px 8px",
       boxShadow: "3px 3px #eeeeee",
       fontWeight: "500"
-    },   
+    },
     correct: {
       color: success,
       fontSize: 16,
@@ -186,26 +181,24 @@ const useStyles = makeStyles(theme => ({
       fontSize: 16,
       margin: 8
     },
-    questionContent:{
+    questionContent: {
       marginBottom: 5,
       fontSize: 16,
       marginLeft: 8
-    },  
-   lastButton: {    
-    width: "65%",
-    marginTop: 0,
-    marginLeft: 0,
-    height: 44,
-    fontSize: 12,
-    padding: 1
-  },
-  paper: {
-    padding: 8,
-    marginBottom: 8
-  },
-
+    },
+    lastButton: {
+      width: "65%",
+      marginTop: 0,
+      marginLeft: 0,
+      height: 44,
+      fontSize: 12,
+      padding: 1
+    },
+    paper: {
+      padding: 8,
+      marginBottom: 8
+    }
   }
-
 }));
 
 function UserResponse(props) {
@@ -251,11 +244,19 @@ function UserResponse(props) {
     <Card className={classes.container}>
       <CardContent>
         <form>
-          <div >
-            <Typography variant="h4" component="h4" className={classes.scoreCard}>
+          <div>
+            <Typography
+              variant="h4"
+              component="h4"
+              className={classes.scoreCard}
+            >
               Your Score : {props.location.state["score"]}
             </Typography>
-            <Typography variant="h4" component="h4" className={classes.scoreCard}>
+            <Typography
+              variant="h4"
+              component="h4"
+              className={classes.scoreCard}
+            >
               Time : {props.location.state["time"]}
             </Typography>
           </div>

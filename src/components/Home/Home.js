@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
@@ -14,6 +14,7 @@ const useStyles = makeStyles(theme => ({
   button: {
     backgroundColor: "#1976d2",
     color: "#fff",
+    width: 188,
     "&:hover": {
       backgroundColor: "#303f9f"
     }
@@ -59,6 +60,11 @@ function Home() {
   const month = date
     .toLocaleString("default", { month: "short" })
     .toUpperCase();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className={classes.home}>
       <Grid container spacing={3} className={classes.quizbutton}>
