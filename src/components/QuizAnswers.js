@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 import Fade from "@material-ui/core/Fade";
+import {links} from "../Config";
 
 import CircularProgress from "@material-ui/core/CircularProgress";
 
@@ -82,7 +83,7 @@ function QuizAnswers() {
 
   useEffect(() => {
     const dateArray = [];
-    fetch("https://samplecovide19s.herokuapp.com/data")
+    fetch( links.backendURL + "data/")
       .then(questionJson => {
         return questionJson.json();
       })
