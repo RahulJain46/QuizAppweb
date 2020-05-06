@@ -276,7 +276,7 @@ function QuizForm(props) {
     userResponseJson.id = uuid1;
     let flag = false;
     let exists = false;
-    fetch(`https://samplecovide19s.herokuapp.com/users/`)
+    fetch( links.backendURL + 'users/')
       .then(response => {
         return response.json();
       })
@@ -312,7 +312,8 @@ function QuizForm(props) {
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(userResponseJson)
             };
-            fetch(`https://samplecovide19s.herokuapp.com/users/`, options).then(
+            
+            fetch( links.backendURL + "users/" , options).then(
               res => {
                 alert("your score is : " + score);
                 history.push(`/yourresponse/${uuid}/${date}`, userData);
@@ -320,7 +321,7 @@ function QuizForm(props) {
             );
             return;
           } else {
-            fetch(`https://samplecovide19s.herokuapp.com/users/${uuid1}`)
+            fetch( links.backendURL + "users/" + `${uuid1}`)
               .then(userjson => {
                 return userjson.json();
               })
@@ -336,10 +337,8 @@ function QuizForm(props) {
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify(json)
                 };
-                fetch(
-                  `https://samplecovide19s.herokuapp.com/users/${uuid1}`,
-                  options
-                ).then(res => {
+                fetch( links.backendURL + "users/" + `${uuid1}`,
+                options).then(res => {
                   alert("your score is : " + score);
                   return history.push(
                     `/yourresponse/${uuid}/${date}`,
