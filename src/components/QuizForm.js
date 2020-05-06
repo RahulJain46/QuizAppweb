@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { v5 as uuidv5 } from "uuid";
+import {links} from "../Config"
 
 import { useForm } from "react-hook-form/dist/react-hook-form.ie11";
 import { useHistory } from "react-router-dom";
@@ -226,7 +227,7 @@ function QuizForm(props) {
     const questionsArray = [];
     const queastionsIdArray = [];
     const date = props.match.params.date;
-    fetch(`https://samplecovide19s.herokuapp.com/data?date=${date}`)
+    fetch( links.backendURL + 'data?date=' + `${date}`)
       .then(questionsJosn => {
         return questionsJosn.json();
       })
