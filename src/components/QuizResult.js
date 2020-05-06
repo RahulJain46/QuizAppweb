@@ -11,6 +11,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import {links} from "../Config"
 
 const useStyles = makeStyles(theme => ({
   paperTable: {
@@ -252,7 +253,7 @@ export default function QuizResult(props) {
   }, []);
 
   useEffect(() => {
-    fetch(`https://samplecovide19s.herokuapp.com/users?date=${date}`)
+    fetch( links.backendURL + "users?date=" + `${date}` )
       .then(response => {
         return response.json();
       })
