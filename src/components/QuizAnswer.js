@@ -8,7 +8,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
-import {links} from "../Config"
+import { links } from "../Config";
 
 const useStyles = makeStyles(theme => ({
   tableheading: {
@@ -133,7 +133,7 @@ export default function QuizAnswer1(props) {
   useEffect(() => {
     const questionsArray = [];
     const date = props.match.params.date;
-    fetch( links.backendURL + 'data?date=' + `${date}`)
+    fetch(links.backendURL + "questions?date=" + `${date}`)
       .then(answerJson => {
         return answerJson.json();
       })
