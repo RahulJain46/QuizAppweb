@@ -7,7 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 import Fade from "@material-ui/core/Fade";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import {links} from "../Config"
+import { links } from "../Config";
 
 const useStyles = makeStyles(theme => ({
   oldQuiz: {
@@ -83,7 +83,7 @@ function OldQuiz() {
 
   useEffect(() => {
     const dateArray = [];
-    fetch( links.backendURL + "data/")
+    fetch(links.backendURL + "questions?" + "date=1&date=all")
       .then(questionJson => {
         return questionJson.json();
       })
