@@ -227,7 +227,7 @@ function QuizForm(props) {
     const questionsArray = [];
     const queastionsIdArray = [];
     const date = props.match.params.date;
-    fetch( links.backendURL + 'data?date=' + `${date}`)
+    fetch( links.backendURL + 'questions?date=' + `${date}`)
       .then(questionsJosn => {
         return questionsJosn.json();
       })
