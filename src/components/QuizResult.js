@@ -11,7 +11,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import {links} from "../Config"
+import { links } from "../Config";
 
 const useStyles = makeStyles(theme => ({
   paperTable: {
@@ -253,17 +253,20 @@ export default function QuizResult(props) {
   }, []);
 
   useEffect(() => {
-    fetch( links.backendURL + "users?date=" + `${date}` )
+    fetch(links.backendURL + "usersresponse?date=" + `${date}`)
       .then(response => {
         return response.json();
       })
-      .then(users => {
+      .then(usersResponse => {
+        const usersArray = [];
         const usersJson = {};
-        setUsers(users[0].userAnswer);
-        // users.map(user => {
-        //   usersJson.push(user.userAnswer);
-        // });
-        // setUsers(usersJson);
+        usersResponse[0].usersAnswer.map(userAnswer => {
+          usersJson["time"] = userAnswer.time;
+          usersJson["score"] = userAnswer.score;
+          usersJson["userId"] = userAnswer.userId;
+          usersArray.push(usersJson);
+        });
+        setUsers(usersArray);
       })
       .catch(error => console.log("error is", error));
   }, []);
