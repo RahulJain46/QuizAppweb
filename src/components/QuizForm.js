@@ -270,12 +270,24 @@ function QuizForm(props) {
     const userData = Object.assign(data, { id: uuid, score, time });
     let userResponseJson = {};
     let userAnswer = [];
+    let usersArray=[]
+    let usersJson={}
+    usersJson["fullname"] =myMap.get("fullname") ;
+    usersJson["city"]=myMap.get("city");
+    usersJson["mobile"]=myMap.get("mobile")
+    usersJson["address"]=myMap.get("address")
+    usersJson["userId"]=uuid
+ 
+    fetch(links.backendURL+'users?'+`userId=${uuid}`).then((response)=>{
+      return response.json()
+    })
     userAnswer.push(userData);
     userResponseJson.date = date;
     userResponseJson.userAnswer = userAnswer;
     userResponseJson.id = uuid1;
     let flag = false;
     let exists = false;
+
     fetch( links.backendURL + 'users/')
       .then(response => {
         return response.json();
