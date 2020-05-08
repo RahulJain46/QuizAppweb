@@ -253,20 +253,12 @@ export default function QuizResult(props) {
   }, []);
 
   useEffect(() => {
-    fetch(links.backendURL + "usersresponse?date=" + `${date}`)
+    fetch(links.backendURL + "usersresponse?allresult=true&date=" + `${date}`)
       .then(response => {
         return response.json();
       })
       .then(usersResponse => {
-        const usersArray = [];
-        const usersJson = {};
-        usersResponse[0].usersAnswer.map(userAnswer => {
-          usersJson["time"] = userAnswer.time;
-          usersJson["score"] = userAnswer.score;
-          usersJson["userId"] = userAnswer.userId;
-          usersArray.push(usersJson);
-        });
-        setUsers(usersArray);
+        setUsers(usersResponse);
       })
       .catch(error => console.log("error is", error));
   }, []);
