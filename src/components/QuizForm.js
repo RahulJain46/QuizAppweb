@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { v5 as uuidv5 } from "uuid";
-import {links} from "../Config"
+import { links } from "../Config";
 
 import { useForm } from "react-hook-form/dist/react-hook-form.ie11";
 import { useHistory } from "react-router-dom";
@@ -227,7 +227,7 @@ function QuizForm(props) {
     const questionsArray = [];
     const queastionsIdArray = [];
     const date = props.match.params.date;
-    fetch( links.backendURL + 'questions?date=' + `${date}`)
+    fetch(links.backendURL + "questions?date=" + `${date}`)
       .then(questionsJosn => {
         return questionsJosn.json();
       })
@@ -270,17 +270,34 @@ function QuizForm(props) {
     const userData = Object.assign(data, { id: uuid, score, time });
     let userResponseJson = {};
     let userAnswer = [];
-    let usersArray=[]
-    let usersJson={}
-    usersJson["fullname"] =myMap.get("fullname") ;
-    usersJson["city"]=myMap.get("city");
-    usersJson["mobile"]=myMap.get("mobile")
-    usersJson["address"]=myMap.get("address")
-    usersJson["userId"]=uuid
- 
-    fetch(links.backendURL+'users?'+`userId=${uuid}`).then((response)=>{
-      return response.json()
-    })
+    let usersArray = [];
+    let usersJson = {};
+    usersJson["fullname"] = myMap.get("fullname");
+    usersJson["city"] = myMap.get("city");
+    usersJson["mobile"] = myMap.get("mobile");
+    usersJson["address"] = myMap.get("address");
+    usersJson["userId"] = uuid;
+    let userOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(usersJson)
+    };
+    fetch(links.backendURL + "users?" + `userId=${uuid}`)
+      .then(response => {
+        return response.json();
+      })
+      .then(user => {
+        if (user.length == 0) {
+          fetch(links.backendURL + "users/" + `${uuid1}`, userOptions).then(
+            reponse => {
+              console.log(reponse.status);
+            }
+          );
+        } else {
+          alert("user already exists");
+          return;
+        }
+      });
     userAnswer.push(userData);
     userResponseJson.date = date;
     userResponseJson.userAnswer = userAnswer;
@@ -288,7 +305,7 @@ function QuizForm(props) {
     let flag = false;
     let exists = false;
 
-    fetch( links.backendURL + 'users/')
+    fetch(links.backendURL + "users/")
       .then(response => {
         return response.json();
       })
@@ -324,16 +341,14 @@ function QuizForm(props) {
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(userResponseJson)
             };
-            
-            fetch( links.backendURL + "users/" , options).then(
-              res => {
-                alert("your score is : " + score);
-                history.push(`/yourresponse/${uuid}/${date}`, userData);
-              }
-            );
+
+            fetch(links.backendURL + "users/", options).then(res => {
+              alert("your score is : " + score);
+              history.push(`/yourresponse/${uuid}/${date}`, userData);
+            });
             return;
           } else {
-            fetch( links.backendURL + "users/" + `${uuid1}`)
+            fetch(links.backendURL + "users/" + `${uuid1}`)
               .then(userjson => {
                 return userjson.json();
               })
@@ -349,14 +364,15 @@ function QuizForm(props) {
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify(json)
                 };
-                fetch( links.backendURL + "users/" + `${uuid1}`,
-                options).then(res => {
-                  alert("your score is : " + score);
-                  return history.push(
-                    `/yourresponse/${uuid}/${date}`,
-                    userData
-                  );
-                });
+                fetch(links.backendURL + "users/" + `${uuid1}`, options).then(
+                  res => {
+                    alert("your score is : " + score);
+                    return history.push(
+                      `/yourresponse/${uuid}/${date}`,
+                      userData
+                    );
+                  }
+                );
               });
           }
         }

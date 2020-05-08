@@ -83,7 +83,14 @@ function OldQuiz() {
 
   useEffect(() => {
     const dateArray = [];
-    fetch(links.backendURL + "questions?" + "date=1&date=all")
+    let userOptions = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      }
+    };
+    fetch(links.backendURL + "questions?" + "date=1&date=all", userOptions)
       .then(questionJson => {
         return questionJson.json();
       })
