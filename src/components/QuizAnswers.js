@@ -83,7 +83,7 @@ function QuizAnswers() {
 
   useEffect(() => {
     const dateArray = [];
-    fetch( links.backendURL + "data/")
+    fetch( links.backendURL + "questions/")
       .then(questionJson => {
         return questionJson.json();
       })
