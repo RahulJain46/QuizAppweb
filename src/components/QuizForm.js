@@ -84,10 +84,11 @@ const useStyles = makeStyles(theme => ({
     color: error
   },
   radioButton: {
-    height: 12
+    height: 12,
+    marginRight: 13
   },
   optionLabel: {
-    paddingLeft: 8
+    width: 100
   },
   [theme.breakpoints.down("361")]: {
     container: {
@@ -430,25 +431,29 @@ function QuizForm(props) {
                       </label>
                     </fieldset>
                     <fieldset className={classes.questionOption}>
-                      <input
-                        type="radio"
-                        className={classes.radioButton}
-                        value="YES"
-                        name={row.question}
-                        ref={register({ required: true })}
-                        label="YES"
-                      />
-                      <label className={classes.optionLabel}>YES</label>
+                      <label className={classes.optionLabel}>
+                        <input
+                          type="radio"
+                          className={classes.radioButton}
+                          value="YES"
+                          name={row.question}
+                          ref={register({ required: true })}
+                          label="YES"
+                        />
+                        YES
+                      </label>
                     </fieldset>
                     <fieldset className={classes.questionOption}>
-                      <input
-                        type="radio"
-                        className={classes.radioButton}
-                        value="NO"
-                        name={row.question}
-                        ref={register({ required: true })}
-                      />
-                      <label className={classes.optionLabel}>NO</label>
+                      <label className={classes.optionLabel}>
+                        <input
+                          type="radio"
+                          className={classes.radioButton}
+                          value="NO"
+                          name={row.question}
+                          ref={register({ required: true })}
+                        />
+                        NO
+                      </label>
                     </fieldset>
                     {errors[row.question] && (
                       <p className={classes.error}>This field is required</p>
