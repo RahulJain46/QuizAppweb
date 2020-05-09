@@ -15,6 +15,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-ga": "^2.7.0",
     "react-hook-form": "^5.6.0",
     "react-redux": "^5.1.2",
     "react-router": "^3.2.6",
