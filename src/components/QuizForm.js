@@ -257,7 +257,7 @@ function QuizForm(props) {
         usersArray.push(usersJson);
       });
     });
-    usersResponse["score"] = score;
+    usersResponse["score"] = score * 2;
     usersResponse["answers"] = usersArray;
     return usersResponse;
   };

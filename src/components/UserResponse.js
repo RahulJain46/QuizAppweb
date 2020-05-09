@@ -310,18 +310,22 @@ function UserResponse(props) {
                     >
                       Correct Answer {allquestionsMap.get(items).answer}
                     </Typography>
-                    <Typography
-                      variant="h6"
-                      component="h6"
-                      className={
-                        props.location.state[items] ===
-                        allquestionsMap.get(items).answer
-                          ? classes.correct
-                          : classes.incorrect
-                      }
-                    >
-                      Remark {allquestionsMap.get(items).remark}
-                    </Typography>
+                    {allquestionsMap.get(items).remark.length != 0 ? (
+                      <Typography
+                        variant="h6"
+                        component="h6"
+                        className={
+                          props.location.state[items] ===
+                          allquestionsMap.get(items).answer
+                            ? classes.correct
+                            : classes.incorrect
+                        }
+                      >
+                        Remark {allquestionsMap.get(items).remark}
+                      </Typography>
+                    ) : (
+                      ""
+                    )}
                   </React.Fragment>
                 ) : (
                   ""
