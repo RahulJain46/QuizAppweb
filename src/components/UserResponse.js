@@ -14,7 +14,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import red from "@material-ui/core/colors/red";
 import green from "@material-ui/core/colors/green";
-import {links} from "../Config";
+import { links } from "../Config";
 
 const error = red[700];
 const success = green[700];
@@ -221,7 +221,7 @@ function UserResponse(props) {
     const questionsArray = [];
     const queastionsIdArray = [];
     const date = props.match.params.date;
-    fetch( links.backendURL + "users?date=" + `${date}` )
+    fetch(links.backendURL + "questions?date=" + `${date}`)
       .then(questionsJosn => {
         return questionsJosn.json();
       })

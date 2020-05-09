@@ -242,16 +242,50 @@ function QuizForm(props) {
       });
   }, []);
 
-  const calcaulateScore = (rightAns, userAns) => {
+  const calcaulateScore = (rightAns, userAns, usersResponse) => {
     let score = 0;
+    let usersArray = [];
     rightAns.map(answers => {
       answers.map(answer => {
+        let usersJson = {};
+        usersJson["question"] = answer.question;
+        usersJson["answer"] = userAns.get(answer.question);
+        usersJson["_id"] = uuidv5(answer.question, uuidv5.DNS);
         if (userAns.get(answer.question) === answer.answer) {
           score++;
         }
+        usersArray.push(usersJson);
       });
     });
-    return score;
+    usersResponse["score"] = score;
+    usersResponse["answers"] = usersArray;
+    return usersResponse;
+  };
+  const patchUserResponse = (
+    userresponse,
+    detailedUserResponse,
+    uuid,
+    date,
+    score
+  ) => {
+    let userOptions = {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(userresponse)
+    };
+    console.log(
+      links.backendURL + "usersresponse?" + `date=${date}` + `&update=true`
+    );
+    fetch(
+      links.backendURL + "usersresponse?" + `date=${date}` + `&update=true`,
+      userOptions
+    )
+      .then(response => {
+        console.log(response.status);
+        alert("your score is : " + score);
+        history.push(`/yourresponse/${uuid}/${date}`, detailedUserResponse);
+      })
+      .catch(error => console.log("error is", error));
   };
 
   const onSubmit = (data, ques, quesId) => {
@@ -259,122 +293,72 @@ function QuizForm(props) {
     for (const key in data) {
       myMap.set(key, data[key]);
     }
-    const score = calcaulateScore(ques, myMap);
+    const time = new Date().toLocaleString();
     const uuid = uuidv5(
       myMap.get("fullname") + myMap.get("mobile"),
       uuidv5.DNS
     );
-    const date = props.match.params.date;
-    const uuid1 = uuidv5(date, uuidv5.DNS);
-    const time = new Date().toLocaleString();
-    const userData = Object.assign(data, { id: uuid, score, time });
     let userResponseJson = {};
-    let userAnswer = [];
-    let usersArray = [];
+    userResponseJson["time"] = time;
+    userResponseJson["comment"] = "";
+    userResponseJson["userId"] = uuid;
+    userResponseJson = calcaulateScore(ques, myMap, userResponseJson);
+    const date = props.match.params.date;
     let usersJson = {};
     usersJson["fullname"] = myMap.get("fullname");
     usersJson["city"] = myMap.get("city");
     usersJson["mobile"] = myMap.get("mobile");
     usersJson["address"] = myMap.get("address");
     usersJson["userId"] = uuid;
-    let userOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(usersJson)
-    };
-    fetch(links.backendURL + "users?" + `userId=${uuid}`)
+    const userData = Object.assign(data, {
+      id: uuid,
+      score: userResponseJson["score"],
+      time
+    });
+    fetch(links.backendURL + "users?" + `&userId=${uuid}`)
       .then(response => {
         return response.json();
       })
-      .then(user => {
-        if (user.length == 0) {
-          fetch(links.backendURL + "users/" + `${uuid1}`, userOptions).then(
-            reponse => {
-              console.log(reponse.status);
-            }
-          );
-        } else {
-          alert("user already exists");
-          return;
-        }
-      });
-    userAnswer.push(userData);
-    userResponseJson.date = date;
-    userResponseJson.userAnswer = userAnswer;
-    userResponseJson.id = uuid1;
-    let flag = false;
-    let exists = false;
-
-    fetch(links.backendURL + "users/")
-      .then(response => {
-        return response.json();
-      })
-      .then(usersJson => {
-        if (usersJson.length != 0) {
-          usersJson.map(userJson => {
-            if (
-              !(
-                Object.keys(userJson).length === 0 &&
-                userJson.constructor === Object
-              )
-            ) {
-              if (userJson.date === date) {
-                flag = true;
-                userJson.userAnswer.map(user => {
-                  if (user.id === uuid) {
-                    exists = true;
-                    return;
-                  }
-                });
-              }
-            }
-          });
-        }
-        if (exists) {
-          alert("user already exists");
-          // break;
-          return;
-        } else {
-          if (!flag) {
-            let options = {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(userResponseJson)
-            };
-
-            fetch(links.backendURL + "users/", options).then(res => {
-              alert("your score is : " + score);
-              history.push(`/yourresponse/${uuid}/${date}`, userData);
-            });
-            return;
-          } else {
-            fetch(links.backendURL + "users/" + `${uuid1}`)
-              .then(userjson => {
-                return userjson.json();
-              })
-              .then(user => {
-                console.log(user);
-                user.userAnswer.push(userData);
-                return user;
-              })
-              .then(json => {
-                console.log(json);
-                let options = {
-                  method: "PATCH",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(json)
-                };
-                fetch(links.backendURL + "users/" + `${uuid1}`, options).then(
-                  res => {
-                    alert("your score is : " + score);
-                    return history.push(
-                      `/yourresponse/${uuid}/${date}`,
-                      userData
-                    );
-                  }
+      .then(count => {
+        if (count == 1) {
+          fetch(
+            links.backendURL +
+              "usersresponse?" +
+              `date=${date}` +
+              `&userId=${uuid}`
+          )
+            .then(response => {
+              return response.json();
+            })
+            .then(userexists => {
+              if (userexists) {
+                alert("user already exists");
+                return;
+              } else {
+                patchUserResponse(
+                  userResponseJson,
+                  userData,
+                  uuid,
+                  date,
+                  userResponseJson["score"]
                 );
-              });
-          }
+              }
+            });
+        } else {
+          let userOptions = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(usersJson)
+          };
+          fetch(links.backendURL + "users", userOptions).then(response => {
+            patchUserResponse(
+              userResponseJson,
+              userData,
+              uuid,
+              date,
+              userResponseJson["score"]
+            );
+          });
         }
       })
       .catch(error => console.log("error is", error));
