@@ -84,10 +84,11 @@ const useStyles = makeStyles(theme => ({
     color: error
   },
   radioButton: {
-    height: 12
+    height: 12,
+    marginRight: 13
   },
   optionLabel: {
-    paddingLeft: 8
+    width: 100
   },
   [theme.breakpoints.down("361")]: {
     container: {
