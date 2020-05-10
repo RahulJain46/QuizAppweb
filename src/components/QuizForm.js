@@ -100,18 +100,18 @@ const useStyles = makeStyles(theme => ({
     input: {
       width: "100%",
       margin: 0,
-      fontSize: 10,
+      fontSize: 14,
       padding: "8px 8px",
       boxShadow: "3px 3px #eeeeee"
     },
     label: {
       marginBottom: 2,
       marginTop: 4,
-      fontSize: 10,
+      fontSize: 15,
       marginLeft: 8
     },
     asteriskField: {
-      fontSize: 12,
+      fontSize: 15,
       marginLeft: "4%"
     },
     questionfields: {
@@ -124,20 +124,21 @@ const useStyles = makeStyles(theme => ({
     },
     questionOption: {
       marginLeft: "3%",
-      fontSize: 13
+      fontSize: 15
     },
     radioButton: {
       height: 13
     },
     questionLabel: {
-      fontSize: 14
+      fontSize: 15
     },
 
     button: {
       width: 90,
       marginTop: 8,
       marginLeft: 7,
-      height: 38
+      height: 38,
+      fontSize: 15
     },
     error: {
       fontSize: 9
@@ -157,18 +158,18 @@ const useStyles = makeStyles(theme => ({
     input: {
       width: "100%",
       margin: 0,
-      fontSize: 12,
+      fontSize: 16,
       padding: "5px 8px",
       boxShadow: "4px 4px #eeeeee"
     },
     label: {
       marginBottom: 2,
       marginTop: 1,
-      fontSize: 13,
+      fontSize: 17,
       marginLeft: 8
     },
     asteriskField: {
-      fontSize: 13,
+      fontSize: 17,
       marginLeft: "4%"
     },
     questionfields: {
@@ -181,19 +182,20 @@ const useStyles = makeStyles(theme => ({
     },
     questionOption: {
       marginLeft: "3%",
-      fontSize: 15
+      fontSize: 16
     },
     radioButton: {
       height: 15
     },
     questionLabel: {
-      fontSize: 16
+      fontSize: 17
     },
     button: {
       width: 95,
       marginTop: 7,
       marginLeft: 8,
-      height: 40
+      height: 40,
+      fontSize: 16
     },
     error: {
       fontSize: 11
@@ -364,6 +366,7 @@ function QuizForm(props) {
       })
       .catch(error => console.log("error is", error));
   };
+  const reactStringReplace = require('react-string-replace');
 
   return (
     <Card className={classes.container}>
@@ -380,7 +383,12 @@ function QuizForm(props) {
           >
             * Required field
           </Typography>
-          <label className={classes.label}>Full Name *</label>
+          <label className={classes.label}> 
+            {reactStringReplace("Full Name *", new RegExp(/(\*)/g), 
+            (match, i) => (
+              <span key={i} style={{ color: error }}> {match} </span>
+            ))}          
+         </label>
           <input
             className={classes.input}
             placeholder="Full Name"
@@ -390,7 +398,12 @@ function QuizForm(props) {
           {errors.fullname && (
             <p className={classes.error}> This field is required</p>
           )}
-          <label className={classes.label}>City/Town/Village *</label>
+          <label className={classes.label}>
+          {reactStringReplace("City/Town/Village *", new RegExp(/(\*)/g), 
+            (match, i) => (
+              <span key={i} style={{ color: error }}> {match} </span>
+            ))}
+            </label>
           <input
             className={classes.input}
             placeholder="City"
@@ -400,7 +413,12 @@ function QuizForm(props) {
           {errors.city && (
             <p className={classes.error}>This field is required</p>
           )}
-          <label className={classes.label}>Address In Short *</label>
+          <label className={classes.label}>
+          {reactStringReplace("Address In Short *", new RegExp(/(\*)/g), 
+            (match, i) => (
+              <span key={i} style={{ color: error }}> {match} </span>
+            ))}
+            </label>
           <input
             className={classes.input}
             placeholder="Address"
@@ -410,7 +428,12 @@ function QuizForm(props) {
           {errors.address && (
             <p className={classes.error}>This field is required</p>
           )}
-          <label className={classes.label}>Mobile No. *</label>
+          <label className={classes.label}>
+          {reactStringReplace("Mobile No. *", new RegExp(/(\*)/g), 
+            (match, i) => (
+              <span key={i} style={{ color: error }}> {match} </span>
+            ))}
+            </label>
           <input
             className={classes.input}
             placeholder="Mobile Number"
@@ -427,7 +450,11 @@ function QuizForm(props) {
                   <fieldset>
                     <fieldset className={classes.questionContent}>
                       <label className={classes.questionLabel}>
-                        {index + 1}. {row.question} *
+                      {index + 1}. {row.question} 
+                      {reactStringReplace("*" , new RegExp(/(\*)/g), 
+                        (match, i) => (
+                          <span key={i} style={{ color: error }}> {match} </span>
+                         ))}
                       </label>
                     </fieldset>
                     <fieldset className={classes.questionOption}>

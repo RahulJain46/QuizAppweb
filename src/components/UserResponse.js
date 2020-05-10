@@ -109,13 +109,13 @@ const useStyles = makeStyles(theme => ({
     label: {
       marginBottom: 2,
       marginTop: 4,
-      fontSize: 16,
+      fontSize: 15,
       marginLeft: 8
     },
     input: {
       width: "100%",
       margin: 0,
-      fontSize: 16,
+      fontSize: 15,
       padding: "8px 8px",
       boxShadow: "3px 3px #eeeeee",
       fontWeight: "500"
@@ -136,12 +136,13 @@ const useStyles = makeStyles(theme => ({
       marginLeft: 8
     },
     lastButton: {
-      width: "65%",
+      width: "70%",
       marginTop: 0,
       marginLeft: 0,
       height: 44,
-      fontSize: 12,
-      padding: 1
+      fontSize: 15,
+      padding: 1,
+      fontStretch: "condensed"
     },
     paper: {
       padding: 8,
@@ -161,7 +162,7 @@ const useStyles = makeStyles(theme => ({
     label: {
       marginBottom: 2,
       marginTop: 4,
-      fontSize: 16,
+      fontSize: 17,
       marginLeft: 8
     },
     input: {
@@ -188,12 +189,13 @@ const useStyles = makeStyles(theme => ({
       marginLeft: 8
     },
     lastButton: {
-      width: "65%",
+      width: "70%",
       marginTop: 0,
       marginLeft: 0,
       height: 44,
-      fontSize: 12,
-      padding: 1
+      fontSize: 15,
+      padding: 1,
+      fontStretch: "condensed"
     },
     paper: {
       padding: 8,
