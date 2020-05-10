@@ -254,7 +254,7 @@ function QuizForm(props) {
         usersJson["question"] = answer.question;
         usersJson["answer"] = userAns.get(answer.question);
         usersJson["_id"] = uuidv5(answer.question, uuidv5.DNS);
-        if (userAns.get(answer.question) === answer.answer) {
+        if (userAns.get(answer.question).toLowerCase() === answer.answer.toLowerCase()) {
           score++;
         }
         usersArray.push(usersJson);

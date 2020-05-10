@@ -304,8 +304,8 @@ function UserResponse(props) {
                       variant="h6"
                       component="h6"
                       className={
-                        props.location.state[items] ===
-                        allquestionsMap.get(items).answer
+                        props.location.state[items].toLowerCase() ===
+                        allquestionsMap.get(items).answer.toLowerCase()
                           ? classes.correct
                           : classes.incorrect
                       }
@@ -317,8 +317,8 @@ function UserResponse(props) {
                         variant="h6"
                         component="h6"
                         className={
-                          props.location.state[items] ===
-                          allquestionsMap.get(items).answer
+                          props.location.state[items].toLowerCase() ===
+                          allquestionsMap.get(items).answer.toLowerCase()
                             ? classes.correct
                             : classes.incorrect
                         }
