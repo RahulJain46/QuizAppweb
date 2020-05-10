@@ -234,7 +234,7 @@ function UserResponse(props) {
         });
         var myMap = new Map();
         questionsArray[0].map(el => {
-          myMap.set(el.question, { answer: el.answer, remark: el.remark });
+          myMap.set(el.question, { answer: el.answer, remarks: el.remarks });
         });
         setAllQuestionsMap(myMap);
         setQuestionsId(queastionsIdArray);
@@ -312,7 +312,7 @@ function UserResponse(props) {
                     >
                       Correct Answer {allquestionsMap.get(items).answer}
                     </Typography>
-                    {allquestionsMap.get(items).remark.length != 0 ? (
+                    {allquestionsMap.get(items).remarks.length != 0 ? (
                       <Typography
                         variant="h6"
                         component="h6"
@@ -323,7 +323,7 @@ function UserResponse(props) {
                             : classes.incorrect
                         }
                       >
-                        Remark {allquestionsMap.get(items).remark}
+                        Remark {allquestionsMap.get(items).remarks}
                       </Typography>
                     ) : (
                       ""
