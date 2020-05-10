@@ -197,7 +197,7 @@ export default function QuizAnswer1(props) {
                     {row.answer}
                   </TableCell>
                   <TableCell className={classes.tableRemarkCell}>
-                    {row.remark}
+                    {row.remarks}
                   </TableCell>
                 </TableRow>
               ));
