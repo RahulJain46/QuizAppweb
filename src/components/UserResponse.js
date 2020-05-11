@@ -196,7 +196,7 @@ const useStyles = makeStyles(theme => ({
       marginTop: 0,
       marginLeft: 0,
       height: 55,
-      fontSize: 22,
+      fontSize: 21,
       padding: 1,
       fontStretch: "condensed",
       lineHeight: 1
