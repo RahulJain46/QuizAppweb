@@ -100,18 +100,18 @@ const useStyles = makeStyles(theme => ({
     input: {
       width: "100%",
       margin: 0,
-      fontSize: 14,
+      fontSize: 17,
       padding: "8px 8px",
       boxShadow: "3px 3px #eeeeee"
     },
     label: {
       marginBottom: 2,
       marginTop: 4,
-      fontSize: 15,
+      fontSize: 19,
       marginLeft: 8
     },
     asteriskField: {
-      fontSize: 15,
+      fontSize: 19,
       marginLeft: "4%"
     },
     questionfields: {
@@ -124,21 +124,21 @@ const useStyles = makeStyles(theme => ({
     },
     questionOption: {
       marginLeft: "3%",
-      fontSize: 15
+      fontSize: 18
     },
     radioButton: {
-      height: 13
+      height: 16
     },
     questionLabel: {
-      fontSize: 15
+      fontSize: 19
     },
 
     button: {
-      width: 90,
+      width: 102,
       marginTop: 8,
       marginLeft: 7,
-      height: 38,
-      fontSize: 15
+      height: 44,
+      fontSize: 19
     },
     error: {
       fontSize: 9
