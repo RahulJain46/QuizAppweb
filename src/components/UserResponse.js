@@ -98,7 +98,7 @@ const useStyles = makeStyles(theme => ({
 
   [theme.breakpoints.down("361")]: {
     scoreCard: {
-      fontSize: 17
+      fontSize: 19
     },
     container: {
       maxWidth: "100%",
@@ -109,40 +109,42 @@ const useStyles = makeStyles(theme => ({
     label: {
       marginBottom: 2,
       marginTop: 4,
-      fontSize: 15,
+      fontSize: 19,
       marginLeft: 8
     },
     input: {
       width: "100%",
       margin: 0,
-      fontSize: 15,
+      fontSize: 17,
       padding: "8px 8px",
       boxShadow: "3px 3px #eeeeee",
       fontWeight: "500"
     },
     correct: {
       color: success,
-      fontSize: 16,
+      fontSize: 17,
       margin: 8
     },
     incorrect: {
       color: error,
-      fontSize: 16,
+      fontSize: 17,
       margin: 8
     },
     questionContent: {
       marginBottom: 5,
-      fontSize: 16,
-      marginLeft: 8
+      fontSize: 19,
+      marginLeft: 8,
+      fontWeight: "initial"
     },
     lastButton: {
       width: "70%",
       marginTop: 0,
       marginLeft: 0,
-      height: 44,
-      fontSize: 15,
+      height: 45,
+      fontSize: 19,
       padding: 1,
-      fontStretch: "condensed"
+      fontStretch: "condensed",
+      lineHeight: 19
     },
     paper: {
       padding: 8,
@@ -151,7 +153,7 @@ const useStyles = makeStyles(theme => ({
   },
   [theme.breakpoints.between("361", "xs")]: {
     scoreCard: {
-      fontSize: 17
+      fontSize: 21
     },
     container: {
       maxWidth: "100%",
@@ -162,40 +164,42 @@ const useStyles = makeStyles(theme => ({
     label: {
       marginBottom: 2,
       marginTop: 4,
-      fontSize: 17,
+      fontSize: 22,
       marginLeft: 8
     },
     input: {
       width: "100%",
       margin: 0,
-      fontSize: 16,
+      fontSize: 21,
       padding: "8px 8px",
       boxShadow: "3px 3px #eeeeee",
       fontWeight: "500"
     },
     correct: {
       color: success,
-      fontSize: 16,
+      fontSize: 19,
       margin: 8
     },
     incorrect: {
       color: error,
-      fontSize: 16,
+      fontSize: 19,
       margin: 8
     },
     questionContent: {
       marginBottom: 5,
-      fontSize: 16,
-      marginLeft: 8
+      fontSize: 22,
+      marginLeft: 8,
+      fontWeight: "initial"
     },
     lastButton: {
       width: "70%",
       marginTop: 0,
       marginLeft: 0,
-      height: 44,
-      fontSize: 15,
+      height: 55,
+      fontSize: 22,
       padding: 1,
-      fontStretch: "condensed"
+      fontStretch: "condensed",
+      lineHeight: 1
     },
     paper: {
       padding: 8,
