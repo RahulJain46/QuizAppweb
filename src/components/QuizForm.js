@@ -158,23 +158,23 @@ const useStyles = makeStyles(theme => ({
     input: {
       width: "100%",
       margin: 0,
-      fontSize: 16,
+      fontSize: 21,
       padding: "5px 8px",
       boxShadow: "4px 4px #eeeeee"
     },
     label: {
-      marginBottom: 2,
-      marginTop: 1,
-      fontSize: 17,
+      marginBottom: 3,
+      marginTop: 3,
+      fontSize: 22,
       marginLeft: 8
     },
     asteriskField: {
-      fontSize: 17,
+      fontSize: 21,
       marginLeft: "4%"
     },
     questionfields: {
       boxShadow: "4px 3px #eeeeee",
-      margin: 10
+      margin: 7
     },
     questionContent: {
       marginLeft: "0%",
@@ -182,23 +182,23 @@ const useStyles = makeStyles(theme => ({
     },
     questionOption: {
       marginLeft: "3%",
-      fontSize: 16
+      fontSize: 21
     },
     radioButton: {
-      height: 15
+      height: 18
     },
     questionLabel: {
-      fontSize: 17
+      fontSize: 22
     },
     button: {
-      width: 95,
+      width: 107,
       marginTop: 7,
       marginLeft: 8,
-      height: 40,
-      fontSize: 16
+      height: 46,
+      fontSize: 21
     },
     error: {
-      fontSize: 11
+      fontSize: 20
     },
     optionLabel: {
       paddingLeft: 8
