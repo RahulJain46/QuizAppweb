@@ -92,12 +92,17 @@ function QuizAnswers() {
         questions.map(question => {
           let quesdate =
             question.date.replace("APR", "04").replace("MAY", "05") + "-2020";
-          const today = moment().format("DD-MM-YYYY");
-          const someday = moment(quesdate).format("MM-DD-YYYY");
-          if (quesdate < today) {
-            dateArray.push(question.date);
+          let preDate = presentDate.replace("APR", "04").replace("MAY", "05");
+          moment(preDate);
+          const today = moment(preDate, "DD-MM-YYYY");
+          const someday = moment(quesdate, "DD-MM-YYYY");
+          if (someday < today) {
+            dateArray.push(quesdate);
           }
         });
+        dateArray.sort(
+          (a, b) => moment(b, "DD-MM-YYYY") - moment(a, "DD-MM-YYYY")
+        );
         setDates(dateArray);
         setLoading(false);
       });
@@ -123,7 +128,7 @@ function QuizAnswers() {
               <Link to={`/answersheet` + `/${date}`}>
                 <Paper className={classes.paper}>
                   <Button variant="contained" className={classes.button}>
-                    {date}
+                    {moment(date, "DD-MM-YYYY").format("DD-MMM")}
                   </Button>
                 </Paper>
               </Link>

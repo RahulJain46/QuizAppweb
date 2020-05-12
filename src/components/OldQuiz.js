@@ -30,6 +30,13 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "#303f9f"
     }
   },
+  resultbutton: {
+    backgroundColor: "#aa1050e3",
+    color: "#fff",
+    "&:hover": {
+      backgroundColor: "#610c2b"
+    }
+  },
   loading: {
     position: "relative",
     top: 77,
@@ -60,6 +67,10 @@ const useStyles = makeStyles(theme => ({
     button: {
       padding: "4px 6px",
       width: 185
+    },
+    resultbutton: {
+      padding: "4px 6px",
+      width: 185
     }
   }
 }));
@@ -76,7 +87,9 @@ function OldQuiz() {
   const month = date
     .toLocaleString("default", { month: "short" })
     .toUpperCase();
-  const presentDate = `${day}-${month}`;
+
+  const year = new Date().getFullYear();
+  const presentDate = `${day}-${month}-${year}`;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -97,14 +110,24 @@ function OldQuiz() {
       })
       .then(questions => {
         questions.map(question => {
-          let quesdate =
-            question.date.replace("APR", "04").replace("MAY", "05") + "-2020";
-          const today = moment().format("DD-MM-YYYY");
-          const someday = moment(quesdate).format("MM-DD-YYYY");
-          if (quesdate < today) {
-            dateArray.push(question.date);
+          let quesdate;
+          if (question.date.includes("APR") || question.date.includes("MAY")) {
+            quesdate =
+              question.date.replace("APR", "04").replace("MAY", "05") + "-2020";
+          } else {
+            quesdate = question.date;
+          }
+          let preDate = presentDate.replace("APR", "04").replace("MAY", "05");
+          moment(preDate);
+          const today = moment(preDate, "DD-MM-YYYY");
+          const someday = moment(quesdate, "DD-MM-YYYY");
+          if (someday < today) {
+            dateArray.push(quesdate);
           }
         });
+        dateArray.sort(
+          (a, b) => moment(b, "DD-MM-YYYY") - moment(a, "DD-MM-YYYY")
+        );
         setDates(dateArray);
         setLoading(false);
       });
@@ -131,7 +154,7 @@ function OldQuiz() {
                 <Link to={`/datemonthquiz` + `/${date}`}>
                   <Paper className={classes.paper}>
                     <Button variant="contained" className={classes.button}>
-                      QUIZ {date}
+                      QUIZ {moment(date, "DD-MM-YYYY").format("DD-MMM")}
                     </Button>
                   </Paper>
                 </Link>
@@ -139,8 +162,11 @@ function OldQuiz() {
               <Grid item xs={6} className={classes.oldQuizButton}>
                 <Link to={`/quizresult` + `/${date}`}>
                   <Paper className={classes.paper}>
-                    <Button variant="contained" className={classes.button}>
-                      QUIZ RESULT {date}
+                    <Button
+                      variant="contained"
+                      className={classes.resultbutton}
+                    >
+                      QUIZ RESULT {moment(date, "DD-MM-YYYY").format("DD-MMM")}
                     </Button>
                   </Paper>
                 </Link>
