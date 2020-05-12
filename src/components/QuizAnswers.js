@@ -6,7 +6,8 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 import Fade from "@material-ui/core/Fade";
-import {links} from "../Config";
+import { links } from "../Config";
+import moment from "moment";
 
 import CircularProgress from "@material-ui/core/CircularProgress";
 
@@ -83,15 +84,17 @@ function QuizAnswers() {
 
   useEffect(() => {
     const dateArray = [];
-    fetch( links.backendURL + "questions/")
+    fetch(links.backendURL + "questions/")
       .then(questionJson => {
         return questionJson.json();
       })
       .then(questions => {
         questions.map(question => {
-          if (
-            new Date(question.date).getTime() < new Date(presentDate).getTime()
-          ) {
+          let quesdate =
+            question.date.replace("APR", "04").replace("MAY", "05") + "-2020";
+          const today = moment().format("DD-MM-YYYY");
+          const someday = moment(quesdate).format("MM-DD-YYYY");
+          if (quesdate < today) {
             dateArray.push(question.date);
           }
         });

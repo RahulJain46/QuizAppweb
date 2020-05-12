@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import Fade from "@material-ui/core/Fade";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { links } from "../Config";
+import moment from "moment";
 
 const useStyles = makeStyles(theme => ({
   oldQuiz: {
@@ -96,9 +97,11 @@ function OldQuiz() {
       })
       .then(questions => {
         questions.map(question => {
-          if (
-            new Date(question.date).getTime() < new Date(presentDate).getTime()
-          ) {
+          let quesdate =
+            question.date.replace("APR", "04").replace("MAY", "05") + "-2020";
+          const today = moment().format("DD-MM-YYYY");
+          const someday = moment(quesdate).format("MM-DD-YYYY");
+          if (quesdate < today) {
             dateArray.push(question.date);
           }
         });
