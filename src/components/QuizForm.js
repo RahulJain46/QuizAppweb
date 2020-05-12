@@ -330,9 +330,9 @@ function QuizForm(props) {
         if (count == 1) {
           fetch(
             links.backendURL +
-              "usersresponse?" +
-              `date=${date}` +
-              `&userId=${uuid}`
+            "usersresponse?" +
+            `date=${date}` +
+            `&userId=${uuid}`
           )
             .then(response => {
               return response.json();
@@ -389,11 +389,11 @@ function QuizForm(props) {
           </Typography>
 
           <label className={classes.label}>
-          {reactStringReplace("Mobile No. *", new RegExp(/(\*)/g), 
-            (match, i) => (
-              <span key={i} style={{ color: error }}> {match} </span>
-            ))}
-            </label>
+            {reactStringReplace("Mobile No. *", new RegExp(/(\*)/g),
+              (match, i) => (
+                <span key={i} style={{ color: error }}> {match} </span>
+              ))}
+          </label>
           <input
             className={classes.input}
             placeholder="Mobile Number"
@@ -403,12 +403,12 @@ function QuizForm(props) {
           {errors.mobile && (
             <p className={classes.error}>This field is required</p>
           )}
-          <label className={classes.label}> 
-            {reactStringReplace("Full Name *", new RegExp(/(\*)/g), 
-            (match, i) => (
-              <span key={i} style={{ color: error }}> {match} </span>
-            ))}          
-         </label>
+          <label className={classes.label}>
+            {reactStringReplace("Full Name *", new RegExp(/(\*)/g),
+              (match, i) => (
+                <span key={i} style={{ color: error }}> {match} </span>
+              ))}
+          </label>
           <input
             className={classes.input}
             placeholder="Full Name"
@@ -419,16 +419,10 @@ function QuizForm(props) {
             <p className={classes.error}> This field is required</p>
           )}
           <label className={classes.label}>
-            {reactStringReplace(
-              "City/Town/Village *",
-              new RegExp(/(\*)/g),
+            {reactStringReplace("City/Town/Village *", new RegExp(/(\*)/g),
               (match, i) => (
-                <span key={i} style={{ color: error }}>
-                  {" "}
-                  {match}{" "}
-                </span>
-              )
-            )}
+                <span key={i} style={{ color: error }}> {match} </span>
+              ))}
           </label>
           <input
             className={classes.input}
@@ -440,16 +434,10 @@ function QuizForm(props) {
             <p className={classes.error}>This field is required</p>
           )}
           <label className={classes.label}>
-            {reactStringReplace(
-              "Address In Short *",
-              new RegExp(/(\*)/g),
+            {reactStringReplace("Address In Short *", new RegExp(/(\*)/g),
               (match, i) => (
-                <span key={i} style={{ color: error }}>
-                  {" "}
-                  {match}{" "}
-                </span>
-              )
-            )}
+                <span key={i} style={{ color: error }}> {match} </span>
+              ))}
           </label>
           <input
             className={classes.input}
@@ -460,63 +448,120 @@ function QuizForm(props) {
           {errors.address && (
             <p className={classes.error}>This field is required</p>
           )}
-          
+
           {questions.map(question => {
-            return question.map((row, index) => (
-              <Card className={classes.questionfields}>
-                <CardContent>
-                  <fieldset>
-                    <fieldset className={classes.questionContent}>
-                      <label className={classes.questionLabel}>
-                        {index + 1}. {row.question}
-                        {reactStringReplace(
-                          "*",
-                          new RegExp(/(\*)/g),
-                          (match, i) => (
-                            <span key={i} style={{ color: error }}>
-                              {" "}
-                              {match}{" "}
-                            </span>
-                          )
-                        )}
-                      </label>
-                    </fieldset>
-                    <label className={classes.questionLabel}>
-                      <Link href={row.hint}>Hint</Link>
-                    </label>
-                    <fieldset className={classes.questionOption}>
-                      <label className={classes.optionLabel}>
-                        <input
-                          type="radio"
-                          className={classes.radioButton}
-                          value="YES"
-                          name={row.question}
-                          ref={register({ required: true })}
-                          label="YES"
-                        />
+              return question.map((row, index) => (
+                <Card className={classes.questionfields}>
+                  <CardContent>
+                    <fieldset>
+                      <fieldset className={classes.questionContent}>
+                        <label className={classes.questionLabel}>
+                          {index + 1}. {row.question}
+                          {reactStringReplace("*" , new RegExp(/(\*)/g), 
+                            (match, i) => (
+                              <span key={i} style={{ color: error }}> {match} </span>
+                            ))}
+                        </label>
+                      </fieldset>
+                      <fieldset className={classes.questionOption}>
+                        <label className={classes.optionLabel}>
+                          <input
+                            type="radio"
+                            className={classes.radioButton}
+                            value="YES"
+                            name={row.question}
+                            ref={register({ required: true })}
+                            label="YES"
+                          />
                         YES
                       </label>
-                    </fieldset>
-                    <fieldset className={classes.questionOption}>
-                      <label className={classes.optionLabel}>
-                        <input
-                          type="radio"
-                          className={classes.radioButton}
-                          value="NO"
-                          name={row.question}
-                          ref={register({ required: true })}
-                        />
+                      </fieldset>
+                      <fieldset className={classes.questionOption}>
+                        <label className={classes.optionLabel}>
+                          <input
+                            type="radio"
+                            className={classes.radioButton}
+                            value="NO"
+                            name={row.question}
+                            ref={register({ required: true })}
+                          />
                         NO
                       </label>
+                      </fieldset>
+                      {errors[row.question] && (
+                        <p className={classes.error}>This field is required</p>
+                      )}
                     </fieldset>
-                    {errors[row.question] && (
-                      <p className={classes.error}>This field is required</p>
-                    )}
-                  </fieldset>
-                </CardContent>
-              </Card>
-            ));
-          })}
+
+                  </CardContent>
+                </Card>
+              ));
+            }
+
+            )}
+
+
+          <Card className={classes.questionfields}>
+            <CardContent>
+              <fieldset className={classes.questionContent}>
+                <label className={classes.label}>
+                  आपको यह क्विज एप्लिकेशन कैसी लगी|
+                </label>
+              </fieldset>
+
+              <fieldset className={classes.questionOption}>
+                <label className={classes.optionLabel}>
+                  <input
+                    type="radio"
+                    className={classes.radioButton}
+                    value="उत्कृष्ट"
+                    name="feedback"
+                    ref={register({ required: true })}
+                  />
+                        उत्कृष्ट
+                      </label>
+              </fieldset>
+
+              <fieldset className={classes.questionOption}>
+                <label className={classes.optionLabel}>
+                  <input
+                    type="radio"
+                    className={classes.radioButton}
+                    value="बहुत अच्छी"
+                    name="feedback"
+                    ref={register({ required: true })}
+                  />
+                        बहुत अच्छी
+                      </label>
+              </fieldset>
+
+              <fieldset className={classes.questionOption}>
+                <label className={classes.optionLabel}>
+                  <input
+                    type="radio"
+                    className={classes.radioButton}
+                    value="अच्छी"
+                    name="feedback"
+                    ref={register({ required: true })}
+                  />
+                        अच्छी
+                      </label>
+              </fieldset>
+
+              <fieldset className={classes.questionOption}>
+                <label className={classes.optionLabel}>
+                  <input
+                    type="radio"
+                    className={classes.radioButton}
+                    value="औसत"
+                    name="feedback"
+                    ref={register({ required: true })}
+                  />
+                        औसत
+                      </label>
+              </fieldset>
+            </CardContent>
+          </Card>
           <Button variant="contained" className={classes.button} type="submit">
             Submit
           </Button>
