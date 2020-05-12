@@ -6,7 +6,8 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 import Fade from "@material-ui/core/Fade";
-import {links} from "../Config";
+import { links } from "../Config";
+import moment from "moment";
 
 import CircularProgress from "@material-ui/core/CircularProgress";
 
@@ -83,18 +84,30 @@ function QuizAnswers() {
 
   useEffect(() => {
     const dateArray = [];
-    fetch( links.backendURL + "questions/")
+    fetch(links.backendURL + "questions/")
       .then(questionJson => {
         return questionJson.json();
       })
       .then(questions => {
         questions.map(question => {
-          if (
-            new Date(question.date).getTime() < new Date(presentDate).getTime()
-          ) {
-            dateArray.push(question.date);
+          let quesdate;
+          if (question.date.includes("APR") || question.date.includes("MAY")) {
+            quesdate =
+              question.date.replace("APR", "04").replace("MAY", "05") + "-2020";
+          } else {
+            quesdate = question.date;
+          }
+          let preDate = presentDate.replace("APR", "04").replace("MAY", "05");
+          moment(preDate);
+          const today = moment(preDate, "DD-MM-YYYY");
+          const someday = moment(quesdate, "DD-MM-YYYY");
+          if (someday < today) {
+            dateArray.push(quesdate);
           }
         });
+        dateArray.sort(
+          (a, b) => moment(b, "DD-MM-YYYY") - moment(a, "DD-MM-YYYY")
+        );
         setDates(dateArray);
         setLoading(false);
       });
@@ -120,7 +133,7 @@ function QuizAnswers() {
               <Link to={`/answersheet` + `/${date}`}>
                 <Paper className={classes.paper}>
                   <Button variant="contained" className={classes.button}>
-                    {date}
+                    {moment(date, "DD-MM-YYYY").format("DD-MMM")}
                   </Button>
                 </Paper>
               </Link>

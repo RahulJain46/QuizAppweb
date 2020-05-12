@@ -57,6 +57,7 @@ function Home() {
       ? new Date().getDate()
       : "0" + new Date().getDate();
   const year = new Date().getFullYear();
+  const currentMonth = new Date().getMonth();
   const month = date
     .toLocaleString("default", { month: "short" })
     .toUpperCase();
@@ -69,7 +70,9 @@ function Home() {
     <div className={classes.home}>
       <Grid container spacing={3} className={classes.quizbutton}>
         <Grid item xs={6} className={classes.quizitems}>
-          <Link to={`/datemonthquiz` + `/${day + "-" + month}`}>
+          <Link
+            to={`/datemonthquiz` + `/${day + "-0" + currentMonth + "-" + year}`}
+          >
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.button}>
                 QUIZ {day + "-" + month}
@@ -78,7 +81,9 @@ function Home() {
           </Link>
         </Grid>
         <Grid item xs={6} className={classes.quizitems}>
-          <Link to={`/quizresult` + `/${day + "-" + month}`}>
+          <Link
+            to={`/quizresult` + `/${day + "-0" + currentMonth + "-" + year}`}
+          >
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.button}>
                 QUIZ RESULT {day + "-" + month}

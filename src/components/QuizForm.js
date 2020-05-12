@@ -5,6 +5,7 @@ import { links } from "../Config";
 
 import { useForm } from "react-hook-form/dist/react-hook-form.ie11";
 import { useHistory } from "react-router-dom";
+import Link from "@material-ui/core/Link";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
@@ -254,7 +255,10 @@ function QuizForm(props) {
         usersJson["question"] = answer.question;
         usersJson["answer"] = userAns.get(answer.question);
         usersJson["_id"] = uuidv5(answer.question, uuidv5.DNS);
-        if (userAns.get(answer.question).toLowerCase() === answer.answer.toLowerCase()) {
+        if (
+          userAns.get(answer.question).toLowerCase() ===
+          answer.answer.toLowerCase()
+        ) {
           score++;
         }
         usersArray.push(usersJson);
@@ -366,7 +370,7 @@ function QuizForm(props) {
       })
       .catch(error => console.log("error is", error));
   };
-  const reactStringReplace = require('react-string-replace');
+  const reactStringReplace = require("react-string-replace");
 
   return (
     <Card className={classes.container}>
@@ -383,12 +387,18 @@ function QuizForm(props) {
           >
             * Required field
           </Typography>
-          <label className={classes.label}> 
-            {reactStringReplace("Full Name *", new RegExp(/(\*)/g), 
-            (match, i) => (
-              <span key={i} style={{ color: error }}> {match} </span>
-            ))}          
-         </label>
+          <label className={classes.label}>
+            {reactStringReplace(
+              "Full Name *",
+              new RegExp(/(\*)/g),
+              (match, i) => (
+                <span key={i} style={{ color: error }}>
+                  {" "}
+                  {match}{" "}
+                </span>
+              )
+            )}
+          </label>
           <input
             className={classes.input}
             placeholder="Full Name"
@@ -399,11 +409,17 @@ function QuizForm(props) {
             <p className={classes.error}> This field is required</p>
           )}
           <label className={classes.label}>
-          {reactStringReplace("City/Town/Village *", new RegExp(/(\*)/g), 
-            (match, i) => (
-              <span key={i} style={{ color: error }}> {match} </span>
-            ))}
-            </label>
+            {reactStringReplace(
+              "City/Town/Village *",
+              new RegExp(/(\*)/g),
+              (match, i) => (
+                <span key={i} style={{ color: error }}>
+                  {" "}
+                  {match}{" "}
+                </span>
+              )
+            )}
+          </label>
           <input
             className={classes.input}
             placeholder="City"
@@ -414,11 +430,17 @@ function QuizForm(props) {
             <p className={classes.error}>This field is required</p>
           )}
           <label className={classes.label}>
-          {reactStringReplace("Address In Short *", new RegExp(/(\*)/g), 
-            (match, i) => (
-              <span key={i} style={{ color: error }}> {match} </span>
-            ))}
-            </label>
+            {reactStringReplace(
+              "Address In Short *",
+              new RegExp(/(\*)/g),
+              (match, i) => (
+                <span key={i} style={{ color: error }}>
+                  {" "}
+                  {match}{" "}
+                </span>
+              )
+            )}
+          </label>
           <input
             className={classes.input}
             placeholder="Address"
@@ -429,11 +451,17 @@ function QuizForm(props) {
             <p className={classes.error}>This field is required</p>
           )}
           <label className={classes.label}>
-          {reactStringReplace("Mobile No. *", new RegExp(/(\*)/g), 
-            (match, i) => (
-              <span key={i} style={{ color: error }}> {match} </span>
-            ))}
-            </label>
+            {reactStringReplace(
+              "Mobile No. *",
+              new RegExp(/(\*)/g),
+              (match, i) => (
+                <span key={i} style={{ color: error }}>
+                  {" "}
+                  {match}{" "}
+                </span>
+              )
+            )}
+          </label>
           <input
             className={classes.input}
             placeholder="Mobile Number"
@@ -450,13 +478,22 @@ function QuizForm(props) {
                   <fieldset>
                     <fieldset className={classes.questionContent}>
                       <label className={classes.questionLabel}>
-                      {index + 1}. {row.question} 
-                      {reactStringReplace("*" , new RegExp(/(\*)/g), 
-                        (match, i) => (
-                          <span key={i} style={{ color: error }}> {match} </span>
-                         ))}
+                        {index + 1}. {row.question}
+                        {reactStringReplace(
+                          "*",
+                          new RegExp(/(\*)/g),
+                          (match, i) => (
+                            <span key={i} style={{ color: error }}>
+                              {" "}
+                              {match}{" "}
+                            </span>
+                          )
+                        )}
                       </label>
                     </fieldset>
+                    <label className={classes.questionLabel}>
+                      <Link href={row.hint}>Hint</Link>
+                    </label>
                     <fieldset className={classes.questionOption}>
                       <label className={classes.optionLabel}>
                         <input
