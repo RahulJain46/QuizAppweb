@@ -194,7 +194,7 @@ export default function QuizAnswer1(props) {
                     {row.question}
                   </TableCell>
                   <TableCell className={classes.tableCell}>
-                    {row.answer}
+                   {row.answer.toUpperCase()}
                   </TableCell>
                   <TableCell className={classes.tableRemarkCell}>
                     {row.remarks}
