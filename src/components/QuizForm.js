@@ -89,7 +89,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: 13
   },
   optionLabel: {
-    width: 100
+    width: "100%"
   },
   [theme.breakpoints.down("361")]: {
     container: {
