@@ -284,7 +284,7 @@ function UserResponse(props) {
                   ""
                 ) : (
                   <label className={classes.questionContent}>
-                    {index - 4}. {items}
+                    {index - 5}. {items}
                   </label>
                 )}
                 {items != "id" &&

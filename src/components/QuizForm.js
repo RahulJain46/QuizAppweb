@@ -309,6 +309,8 @@ function QuizForm(props) {
     userResponseJson["time"] = time;
     userResponseJson["comment"] = "";
     userResponseJson["userId"] = uuid;
+    userResponseJson["feedback"] = myMap.get("feedback");
+    userResponseJson["suggestion"] = myMap.get("suggestion");
     userResponseJson = calcaulateScore(ques, myMap, userResponseJson);
     const date = props.match.params.date;
     let usersJson = {};
