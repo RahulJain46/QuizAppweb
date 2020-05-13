@@ -387,18 +387,28 @@ function QuizForm(props) {
           >
             * Required field
           </Typography>
+
           <label className={classes.label}>
-            {reactStringReplace(
-              "Full Name *",
-              new RegExp(/(\*)/g),
-              (match, i) => (
-                <span key={i} style={{ color: error }}>
-                  {" "}
-                  {match}{" "}
-                </span>
-              )
-            )}
-          </label>
+          {reactStringReplace("Mobile No. *", new RegExp(/(\*)/g), 
+            (match, i) => (
+              <span key={i} style={{ color: error }}> {match} </span>
+            ))}
+            </label>
+          <input
+            className={classes.input}
+            placeholder="Mobile Number"
+            name="mobile"
+            ref={register({ required: true })}
+          />
+          {errors.mobile && (
+            <p className={classes.error}>This field is required</p>
+          )}
+          <label className={classes.label}> 
+            {reactStringReplace("Full Name *", new RegExp(/(\*)/g), 
+            (match, i) => (
+              <span key={i} style={{ color: error }}> {match} </span>
+            ))}          
+         </label>
           <input
             className={classes.input}
             placeholder="Full Name"
@@ -450,27 +460,7 @@ function QuizForm(props) {
           {errors.address && (
             <p className={classes.error}>This field is required</p>
           )}
-          <label className={classes.label}>
-            {reactStringReplace(
-              "Mobile No. *",
-              new RegExp(/(\*)/g),
-              (match, i) => (
-                <span key={i} style={{ color: error }}>
-                  {" "}
-                  {match}{" "}
-                </span>
-              )
-            )}
-          </label>
-          <input
-            className={classes.input}
-            placeholder="Mobile Number"
-            name="mobile"
-            ref={register({ required: true })}
-          />
-          {errors.mobile && (
-            <p className={classes.error}>This field is required</p>
-          )}
+          
           {questions.map(question => {
             return question.map((row, index) => (
               <Card className={classes.questionfields}>
