@@ -65,7 +65,7 @@ function Home() {
       ? new Date().getDate()
       : "0" + new Date().getDate();
   const year = new Date().getFullYear();
-  const currentMonth = new Date().getMonth();
+  const currentMonth = new Date().getMonth() + 1;
   const month = date
     .toLocaleString("default", { month: "short" })
     .toUpperCase();
