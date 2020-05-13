@@ -5,6 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import Fade from "@material-ui/core/Fade";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { links } from "../Config";
@@ -42,6 +43,9 @@ const useStyles = makeStyles(theme => ({
     top: 77,
     left: "38%"
   },
+  backButton: {
+    backgroundColor: "#1976d2"
+  },
   [theme.breakpoints.down("1105")]: {
     oldQuiz: {
       width: "100%",
@@ -71,6 +75,14 @@ const useStyles = makeStyles(theme => ({
     resultbutton: {
       padding: "4px 6px",
       width: 185
+    },
+    backButton: {
+      backgroundColor: "#1976d2",
+      padding: "3px 10px",
+      fontSize: 11
+    },
+    backArrow: {
+      fontSize: 15
     }
   }
 }));
@@ -145,6 +157,16 @@ function OldQuiz() {
             >
               OLD QUIZ & RESULTS
             </Typography>
+            <Link to={`/`}>
+              <Button
+                variant="contained"
+                color="primary"
+                className={classes.backButton}
+              >
+                <ArrowBackIosIcon className={classes.backArrow} />
+                Go to home
+              </Button>
+            </Link>
           </Paper>
         </Grid>
         {dates.length != 0 && !loading ? (
