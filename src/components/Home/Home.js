@@ -27,6 +27,14 @@ const useStyles = makeStyles(theme => ({
     left: "25%",
     right: "25%"
   },
+  quizResultButton: {
+    backgroundColor: "#aa1050e3",
+    color: "#fff",
+    width: 188,
+    "&:hover": {
+      backgroundColor: "#610c2b"
+    }
+  },
   [theme.breakpoints.down("1123")]: {
     home: {
       width: "100%",
@@ -85,7 +93,7 @@ function Home() {
             to={`/quizresult` + `/${day + "-0" + currentMonth + "-" + year}`}
           >
             <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.button}>
+              <Button variant="contained" className={classes.quizResultButton}>
                 QUIZ RESULT {day + "-" + month}
               </Button>
             </Paper>

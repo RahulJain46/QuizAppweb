@@ -276,14 +276,22 @@ function UserResponse(props) {
                   <label className={classes.label}>Address</label>
                 ) : items === "mobile" ? (
                   <label className={classes.label}>Mobile</label>
-                ) : items === "id" || items === "score" || items === "time" ? (
+                ) : items === "id" ||
+                  items === "score" ||
+                  items === "time" ||
+                  items === "feedback" ||
+                  items === "suggestion" ? (
                   ""
                 ) : (
                   <label className={classes.questionContent}>
-                    {index - 3}. {items}
+                    {index - 4}. {items}
                   </label>
                 )}
-                {items != "id" && items != "score" && items != "time" ? (
+                {items != "id" &&
+                items != "score" &&
+                items != "time" &&
+                items != "feedback" &&
+                items != "suggestion" ? (
                   <input
                     className={classes.input}
                     placeholder={props.location.state[items]}
@@ -300,7 +308,9 @@ function UserResponse(props) {
                 items != "mobile" &&
                 items != "id" &&
                 items != "score" &&
-                items != "time" ? (
+                items != "time" &&
+                items != "feedback" &&
+                items != "suggestion" ? (
                   <React.Fragment>
                     <Typography
                       variant="h6"
@@ -312,13 +322,10 @@ function UserResponse(props) {
                           : classes.incorrect
                       }
                     >
-                      {
-                         props.location.state[items].toLowerCase() ===
-                         allquestionsMap.get(items).answer.toLowerCase()
-                           ? "आपका उत्तर सही है|"
-                           : "आपका उत्तर गलत है|"
-                      }
-                                          
+                      {props.location.state[items].toLowerCase() ===
+                      allquestionsMap.get(items).answer.toLowerCase()
+                        ? "आपका उत्तर सही है|"
+                        : "आपका उत्तर गलत है|"}
                     </Typography>
                     {allquestionsMap.get(items).remarks.length != 0 ? (
                       <Typography
