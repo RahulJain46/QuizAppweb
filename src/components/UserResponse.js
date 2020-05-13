@@ -141,10 +141,9 @@ const useStyles = makeStyles(theme => ({
       marginTop: 0,
       marginLeft: 0,
       height: 45,
-      fontSize: 19,
+      fontSize: 17,
       padding: 1,
-      fontStretch: "condensed",
-      lineHeight: 19
+      lineHeight: 1
     },
     paper: {
       padding: 8,
@@ -196,9 +195,8 @@ const useStyles = makeStyles(theme => ({
       marginTop: 0,
       marginLeft: 0,
       height: 55,
-      fontSize: 22,
+      fontSize: 19,
       padding: 1,
-      fontStretch: "condensed",
       lineHeight: 1
     },
     paper: {
@@ -314,7 +312,13 @@ function UserResponse(props) {
                           : classes.incorrect
                       }
                     >
-                      Correct Answer {allquestionsMap.get(items).answer}
+                      {
+                         props.location.state[items].toLowerCase() ===
+                         allquestionsMap.get(items).answer.toLowerCase()
+                           ? "आपका उत्तर सही है|"
+                           : "आपका उत्तर गलत है|"
+                      }
+                                          
                     </Typography>
                     {allquestionsMap.get(items).remarks.length != 0 ? (
                       <Typography
@@ -327,7 +331,7 @@ function UserResponse(props) {
                             : classes.incorrect
                         }
                       >
-                        Remark {allquestionsMap.get(items).remarks}
+                        Remark: {allquestionsMap.get(items).remarks}
                       </Typography>
                     ) : (
                       ""
