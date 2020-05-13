@@ -26,6 +26,13 @@ const useStyles = makeStyles(theme => ({
     left: "30%",
     width: "100%"
   },
+  helpLink: {
+    marginLeft: "2%",
+    fontSize: 17
+  },
+  helpLabel: {
+    fontSize: 17
+  },
   questionfields: {
     border: "1px solid #cfd8dc",
     boxShadow: "7px 5px #eeeeee",
@@ -147,6 +154,13 @@ const useStyles = makeStyles(theme => ({
     },
     optionLabel: {
       paddingLeft: 8
+    },
+    helpLabel: {
+      fontSize: 19
+    },
+    helpLink: {
+      marginLeft: "6%",
+      fontSize: 19
     }
   },
 
@@ -156,6 +170,10 @@ const useStyles = makeStyles(theme => ({
       top: 176,
       marginBottom: "22%",
       left: "0%"
+    },
+    helpLink: {
+      marginLeft: "6%",
+      fontSize: 19
     },
     input: {
       width: "100%",
@@ -204,6 +222,9 @@ const useStyles = makeStyles(theme => ({
     },
     optionLabel: {
       paddingLeft: 8
+    },
+    helpLabel: {
+      fontSize: 19
     }
   }
 }));
@@ -497,13 +518,13 @@ function QuizForm(props) {
                       </label>
                     </fieldset>
                     {row.hint != undefined ? (
-                      <fieldset className={classes.questionContent}>
+                      <fieldset className={classes.helpLink}>
                         <Link
                           href={row.hint}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <label className={classes.questionLabel}>
+                          <label className={classes.helpLabel}>
                             Click here for help <WbIncandescentSharpIcon />
                           </label>
                         </Link>
