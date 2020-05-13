@@ -5,6 +5,7 @@ import { links } from "../Config";
 
 import { useForm } from "react-hook-form/dist/react-hook-form.ie11";
 import { useHistory } from "react-router-dom";
+import WbIncandescentSharpIcon from "@material-ui/icons/WbIncandescentSharp";
 import Link from "@material-ui/core/Link";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -495,6 +496,22 @@ function QuizForm(props) {
                         )}
                       </label>
                     </fieldset>
+                    {row.hint != undefined ? (
+                      <fieldset className={classes.questionContent}>
+                        <Link
+                          href={row.hint}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <label className={classes.questionLabel}>
+                            Click here for help <WbIncandescentSharpIcon />
+                          </label>
+                        </Link>
+                      </fieldset>
+                    ) : (
+                      ""
+                    )}
+
                     <fieldset className={classes.questionOption}>
                       <label className={classes.optionLabel}>
                         <input
