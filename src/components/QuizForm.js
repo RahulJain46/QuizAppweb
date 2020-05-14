@@ -445,9 +445,7 @@ function QuizForm(props) {
               name="mobile"
               ref={register({
                 required: true,
-                pattern: /^\d*$/,
-                maxLength: 10,
-                minLength: 10
+                pattern: /^\d*$/
               })}
             />
             {errors.mobile && (
