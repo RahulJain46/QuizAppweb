@@ -256,6 +256,7 @@ function QuizForm(props) {
   const [questions, setQuestions] = useState([]);
   const [questionsId, setQuestionsId] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [toggleButton, setToggleButton] = useState(false);
   let result = "";
   const date = props.match.params.date;
 
@@ -332,13 +333,14 @@ function QuizForm(props) {
   };
 
   const onSubmit = (data, ques, quesId) => {
+    setToggleButton(true);
     var myMap = new Map();
     for (const key in data) {
       myMap.set(key, data[key]);
     }
     const time = moment().format("DD:MM:YYYY HH:mm:ss");
     const uuid = uuidv5(
-      myMap.get("fullname") + myMap.get("mobile"),
+      myMap.get("fullname").trim() + myMap.get("mobile").trim(),
       uuidv5.DNS
     );
     let userResponseJson = {};
@@ -346,14 +348,14 @@ function QuizForm(props) {
     userResponseJson["comment"] = "";
     userResponseJson["userId"] = uuid;
     userResponseJson["feedback"] = myMap.get("feedback");
-    userResponseJson["suggestion"] = myMap.get("suggestion");
+    userResponseJson["suggestion"] = myMap.get("suggestion").trim();
     userResponseJson = calcaulateScore(ques, myMap, userResponseJson);
     const date = props.match.params.date;
     let usersJson = {};
-    usersJson["fullname"] = myMap.get("fullname");
-    usersJson["city"] = myMap.get("city");
-    usersJson["mobile"] = myMap.get("mobile");
-    usersJson["address"] = myMap.get("address");
+    usersJson["fullname"] = myMap.get("fullname").trim();
+    usersJson["city"] = myMap.get("city").trim();
+    usersJson["mobile"] = myMap.get("mobile").trim();
+    usersJson["address"] = myMap.get("address").trim();
     usersJson["userId"] = uuid;
     const userData = Object.assign(data, {
       id: uuid,
@@ -365,7 +367,7 @@ function QuizForm(props) {
         return response.json();
       })
       .then(count => {
-        if (count == 1) {
+        if (count > 0) {
           fetch(
             links.backendURL +
               "usersresponse?" +
@@ -676,6 +678,7 @@ function QuizForm(props) {
                 variant="contained"
                 className={classes.button}
                 type="submit"
+                disabled={toggleButton}
               >
                 Submit
               </Button>
