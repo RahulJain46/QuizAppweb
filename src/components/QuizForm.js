@@ -12,6 +12,7 @@ import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
+import moment from "moment";
 import red from "@material-ui/core/colors/red";
 const error = red[700];
 
@@ -322,7 +323,7 @@ function QuizForm(props) {
     for (const key in data) {
       myMap.set(key, data[key]);
     }
-    const time = new Date().toLocaleString();
+    const time = moment().format("DD-MM-YYYY HH-mm-ss");
     const uuid = uuidv5(
       myMap.get("fullname") + myMap.get("mobile"),
       uuidv5.DNS
@@ -517,7 +518,7 @@ function QuizForm(props) {
                         )}
                       </label>
                     </fieldset>
-                    {row.hint != undefined ? (
+                    {row.hint != undefined && row.hint.length > 0 ? (
                       <fieldset className={classes.helpLink}>
                         <Link
                           href={row.hint}
