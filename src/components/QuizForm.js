@@ -449,7 +449,7 @@ function QuizForm(props) {
               })}
             />
             {errors.mobile && (
-              <p className={classes.error}>This field is required</p>
+              <p className={classes.error}>Please enter 10 digit number</p>
             )}
             <label className={classes.label}>
               {reactStringReplace(
