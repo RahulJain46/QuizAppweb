@@ -599,7 +599,16 @@ function QuizForm(props) {
                 <CardContent>
                   <fieldset className={classes.questionContent}>
                     <label className={classes.label}>
-                      आपको यह क्विज एप्लिकेशन कैसी लगी|
+                      {reactStringReplace(
+                        "आपको यह क्विज एप्लिकेशन कैसी लगी।  *",
+                        new RegExp(/(\*)/g),
+                        (match, i) => (
+                          <span key={i} style={{ color: error }}>
+                            {" "}
+                            {match}{" "}
+                          </span>
+                        )
+                      )}
                     </label>
                   </fieldset>
 
