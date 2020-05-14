@@ -443,7 +443,12 @@ function QuizForm(props) {
               className={classes.input}
               placeholder="Mobile Number"
               name="mobile"
-              ref={register({ required: true })}
+              ref={register({
+                required: true,
+                pattern: /^\d*$/,
+                maxLength: 10,
+                minLength: 10
+              })}
             />
             {errors.mobile && (
               <p className={classes.error}>This field is required</p>
@@ -464,7 +469,7 @@ function QuizForm(props) {
               className={classes.input}
               placeholder="Full Name"
               name="fullname"
-              ref={register({ required: true })}
+              ref={register({ required: true, maxLength: 22 })}
             />
             {errors.fullname && (
               <p className={classes.error}> This field is required</p>
@@ -485,7 +490,7 @@ function QuizForm(props) {
               className={classes.input}
               placeholder="City"
               name="city"
-              ref={register({ required: true })}
+              ref={register({ required: true, maxLength: 22 })}
             />
             {errors.city && (
               <p className={classes.error}>This field is required</p>
@@ -506,7 +511,7 @@ function QuizForm(props) {
               className={classes.input}
               placeholder="Address"
               name="address"
-              ref={register({ required: true })}
+              ref={register({ required: true, maxLength: 25 })}
             />
             {errors.address && (
               <p className={classes.error}>This field is required</p>
