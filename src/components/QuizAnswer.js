@@ -10,6 +10,8 @@ import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import Typography from "@material-ui/core/Typography";
+import Fade from "@material-ui/core/Fade";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import { links } from "../Config";
@@ -149,9 +151,9 @@ export default function QuizAnswer1(props) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const date = props.match.params.date;
+  const [loading, setLoading] = useState(true);
 
   const [answers, setAnswers] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -204,54 +206,68 @@ export default function QuizAnswer1(props) {
       <Typography variant="h6" gutterBottom className={classes.headerDate}>
         Date: {date}
       </Typography>
-      <TableContainer className={classes.container}>
-        <Table
-          stickyHeader
-          aria-label="sticky table"
-          className={classes.tableHeader}
-        >
-          <TableHead className={classes.tablecolumns}>
-            <TableRow>
-              <TableCell key="name" className={classes.tableNumber}>
-                No.
-              </TableCell>
-              <TableCell key="name" className={classes.tableQuestion}>
-                QUESTIONS
-              </TableCell>
-              <TableCell key="code" className={classes.tableAnswer}>
-                ANSWER
-              </TableCell>
-              <TableCell key="population" className={classes.tableRemarks}>
-                REMARKS
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {answers.map(answer => {
-              return answer.map((row, index) => (
-                <TableRow>
-                  <TableCell className={classes.tableNumberCell}>
-                    {index + 1}
-                  </TableCell>
-                  <TableCell
-                    component="th"
-                    scope="row"
-                    className={classes.tableCell}
-                  >
-                    {row.question}
-                  </TableCell>
-                  <TableCell className={classes.tableCell}>
-                    {row.answer.toUpperCase()}
-                  </TableCell>
-                  <TableCell className={classes.tableRemarkCell}>
-                    {row.remarks}
-                  </TableCell>
-                </TableRow>
-              ));
-            })}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      {answers.length != 0 && !loading ? (
+        <TableContainer className={classes.container}>
+          <Table
+            stickyHeader
+            aria-label="sticky table"
+            className={classes.tableHeader}
+          >
+            <TableHead className={classes.tablecolumns}>
+              <TableRow>
+                <TableCell key="name" className={classes.tableNumber}>
+                  No.
+                </TableCell>
+                <TableCell key="name" className={classes.tableQuestion}>
+                  QUESTIONS
+                </TableCell>
+                <TableCell key="code" className={classes.tableAnswer}>
+                  ANSWER
+                </TableCell>
+                <TableCell key="population" className={classes.tableRemarks}>
+                  REMARKS
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {answers.map(answer => {
+                return answer.map((row, index) => (
+                  <TableRow>
+                    <TableCell className={classes.tableNumberCell}>
+                      {index + 1}
+                    </TableCell>
+                    <TableCell
+                      component="th"
+                      scope="row"
+                      className={classes.tableCell}
+                    >
+                      {row.question}
+                    </TableCell>
+                    <TableCell className={classes.tableCell}>
+                      {row.answer.toUpperCase()}
+                    </TableCell>
+                    <TableCell className={classes.tableRemarkCell}>
+                      {row.remarks}
+                    </TableCell>
+                  </TableRow>
+                ));
+              })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      ) : (
+        <div className={classes.loading}>
+          <Fade
+            in={loading}
+            style={{
+              transitionDelay: loading ? "800ms" : "0ms"
+            }}
+            unmountOnExit
+          >
+            <CircularProgress />
+          </Fade>
+        </div>
+      )}
     </Paper>
   );
 }
