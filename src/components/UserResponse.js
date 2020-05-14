@@ -42,6 +42,7 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
     backgroundColor: "#e9ecef",
     borderRadius: 4,
+    opacity: 1,
     border: "1px solid #bdbdbd",
     padding: "10px 15px",
     margin: 10,
@@ -118,7 +119,8 @@ const useStyles = makeStyles(theme => ({
       fontSize: 17,
       padding: "8px 8px",
       boxShadow: "3px 3px #eeeeee",
-      fontWeight: "500"
+      fontWeight: "500",
+      opacity: 1
     },
     correct: {
       color: success,
@@ -172,7 +174,8 @@ const useStyles = makeStyles(theme => ({
       fontSize: 21,
       padding: "8px 8px",
       boxShadow: "3px 3px #eeeeee",
-      fontWeight: "500"
+      fontWeight: "500",
+      opacity: 1
     },
     correct: {
       color: success,
