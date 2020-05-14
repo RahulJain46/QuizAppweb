@@ -4,8 +4,12 @@ import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
+import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
+import Typography from "@material-ui/core/Typography";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import { links } from "../Config";
@@ -17,6 +21,20 @@ const useStyles = makeStyles(theme => ({
     top: 151,
     left: "19%",
     bottom: "9%"
+  },
+  backButton: {
+    backgroundColor: "#1976d2"
+  },
+  headerDate: {
+    fontWeight: 600,
+    textAlign: "center",
+    fontSize: 23
+  },
+  headerBackButton: {
+    textAlign: "left",
+    fontWeight: 600,
+    textAlign: "center",
+    fontSize: 23
   },
   container: {
     maxHeight: "100%",
@@ -114,6 +132,14 @@ const useStyles = makeStyles(theme => ({
     },
     tableHeader: {
       marginLeft: 3
+    },
+    backButton: {
+      backgroundColor: "#1976d2",
+      padding: "3px 10px",
+      fontSize: 11
+    },
+    backArrow: {
+      fontSize: 15
     }
   }
 }));
@@ -122,6 +148,7 @@ export default function QuizAnswer1(props) {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const date = props.match.params.date;
 
   const [answers, setAnswers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -157,6 +184,26 @@ export default function QuizAnswer1(props) {
 
   return (
     <Paper className={classes.tableheading}>
+      <Typography
+        variant="h6"
+        gutterBottom
+        className={classes.headerBackButton}
+      >
+        <Link to={`/`}>
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.backButton}
+          >
+            <ArrowBackIosIcon className={classes.backArrow} />
+            Go to home
+          </Button>
+        </Link>
+      </Typography>
+
+      <Typography variant="h6" gutterBottom className={classes.headerDate}>
+        Date: {date}
+      </Typography>
       <TableContainer className={classes.container}>
         <Table
           stickyHeader
@@ -194,7 +241,7 @@ export default function QuizAnswer1(props) {
                     {row.question}
                   </TableCell>
                   <TableCell className={classes.tableCell}>
-                   {row.answer.toUpperCase()}
+                    {row.answer.toUpperCase()}
                   </TableCell>
                   <TableCell className={classes.tableRemarkCell}>
                     {row.remarks}

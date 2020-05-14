@@ -4,6 +4,8 @@ import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import { withStyles } from "@material-ui/core/styles";
 import TableCell from "@material-ui/core/TableCell";
+import { Link } from "react-router-dom";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import Paper from "@material-ui/core/Paper";
 import { AutoSizer, Column, Table } from "react-virtualized";
 import Card from "@material-ui/core/Card";
@@ -22,7 +24,17 @@ const useStyles = makeStyles(theme => ({
     marginRight: "30%",
     border: "1px solid #bdbdbd"
   },
-
+  backButton: {
+    backgroundColor: "#1976d2"
+  },
+  backHomeButton: {
+    paddingBottom: 12,
+    position: "relative",
+    top: 153,
+    marginLeft: "30%",
+    fontSize: "xx-large",
+    fontWeight: 600
+  },
   totalCount: {
     position: "relative",
     top: 153,
@@ -30,6 +42,9 @@ const useStyles = makeStyles(theme => ({
     fontSize: "xx-large",
     fontWeight: 600
   },
+  // rowColumn: {
+  //   border: "1px solid"
+  // },
   insideTable: {
     marginLeft: "1%",
     position: "absolute"
@@ -41,20 +56,8 @@ const useStyles = makeStyles(theme => ({
       fontSize: 16,
       fontWeight: 600
     },
-    paperTable: {
-      top: 45,
-      marginLeft: "1%",
-      marginRight: "-3.5%",
-      marginBottom: "24%"
-    },
-    insideTable: {
-      marginLeft: "0%",
-      position: "absolute"
-    }
-  },
-
-  [theme.breakpoints.between("361", "xs")]: {
-    totalCount: {
+    backHomeButton: {
+      paddingBottom: 12,
       top: 43,
       marginLeft: "1%",
       fontSize: 16,
@@ -69,6 +72,56 @@ const useStyles = makeStyles(theme => ({
     insideTable: {
       marginLeft: "0%",
       position: "absolute"
+    },
+    backButton: {
+      backgroundColor: "#1976d2",
+      padding: "3px 10px",
+      fontSize: 11
+    },
+    backArrow: {
+      fontSize: 15
+    },
+    rowColumn: {
+      borderBottom: "1px solid",
+      overflow: "overlay"
+    }
+  },
+
+  [theme.breakpoints.between("361", "xs")]: {
+    totalCount: {
+      top: 43,
+      marginLeft: "1%",
+      fontSize: 16,
+      fontWeight: 600
+    },
+    backHomeButton: {
+      paddingBottom: 12,
+      top: 43,
+      marginLeft: "1%",
+      fontSize: 16,
+      fontWeight: 600
+    },
+    paperTable: {
+      top: 45,
+      marginLeft: "1%",
+      marginRight: "-3.5%",
+      marginBottom: "24%"
+    },
+    insideTable: {
+      marginLeft: "0%",
+      position: "absolute"
+    },
+    backButton: {
+      backgroundColor: "#1976d2",
+      padding: "3px 10px",
+      fontSize: 11
+    },
+    rowColumn: {
+      border: "1px solid",
+      overflow: "overlay"
+    },
+    backArrow: {
+      fontSize: 15
     }
   }
 }));
@@ -100,6 +153,13 @@ const styles = theme => ({
   },
   noClick: {
     cursor: "initial"
+  },
+  tableHeadingone: {
+    backgroundColor: "#dee2e6",
+    border: "1px solid"
+  },
+  rowColumn: {
+    borderBottom: "1px solid"
   }
 });
 
@@ -116,15 +176,20 @@ class MuiVirtualizedTable extends React.PureComponent {
       [classes.tableRowHover]: index !== -1 && onRowClick != null
     });
   };
-
+  // inside row
   cellRenderer = ({ cellData, columnIndex }) => {
     const { columns, classes, rowHeight, onRowClick } = this.props;
     return (
       <TableCell
         component="div"
-        className={clsx(classes.tableCell, classes.flexContainer, {
-          [classes.noClick]: onRowClick == null
-        })}
+        className={clsx(
+          classes.tableCell,
+          classes.flexContainer,
+          classes.rowColumn,
+          {
+            [classes.noClick]: onRowClick == null
+          }
+        )}
         variant="body"
         style={{ height: rowHeight }}
         align={
@@ -147,10 +212,11 @@ class MuiVirtualizedTable extends React.PureComponent {
         className={clsx(
           classes.tableCell,
           classes.flexContainer,
-          classes.noClick
+          classes.noClick,
+          classes.tableHeadingone
         )}
         variant="head"
-        style={{ height: headerHeight }}
+        style={{ height: headerHeight, backgroundColor: "#dee2e6" }}
         align={columns[columnIndex].numeric || false ? "right" : "left"}
       >
         <span>{label}</span>
@@ -224,25 +290,6 @@ const VirtualizedTable = withStyles(styles)(MuiVirtualizedTable);
 
 // ---
 
-const sample = [
-  ["Frozen yoghurt", 159, 6.0, 24, 4.0],
-  ["Ice cream sandwich", 237, 9.0, 37, 4.3],
-  ["Eclair", 262, 16.0, 24, 6.0],
-  ["Cupcake", 305, 3.7, 67, 4.3],
-  ["Gingerbread", 356, 16.0, 49, 3.9]
-];
-
-function createData(id, dessert, calories, fat, carbs, protein) {
-  return { id, dessert, calories, fat, carbs, protein };
-}
-
-const rows = [];
-
-for (let i = 0; i < 200; i += 1) {
-  const randomSelection = sample[Math.floor(Math.random() * sample.length)];
-  rows.push(createData(i, ...randomSelection));
-}
-
 export default function QuizResult(props) {
   const classes = useStyles();
   const [users, setUsers] = useState([]);
@@ -265,6 +312,21 @@ export default function QuizResult(props) {
 
   return (
     <div>
+      <Typography className={classes.backHomeButton} color="textSecondary">
+        <Link to={`/`}>
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.backButton}
+          >
+            <ArrowBackIosIcon className={classes.backArrow} />
+            Go to home
+          </Button>
+        </Link>
+      </Typography>
+      <Typography className={classes.totalCount} color="textSecondary">
+        Date: {date}
+      </Typography>
       <Typography className={classes.totalCount} color="textSecondary">
         Total Number of participants: {users.length}
       </Typography>
@@ -276,22 +338,26 @@ export default function QuizResult(props) {
           columns={[
             {
               width: 200,
+              backgroundColor: "#dee2e6",
               label: "Time",
               dataKey: "time"
             },
             {
               width: 200,
+              backgroundColor: "#dee2e6",
               label: "Name of participant",
               dataKey: "fullname"
             },
             {
               width: 180,
               label: "City",
+              backgroundColor: "#dee2e6",
               dataKey: "city"
             },
             {
               width: 150,
               label: "Score",
+              backgroundColor: "#dee2e6",
               dataKey: "score"
             }
           ]}

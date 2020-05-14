@@ -27,6 +27,11 @@ const useStyles = makeStyles(theme => ({
     left: "30%",
     width: "100%"
   },
+  headerDate: {
+    fontWeight: 600,
+    textAlign: "center",
+    fontSize: 23
+  },
   helpLink: {
     marginLeft: "2%",
     fontSize: 17
@@ -245,6 +250,7 @@ function QuizForm(props) {
   const [questionsId, setQuestionsId] = useState([]);
   const [loading, setLoading] = useState(true);
   let result = "";
+  const date = props.match.params.date;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -398,250 +404,263 @@ function QuizForm(props) {
   const reactStringReplace = require("react-string-replace");
 
   return (
-    <Card className={classes.container}>
-      <CardContent>
-        <form
-          onSubmit={handleSubmit(data =>
-            onSubmit(data, questions, questionsId)
-          )}
-        >
-          <Typography
-            variant="h9"
-            component="h9"
-            className={classes.asteriskField}
+    <React.Fragment>
+      <Card className={classes.container}>
+        <CardContent>
+          <form
+            onSubmit={handleSubmit(data =>
+              onSubmit(data, questions, questionsId)
+            )}
           >
-            * Required field
-          </Typography>
+            <Typography
+              variant="h6"
+              gutterBottom
+              className={classes.headerDate}
+            >
+              Date: {date}
+            </Typography>
+            <Typography
+              variant="h9"
+              component="h9"
+              className={classes.asteriskField}
+            >
+              * Required field
+            </Typography>
 
-          <label className={classes.label}>
-            {reactStringReplace(
-              "Mobile No. *",
-              new RegExp(/(\*)/g),
-              (match, i) => (
-                <span key={i} style={{ color: error }}>
-                  {" "}
-                  {match}{" "}
-                </span>
-              )
+            <label className={classes.label}>
+              {reactStringReplace(
+                "Mobile No. *",
+                new RegExp(/(\*)/g),
+                (match, i) => (
+                  <span key={i} style={{ color: error }}>
+                    {" "}
+                    {match}{" "}
+                  </span>
+                )
+              )}
+            </label>
+            <input
+              className={classes.input}
+              placeholder="Mobile Number"
+              name="mobile"
+              ref={register({ required: true })}
+            />
+            {errors.mobile && (
+              <p className={classes.error}>This field is required</p>
             )}
-          </label>
-          <input
-            className={classes.input}
-            placeholder="Mobile Number"
-            name="mobile"
-            ref={register({ required: true })}
-          />
-          {errors.mobile && (
-            <p className={classes.error}>This field is required</p>
-          )}
-          <label className={classes.label}>
-            {reactStringReplace(
-              "Full Name *",
-              new RegExp(/(\*)/g),
-              (match, i) => (
-                <span key={i} style={{ color: error }}>
-                  {" "}
-                  {match}{" "}
-                </span>
-              )
+            <label className={classes.label}>
+              {reactStringReplace(
+                "Full Name *",
+                new RegExp(/(\*)/g),
+                (match, i) => (
+                  <span key={i} style={{ color: error }}>
+                    {" "}
+                    {match}{" "}
+                  </span>
+                )
+              )}
+            </label>
+            <input
+              className={classes.input}
+              placeholder="Full Name"
+              name="fullname"
+              ref={register({ required: true })}
+            />
+            {errors.fullname && (
+              <p className={classes.error}> This field is required</p>
             )}
-          </label>
-          <input
-            className={classes.input}
-            placeholder="Full Name"
-            name="fullname"
-            ref={register({ required: true })}
-          />
-          {errors.fullname && (
-            <p className={classes.error}> This field is required</p>
-          )}
-          <label className={classes.label}>
-            {reactStringReplace(
-              "City/Town/Village *",
-              new RegExp(/(\*)/g),
-              (match, i) => (
-                <span key={i} style={{ color: error }}>
-                  {" "}
-                  {match}{" "}
-                </span>
-              )
+            <label className={classes.label}>
+              {reactStringReplace(
+                "City/Town/Village *",
+                new RegExp(/(\*)/g),
+                (match, i) => (
+                  <span key={i} style={{ color: error }}>
+                    {" "}
+                    {match}{" "}
+                  </span>
+                )
+              )}
+            </label>
+            <input
+              className={classes.input}
+              placeholder="City"
+              name="city"
+              ref={register({ required: true })}
+            />
+            {errors.city && (
+              <p className={classes.error}>This field is required</p>
             )}
-          </label>
-          <input
-            className={classes.input}
-            placeholder="City"
-            name="city"
-            ref={register({ required: true })}
-          />
-          {errors.city && (
-            <p className={classes.error}>This field is required</p>
-          )}
-          <label className={classes.label}>
-            {reactStringReplace(
-              "Address In Short *",
-              new RegExp(/(\*)/g),
-              (match, i) => (
-                <span key={i} style={{ color: error }}>
-                  {" "}
-                  {match}{" "}
-                </span>
-              )
+            <label className={classes.label}>
+              {reactStringReplace(
+                "Address In Short *",
+                new RegExp(/(\*)/g),
+                (match, i) => (
+                  <span key={i} style={{ color: error }}>
+                    {" "}
+                    {match}{" "}
+                  </span>
+                )
+              )}
+            </label>
+            <input
+              className={classes.input}
+              placeholder="Address"
+              name="address"
+              ref={register({ required: true })}
+            />
+            {errors.address && (
+              <p className={classes.error}>This field is required</p>
             )}
-          </label>
-          <input
-            className={classes.input}
-            placeholder="Address"
-            name="address"
-            ref={register({ required: true })}
-          />
-          {errors.address && (
-            <p className={classes.error}>This field is required</p>
-          )}
 
-          {questions.map(question => {
-            return question.map((row, index) => (
-              <Card className={classes.questionfields}>
-                <CardContent>
-                  <fieldset>
-                    <fieldset className={classes.questionContent}>
-                      <label className={classes.questionLabel}>
-                        {index + 1}. {row.question}
-                        {reactStringReplace(
-                          "*",
-                          new RegExp(/(\*)/g),
-                          (match, i) => (
-                            <span key={i} style={{ color: error }}>
-                              {" "}
-                              {match}{" "}
-                            </span>
-                          )
-                        )}
-                      </label>
-                    </fieldset>
-                    {row.hint != undefined && row.hint.length > 0 ? (
-                      <fieldset className={classes.helpLink}>
-                        <Link
-                          href={row.hint}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <label className={classes.helpLabel}>
-                            Click here for help <WbIncandescentSharpIcon />
-                          </label>
-                        </Link>
+            {questions.map(question => {
+              return question.map((row, index) => (
+                <Card className={classes.questionfields}>
+                  <CardContent>
+                    <fieldset>
+                      <fieldset className={classes.questionContent}>
+                        <label className={classes.questionLabel}>
+                          {index + 1}. {row.question}
+                          {reactStringReplace(
+                            "*",
+                            new RegExp(/(\*)/g),
+                            (match, i) => (
+                              <span key={i} style={{ color: error }}>
+                                {" "}
+                                {match}{" "}
+                              </span>
+                            )
+                          )}
+                        </label>
                       </fieldset>
-                    ) : (
-                      ""
-                    )}
+                      {row.hint != undefined && row.hint.length > 0 ? (
+                        <fieldset className={classes.helpLink}>
+                          <Link
+                            href={row.hint}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <label className={classes.helpLabel}>
+                              Click here for help <WbIncandescentSharpIcon />
+                            </label>
+                          </Link>
+                        </fieldset>
+                      ) : (
+                        ""
+                      )}
 
-                    <fieldset className={classes.questionOption}>
-                      <label className={classes.optionLabel}>
-                        <input
-                          type="radio"
-                          className={classes.radioButton}
-                          value="YES"
-                          name={row.question}
-                          ref={register({ required: true })}
-                          label="YES"
-                        />
-                        YES
-                      </label>
+                      <fieldset className={classes.questionOption}>
+                        <label className={classes.optionLabel}>
+                          <input
+                            type="radio"
+                            className={classes.radioButton}
+                            value="YES"
+                            name={row.question}
+                            ref={register({ required: true })}
+                            label="YES"
+                          />
+                          YES
+                        </label>
+                      </fieldset>
+                      <fieldset className={classes.questionOption}>
+                        <label className={classes.optionLabel}>
+                          <input
+                            type="radio"
+                            className={classes.radioButton}
+                            value="NO"
+                            name={row.question}
+                            ref={register({ required: true })}
+                          />
+                          NO
+                        </label>
+                      </fieldset>
+                      {errors[row.question] && (
+                        <p className={classes.error}>This field is required</p>
+                      )}
                     </fieldset>
-                    <fieldset className={classes.questionOption}>
-                      <label className={classes.optionLabel}>
-                        <input
-                          type="radio"
-                          className={classes.radioButton}
-                          value="NO"
-                          name={row.question}
-                          ref={register({ required: true })}
-                        />
-                        NO
-                      </label>
-                    </fieldset>
-                    {errors[row.question] && (
-                      <p className={classes.error}>This field is required</p>
-                    )}
-                  </fieldset>
-                </CardContent>
-              </Card>
-            ));
-          })}
+                  </CardContent>
+                </Card>
+              ));
+            })}
 
-          <Card className={classes.questionfields}>
-            <CardContent>
-              <fieldset className={classes.questionContent}>
-                <label className={classes.label}>
-                  आपको यह क्विज एप्लिकेशन कैसी लगी|
-                </label>
-              </fieldset>
+            <Card className={classes.questionfields}>
+              <CardContent>
+                <fieldset className={classes.questionContent}>
+                  <label className={classes.label}>
+                    आपको यह क्विज एप्लिकेशन कैसी लगी|
+                  </label>
+                </fieldset>
 
-              <fieldset className={classes.questionOption}>
-                <label className={classes.optionLabel}>
-                  <input
-                    type="radio"
-                    className={classes.radioButton}
-                    value="उत्कृष्ट"
-                    name="feedback"
-                    ref={register({ required: true })}
-                  />
-                  उत्कृष्ट
-                </label>
-              </fieldset>
+                <fieldset className={classes.questionOption}>
+                  <label className={classes.optionLabel}>
+                    <input
+                      type="radio"
+                      className={classes.radioButton}
+                      value="उत्कृष्ट"
+                      name="feedback"
+                      ref={register({ required: true })}
+                    />
+                    उत्कृष्ट
+                  </label>
+                </fieldset>
 
-              <fieldset className={classes.questionOption}>
-                <label className={classes.optionLabel}>
-                  <input
-                    type="radio"
-                    className={classes.radioButton}
-                    value="बहुत अच्छी"
-                    name="feedback"
-                    ref={register({ required: true })}
-                  />
-                  बहुत अच्छी
-                </label>
-              </fieldset>
+                <fieldset className={classes.questionOption}>
+                  <label className={classes.optionLabel}>
+                    <input
+                      type="radio"
+                      className={classes.radioButton}
+                      value="बहुत अच्छी"
+                      name="feedback"
+                      ref={register({ required: true })}
+                    />
+                    बहुत अच्छी
+                  </label>
+                </fieldset>
 
-              <fieldset className={classes.questionOption}>
-                <label className={classes.optionLabel}>
-                  <input
-                    type="radio"
-                    className={classes.radioButton}
-                    value="अच्छी"
-                    name="feedback"
-                    ref={register({ required: true })}
-                  />
-                  अच्छी
-                </label>
-              </fieldset>
+                <fieldset className={classes.questionOption}>
+                  <label className={classes.optionLabel}>
+                    <input
+                      type="radio"
+                      className={classes.radioButton}
+                      value="अच्छी"
+                      name="feedback"
+                      ref={register({ required: true })}
+                    />
+                    अच्छी
+                  </label>
+                </fieldset>
 
-              <fieldset className={classes.questionOption}>
-                <label className={classes.optionLabel}>
-                  <input
-                    type="radio"
-                    className={classes.radioButton}
-                    value="औसत"
-                    name="feedback"
-                    ref={register({ required: true })}
-                  />
-                  औसत
-                </label>
-              </fieldset>
-            </CardContent>
-          </Card>
-          <label className={classes.label}>टिप / सुझाव</label>
-          <input
-            className={classes.input}
-            placeholder="Your answer"
-            name="suggestion"
-            ref={register({ required: false })}
-          />
-          <Button variant="contained" className={classes.button} type="submit">
-            Submit
-          </Button>
-        </form>
-      </CardContent>
-    </Card>
+                <fieldset className={classes.questionOption}>
+                  <label className={classes.optionLabel}>
+                    <input
+                      type="radio"
+                      className={classes.radioButton}
+                      value="औसत"
+                      name="feedback"
+                      ref={register({ required: true })}
+                    />
+                    औसत
+                  </label>
+                </fieldset>
+              </CardContent>
+            </Card>
+            <label className={classes.label}>टिप / सुझाव</label>
+            <input
+              className={classes.input}
+              placeholder="Your answer"
+              name="suggestion"
+              ref={register({ required: false })}
+            />
+            <Button
+              variant="contained"
+              className={classes.button}
+              type="submit"
+            >
+              Submit
+            </Button>
+          </form>
+        </CardContent>
+      </Card>
+    </React.Fragment>
   );
 }
 

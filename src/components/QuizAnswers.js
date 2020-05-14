@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
@@ -23,6 +24,9 @@ const useStyles = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: "center"
+  },
+  backButton: {
+    backgroundColor: "#1976d2"
   },
   loading: {
     position: "absolute",
@@ -61,6 +65,14 @@ const useStyles = makeStyles(theme => ({
     button: {
       padding: "4px 6px",
       width: 185
+    },
+    backButton: {
+      backgroundColor: "#1976d2",
+      padding: "3px 10px",
+      fontSize: 11
+    },
+    backArrow: {
+      fontSize: 15
     }
   }
 }));
@@ -125,6 +137,16 @@ function QuizAnswers() {
             >
               ANSWER SHEETS
             </Typography>
+            <Link to={`/`}>
+              <Button
+                variant="contained"
+                color="primary"
+                className={classes.backButton}
+              >
+                <ArrowBackIosIcon className={classes.backArrow} />
+                Go to home
+              </Button>
+            </Link>
           </Paper>
         </Grid>
         {dates.length != 0 && !loading ? (
