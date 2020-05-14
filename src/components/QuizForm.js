@@ -323,7 +323,7 @@ function QuizForm(props) {
     for (const key in data) {
       myMap.set(key, data[key]);
     }
-    const time = moment().format("DD-MM-YYYY HH-mm-ss");
+    const time = moment().format("DD:MM:YYYY HH:mm:ss");
     const uuid = uuidv5(
       myMap.get("fullname") + myMap.get("mobile"),
       uuidv5.DNS
