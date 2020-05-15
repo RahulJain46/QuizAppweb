@@ -75,12 +75,17 @@ const useStyles = makeStyles(theme => ({
     },
     mobileInput: {
       display: "block",
-      marginLeft: "18%",
+      left: 0,
+      right: 0,
+      margin: "0 auto",
       marginBottom: 10,
       boxShadow: "4px 4px #eeeeee"
     },
     feedbackInput: {
-      marginLeft: "-11%",
+      left: 0,
+      right: 0,
+      margin: "0 auto",
+      marginBottom: 17,
       paddingBottom: 0,
       marginBottom: 17,
       boxShadow: "4px 4px #eeeeee"
@@ -99,11 +104,15 @@ const useStyles = makeStyles(theme => ({
     },
     comment: {
       display: "block",
-      marginLeft: -33
+      textAlign: "center"
     },
     submitButton: {
       textAlign: "center",
       marginRight: 28
+    },
+    mobilenumber: {
+      textAlign: "center",
+      display: "block"
     }
   },
   [theme.breakpoints.down("361")]: {
@@ -112,12 +121,10 @@ const useStyles = makeStyles(theme => ({
     },
     mobileInput: {
       display: "block",
-      marginLeft: "18%",
       marginBottom: 10,
       boxShadow: "4px 4px #eeeeee"
     },
     feedbackInput: {
-      marginLeft: "-11%",
       paddingBottom: 0,
       marginBottom: 17,
       boxShadow: "4px 4px #eeeeee"
@@ -138,19 +145,6 @@ const useStyles = makeStyles(theme => ({
     submitButton: {
       textAlign: "center",
       marginRight: 28
-    }
-  },
-  [theme.breakpoints.between("362", "430")]: {
-    mobileInput: {
-      marginLeft: "21%"
-    }
-  },
-  [theme.breakpoints.between("430", "501")]: {
-    mobileInput: {
-      marginLeft: "28%"
-    },
-    feedbackInput: {
-      marginLeft: "-5%"
     }
   }
 }));
@@ -238,12 +232,14 @@ function Home() {
             {toggleButton === false ? (
               <React.Fragment>
                 {" "}
-                <label className={classes.mobilenumber}>Mobile Number</label>
-                <input
-                  name="mobilenumber"
-                  ref={register}
-                  className={classes.mobileInput}
-                />
+                <div>
+                  <label className={classes.mobilenumber}>Mobile Number</label>
+                  <input
+                    name="mobilenumber"
+                    ref={register}
+                    className={classes.mobileInput}
+                  />
+                </div>
                 <label className={classes.comment}>Comment</label>
                 <input
                   name="comment"
