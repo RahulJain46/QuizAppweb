@@ -14,6 +14,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { links } from "../Config";
+import moment from "moment";
 
 const useStyles = makeStyles(theme => ({
   paperTable: {
@@ -305,6 +306,11 @@ export default function QuizResult(props) {
         return response.json();
       })
       .then(usersResponse => {
+        usersResponse.sort(
+          (a, b) =>
+            moment(a.time, "DD:MM:YYYY HH:mm:ss") -
+            moment(b.time, "DD:MM:YYYY HH:mm:ss")
+        );
         setUsers(usersResponse);
       })
       .catch(error => console.log("error is", error));
