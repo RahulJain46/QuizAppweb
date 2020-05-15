@@ -1,10 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
 import { Link } from "react-router-dom";
+import { links } from "../../Config";
+import { useForm } from "react-hook-form";
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -12,6 +16,14 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center"
   },
   button: {
+    backgroundColor: "#1976d2",
+    color: "#fff",
+    width: 188,
+    "&:hover": {
+      backgroundColor: "#303f9f"
+    }
+  },
+  feedbackButton: {
     backgroundColor: "#1976d2",
     color: "#fff",
     width: 188,
@@ -50,9 +62,95 @@ const useStyles = makeStyles(theme => ({
       padding: "0px ! important",
       paddingTop: "10px ! important"
     },
+    feedbackButton: {
+      padding: "4px 6px",
+      width: 111
+    },
     button: {
       padding: "4px 6px",
       width: 185
+    },
+    form: {
+      display: "inline-block"
+    },
+    mobileInput: {
+      display: "block",
+      marginLeft: "18%",
+      marginBottom: 10,
+      boxShadow: "4px 4px #eeeeee"
+    },
+    feedbackInput: {
+      marginLeft: "-11%",
+      paddingBottom: 0,
+      marginBottom: 17,
+      boxShadow: "4px 4px #eeeeee"
+    },
+    formContainer: {
+      textAlign: "center",
+      marginTop: 18
+    },
+    message: {
+      marginBottom: 14,
+      fontSize: 16,
+      fontWeight: 500
+    },
+    responseMessage: {
+      color: "#d34242"
+    },
+    comment: {
+      display: "block",
+      marginLeft: -33
+    },
+    submitButton: {
+      textAlign: "center",
+      marginRight: 28
+    }
+  },
+  [theme.breakpoints.down("361")]: {
+    form: {
+      display: "inline-block"
+    },
+    mobileInput: {
+      display: "block",
+      marginLeft: "18%",
+      marginBottom: 10,
+      boxShadow: "4px 4px #eeeeee"
+    },
+    feedbackInput: {
+      marginLeft: "-11%",
+      paddingBottom: 0,
+      marginBottom: 17,
+      boxShadow: "4px 4px #eeeeee"
+    },
+    formContainer: {
+      textAlign: "center",
+      marginTop: 18
+    },
+    message: {
+      marginBottom: 14,
+      fontSize: 16,
+      fontWeight: 500
+    },
+    comment: {
+      display: "block",
+      marginLeft: -33
+    },
+    submitButton: {
+      textAlign: "center",
+      marginRight: 28
+    }
+  },
+  [theme.breakpoints.between("362", "430")]: {
+    mobileInput: {
+      marginLeft: "21%"
+    }
+  },
+  [theme.breakpoints.between("430", "501")]: {
+    mobileInput: {
+      marginLeft: "28%"
+    },
+    feedbackInput: {
+      marginLeft: "-5%"
     }
   }
 }));
@@ -60,6 +158,7 @@ const useStyles = makeStyles(theme => ({
 function Home() {
   const classes = useStyles();
   const date = new Date();
+  const [toggleButton, setToggleButton] = useState(false);
   const day =
     new Date().getDate() > 9
       ? new Date().getDate()
@@ -69,6 +168,17 @@ function Home() {
   const month = date
     .toLocaleString("default", { month: "short" })
     .toUpperCase();
+  const { register, handleSubmit, watch, errors } = useForm();
+  const onSubmit = data => {
+    let userOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    };
+    fetch(links.backendURL + "comments", userOptions).then(response => {
+      setToggleButton(true);
+    });
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -118,6 +228,46 @@ function Home() {
           </Link>
         </Grid>
       </Grid>
+      <Card className={classes.formContainer}>
+        <CardContent>
+          <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
+            <label className={classes.message}>
+              यदि आपको उक्त QUIZ भरने में कोई तकनीकी समस्या आ रही है तो कृपया
+              निम्न फार्म में समस्या का विवरण लिखें
+            </label>
+            {toggleButton === false ? (
+              <React.Fragment>
+                {" "}
+                <label className={classes.mobilenumber}>Mobile Number</label>
+                <input
+                  name="mobilenumber"
+                  ref={register}
+                  className={classes.mobileInput}
+                />
+                <label className={classes.comment}>Comment</label>
+                <input
+                  name="comment"
+                  ref={register}
+                  className={classes.feedbackInput}
+                />
+                <div className={classes.submitButton}>
+                  <Button
+                    variant="contained"
+                    className={classes.feedbackButton}
+                    type="submit"
+                  >
+                    Submit
+                  </Button>
+                </div>
+              </React.Fragment>
+            ) : (
+              <label className={classes.responseMessage}>
+                Thanks for your comment, we will contact you soon.
+              </label>
+            )}
+          </form>
+        </CardContent>
+      </Card>
     </div>
   );
 }
