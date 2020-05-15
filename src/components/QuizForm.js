@@ -520,7 +520,7 @@ function QuizForm(props) {
                 className={classes.input}
                 placeholder="Address"
                 name="address"
-                ref={register({ required: true, maxLength: 25 })}
+                ref={register({ required: true })}
               />
               {errors.address && (
                 <p className={classes.error}>This field is required</p>
