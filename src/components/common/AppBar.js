@@ -145,7 +145,7 @@ export default function appBar() {
             </Toolbar>
           </AppBar>
           <Paper className={classes.paper}>
-            प्रच्छना स्वाध्याय" NEW QUIZ WILL BE UPLOADED DAILY BY 10:00 AM
+            "प्रच्छना स्वाध्याय" NEW QUIZ WILL BE UPLOADED DAILY BY 12:01 AM
           </Paper>
         </React.Fragment>
       )}
