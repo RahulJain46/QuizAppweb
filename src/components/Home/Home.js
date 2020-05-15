@@ -23,6 +23,9 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "#303f9f"
     }
   },
+  form: {
+    display: "inline-block"
+  },
   feedbackButton: {
     backgroundColor: "#1976d2",
     color: "#fff",
@@ -30,6 +33,46 @@ const useStyles = makeStyles(theme => ({
     "&:hover": {
       backgroundColor: "#303f9f"
     }
+  },
+  mobileInput: {
+    display: "block",
+    left: 0,
+    right: 0,
+    margin: "0 auto",
+    marginBottom: 10,
+    boxShadow: "4px 4px #eeeeee"
+  },
+  feedbackInput: {
+    left: 0,
+    right: 0,
+    margin: "0 auto",
+    marginBottom: 17,
+    paddingBottom: 0,
+    marginBottom: 17,
+    boxShadow: "4px 4px #eeeeee"
+  },
+  formContainer: {
+    textAlign: "center",
+    marginTop: 18
+  },
+  message: {
+    marginBottom: 14,
+    fontSize: 16,
+    fontWeight: 500
+  },
+  responseMessage: {
+    color: "#d34242"
+  },
+  comment: {
+    display: "block",
+    textAlign: "center"
+  },
+  submitButton: {
+    textAlign: "center"
+  },
+  mobilenumber: {
+    textAlign: "center",
+    display: "block"
   },
   home: {
     flexGrow: 1,
@@ -107,8 +150,7 @@ const useStyles = makeStyles(theme => ({
       textAlign: "center"
     },
     submitButton: {
-      textAlign: "center",
-      marginRight: 28
+      textAlign: "center"
     },
     mobilenumber: {
       textAlign: "center",
@@ -143,8 +185,7 @@ const useStyles = makeStyles(theme => ({
       marginLeft: -33
     },
     submitButton: {
-      textAlign: "center",
-      marginRight: 28
+      textAlign: "center"
     }
   }
 }));
