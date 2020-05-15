@@ -5,6 +5,7 @@ import OldQuiz from "./components/OldQuiz";
 import QuizForm from "./components/QuizForm";
 import QuizAnswers from "./components/QuizAnswers";
 import QuizResult from "./components/QuizResult";
+import Comments from "./components/Comments";
 import QuizResultAdmin from "./components/QuizResultAdmin";
 import UserResponse from "./components/UserResponse";
 import QuizAnswer from "./components/QuizAnswer";
@@ -38,6 +39,7 @@ function App() {
         <Route path="/datemonthquiz/:date" component={QuizForm} />
         <Route path="/datemonthresult" component={OldQuiz} />
         <Route path="/answerSheets" component={QuizAnswers} />
+        <Route path="/comments" component={Comments} />
         <Route path="/answerSheet/:date" component={QuizAnswer} />
         <Route path="/quizresult/:date" component={QuizResult} />
         <Route path="/quizresultadmin/:date" component={QuizResultAdmin} />
