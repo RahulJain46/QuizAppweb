@@ -380,6 +380,7 @@ function QuizForm(props) {
             .then(userexists => {
               if (userexists) {
                 alert("user already exists");
+                setToggleButton(false);
                 return;
               } else {
                 patchUserResponse(
