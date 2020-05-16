@@ -19,7 +19,7 @@ import { links } from "../Config";
 const useStyles = makeStyles(theme => ({
   tableheading: {
     // width: "%",
-    position: "fixed",
+    position: "relative",
     top: 151,
     left: "19%",
     bottom: "9%"
@@ -64,31 +64,34 @@ const useStyles = makeStyles(theme => ({
   },
   [theme.breakpoints.down("1124")]: {
     tableheading: {
+      top: 6,    
       left: 0,
       right: 0,
-      paddingRight: 24
+      paddingRight: 0
     },
     container: {
-      left: 0
+      left: 0,
+      maxHeight: "70%"
     },
     tableNumber: {
-      fontSize: 10,
+      fontSize: 15,
       borderRight: "1px solid",
       borderLeft: "1px solid",
       borderTop: "1px solid",
       paddingRight: 0,
-      paddingLeft: 5
+      paddingLeft: 5,
+      minWidth: 30
     },
     tableQuestion: {
-      fontSize: 10,
+      fontSize: 15,
       borderRight: "1px solid",
       borderTop: "1px solid",
       paddingRight: 0,
-      minWidth: 127,
+      minWidth: 300,
       paddingLeft: 9
     },
     tableAnswer: {
-      fontSize: 10,
+      fontSize: 15,
       minWidth: 53,
       borderRight: "1px solid",
       borderTop: "1px solid",
@@ -96,15 +99,15 @@ const useStyles = makeStyles(theme => ({
       paddingLeft: 4
     },
     tableRemarks: {
-      fontSize: 10,
-      minWidth: 100,
+      fontSize: 15,
+      minWidth: 300,
       borderRight: "4px solid",
       borderTop: "1px solid",
       paddingRight: 0,
       paddingLeft: 4
     },
-    tableCell: {
-      fontSize: 13,
+    tableQuestionCell: {
+      fontSize: 15,
       borderRight: "1px solid",
       paddingLeft: 5,
       paddingRight: 5,
@@ -112,8 +115,18 @@ const useStyles = makeStyles(theme => ({
       paddingBottom: 10,
       lineHeight: "21px"
     },
+    tableAnswerCell: {
+      fontSize: 15,
+      borderRight: "1px solid",
+      paddingLeft: 5,
+      paddingRight: 5,
+      paddingTop: 10,
+      paddingBottom: 10,
+      lineHeight: "21px",
+      textAlign: "-webkit-center"
+    },
     tableRemarkCell: {
-      fontSize: 13,
+      fontSize: 15,
       borderRight: "1px solid",
       paddingLeft: 5,
       paddingRight: 5,
@@ -123,13 +136,13 @@ const useStyles = makeStyles(theme => ({
       borderRight: "4px solid"
     },
     tableNumberCell: {
-      fontSize: 13,
+      fontSize: 15,
       borderRight: "1px solid",
       paddingLeft: 5,
       paddingRight: 5,
       paddingTop: 10,
       paddingBottom: 10,
-      lineHeight: "21px",
+      lineHeight: "27px",
       borderLeft: "1px solid"
     },
     tableHeader: {
@@ -142,6 +155,11 @@ const useStyles = makeStyles(theme => ({
     },
     backArrow: {
       fontSize: 15
+    }
+  },
+  [theme.breakpoints.down("361")]: {
+    container: {
+      maxHeight: "70%"
     }
   }
 }));
@@ -239,11 +257,11 @@ export default function QuizAnswer1(props) {
                     <TableCell
                       component="th"
                       scope="row"
-                      className={classes.tableCell}
+                      className={classes.tableQuestionCell}
                     >
                       {row.question}
                     </TableCell>
-                    <TableCell className={classes.tableCell}>
+                    <TableCell className={classes.tableAnswerCell}>
                       {row.answer.toUpperCase()}
                     </TableCell>
                     <TableCell className={classes.tableRemarkCell}>
