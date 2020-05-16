@@ -19,7 +19,7 @@ import { links } from "../Config";
 const useStyles = makeStyles(theme => ({
   tableheading: {
     // width: "%",
-    position: "fixed",
+    position: "relative",
     top: 151,
     left: "19%",
     bottom: "9%"
@@ -64,13 +64,14 @@ const useStyles = makeStyles(theme => ({
   },
   [theme.breakpoints.down("1124")]: {
     tableheading: {
+      top: 6,    
       left: 0,
       right: 0,
-      paddingRight: 24
+      paddingRight: 0
     },
     container: {
       left: 0,
-      maxHeight: "86%"
+      maxHeight: "70%"
     },
     tableNumber: {
       fontSize: 15,
@@ -158,7 +159,7 @@ const useStyles = makeStyles(theme => ({
   },
   [theme.breakpoints.down("361")]: {
     container: {
-      maxHeight: "81%"
+      maxHeight: "70%"
     }
   }
 }));
