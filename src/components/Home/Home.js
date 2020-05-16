@@ -15,6 +15,12 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     textAlign: "center"
   },
+  error: {
+    color: "#bf1650",
+    "&::before": {
+      content: "'⚠ '"
+    }
+  },
   button: {
     backgroundColor: "#1976d2",
     color: "#fff",
@@ -277,16 +283,31 @@ function Home() {
                   <label className={classes.mobilenumber}>Mobile Number</label>
                   <input
                     name="mobilenumber"
-                    ref={register}
+                    ref={register({
+                      required: true,
+                      pattern: /^\d*$/,
+                      minLength: 10,
+                      maxLength: 10
+                    })}
                     className={classes.mobileInput}
                   />
+                  {errors.mobilenumber && (
+                    <p className={classes.error}>
+                      Please enter 10 digit number
+                    </p>
+                  )}
                 </div>
                 <label className={classes.comment}>Comment</label>
                 <input
                   name="comment"
-                  ref={register}
+                  ref={register({
+                    required: true
+                  })}
                   className={classes.feedbackInput}
                 />
+                {errors.comment && (
+                  <p className={classes.error}>Please enter your comment</p>
+                )}
                 <div className={classes.submitButton}>
                   <Button
                     variant="contained"
