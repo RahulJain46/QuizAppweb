@@ -8,6 +8,8 @@ import QuizFormSanganer from "./components/QuizFormSanganer";
 import QuizAnswers from "./components/QuizAnswers";
 import ResponseDates from "./components/ResponseDates";
 import Login from "./components/Login";
+import QuizResult from "./components/QuizResult";
+import KbcContainer from "./components/KbcContainer";
 import Comments from "./components/Comments";
 import ExamInstruction from "./components/ExamInstruction";
 import QuizTopic from "./components/QuizTopic";
@@ -62,7 +64,7 @@ function App() {
         <Route path="/bhajan" component={Bhajan} />
         <Route path="/answerSheet/:date" component={QuizAnswer} />
         <Route path="/answerSheetSanganer" component={QuizAnswerSanganer} />
-        <Route path="/exams" component={Exams} />        
+        <Route path="/exams" component={Exams} />
         <Route path="/quiztopic" component={QuizTopic} />
         <Route path="/examScore" component={ExamScore} />
         <Route path="/examlogin" component={ExamLogin} />
@@ -83,6 +85,7 @@ function App() {
         />
         <Route path="/quizresult/:date" component={QuizResultAdmin} />
         <Route path="/yourresponse/:id/:date" component={UserResponse} />
+        <Route path="/kbc" component={KbcContainer} />
         <Route component={PageNotFound} />
       </Switch>
       <Footer />
