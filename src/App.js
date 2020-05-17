@@ -4,7 +4,7 @@ import HomePage from "./components/Home/Home";
 import OldQuiz from "./components/OldQuiz";
 import QuizForm from "./components/QuizForm";
 import QuizAnswers from "./components/QuizAnswers";
-import QuizResult from "./components/QuizResult1";
+import QuizResult from "./components/QuizResult";
 import Comments from "./components/Comments";
 import QuizResultAdmin from "./components/QuizResultAdmin";
 import UserResponse from "./components/UserResponse";
