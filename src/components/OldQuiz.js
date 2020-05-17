@@ -122,13 +122,7 @@ function OldQuiz() {
       })
       .then(questions => {
         questions.map(question => {
-          let quesdate;
-          if (question.date.includes("APR") || question.date.includes("MAY")) {
-            quesdate =
-              question.date.replace("APR", "04").replace("MAY", "05") + "-2020";
-          } else {
-            quesdate = question.date;
-          }
+          let quesdate = question.date;
           let preDate = presentDate.replace("APR", "04").replace("MAY", "05");
           moment(preDate);
           const today = moment(preDate, "DD-MM-YYYY");
