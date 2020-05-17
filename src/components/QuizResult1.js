@@ -197,7 +197,10 @@ export default function QuizResult1(props) {
       ? new Date().getDate()
       : "0" + new Date().getDate();
   const year = new Date().getFullYear();
-  const currentMonth = new Date().getMonth() + 1;
+  const currentMonth = 
+    new Date().getMonth() > 9 
+    ? new Date().getMonth() +1 
+    : "0" + (new Date().getMonth() + 1);
   const month = dates
     .toLocaleString("default", { month: "short" })
     .toUpperCase();
@@ -234,7 +237,7 @@ export default function QuizResult1(props) {
       })
       .catch(error => console.log("error is", error));
   }, []);
-
+  
 
   return (
     <Paper className={classes.tableheading}>
@@ -242,8 +245,12 @@ export default function QuizResult1(props) {
         variant="h6"
         gutterBottom
         className={classes.headerBackButton}
-      >
-        <Link to={`/oldquizresults`}>
+      > 
+      
+        {          
+        (date != presentDate)
+        ?
+        (<Link to={`/oldquizresults`}>
           <Button
             variant="contained"
             color="primary"
@@ -252,18 +259,21 @@ export default function QuizResult1(props) {
             <ArrowBackIosIcon className={classes.backArrow} />
             Go back
           </Button>
-        </Link>
-
-        <Link to={`/`}>
+        </Link>)
+        :
+        (<Link to={`/`}>
           <Button
             variant="contained"
             color="primary"
             className={classes.backButton}
           >
             <ArrowBackIosIcon className={classes.backArrow} />
-            Go Home
+            Go To Home
           </Button>
-        </Link>
+        </Link>)
+         
+        
+}
       </Typography>
       <Typography className={classes.totalCount} color="textSecondary">
         Date: {date}
