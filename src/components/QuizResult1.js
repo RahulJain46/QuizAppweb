@@ -98,7 +98,7 @@ const useStyles = makeStyles(theme => ({
       borderTop: "1px solid",
       paddingRight: 0,
       paddingLeft: 5,
-      minWidth: 30
+      minWidth: 154
     },
     tablePName: {
       fontSize: 15,
