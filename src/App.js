@@ -5,7 +5,7 @@ import OldQuiz from "./components/OldQuiz";
 import QuizForm from "./components/QuizForm";
 import QuizFormSanganer from "./components/QuizFormSanganer";
 import QuizAnswers from "./components/QuizAnswers";
-import QuizResult from "./components/QuizResult";
+import QuizResult from "./components/QuizResult1";
 import Comments from "./components/Comments";
 import QuizResultAdmin from "./components/QuizResultAdmin";
 import UserResponse from "./components/UserResponse";
