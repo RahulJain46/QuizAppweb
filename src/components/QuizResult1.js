@@ -55,23 +55,26 @@ const useStyles = makeStyles(theme => ({
   },
   tableTime: {
     minWidth: 27,
-    backgroundColor: "#e9ecef"
+    backgroundColor: "#c1d4d9"
   },
   tablePName: {
     minWidth: 200,
-    backgroundColor: "#e9ecef"
+    backgroundColor: "#c1d4d9"
   },
   tableCity: {
     minWidth: 60,
-    backgroundColor: "#e9ecef"
+    backgroundColor: "#c1d4d9"
   },
   tableScore: {
     minWidth: 170,
-    backgroundColor: "#e9ecef"
+    backgroundColor: "#c1d4d9"
+  },
+  scoreHighlight: {
+    backgroundColor: "#46d117"
   },
   [theme.breakpoints.down("1124")]: {
     tableheading: {
-      top: 6,    
+      top: 6,
       left: 0,
       right: 0,
       paddingRight: 0,
@@ -83,11 +86,11 @@ const useStyles = makeStyles(theme => ({
       maxHeight: "70%"
     },
     totalCount: {
-        top: 0,
-        marginLeft: "1%",
-        fontSize: 19,
-        fontWeight: 600
-      },
+      top: 0,
+      marginLeft: "1%",
+      fontSize: 19,
+      fontWeight: 600
+    },
     tableTime: {
       fontSize: 15,
       borderRight: "1px solid",
@@ -178,11 +181,11 @@ const useStyles = makeStyles(theme => ({
       maxHeight: "70%"
     },
     totalCount: {
-        top: 0,
-        marginLeft: "1%",
-        fontSize: 16,
-        fontWeight: 600
-      }
+      top: 0,
+      marginLeft: "1%",
+      fontSize: 16,
+      fontWeight: 600
+    }
   }
 }));
 
@@ -190,17 +193,17 @@ export default function QuizResult1(props) {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  
+
   const dates = new Date();
   const day =
     new Date().getDate() > 9
       ? new Date().getDate()
       : "0" + new Date().getDate();
   const year = new Date().getFullYear();
-  const currentMonth = 
-    new Date().getMonth() > 9 
-    ? new Date().getMonth() +1 
-    : "0" + (new Date().getMonth() + 1);
+  const currentMonth =
+    new Date().getMonth() > 9
+      ? new Date().getMonth() + 1
+      : "0" + (new Date().getMonth() + 1);
   const month = dates
     .toLocaleString("default", { month: "short" })
     .toUpperCase();
@@ -220,24 +223,24 @@ export default function QuizResult1(props) {
     const questionsArray = [];
 
     const date = props.match.params.date;
-    fetch(links.backendURL +"usersresponse?allresult=true&date=" + `${date}`)
+    fetch(links.backendURL + "usersresponse?allresult=true&date=" + `${date}`)
       .then(response => {
         return response.json();
       })
       .then(usersResponse => {
 
         usersResponse.sort(
-            (a, b) =>
-              moment(a.time, "DD:MM:YYYY HH:mm:ss") -
-              moment(b.time, "DD:MM:YYYY HH:mm:ss")
-          );
-          setUsers(usersResponse);
-        
+          (a, b) =>
+            moment(a.time, "DD:MM:YYYY HH:mm:ss") -
+            moment(b.time, "DD:MM:YYYY HH:mm:ss")
+        );
+        setUsers(usersResponse);
+
         setLoading(false);
       })
       .catch(error => console.log("error is", error));
   }, []);
-  
+
 
   return (
     <Paper className={classes.tableheading}>
@@ -245,35 +248,35 @@ export default function QuizResult1(props) {
         variant="h6"
         gutterBottom
         className={classes.headerBackButton}
-      > 
-      
-        {          
-        (date != presentDate)
-        ?
-        (<Link to={`/oldquizresults`}>
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.backButton}
-          >
-            <ArrowBackIosIcon className={classes.backArrow} />
+      >
+
+        {
+          (date != presentDate)
+            ?
+            (<Link to={`/oldquizresults`}>
+              <Button
+                variant="contained"
+                color="primary"
+                className={classes.backButton}
+              >
+                <ArrowBackIosIcon className={classes.backArrow} />
             Go back
           </Button>
-        </Link>)
-        :
-        (<Link to={`/`}>
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.backButton}
-          >
-            <ArrowBackIosIcon className={classes.backArrow} />
+            </Link>)
+            :
+            (<Link to={`/`}>
+              <Button
+                variant="contained"
+                color="primary"
+                className={classes.backButton}
+              >
+                <ArrowBackIosIcon className={classes.backArrow} />
             Go To Home
           </Button>
-        </Link>)
-         
-        
-}
+            </Link>)
+
+
+        }
       </Typography>
       <Typography className={classes.totalCount} color="textSecondary">
         Date: {date}
@@ -282,7 +285,7 @@ export default function QuizResult1(props) {
         Total Number of participants: {users.length}
       </Typography>
 
-      { !loading ? (
+      {!loading ? (
         <TableContainer className={classes.container}>
           <Table
             stickyHeader
@@ -295,22 +298,26 @@ export default function QuizResult1(props) {
                   Time
                 </TableCell>
                 <TableCell key="name" className={classes.tablePName}>
-                Name of participant
+                  Name of participant
                 </TableCell>
                 <TableCell key="code" className={classes.tableCity}>
-                City
+                  City
                 </TableCell>
                 <TableCell key="population" className={classes.tableScore}>
-                score
+                  score
                 </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {users.map((row,index) => (
-                
-                  <TableRow>
+              {users.map((row, index) => (
+
+
+
+                row.score == 40
+                  ?
+                  <TableRow className={classes.scoreHighlight}>
                     <TableCell className={classes.tableTimeCell}>
-                    {row.time}
+                      {row.time}
                     </TableCell>
                     <TableCell
                       component="th"
@@ -326,24 +333,45 @@ export default function QuizResult1(props) {
                       {row.score}
                     </TableCell>
                   </TableRow>
-              
+                  :
+                  <TableRow>
+                    <TableCell className={classes.tableTimeCell}>
+                      {row.time}
+                    </TableCell>
+                    <TableCell
+                      component="th"
+                      scope="row"
+                      className={classes.tableNameCell}
+                    >
+                      {row.fullname}
+                    </TableCell>
+                    <TableCell className={classes.tableCityCell}>
+                      {row.city}
+                    </TableCell>
+                    <TableCell className={classes.tableScoreCell}>
+                      {row.score}
+                    </TableCell>                  
+                  </TableRow>
+
+
+
               ))}
             </TableBody>
           </Table>
         </TableContainer>
       ) : (
-        <div className={classes.loading}>
-          <Fade
-            in={loading}
-            style={{
-              transitionDelay: loading ? "800ms" : "0ms"
-            }}
-            unmountOnExit
-          >
-            <CircularProgress />
-          </Fade>
-        </div>
-      )}
+          <div className={classes.loading}>
+            <Fade
+              in={loading}
+              style={{
+                transitionDelay: loading ? "800ms" : "0ms"
+              }}
+              unmountOnExit
+            >
+              <CircularProgress />
+            </Fade>
+          </div>
+        )}
     </Paper>
   );
 }
