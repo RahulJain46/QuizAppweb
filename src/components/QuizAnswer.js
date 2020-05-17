@@ -19,9 +19,9 @@ import { links } from "../Config";
 const useStyles = makeStyles(theme => ({
   tableheading: {
     // width: "%",
-    position: "relative",
+    position: "fixed",
     top: 151,
-    left: "19%",
+    left: "4%",
     bottom: "9%"
   },
   backButton: {
@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: 23
   },
   container: {
-    maxHeight: "100%",
+    maxHeight: "82%",
     // position: "fixed",
     left: "19%"
   },
@@ -67,7 +67,8 @@ const useStyles = makeStyles(theme => ({
       top: 6,    
       left: 0,
       right: 0,
-      paddingRight: 0
+      paddingRight: 0,
+      position: "relative",
     },
     container: {
       left: 0,
@@ -209,14 +210,14 @@ export default function QuizAnswer1(props) {
         gutterBottom
         className={classes.headerBackButton}
       >
-        <Link to={`/`}>
+        <Link to={`/answerSheets`}>
           <Button
             variant="contained"
             color="primary"
             className={classes.backButton}
           >
             <ArrowBackIosIcon className={classes.backArrow} />
-            Go to home
+            Go back to Answers
           </Button>
         </Link>
       </Typography>
