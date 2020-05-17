@@ -114,8 +114,7 @@ const useStyles = makeStyles(theme => ({
       borderRight: "1px solid",
       borderTop: "1px solid",
       paddingRight: 0,
-      paddingLeft: 4,
-      textAlign: "center"
+      paddingLeft: 4
     },
     tableScore: {
       fontSize: 15,
@@ -141,8 +140,7 @@ const useStyles = makeStyles(theme => ({
       paddingRight: 5,
       paddingTop: 10,
       paddingBottom: 10,
-      lineHeight: "21px",
-      textAlign: "-webkit-center"
+      lineHeight: "21px"
     },
     tableScoreCell: {
       fontSize: 15,
@@ -152,7 +150,8 @@ const useStyles = makeStyles(theme => ({
       paddingTop: 10,
       paddingBottom: 10,
       lineHeight: "21px",
-      borderRight: "4px solid"
+      borderRight: "4px solid",
+      textAlign: "center"
     },
     tableTimeCell: {
       fontSize: 15,
