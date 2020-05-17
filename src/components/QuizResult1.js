@@ -12,20 +12,27 @@ import TableHead from "@material-ui/core/TableHead";
 import Typography from "@material-ui/core/Typography";
 import Fade from "@material-ui/core/Fade";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import { links } from "../Config";
+import moment from "moment";
 
 const useStyles = makeStyles(theme => ({
   tableheading: {
     // width: "%",
     position: "fixed",
-    top: 151,
-    left: "4%",
-    bottom: "9%"
+    top: 148,
+    left: "28%",
+    bottom: "6%"
   },
   backButton: {
     backgroundColor: "#1976d2"
+  },
+  totalCount: {
+    position: "relative",
+    top: 0,
+    marginLeft: "0%",
+    fontSize: 24,
+    fontWeight: 600
   },
   headerDate: {
     fontWeight: 600,
@@ -39,26 +46,26 @@ const useStyles = makeStyles(theme => ({
     fontSize: 23
   },
   container: {
-    maxHeight: "82%",
+    maxHeight: "78%",
     // position: "fixed",
     left: "19%"
   },
   tablecolumns: {
     background: "blue"
   },
-  tableNumber: {
+  tableTime: {
     minWidth: 27,
     backgroundColor: "#e9ecef"
   },
-  tableQuestion: {
+  tablePName: {
     minWidth: 200,
     backgroundColor: "#e9ecef"
   },
-  tableAnswer: {
+  tableCity: {
     minWidth: 60,
     backgroundColor: "#e9ecef"
   },
-  tableRemarks: {
+  tableScore: {
     minWidth: 170,
     backgroundColor: "#e9ecef"
   },
@@ -69,12 +76,19 @@ const useStyles = makeStyles(theme => ({
       right: 0,
       paddingRight: 0,
       position: "relative",
+      paddingBottom: "9%"
     },
     container: {
       left: 0,
       maxHeight: "70%"
     },
-    tableNumber: {
+    totalCount: {
+        top: 0,
+        marginLeft: "1%",
+        fontSize: 19,
+        fontWeight: 600
+      },
+    tableTime: {
       fontSize: 15,
       borderRight: "1px solid",
       borderLeft: "1px solid",
@@ -83,31 +97,32 @@ const useStyles = makeStyles(theme => ({
       paddingLeft: 5,
       minWidth: 30
     },
-    tableQuestion: {
+    tablePName: {
       fontSize: 15,
       borderRight: "1px solid",
       borderTop: "1px solid",
       paddingRight: 0,
-      minWidth: 300,
+      minWidth: 180,
       paddingLeft: 9
     },
-    tableAnswer: {
+    tableCity: {
       fontSize: 15,
-      minWidth: 53,
+      minWidth: 100,
       borderRight: "1px solid",
       borderTop: "1px solid",
       paddingRight: 0,
-      paddingLeft: 4
+      paddingLeft: 4,
+      textAlign: "center"
     },
-    tableRemarks: {
+    tableScore: {
       fontSize: 15,
-      minWidth: 300,
+      minWidth: 50,
       borderRight: "4px solid",
       borderTop: "1px solid",
       paddingRight: 0,
       paddingLeft: 4
     },
-    tableQuestionCell: {
+    tableNameCell: {
       fontSize: 15,
       borderRight: "1px solid",
       paddingLeft: 5,
@@ -116,7 +131,7 @@ const useStyles = makeStyles(theme => ({
       paddingBottom: 10,
       lineHeight: "21px"
     },
-    tableAnswerCell: {
+    tableCityCell: {
       fontSize: 15,
       borderRight: "1px solid",
       paddingLeft: 5,
@@ -126,7 +141,7 @@ const useStyles = makeStyles(theme => ({
       lineHeight: "21px",
       textAlign: "-webkit-center"
     },
-    tableRemarkCell: {
+    tableScoreCell: {
       fontSize: 15,
       borderRight: "1px solid",
       paddingLeft: 5,
@@ -136,7 +151,7 @@ const useStyles = makeStyles(theme => ({
       lineHeight: "21px",
       borderRight: "4px solid"
     },
-    tableNumberCell: {
+    tableTimeCell: {
       fontSize: 15,
       borderRight: "1px solid",
       paddingLeft: 5,
@@ -161,17 +176,37 @@ const useStyles = makeStyles(theme => ({
   [theme.breakpoints.down("361")]: {
     container: {
       maxHeight: "70%"
-    }
+    },
+    totalCount: {
+        top: 0,
+        marginLeft: "1%",
+        fontSize: 16,
+        fontWeight: 600
+      }
   }
 }));
 
-export default function QuizAnswer1(props) {
+export default function QuizResult1(props) {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  
+  const dates = new Date();
+  const day =
+    new Date().getDate() > 9
+      ? new Date().getDate()
+      : "0" + new Date().getDate();
+  const year = new Date().getFullYear();
+  const currentMonth = new Date().getMonth() + 1;
+  const month = dates
+    .toLocaleString("default", { month: "short" })
+    .toUpperCase();
+  const presentDate = `${day}-${currentMonth}-${year}`;
+
   const date = props.match.params.date;
   const [loading, setLoading] = useState(true);
 
+  const [users, setUsers] = useState([]);
   const [answers, setAnswers] = useState([]);
 
   useEffect(() => {
@@ -180,28 +215,26 @@ export default function QuizAnswer1(props) {
 
   useEffect(() => {
     const questionsArray = [];
+
     const date = props.match.params.date;
-    fetch(links.backendURL + "questions?date=" + `${date}`)
-      .then(answerJson => {
-        return answerJson.json();
+    fetch(links.backendURL +"usersresponse?allresult=true&date=" + `${date}`)
+      .then(response => {
+        return response.json();
       })
-      .then(answers => {
-        answers.map(answer => {
-          questionsArray.push(answer.questions);
-        });
-        setAnswers(questionsArray);
+      .then(usersResponse => {
+
+        usersResponse.sort(
+            (a, b) =>
+              moment(a.time, "DD:MM:YYYY HH:mm:ss") -
+              moment(b.time, "DD:MM:YYYY HH:mm:ss")
+          );
+          setUsers(usersResponse);
+        
         setLoading(false);
-      });
+      })
+      .catch(error => console.log("error is", error));
   }, []);
 
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = event => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
 
   return (
     <Paper className={classes.tableheading}>
@@ -210,22 +243,36 @@ export default function QuizAnswer1(props) {
         gutterBottom
         className={classes.headerBackButton}
       >
-        <Link to={`/answerSheets`}>
+        <Link to={`/oldquizresults`}>
           <Button
             variant="contained"
             color="primary"
             className={classes.backButton}
           >
             <ArrowBackIosIcon className={classes.backArrow} />
-            Go back to Answers
+            Go back
+          </Button>
+        </Link>
+
+        <Link to={`/`}>
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.backButton}
+          >
+            <ArrowBackIosIcon className={classes.backArrow} />
+            Go Home
           </Button>
         </Link>
       </Typography>
-
-      <Typography variant="h6" gutterBottom className={classes.headerDate}>
+      <Typography className={classes.totalCount} color="textSecondary">
         Date: {date}
       </Typography>
-      {answers.length != 0 && !loading ? (
+      <Typography className={classes.totalCount} color="textSecondary">
+        Total Number of participants: {users.length}
+      </Typography>
+
+      { !loading ? (
         <TableContainer className={classes.container}>
           <Table
             stickyHeader
@@ -234,43 +281,43 @@ export default function QuizAnswer1(props) {
           >
             <TableHead className={classes.tablecolumns}>
               <TableRow>
-                <TableCell key="name" className={classes.tableNumber}>
-                  No.
+                <TableCell key="name" className={classes.tableTime}>
+                  Time
                 </TableCell>
-                <TableCell key="name" className={classes.tableQuestion}>
-                  QUESTIONS
+                <TableCell key="name" className={classes.tablePName}>
+                Name of participant
                 </TableCell>
-                <TableCell key="code" className={classes.tableAnswer}>
-                  ANSWER
+                <TableCell key="code" className={classes.tableCity}>
+                City
                 </TableCell>
-                <TableCell key="population" className={classes.tableRemarks}>
-                  REMARKS
+                <TableCell key="population" className={classes.tableScore}>
+                score
                 </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {answers.map(answer => {
-                return answer.map((row, index) => (
+              {users.map((row,index) => (
+                
                   <TableRow>
-                    <TableCell className={classes.tableNumberCell}>
-                      {index + 1}
+                    <TableCell className={classes.tableTimeCell}>
+                    {row.time}
                     </TableCell>
                     <TableCell
                       component="th"
                       scope="row"
-                      className={classes.tableQuestionCell}
+                      className={classes.tableNameCell}
                     >
-                      {row.question}
+                      {row.fullname}
                     </TableCell>
-                    <TableCell className={classes.tableAnswerCell}>
-                      {row.answer.toUpperCase()}
+                    <TableCell className={classes.tableCityCell}>
+                      {row.city}
                     </TableCell>
-                    <TableCell className={classes.tableRemarkCell}>
-                      {row.remarks}
+                    <TableCell className={classes.tableScoreCell}>
+                      {row.score}
                     </TableCell>
                   </TableRow>
-                ));
-              })}
+              
+              ))}
             </TableBody>
           </Table>
         </TableContainer>
