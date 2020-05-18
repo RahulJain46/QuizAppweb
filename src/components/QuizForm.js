@@ -61,7 +61,11 @@ const useStyles = makeStyles(theme => ({
     marginLeft: "-1%"
   },
   questionOption: {
-    marginLeft: "3%"
+    marginLeft: "3%",
+    
+    "&:hover": {
+      backgroundColor: "red"
+    }
   },
   input: {
     boxShadow: "7px 5px #eeeeee",
