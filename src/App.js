@@ -43,8 +43,8 @@ function App() {
         <Route path="/answerSheets" component={QuizAnswers} />
         <Route path="/comments" component={Comments} />
         <Route path="/answerSheet/:date" component={QuizAnswer} />
-        <Route path="/quizresult/:date" component={QuizResult} />
-        <Route path="/quizresultadmin/:date" component={QuizResultAdmin} />
+        {/* <Route path="/quizresult/:date" component={QuizResult} /> */}
+        <Route path="/quizresult/:date" component={QuizResultAdmin} />
         <Route path="/yourresponse/:id/:date" component={UserResponse} />
         <Route component={PageNotFound} />
       </Switch>
