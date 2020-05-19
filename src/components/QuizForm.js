@@ -674,6 +674,9 @@ function QuizForm(props) {
                       औसत
                     </label>
                   </fieldset>
+                  {errors["feedback"] && (
+                    <p className={classes.error}>This field is required</p>
+                  )}
                 </CardContent>
               </Card>
               <label className={classes.label}>टिप / सुझाव</label>
