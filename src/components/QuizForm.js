@@ -340,7 +340,10 @@ function QuizForm(props) {
     }
     const time = moment().format("DD:MM:YYYY HH:mm:ss");
     const uuid = uuidv5(
-      myMap.get("fullname").trim() + myMap.get("mobile").trim(),
+      myMap
+        .get("fullname")
+        .trim()
+        .toLowerCase() + myMap.get("mobile").trim(),
       uuidv5.DNS
     );
     let userResponseJson = {};
@@ -549,7 +552,11 @@ function QuizForm(props) {
                         {row.hint != undefined && row.hint.length > 0 ? (
                           <fieldset className={classes.helpLink}>
                             <Link
-                              href={row.hint}
+                              href={
+                                `https://jindarshan.s3.amazonaws.com/` +
+                                row.hint +
+                                `.jpg`
+                              }
                               target="_blank"
                               rel="noopener noreferrer"
                             >
