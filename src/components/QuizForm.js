@@ -41,7 +41,8 @@ const useStyles = makeStyles(theme => ({
   },
   helpLink: {
     marginLeft: "2%",
-    fontSize: 17
+    fontSize: 17,
+    textAlign: "right"
   },
   helpLabel: {
     fontSize: 17
