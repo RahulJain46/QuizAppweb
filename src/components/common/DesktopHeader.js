@@ -89,6 +89,14 @@ const DesktopHeader = () => {
         >
           Answer Sheets
         </NavLink>
+        {" | "}
+        <NavLink
+          to="/sanganer"
+          activeStyle={activeStyle}
+          className={classes.navheader}
+        >
+          Sanganer
+        </NavLink>
       </nav>
       <div className={classes.root}>
         <Grid container spacing={3}>
