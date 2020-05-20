@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import HomePage from "./components/Home/Home";
 import OldQuiz from "./components/OldQuiz";
 import QuizForm from "./components/QuizForm";
+import QuizFormSanganer from "./components/QuizFormSanganer";
 import QuizAnswers from "./components/QuizAnswers";
 import QuizResult from "./components/QuizResult";
 import Comments from "./components/Comments";
@@ -37,6 +38,7 @@ function App() {
         <Route exact path="/" component={HomePage} />
         <Route path="/oldquizresults" component={OldQuiz} />
         <Route path="/datemonthquiz/:date" component={QuizForm} />
+        <Route path="/sanganer" component={QuizFormSanganer} />
         <Route path="/datemonthresult" component={OldQuiz} />
         <Route path="/answerSheets" component={QuizAnswers} />
         <Route path="/comments" component={Comments} />
