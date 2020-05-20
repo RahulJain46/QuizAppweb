@@ -42,7 +42,8 @@ const useStyles = makeStyles(theme => ({
   helpLink: {
     marginLeft: "2%",
     fontSize: 17,
-    textAlign: "right"
+    textAlign: "right",
+    paddingBottom: 24
   },
   helpLabel: {
     fontSize: 17
@@ -174,7 +175,8 @@ const useStyles = makeStyles(theme => ({
     },
     helpLink: {
       marginLeft: "6%",
-      fontSize: 19
+      fontSize: 19,
+      paddingBottom: 24
     }
   },
 
@@ -187,7 +189,8 @@ const useStyles = makeStyles(theme => ({
     },
     helpLink: {
       marginLeft: "6%",
-      fontSize: 19
+      fontSize: 19,
+      paddingBottom: 24
     },
     input: {
       width: "100%",

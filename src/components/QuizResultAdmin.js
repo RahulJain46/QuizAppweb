@@ -302,7 +302,7 @@ export default function QuizResultAdmin(props) {
         Date: {date}
       </Typography>
       <Typography className={classes.totalCount} color="textSecondary">
-        Total Number of participants: {users.length}
+        Total No. of participants: {users.length}
       </Typography>
 
       {!loading ? (
