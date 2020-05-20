@@ -261,6 +261,7 @@ function QuizForm(props) {
   const [questionsId, setQuestionsId] = useState([]);
   const [loading, setLoading] = useState(true);
   const [toggleButton, setToggleButton] = useState(false);
+  const [submitButton, setSubmitBUtton] = useState(false);
   let result = "";
   const date = props.match.params.date;
 
@@ -387,6 +388,7 @@ function QuizForm(props) {
             .then(userexists => {
               if (userexists) {
                 alert("user already exists");
+                setSubmitBUtton(true);
                 setToggleButton(false);
                 return;
               } else {
@@ -695,8 +697,19 @@ function QuizForm(props) {
                 type="submit"
                 disabled={toggleButton}
               >
-                Submit
+                Submits
               </Button>
+              {submitButton == true ? (
+                <Typography
+                  variant="h9"
+                  component="h9"
+                  className={classes.asteriskField}
+                >
+                  User already exists
+                </Typography>
+              ) : (
+                ""
+              )}
             </form>
           </CardContent>
         </Card>
