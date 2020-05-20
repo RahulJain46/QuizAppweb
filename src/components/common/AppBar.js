@@ -134,6 +134,13 @@ export default function appBar() {
                 >
                   Answer Sheets
                 </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    handleNavClose("/sanganer");
+                  }}
+                >
+                  Sanganer Quiz
+                </MenuItem>
               </Menu>
               <Typography
                 variant="h4"
