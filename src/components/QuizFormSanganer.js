@@ -266,7 +266,7 @@ function QuizForm(props) {
     const questionsArray = [];
     const queastionsIdArray = [];
     const date = props.match.params.date;
-    fetch(links.backendURL + "quizquestions")
+    fetch(links.backendURL + "examquestions")
       .then(questionsJosn => {
         return questionsJosn.json();
       })
@@ -325,7 +325,7 @@ function QuizForm(props) {
       .then(response => {
         console.log(response.status);
         alert("your score is : " + score);
-        history.push(`/yourresponse/${uuid}/${date}`, detailedUserResponse);
+        history.push(`/`);
       })
       .catch(error => console.log("error is", error));
   };
@@ -542,7 +542,7 @@ function QuizForm(props) {
                             <input
                               type="radio"
                               className={classes.radioButton}
-                              value={row.option1}
+                              value="option1"
                               name={row.question}
                               ref={register({ required: true })}
                               label={row.option1}
@@ -555,7 +555,7 @@ function QuizForm(props) {
                             <input
                               type="radio"
                               className={classes.radioButton}
-                              value={row.option2}
+                              value="option2"
                               name={row.question}
                               ref={register({ required: true })}
                               label={row.option2}
@@ -568,7 +568,7 @@ function QuizForm(props) {
                             <input
                               type="radio"
                               className={classes.radioButton}
-                              value={row.option3}
+                              value="option3"
                               name={row.question}
                               ref={register({ required: true })}
                               label={row.option3}
@@ -581,7 +581,7 @@ function QuizForm(props) {
                             <input
                               type="radio"
                               className={classes.radioButton}
-                              value={row.option4}
+                              value="option4"
                               name={row.question}
                               ref={register({ required: true })}
                               label={row.option4}
