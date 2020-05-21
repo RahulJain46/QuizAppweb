@@ -7,9 +7,12 @@ import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { Link } from "react-router-dom";
+import Fade from "@material-ui/core/Fade";
 import { v5 as uuidv5 } from "uuid";
 import { links } from "../Config";
+import moment from "moment";
 import { useForm } from "react-hook-form";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -200,6 +203,8 @@ const useStyles = makeStyles(theme => ({
 function Login() {
   const classes = useStyles();
   const date = new Date();
+  const [loading, setLoading] = useState(true);
+  const [userDates, setUserDates] = useState(false);
   const [toggleButton, setToggleButton] = useState(false);
   const day =
     new Date().getDate() > 9
@@ -223,9 +228,18 @@ function Login() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
     };
-    fetch(links.backendURL + "comments", userOptions).then(response => {
-      setToggleButton(true);
-    });
+    fetch(links.backendURL + "users?login=true&userId=" + uuid)
+      .then(response => {
+        return response.json();
+      })
+      .then(dates => {
+        let datesArray = [];
+        dates.map(date => {
+          datesArray.push(date.date);
+        });
+        setUserDates(datesArray);
+        setLoading(false);
+      });
   };
 
   useEffect(() => {
@@ -284,12 +298,35 @@ function Login() {
                 </div>
               </React.Fragment>
             ) : (
-              <label className={classes.responseMessage}>
-                Thanks for your comment, we will contact you soon.
-              </label>
+              ""
             )}
           </form>
         </CardContent>
+        {userDates.length != 0 && !loading ? (
+          userDates.map(date => (
+            <Grid item xs={6} className={classes.answerButton}>
+              <Link to={`/answersheet` + `/${date}`}>
+                <Paper className={classes.paper}>
+                  <Button variant="contained" className={classes.button}>
+                    {moment(date, "DD-MM-YYYY").format("DD-MMM")}
+                  </Button>
+                </Paper>
+              </Link>
+            </Grid>
+          ))
+        ) : (
+          <div className={classes.loading}>
+            <Fade
+              in={loading}
+              style={{
+                transitionDelay: loading ? "800ms" : "0ms"
+              }}
+              unmountOnExit
+            >
+              <CircularProgress />
+            </Fade>
+          </div>
+        )}
       </Card>
     </div>
   );
