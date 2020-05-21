@@ -7,6 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { Link } from "react-router-dom";
+import { v5 as uuidv5 } from "uuid";
 import { links } from "../Config";
 import { useForm } from "react-hook-form";
 
@@ -211,6 +212,12 @@ function Login() {
     .toUpperCase();
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = data => {
+    var fullName = data.fullname;
+    var mobileNumber = data.mobilenumber;
+    const uuid = uuidv5(
+      fullName.trim().toLowerCase() + mobileNumber.trim(),
+      uuidv5.DNS
+    );
     let userOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
