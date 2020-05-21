@@ -7,7 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { Link } from "react-router-dom";
-import { links } from "../../Config";
+import { links } from "../Config";
 import { useForm } from "react-hook-form";
 
 const useStyles = makeStyles(theme => ({
@@ -196,7 +196,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Home() {
+function Login() {
   const classes = useStyles();
   const date = new Date();
   const [toggleButton, setToggleButton] = useState(false);
@@ -227,57 +227,6 @@ function Home() {
 
   return (
     <div className={classes.home}>
-      <Grid container spacing={3} className={classes.quizbutton}>
-        <Grid item xs={6} className={classes.quizitems}>
-          <Link
-            to={`/datemonthquiz` + `/${day + "-0" + currentMonth + "-" + year}`}
-          >
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.button}>
-                QUIZ {day + "-" + month}
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>
-        <Grid item xs={6} className={classes.quizitems}>
-          <Link
-            to={`/quizresult` + `/${day + "-0" + currentMonth + "-" + year}`}
-          >
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.quizResultButton}>
-                QUIZ RESULT {day + "-" + month}
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>
-        <Grid item xs={6} className={classes.quizitems}>
-          <Link to="/oldquizresults">
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.button}>
-                OLD QUIZ & RESULTS
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>
-        <Grid item xs={6} className={classes.quizitems}>
-          <Link to="/answerSheets">
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.button}>
-                Answer Sheets
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>
-        <Grid item xs={12} className={classes.quizitems}>
-          <Link to="/login">
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.button}>
-                Check Your Response
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>
-      </Grid>
       <Card className={classes.formContainer}>
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
@@ -306,16 +255,16 @@ function Home() {
                     </p>
                   )}
                 </div>
-                <label className={classes.comment}>Comment</label>
+                <label className={classes.comment}>Full Name</label>
                 <input
-                  name="comment"
+                  name="fullname"
                   ref={register({
                     required: true
                   })}
                   className={classes.feedbackInput}
                 />
                 {errors.comment && (
-                  <p className={classes.error}>Please enter your comment</p>
+                  <p className={classes.error}>Please enter your Name</p>
                 )}
                 <div className={classes.submitButton}>
                   <Button
@@ -339,4 +288,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Login;
