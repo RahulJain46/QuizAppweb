@@ -387,7 +387,9 @@ function QuizForm(props) {
             })
             .then(userexists => {
               if (userexists) {
-                alert("user already exists");
+                alert(
+                  "आपके द्वारा आज का QUIZ पूर्व में SUBMIT किया जा चुका है"
+                );
                 setSubmitBUtton(true);
                 setToggleButton(false);
                 return;
@@ -697,7 +699,7 @@ function QuizForm(props) {
                 type="submit"
                 disabled={toggleButton}
               >
-                Submits
+                Submit
               </Button>
               {submitButton == true ? (
                 <Typography
@@ -705,7 +707,7 @@ function QuizForm(props) {
                   component="h9"
                   className={classes.asteriskField}
                 >
-                  User already exists
+                  आपके द्वारा आज का QUIZ पूर्व में SUBMIT किया जा चुका है
                 </Typography>
               ) : (
                 ""
