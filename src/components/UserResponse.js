@@ -96,10 +96,22 @@ const useStyles = makeStyles(theme => ({
     marginLeft: 24,
     color: error
   },
-
+  scoreCard: {
+    color: "#902024",
+    fontWeight: 600,
+    fontSize: 34
+  },
+  timeCard: {
+    fontSize: 24
+  },
   [theme.breakpoints.down("361")]: {
     scoreCard: {
-      fontSize: 19
+      color: "#902024",
+      fontWeight: 600,
+      fontSize: 30
+    },
+    timeCard: {
+      fontSize: 24
     },
     container: {
       maxWidth: "100%",
@@ -154,7 +166,12 @@ const useStyles = makeStyles(theme => ({
   },
   [theme.breakpoints.between("361", "xs")]: {
     scoreCard: {
-      fontSize: 21
+      color: "#902024",
+      fontWeight: 600,
+      fontSize: 30
+    },
+    timeCard: {
+      fontSize: 24
     },
     container: {
       maxWidth: "100%",
@@ -263,7 +280,7 @@ function UserResponse(props) {
             <Typography
               variant="h4"
               component="h4"
-              className={classes.scoreCard}
+              className={classes.timeCard}
             >
               Time : {props.location.state["time"]}
             </Typography>

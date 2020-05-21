@@ -32,6 +32,14 @@ const useStyles = makeStyles(theme => ({
     position: "relative",
     top: 0,
     marginLeft: "0%",
+    fontSize: 28,
+    fontWeight: 600,
+    color: "#902024"
+  },
+  showdate: {
+    position: "relative",
+    top: 0,
+    marginLeft: "0%",
     fontSize: 24,
     fontWeight: 600
   },
@@ -90,11 +98,18 @@ const useStyles = makeStyles(theme => ({
       left: 0,
       maxHeight: "70%"
     },
-    totalCount: {
+    showdate: {
       top: 0,
       marginLeft: "1%",
       fontSize: 19,
       fontWeight: 600
+    },
+    totalCount: {
+      top: 0,
+      marginLeft: "1%",
+      fontSize: 26,
+      fontWeight: 600,
+      color: "#902024"
     },
     tableTime: {
       fontSize: 15,
@@ -185,10 +200,17 @@ const useStyles = makeStyles(theme => ({
     container: {
       maxHeight: "70%"
     },
-    totalCount: {
+    showdate: {
       top: 0,
       marginLeft: "1%",
       fontSize: 16,
+      fontWeight: 600
+    },
+    totalCount: {
+      top: 0,
+      marginLeft: "1%",
+      fontSize: 21,
+      color: "#902024",
       fontWeight: 600
     }
   }
@@ -233,7 +255,6 @@ export default function QuizResultAdmin(props) {
         return response.json();
       })
       .then(usersResponse => {
-
         usersResponse.sort(
           (a, b) =>
             moment(a.time, "DD:MM:YYYY HH:mm:ss") -
@@ -246,7 +267,6 @@ export default function QuizResultAdmin(props) {
       .catch(error => console.log("error is", error));
   }, []);
 
-
   return (
     <Paper className={classes.tableheading}>
       <Typography
@@ -254,40 +274,35 @@ export default function QuizResultAdmin(props) {
         gutterBottom
         className={classes.headerBackButton}
       >
-
-        {
-          (date != presentDate)
-            ?
-            (<Link to={`/oldquizresults`}>
-              <Button
-                variant="contained"
-                color="primary"
-                className={classes.backButton}
-              >
-                <ArrowBackIosIcon className={classes.backArrow} />
-            Go back
-          </Button>
-            </Link>)
-            :
-            (<Link to={`/`}>
-              <Button
-                variant="contained"
-                color="primary"
-                className={classes.backButton}
-              >
-                <ArrowBackIosIcon className={classes.backArrow} />
-            Go To Home
-          </Button>
-            </Link>)
-
-
-        }
+        {date != presentDate ? (
+          <Link to={`/oldquizresults`}>
+            <Button
+              variant="contained"
+              color="primary"
+              className={classes.backButton}
+            >
+              <ArrowBackIosIcon className={classes.backArrow} />
+              Go back
+            </Button>
+          </Link>
+        ) : (
+          <Link to={`/`}>
+            <Button
+              variant="contained"
+              color="primary"
+              className={classes.backButton}
+            >
+              <ArrowBackIosIcon className={classes.backArrow} />
+              Go To Home
+            </Button>
+          </Link>
+        )}
       </Typography>
-      <Typography className={classes.totalCount} color="textSecondary">
+      <Typography className={classes.showdate} color="textSecondary">
         Date: {date}
       </Typography>
       <Typography className={classes.totalCount} color="textSecondary">
-        Total Number of participants: {users.length}
+        Total No. of participants: {users.length}
       </Typography>
 
       {!loading ? (
@@ -314,18 +329,11 @@ export default function QuizResultAdmin(props) {
                 <TableCell key="population" className={classes.tableSuggestion}>
                   Suggestion
                 </TableCell>
-                <TableCell key="population" className={classes.tableScore}>
-                  Feedback
-                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {users.map((row, index) => (
-
-
-
-                row.score == 40
-                  ?
+              {users.map((row, index) =>
+                row.score == 40 ? (
                   <TableRow className={classes.scoreHighlight}>
                     <TableCell className={classes.tableTimeCell}>
                       {row.time}
@@ -345,12 +353,9 @@ export default function QuizResultAdmin(props) {
                     </TableCell>
                     <TableCell className={classes.tableScoreCell}>
                       {row.suggestion}
-                    </TableCell>                  
-                    <TableCell className={classes.tableScoreCell}>
-                      {row.feedback}
-                    </TableCell>  
+                    </TableCell>
                   </TableRow>
-                  :
+                ) : (
                   <TableRow>
                     <TableCell className={classes.tableTimeCell}>
                       {row.time}
@@ -367,34 +372,29 @@ export default function QuizResultAdmin(props) {
                     </TableCell>
                     <TableCell className={classes.tableScoreCell}>
                       {row.score}
-                    </TableCell>                  
+                    </TableCell>
                     <TableCell className={classes.tableScoreCell}>
                       {row.suggestion}
-                    </TableCell>                  
-                    <TableCell className={classes.tableScoreCell}>
-                      {row.feedback}
-                    </TableCell>                  
+                    </TableCell>
                   </TableRow>
-
-
-
-              ))}
+                )
+              )}
             </TableBody>
           </Table>
         </TableContainer>
       ) : (
-          <div className={classes.loading}>
-            <Fade
-              in={loading}
-              style={{
-                transitionDelay: loading ? "800ms" : "0ms"
-              }}
-              unmountOnExit
-            >
-              <CircularProgress />
-            </Fade>
-          </div>
-        )}
+        <div className={classes.loading}>
+          <Fade
+            in={loading}
+            style={{
+              transitionDelay: loading ? "800ms" : "0ms"
+            }}
+            unmountOnExit
+          >
+            <CircularProgress />
+          </Fade>
+        </div>
+      )}
     </Paper>
   );
 }

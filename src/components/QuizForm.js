@@ -41,7 +41,9 @@ const useStyles = makeStyles(theme => ({
   },
   helpLink: {
     marginLeft: "2%",
-    fontSize: 17
+    fontSize: 17,
+    textAlign: "right",
+    paddingBottom: 24
   },
   helpLabel: {
     fontSize: 17
@@ -173,7 +175,8 @@ const useStyles = makeStyles(theme => ({
     },
     helpLink: {
       marginLeft: "6%",
-      fontSize: 19
+      fontSize: 19,
+      paddingBottom: 24
     }
   },
 
@@ -186,7 +189,8 @@ const useStyles = makeStyles(theme => ({
     },
     helpLink: {
       marginLeft: "6%",
-      fontSize: 19
+      fontSize: 19,
+      paddingBottom: 24
     },
     input: {
       width: "100%",
@@ -257,6 +261,7 @@ function QuizForm(props) {
   const [questionsId, setQuestionsId] = useState([]);
   const [loading, setLoading] = useState(true);
   const [toggleButton, setToggleButton] = useState(false);
+  const [submitButton, setSubmitBUtton] = useState(false);
   let result = "";
   const date = props.match.params.date;
 
@@ -340,7 +345,10 @@ function QuizForm(props) {
     }
     const time = moment().format("DD:MM:YYYY HH:mm:ss");
     const uuid = uuidv5(
-      myMap.get("fullname").trim() + myMap.get("mobile").trim(),
+      myMap
+        .get("fullname")
+        .trim()
+        .toLowerCase() + myMap.get("mobile").trim(),
       uuidv5.DNS
     );
     let userResponseJson = {};
@@ -379,7 +387,10 @@ function QuizForm(props) {
             })
             .then(userexists => {
               if (userexists) {
-                alert("user already exists");
+                alert(
+                  "आपके द्वारा आज का QUIZ पूर्व में SUBMIT किया जा चुका है"
+                );
+                setSubmitBUtton(true);
                 setToggleButton(false);
                 return;
               } else {
@@ -549,7 +560,11 @@ function QuizForm(props) {
                         {row.hint != undefined && row.hint.length > 0 ? (
                           <fieldset className={classes.helpLink}>
                             <Link
-                              href={row.hint}
+                              href={
+                                `https://jindarshan.s3.amazonaws.com/` +
+                                row.hint +
+                                `.jpg`
+                              }
                               target="_blank"
                               rel="noopener noreferrer"
                             >
@@ -666,6 +681,9 @@ function QuizForm(props) {
                       औसत
                     </label>
                   </fieldset>
+                  {errors["feedback"] && (
+                    <p className={classes.error}>This field is required</p>
+                  )}
                 </CardContent>
               </Card>
               <label className={classes.label}>टिप / सुझाव</label>
@@ -683,6 +701,17 @@ function QuizForm(props) {
               >
                 Submit
               </Button>
+              {submitButton == true ? (
+                <Typography
+                  variant="h9"
+                  component="h9"
+                  className={classes.asteriskField}
+                >
+                  आपके द्वारा आज का QUIZ पूर्व में SUBMIT किया जा चुका है
+                </Typography>
+              ) : (
+                ""
+              )}
             </form>
           </CardContent>
         </Card>
