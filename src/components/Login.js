@@ -249,13 +249,13 @@ function Login() {
   return (
     <div className={classes.home}>
       <Card className={classes.formContainer}>
-        <CardContent>
-          <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
-            <label className={classes.message}>
-              यदि आपको उक्त QUIZ भरने में कोई तकनीकी समस्या आ रही है तो कृपया
-              निम्न फार्म में समस्या का विवरण लिखें
-            </label>
-            {toggleButton === false ? (
+        {toggleButton === false ? (
+          <CardContent>
+            <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
+              <label className={classes.message}>
+                यदि आपको उक्त QUIZ भरने में कोई तकनीकी समस्या आ रही है तो कृपया
+                निम्न फार्म में समस्या का विवरण लिखें
+              </label>
               <React.Fragment>
                 {" "}
                 <div>
@@ -297,12 +297,9 @@ function Login() {
                   </Button>
                 </div>
               </React.Fragment>
-            ) : (
-              ""
-            )}
-          </form>
-        </CardContent>
-        {userDates.length != 0 && !loading ? (
+            </form>
+          </CardContent>
+        ) : userDates.length != 0 && !loading ? (
           userDates.map(date => (
             <Grid item xs={6} className={classes.answerButton}>
               <Link to={`/answersheet` + `/${date}`}>
@@ -327,6 +324,31 @@ function Login() {
             </Fade>
           </div>
         )}
+        {/* {userDates.length != 0 && !loading ? (
+          userDates.map(date => (
+            <Grid item xs={6} className={classes.answerButton}>
+              <Link to={`/answersheet` + `/${date}`}>
+                <Paper className={classes.paper}>
+                  <Button variant="contained" className={classes.button}>
+                    {moment(date, "DD-MM-YYYY").format("DD-MMM")}
+                  </Button>
+                </Paper>
+              </Link>
+            </Grid>
+          ))
+        ) : (
+          <div className={classes.loading}>
+            <Fade
+              in={loading}
+              style={{
+                transitionDelay: loading ? "800ms" : "0ms"
+              }}
+              unmountOnExit
+            >
+              <CircularProgress />
+            </Fade>
+          </div>
+        )} */}
       </Card>
     </div>
   );
