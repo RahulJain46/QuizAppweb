@@ -316,10 +316,10 @@ function QuizForm(props) {
       body: JSON.stringify(userresponse)
     };
     console.log(
-      links.backendURL + "usersresponse?" + `date=${date}` + `&update=true`
+      links.backendURL + "examusersresponse?" + `date=${date}` + `&update=true`
     );
     fetch(
-      links.backendURL + "usersresponse?" + `date=${date}` + `&update=true`,
+      links.backendURL + "examusersresponse?" + `date=${date}` + `&update=true`,
       userOptions
     )
       .then(response => {
@@ -338,7 +338,10 @@ function QuizForm(props) {
     }
     const time = moment().format("DD:MM:YYYY HH:mm:ss");
     const uuid = uuidv5(
-      myMap.get("fullname").trim() + myMap.get("mobile").trim(),
+      myMap
+        .get("fullname")
+        .toLowerCase()
+        .trim() + myMap.get("mobile").trim(),
       uuidv5.DNS
     );
     let userResponseJson = {};
@@ -348,7 +351,7 @@ function QuizForm(props) {
     userResponseJson["feedback"] = myMap.get("feedback");
     userResponseJson["suggestion"] = myMap.get("suggestion").trim();
     userResponseJson = calcaulateScore(ques, myMap, userResponseJson);
-    const date = props.match.params.date;
+    const date = "20-05-2020";
     let usersJson = {};
     usersJson["fullname"] = myMap.get("fullname").trim();
     usersJson["city"] = myMap.get("city").trim();
@@ -360,7 +363,7 @@ function QuizForm(props) {
       score: userResponseJson["score"],
       time
     });
-    fetch(links.backendURL + "users?" + `&userId=${uuid}`)
+    fetch(links.backendURL + "examusers?" + `&userId=${uuid}`)
       .then(response => {
         return response.json();
       })
@@ -368,7 +371,7 @@ function QuizForm(props) {
         if (count > 0) {
           fetch(
             links.backendURL +
-              "usersresponse?" +
+              "examusersresponse?" +
               `date=${date}` +
               `&userId=${uuid}`
           )
@@ -396,7 +399,7 @@ function QuizForm(props) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(usersJson)
           };
-          fetch(links.backendURL + "users", userOptions).then(response => {
+          fetch(links.backendURL + "examusers", userOptions).then(response => {
             patchUserResponse(
               userResponseJson,
               userData,
