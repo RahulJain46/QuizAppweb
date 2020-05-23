@@ -205,6 +205,7 @@ function Login() {
   const date = new Date();
   const [loading, setLoading] = useState(true);
   const [userDates, setUserDates] = useState(false);
+  const [userResponse, setUserResponse] = useState(true);
   const [toggleButton, setToggleButton] = useState(false);
   const day =
     new Date().getDate() > 9
@@ -234,9 +235,14 @@ function Login() {
       })
       .then(dates => {
         let datesArray = [];
-        dates.map(date => {
-          datesArray.push(date.date);
-        });
+        if (dates.loginResponse != undefined && dates.loginResponse == false) {
+          setUserResponse(false);
+        } else {
+          dates.map(date => {
+            datesArray.push(date.date);
+          });
+        }
+
         setUserDates(datesArray);
         setLoading(false);
       });
