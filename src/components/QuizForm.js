@@ -557,7 +557,26 @@ function QuizForm(props) {
                             )}
                           </label>
                         </fieldset>
-                        {row.hint != undefined && row.hint.length > 0 ? (
+                        {row.hint != undefined &&
+                        row.aws != undefined &&
+                        row.hint.length > 0 ? (
+                          <fieldset className={classes.helpLink}>
+                            <Link
+                              href={row.hint}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <label className={classes.helpLabel}>
+                                Click here for help <WbIncandescentSharpIcon />
+                              </label>
+                            </Link>
+                          </fieldset>
+                        ) : (
+                          ""
+                        )}
+                        {row.hint != undefined &&
+                        row.aws === undefined &&
+                        row.hint.length > 0 ? (
                           <fieldset className={classes.helpLink}>
                             <Link
                               href={row.hint}
