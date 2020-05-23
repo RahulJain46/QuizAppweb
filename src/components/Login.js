@@ -255,7 +255,7 @@ function Login() {
   return (
     <div className={classes.home}>
       <Card className={classes.formContainer}>
-        {toggleButton === false ? (
+        {toggleButton === false && userResponse != false ? (
           <CardContent>
             <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
               <label className={classes.message}>
