@@ -479,6 +479,27 @@ function QuizForm(props) {
               )}
               <label className={classes.label}>
                 {reactStringReplace(
+                  "Father's Name *",
+                  new RegExp(/(\*)/g),
+                  (match, i) => (
+                    <span key={i} style={{ color: error }}>
+                      {" "}
+                      {match}{" "}
+                    </span>
+                  )
+                )}
+              </label>
+              <input
+                className={classes.input}
+                placeholder="Father's Name"
+                name="fathername"
+                ref={register({ required: true, maxLength: 22 })}
+              />
+              {errors.fathername && (
+                <p className={classes.error}> This field is required</p>
+              )}
+              <label className={classes.label}>
+                {reactStringReplace(
                   "City/Town/Village *",
                   new RegExp(/(\*)/g),
                   (match, i) => (
@@ -498,28 +519,6 @@ function QuizForm(props) {
               {errors.city && (
                 <p className={classes.error}>This field is required</p>
               )}
-              <label className={classes.label}>
-                {reactStringReplace(
-                  "Address In Short *",
-                  new RegExp(/(\*)/g),
-                  (match, i) => (
-                    <span key={i} style={{ color: error }}>
-                      {" "}
-                      {match}{" "}
-                    </span>
-                  )
-                )}
-              </label>
-              <input
-                className={classes.input}
-                placeholder="Address"
-                name="address"
-                ref={register({ required: true })}
-              />
-              {errors.address && (
-                <p className={classes.error}>This field is required</p>
-              )}
-
               {questions.map(question => {
                 return question.map((row, index) => (
                   <Card className={classes.questionfields}>
