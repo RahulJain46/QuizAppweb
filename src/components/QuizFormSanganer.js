@@ -11,6 +11,7 @@ import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import CardContent from "@material-ui/core/CardContent";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import Fade from "@material-ui/core/Fade";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Typography from "@material-ui/core/Typography";
@@ -28,6 +29,9 @@ const useStyles = makeStyles(theme => ({
     marginBottom: 75,
     left: "30%",
     width: "100%"
+  },
+  backButton: {
+    backgroundColor: "#1976d2"
   },
   headerDate: {
     fontWeight: 600,
@@ -174,6 +178,13 @@ const useStyles = makeStyles(theme => ({
     helpLink: {
       marginLeft: "6%",
       fontSize: 19
+    },
+    backButton: {
+      backgroundColor: "#1976d2",
+      padding: "3px 10px",
+      fontSize: 11,
+      marginLeft: 13,
+      marginTop: 13
     }
   },
 
@@ -238,6 +249,11 @@ const useStyles = makeStyles(theme => ({
     },
     helpLabel: {
       fontSize: 19
+    },
+    backButton: {
+      backgroundColor: "#1976d2",
+      padding: "3px 10px",
+      fontSize: 11
     }
   }
 }));
@@ -257,6 +273,9 @@ function QuizForm(props) {
   const [questionsId, setQuestionsId] = useState([]);
   const [loading, setLoading] = useState(true);
   const [toggleButton, setToggleButton] = useState(false);
+  const [submitButton, setSubmitBUtton] = useState(false);
+  const [scoreMessage, setScoreMessage] = useState("");
+  const [userScore, setuserScore] = useState("");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -324,8 +343,9 @@ function QuizForm(props) {
     )
       .then(response => {
         console.log(response.status);
+        setuserScore(score);
+        setScoreMessage(true);
         alert("your score is : " + score);
-        history.push(`/`);
       })
       .catch(error => console.log("error is", error));
   };
@@ -351,12 +371,11 @@ function QuizForm(props) {
     userResponseJson["feedback"] = myMap.get("feedback");
     userResponseJson["suggestion"] = myMap.get("suggestion").trim();
     userResponseJson = calcaulateScore(ques, myMap, userResponseJson);
-    const date = "20-05-2020";
+    const date = "26-05-2020";
     let usersJson = {};
     usersJson["fullname"] = myMap.get("fullname").trim();
     usersJson["city"] = myMap.get("city").trim();
     usersJson["mobile"] = myMap.get("mobile").trim();
-    usersJson["address"] = myMap.get("address").trim();
     usersJson["userId"] = uuid;
     const userData = Object.assign(data, {
       id: uuid,
@@ -381,6 +400,7 @@ function QuizForm(props) {
             .then(userexists => {
               if (userexists) {
                 alert("user already exists");
+                setSubmitBUtton(true);
                 setToggleButton(false);
                 return;
               } else {
@@ -687,6 +707,40 @@ function QuizForm(props) {
               >
                 Submit
               </Button>
+              {submitButton == true ? (
+                <Typography
+                  variant="h9"
+                  component="h9"
+                  className={classes.asteriskField}
+                >
+                  आपके द्वारा आज का QUIZ पूर्व में SUBMIT किया जा चुका है
+                </Typography>
+              ) : (
+                ""
+              )}
+              {scoreMessage == true ? (
+                <React.Fragment>
+                  <Typography
+                    variant="h9"
+                    component="h9"
+                    className={classes.asteriskField}
+                  >
+                    Your Score is : {userScore}
+                  </Typography>
+                  <Link to={`/`}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.backButton}
+                    >
+                      <ArrowBackIosIcon className={classes.backArrow} />
+                      Go To Home
+                    </Button>
+                  </Link>
+                </React.Fragment>
+              ) : (
+                ""
+              )}
             </form>
           </CardContent>
         </Card>
