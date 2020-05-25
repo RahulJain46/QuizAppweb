@@ -8,6 +8,7 @@ import QuizResult from "./components/QuizResult";
 import Comments from "./components/Comments";
 import QuizResultAdmin from "./components/QuizResultAdmin";
 import UserResponse from "./components/UserResponse";
+import Bhajan from "./components/Bhajan";
 import QuizAnswer from "./components/QuizAnswer";
 import DesktopHeader from "./components/common/DesktopHeader";
 import AppBar from "./components/common/AppBar";
@@ -40,6 +41,7 @@ function App() {
         <Route path="/datemonthresult" component={OldQuiz} />
         <Route path="/answerSheets" component={QuizAnswers} />
         <Route path="/comments" component={Comments} />
+        <Route path="/bhajan" component={Bhajan} />
         <Route path="/answerSheet/:date" component={QuizAnswer} />
         {/* <Route path="/quizresult/:date" component={QuizResult} /> */}
         <Route path="/quizresult/:date" component={QuizResultAdmin} />

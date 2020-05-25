@@ -268,6 +268,16 @@ function Home() {
             </Paper>
           </Link>
         </Grid>
+
+        <Grid item xs={12} className={classes.quizitems}>
+          <Link to="/answerSheets">
+            <Paper className={classes.paper}>
+              <Button variant="contained" className={classes.button}>
+                Latest Jain Bhajan
+              </Button>
+            </Paper>
+          </Link>
+        </Grid>
       </Grid>
       <Card className={classes.formContainer}>
         <CardContent>
