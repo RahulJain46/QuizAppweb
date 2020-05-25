@@ -13,7 +13,6 @@ import DesktopHeader from "./components/common/DesktopHeader";
 import AppBar from "./components/common/AppBar";
 import Footer from "./components/common/Footer";
 import PageNotFound from "./components/PageNotFound";
-import ExamInstruction from "./components/ExamInstruction";
 import { makeStyles } from "@material-ui/core/styles";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -45,7 +44,6 @@ function App() {
         {/* <Route path="/quizresult/:date" component={QuizResult} /> */}
         <Route path="/quizresult/:date" component={QuizResultAdmin} />
         <Route path="/yourresponse/:id/:date" component={UserResponse} />
-        <Route path="/examInstruction" component={ExamInstruction} />
         <Route component={PageNotFound} />
       </Switch>
       <Footer />
