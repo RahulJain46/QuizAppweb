@@ -139,7 +139,7 @@ export default function appBar() {
                     handleNavClose("/examinstruction");
                   }}
                 >
-                  Istopdash Quiz
+                  Ishtopdesh Sanganer Exam
                 </MenuItem>
               </Menu>
               <Typography
