@@ -139,7 +139,7 @@ export default function appBar() {
                     handleNavClose("/sanganer");
                   }}
                 >
-                  Sanganer Quiz
+                  Istopdash Quiz
                 </MenuItem>
               </Menu>
               <Typography
