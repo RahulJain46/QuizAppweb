@@ -10,6 +10,7 @@ import Comments from "./components/Comments";
 import ExamInstruction from "./components/ExamInstruction";
 
 import QuizResultAdmin from "./components/QuizResultAdmin";
+import QuizResultSanganer from "./components/QuizResultSanganer";
 import UserResponse from "./components/UserResponse";
 import QuizAnswer from "./components/QuizAnswer";
 import DesktopHeader from "./components/common/DesktopHeader";
@@ -46,7 +47,10 @@ function App() {
         <Route path="/comments" component={Comments} />
         <Route path="/answerSheet/:date" component={QuizAnswer} />
         <Route path="/examInstruction" component={ExamInstruction} />
-        {/* <Route path="/quizresult/:date" component={QuizResult} /> */}
+        <Route
+          path="/quizresultsanganer/:date"
+          component={QuizResultSanganer}
+        />
         <Route path="/quizresult/:date" component={QuizResultAdmin} />
         <Route path="/yourresponse/:id/:date" component={UserResponse} />
         <Route component={PageNotFound} />
