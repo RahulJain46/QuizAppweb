@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { v5 as uuidv5 } from "uuid";
 import { links } from "../Config";
+import Grid from "@material-ui/core/Grid";
 
 import { useForm } from "react-hook-form/dist/react-hook-form.ie11";
 import { useHistory } from "react-router-dom";
@@ -139,7 +140,7 @@ const useStyles = makeStyles(theme => ({
     },
     asteriskField: {
       fontSize: 19,
-      marginLeft: "4%"
+      marginLeft: "0%"
     },
     questionfields: {
       boxShadow: "3px 3px #eeeeee",
@@ -217,6 +218,9 @@ const useStyles = makeStyles(theme => ({
       fontSize: 21,
       marginLeft: "4%"
     },
+    // oldQuizButton:{
+    //  margin
+    // },
     questionfields: {
       boxShadow: "4px 3px #eeeeee",
       margin: 7
@@ -703,14 +707,39 @@ function QuizForm(props) {
                 ref={register({ required: false })}
               />
               <CountdownTimer />
-              <Button
-                variant="contained"
-                className={classes.button}
-                type="submit"
-                disabled={toggleButton}
-              >
-                Submit
-              </Button>
+              {scoreMessage != true ? (
+                <Button
+                  variant="contained"
+                  className={classes.button}
+                  type="submit"
+                  disabled={toggleButton}
+                >
+                  Submit
+                </Button>
+              ) : (
+                <React.Fragment>
+                  <Typography
+                    variant="h9"
+                    component="h9"
+                    className={classes.asteriskField}
+                  >
+                    Thank you for attending the Quiz. Your Score is :{userScore}
+                  </Typography>
+                  <Grid item xs={6} className={classes.oldQuizButton}>
+                    <Link to={`/`} className={classes.buttonLink}>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        className={classes.backButton}
+                      >
+                        <ArrowBackIosIcon className={classes.backArrow} />
+                        Go To Home
+                      </Button>
+                    </Link>
+                  </Grid>
+                </React.Fragment>
+              )}
+
               {submitButton == true ? (
                 <Typography
                   variant="h9"
@@ -719,29 +748,6 @@ function QuizForm(props) {
                 >
                   आपके द्वारा आज का QUIZ पूर्व में SUBMIT किया जा चुका है
                 </Typography>
-              ) : (
-                ""
-              )}
-              {scoreMessage == true ? (
-                <React.Fragment>
-                  <Typography
-                    variant="h9"
-                    component="h9"
-                    className={classes.asteriskField}
-                  >
-                    Your Score is : {userScore}
-                  </Typography>
-                  <Link to={`/`}>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      className={classes.backButton}
-                    >
-                      <ArrowBackIosIcon className={classes.backArrow} />
-                      Go To Home
-                    </Button>
-                  </Link>
-                </React.Fragment>
               ) : (
                 ""
               )}
