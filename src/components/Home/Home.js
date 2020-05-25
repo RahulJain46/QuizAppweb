@@ -284,12 +284,21 @@ function Home() {
               </Button>
             </Paper>
           </Link>
-        </Grid>{" "}
+        </Grid>
         <Grid item xs={6} className={classes.quizitems}>
           <Link to="/examlogin">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.ishtopdeshButton}>
                 Ishtopdesh Sanganer Answer & Result
+              </Button>
+            </Paper>
+          </Link>
+        </Grid>
+        <Grid item xs={12} className={classes.quizitems}>
+          <Link to="/answerSheets">
+            <Paper className={classes.paper}>
+              <Button variant="contained" className={classes.button}>
+                Latest Jain Bhajan
               </Button>
             </Paper>
           </Link>

@@ -27,11 +27,10 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "#303f9f"
     }
   },
-  topInstruction:{
+  topInstruction: {
     color: "#ac0b0b",
     marginBottom: 10,
     fontSize: 20
-    
   },
   formContainer: {
     textAlign: "center",
@@ -120,9 +119,9 @@ function Bhajan() {
   }, []);
 
   return (
-<div className={classes.instruction}>
-<Paper className={classes.tableheading}>
-    <TableContainer className={classes.container}>
+    <div className={classes.instruction}>
+      <Paper className={classes.tableheading}>
+        <TableContainer className={classes.container}>
           <Table
             stickyHeader
             aria-label="sticky table"
@@ -131,13 +130,13 @@ function Bhajan() {
             <TableHead className={classes.tablecolumns}>
               <TableRow>
                 <TableCell key="name" className={classes.tableNumber}>
-                भजन नाम
+                  भजन नाम
                 </TableCell>
                 <TableCell key="name" className={classes.tableQuestion}>
-                गायक
+                  गायक
                 </TableCell>
                 <TableCell key="code" className={classes.tableAnswer}>
-                गीतकार
+                  गीतकार
                 </TableCell>
                 <TableCell key="population" className={classes.tableRemarks}>
                   Link
@@ -146,32 +145,29 @@ function Bhajan() {
             </TableHead>
             <TableBody>
               {
-                
-                  <TableRow>
-                    <TableCell className={classes.tableNumberCell}>
+                <TableRow>
+                  <TableCell className={classes.tableNumberCell}>
                     मेरा जीवन आज भगवन धन्य हो गया..
-                    </TableCell>
-                    <TableCell
-                      component="th"
-                      scope="row"
-                      className={classes.tableQuestionCell}
-                    >
-                      अनिमेष जैन 
-            
-                    </TableCell>
-                    <TableCell className={classes.tableAnswerCell}>
+                  </TableCell>
+                  <TableCell
+                    component="th"
+                    scope="row"
+                    className={classes.tableQuestionCell}
+                  >
+                    अनिमेष जैन
+                  </TableCell>
+                  <TableCell className={classes.tableAnswerCell}>
                     सुरेश चंद्र जैन
-                    </TableCell>
-                    <TableCell className={classes.tableRemarkCell}>
-                      link
-                    </TableCell>
-                  </TableRow>
-                
+                  </TableCell>
+                  <TableCell className={classes.tableRemarkCell}>
+                    link
+                  </TableCell>
+                </TableRow>
               }
             </TableBody>
           </Table>
         </TableContainer>
-        </Paper>
+      </Paper>
     </div>
   );
 }
