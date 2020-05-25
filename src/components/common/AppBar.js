@@ -136,7 +136,7 @@ export default function appBar() {
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
-                    handleNavClose("/sanganer");
+                    handleNavClose("/examinstruction");
                   }}
                 >
                   Istopdash Quiz
