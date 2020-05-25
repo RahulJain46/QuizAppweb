@@ -6,7 +6,7 @@ import { links } from "../Config";
 import { useForm } from "react-hook-form/dist/react-hook-form.ie11";
 import { useHistory } from "react-router-dom";
 import WbIncandescentSharpIcon from "@material-ui/icons/WbIncandescentSharp";
-import Link from "@material-ui/core/Link";
+import { Link } from "react-router-dom";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
@@ -14,6 +14,7 @@ import CardContent from "@material-ui/core/CardContent";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import Fade from "@material-ui/core/Fade";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import CountdownTimer from "./Timer";
 import Typography from "@material-ui/core/Typography";
 import moment from "moment";
 import red from "@material-ui/core/colors/red";
@@ -276,6 +277,7 @@ function QuizForm(props) {
   const [submitButton, setSubmitBUtton] = useState(false);
   const [scoreMessage, setScoreMessage] = useState("");
   const [userScore, setuserScore] = useState("");
+  let message = "";
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -439,6 +441,7 @@ function QuizForm(props) {
       {questions.length != 0 && !loading ? (
         <Card className={classes.container}>
           <CardContent>
+            <CountdownTimer />
             <form
               onSubmit={handleSubmit(data =>
                 onSubmit(data, questions, questionsId)
@@ -699,6 +702,7 @@ function QuizForm(props) {
                 name="suggestion"
                 ref={register({ required: false })}
               />
+              <CountdownTimer />
               <Button
                 variant="contained"
                 className={classes.button}
