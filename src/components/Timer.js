@@ -5,7 +5,7 @@ import moment from "moment";
 function CountdownTimer() {
   const calculateTimeLeft = () => {
     const difference =
-      +new Date(new Date("2020-05-25 14:55:00").toISOString()) - +new Date();
+      +new Date(new Date("2020-05-26 14:00:00").toISOString()) - +new Date();
     let timeLeft = {};
 
     if (difference > 0) {
