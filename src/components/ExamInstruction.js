@@ -7,19 +7,11 @@ import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { Link } from "react-router-dom";
-import { links } from "../Config";
-import { useForm } from "react-hook-form";
 
 const useStyles = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: "center"
-  },
-  error: {
-    color: "#bf1650",
-    "&::before": {
-      content: "'⚠ '"
-    }
   },
   button: {
     backgroundColor: "#1976d2",
@@ -29,38 +21,10 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "#303f9f"
     }
   },
-  form: {
-    display: "inline-block"
-  },
-  topInstruction: {
+  topInstruction:{
     color: "#ac0b0b",
     marginBottom: 10,
     fontSize: 20
-  },
-  feedbackButton: {
-    backgroundColor: "#1976d2",
-    color: "#fff",
-    width: 188,
-    "&:hover": {
-      backgroundColor: "#303f9f"
-    }
-  },
-  mobileInput: {
-    display: "block",
-    left: 0,
-    right: 0,
-    margin: "0 auto",
-    marginBottom: 10,
-    boxShadow: "4px 4px #eeeeee"
-  },
-  feedbackInput: {
-    left: 0,
-    right: 0,
-    margin: "0 auto",
-    marginBottom: 17,
-    paddingBottom: 0,
-    marginBottom: 17,
-    boxShadow: "4px 4px #eeeeee"
   },
   formContainer: {
     textAlign: "center",
@@ -72,20 +36,6 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 500,
     textAlign: "left"
   },
-  responseMessage: {
-    color: "#d34242"
-  },
-  comment: {
-    display: "block",
-    textAlign: "center"
-  },
-  submitButton: {
-    textAlign: "center"
-  },
-  mobilenumber: {
-    textAlign: "center",
-    display: "block"
-  },
   instruction: {
     flexGrow: 1,
     marginTop: 150,
@@ -94,14 +44,6 @@ const useStyles = makeStyles(theme => ({
     left: "25%",
     right: "25%"
   },
-  quizResultButton: {
-    backgroundColor: "#aa1050e3",
-    color: "#fff",
-    width: 188,
-    "&:hover": {
-      backgroundColor: "#610c2b"
-    }
-  },
   [theme.breakpoints.down("1123")]: {
     instruction: {
       width: "100%",
@@ -109,41 +51,17 @@ const useStyles = makeStyles(theme => ({
       right: "0%",
       top: "0%"
     },
-    quizbutton: {
-      display: "inline-block"
-    },
     quizitems: {
       maxWidth: "100%",
       padding: "0px ! important",
       paddingTop: "10px ! important"
     },
-    feedbackButton: {
-      padding: "4px 6px",
-      width: 111
-    },
     button: {
-      padding: "4px 6px",
+      padding: "11px 6px",
       width: 185
     },
     form: {
       display: "inline-block"
-    },
-    mobileInput: {
-      display: "block",
-      left: 0,
-      right: 0,
-      margin: "0 auto",
-      marginBottom: 10,
-      boxShadow: "4px 4px #eeeeee"
-    },
-    feedbackInput: {
-      left: 0,
-      right: 0,
-      margin: "0 auto",
-      marginBottom: 17,
-      paddingBottom: 0,
-      marginBottom: 17,
-      boxShadow: "4px 4px #eeeeee"
     },
     formContainer: {
       textAlign: "center",
@@ -153,36 +71,9 @@ const useStyles = makeStyles(theme => ({
       marginBottom: 14,
       fontSize: 18,
       fontWeight: 500
-    },
-    responseMessage: {
-      color: "#d34242"
-    },
-    comment: {
-      display: "block",
-      textAlign: "center"
-    },
-    submitButton: {
-      textAlign: "center"
-    },
-    mobilenumber: {
-      textAlign: "center",
-      display: "block"
     }
   },
   [theme.breakpoints.down("361")]: {
-    form: {
-      display: "inline-block"
-    },
-    mobileInput: {
-      display: "block",
-      marginBottom: 10,
-      boxShadow: "4px 4px #eeeeee"
-    },
-    feedbackInput: {
-      paddingBottom: 0,
-      marginBottom: 17,
-      boxShadow: "4px 4px #eeeeee"
-    },
     formContainer: {
       textAlign: "center",
       marginTop: 18
@@ -194,13 +85,6 @@ const useStyles = makeStyles(theme => ({
     },
     topInstruction: {
       fontSize: 17
-    },
-    comment: {
-      display: "block",
-      marginLeft: -33
-    },
-    submitButton: {
-      textAlign: "center"
     }
   }
 }));
