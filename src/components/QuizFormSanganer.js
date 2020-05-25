@@ -185,7 +185,7 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "#1976d2",
       padding: "3px 10px",
       fontSize: 11,
-      marginLeft: 13,
+      marginLeft: 0,
       marginTop: 13
     }
   },
@@ -216,7 +216,7 @@ const useStyles = makeStyles(theme => ({
     },
     asteriskField: {
       fontSize: 21,
-      marginLeft: "4%"
+      marginLeft: "0%"
     },
     // oldQuizButton:{
     //  margin
@@ -350,6 +350,7 @@ function QuizForm(props) {
       .then(response => {
         console.log(response.status);
         setuserScore(score);
+        setSubmitBUtton(false);
         setScoreMessage(true);
         alert("your score is : " + score);
       })
@@ -706,16 +707,19 @@ function QuizForm(props) {
                 name="suggestion"
                 ref={register({ required: false })}
               />
-              <CountdownTimer />
+
               {scoreMessage != true ? (
-                <Button
-                  variant="contained"
-                  className={classes.button}
-                  type="submit"
-                  disabled={toggleButton}
-                >
-                  Submit
-                </Button>
+                <React.Fragment>
+                  <CountdownTimer />
+                  <Button
+                    variant="contained"
+                    className={classes.button}
+                    type="submit"
+                    disabled={toggleButton}
+                  >
+                    Submit
+                  </Button>
+                </React.Fragment>
               ) : (
                 <React.Fragment>
                   <Typography
