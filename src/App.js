@@ -27,6 +27,7 @@ import DesktopHeader from "./components/common/DesktopHeader";
 import AppBar from "./components/common/AppBar";
 import Footer from "./components/common/Footer";
 import PageNotFound from "./components/PageNotFound";
+import ExamInstruction from "./components/ExamInstruction";
 import { makeStyles } from "@material-ui/core/styles";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
