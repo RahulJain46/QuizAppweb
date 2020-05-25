@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
   form: {
     display: "inline-block"
   },
-  topInstruction:{
+  topInstruction: {
     color: "#ac0b0b",
     marginBottom: 10,
     fontSize: 20
@@ -192,7 +192,7 @@ const useStyles = makeStyles(theme => ({
       fontSize: 16,
       fontWeight: 500
     },
-    topInstruction:{
+    topInstruction: {
       fontSize: 17
     },
     comment: {
@@ -207,7 +207,6 @@ const useStyles = makeStyles(theme => ({
 
 function ExamInstruction() {
   const classes = useStyles();
-  
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -215,39 +214,40 @@ function ExamInstruction() {
 
   return (
     <div className={classes.instruction}>
-    
       <Card className={classes.formContainer}>
-        <CardContent className={classes.message} >
-        <Typography className= {classes.topInstruction}>
-        कृपया परीक्षा से सम्बंधित निम्नलिखित निर्देशों को ध्यान पूर्वक पढ़े एवं इनका पालन करे।
-
+        <CardContent className={classes.message}>
+          <Typography className={classes.topInstruction}>
+            कृपया परीक्षा से सम्बंधित निम्नलिखित निर्देशों को ध्यान पूर्वक पढ़े
+            एवं इनका पालन करे।
           </Typography>
-          <Typography className= {classes.message}>
-          1.	कुल प्रश्न 50 होंगे सभी प्रश्न करना अनिवार्य है।
+          <Typography className={classes.message}>
+            1. कुल प्रश्न 50 होंगे सभी प्रश्न करना अनिवार्य है।
           </Typography>
-          <Typography className= {classes.message}>
-          2.	प्रत्येक प्रश्न 2 नंबर का होगा।
+          <Typography className={classes.message}>
+            2. प्रत्येक प्रश्न 2 नंबर का होगा।
           </Typography>
-          <Typography className= {classes.message}>
-          3.	प्रतियोगिता मैं प्रथम द्वितीय तृतीय स्थान उन्हें प्राप्त होगा जो सबसे पहले अपने पेपर को जमा करेंगे एवं उनके नंबर सबसे ज्यादा होने चाहिए।
+          <Typography className={classes.message}>
+            3. प्रतियोगिता मैं प्रथम द्वितीय तृतीय स्थान उन्हें प्राप्त होगा जो
+            सबसे पहले अपने पेपर को जमा करेंगे एवं उनके नंबर सबसे ज्यादा होने
+            चाहिए।
           </Typography>
-          <Typography className= {classes.message}>
-          4.	कोई भी व्यक्ति परीक्षा समय किसी से भी बात नहीं करेगा जिनवाणी खोलकर नहीं देखेगा किसी से भी पूछेगा नहीं।
+          <Typography className={classes.message}>
+            4. कोई भी व्यक्ति परीक्षा समय किसी से भी बात नहीं करेगा जिनवाणी
+            खोलकर नहीं देखेगा किसी से भी पूछेगा नहीं।
           </Typography>
-          <Typography className= {classes.message}>
-          5. समय 50 मिनट का होगा।
+          <Typography className={classes.message}>
+            5. समय 50 मिनट का होगा।
           </Typography>
 
           <Grid className={classes.quizitems}>
-          <Link to="/">
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.button}>
-                START QUIZ
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>
-
+            <Link to="/sanganer">
+              <Paper className={classes.paper}>
+                <Button variant="contained" className={classes.button}>
+                  START QUIZ
+                </Button>
+              </Paper>
+            </Link>
+          </Grid>
         </CardContent>
       </Card>
     </div>
