@@ -276,29 +276,12 @@ function Home() {
             </Paper>
           </Link>
         </Grid>
+
         <Grid item xs={12} className={classes.quizitems}>
-          <Link to="/bhajan">
+          <Link to="/answerSheets">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.button}>
                 Latest Jain Bhajan
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>
-        <Grid item xs={6} className={classes.quizitems}>
-          <Link to="/examinstruction">
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.ishtopdeshButton}>
-                Ishtopdesh Sanganer Exam
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>
-        <Grid item xs={6} className={classes.quizitems}>
-          <Link to="/examlogin">
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.ishtopdeshButton}>
-                Ishtopdesh Sanganer Answer & Result
               </Button>
             </Paper>
           </Link>
