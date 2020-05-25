@@ -3,10 +3,10 @@ import ReactDOM from "react-dom";
 import moment from "moment";
 
 function CountdownTimer() {
-  const calculateTimeLeft = () => {
-    const difference =
-      +moment(moment("2020-05-26 14:00:00").toISOString()) - +moment();
+  let [seconds, setSeconds] = useState(3000);
+  const calculateTimeLeft = seconds => {
     let timeLeft = {};
+    const difference = +moment().add(seconds, "seconds") - +moment();
 
     if (difference > 0) {
       timeLeft = {
@@ -24,7 +24,15 @@ function CountdownTimer() {
 
   useEffect(() => {
     setTimeout(() => {
-      setTimeLeft(calculateTimeLeft());
+      seconds--;
+      setSeconds(seconds);
+    }, 1000);
+  });
+
+  useEffect(() => {
+    setTimeout(() => {
+      //setsecss();
+      setTimeLeft(calculateTimeLeft(seconds));
     }, 1000);
   });
 
