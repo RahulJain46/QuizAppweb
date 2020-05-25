@@ -8,7 +8,7 @@ import QuizAnswers from "./components/QuizAnswers";
 import QuizResult from "./components/QuizResult";
 import Comments from "./components/Comments";
 import ExamInstruction from "./components/ExamInstruction";
-
+import ExamScore from "./components/ExamScore";
 import QuizResultAdmin from "./components/QuizResultAdmin";
 import QuizResultSanganer from "./components/QuizResultSanganer";
 import UserResponse from "./components/UserResponse";
@@ -47,7 +47,7 @@ function App() {
         <Route path="/comments" component={Comments} />
         <Route path="/answerSheet/:date" component={QuizAnswer} />
         <Route path="/examInstruction" component={ExamInstruction} />
-        {/* <Route path="/quizresult/:date" component={QuizResult} /> */}
+        <Route path="/examScore" component={ExamScore} />
         <Route
           path="/quizresultsanganer/:date"
           component={QuizResultSanganer}
