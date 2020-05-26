@@ -134,13 +134,7 @@ export default function appBar() {
                 >
                   Answer Sheets
                 </MenuItem>
-                <MenuItem
-                  onClick={() => {
-                    handleNavClose("/examinstruction");
-                  }}
-                >
-                  Ishtopdesh Sanganer Exam
-                </MenuItem>
+               
               </Menu>
               <Typography
                 variant="h4"
