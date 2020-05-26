@@ -1,3 +1,3 @@
 export const links = {
-  backendURL: "https://sanganerbackend.herokuapp.com/"
+  backendURL: "https://prodbackendjin.herokuapp.com/"
 };
