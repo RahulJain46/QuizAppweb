@@ -245,6 +245,7 @@ function Login() {
 
         setUserDates(datesArray);
         setLoading(false);
+        setToggleButton(true);
       });
   };
 
@@ -305,7 +306,7 @@ function Login() {
               </React.Fragment>
             </form>
           </CardContent>
-        ) : userDates.length != 0 && !loading ? (
+        ) : userDates.length != 0 && !loading && userResponse != false ? (
           userDates.map(date => (
             <Grid item xs={6} className={classes.answerButton}>
               <Link to={`/answersheet` + `/${date}`}>
