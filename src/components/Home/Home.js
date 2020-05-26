@@ -29,6 +29,14 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "#303f9f"
     }
   },
+  ishtopdeshButton: {
+    backgroundColor: "#1c008dbf",
+    color: "#fff",
+    width: 188,
+    "&:hover": {
+      backgroundColor: "#323dc1"
+    }
+  },
   form: {
     display: "inline-block"
   },
@@ -264,6 +272,15 @@ function Home() {
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.button}>
                 Answer Sheets
+              </Button>
+            </Paper>
+          </Link>
+        </Grid>
+        <Grid item xs={12} className={classes.quizitems}>
+          <Link to="/examinstruction">
+            <Paper className={classes.paper}>
+              <Button variant="contained" className={classes.ishtopdeshButton}>
+              Ishtopdesh Sanganer Exam 
               </Button>
             </Paper>
           </Link>
