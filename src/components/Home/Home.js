@@ -276,15 +276,6 @@ function Home() {
             </Paper>
           </Link>
         </Grid>
-        <Grid item xs={12} className={classes.quizitems}>
-          <Link to="/examinstruction">
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.ishtopdeshButton}>
-              Ishtopdesh Sanganer Exam 
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>
       </Grid>
       <Card className={classes.formContainer}>
         <CardContent>
