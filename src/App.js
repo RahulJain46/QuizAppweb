@@ -13,6 +13,7 @@ import QuizResultAdmin from "./components/QuizResultAdmin";
 import QuizResultSanganer from "./components/QuizResultSanganer";
 import UserResponse from "./components/UserResponse";
 import QuizAnswer from "./components/QuizAnswer";
+import QuizAnswerSanganer from "./components/QuizAnswerSanganer";
 import DesktopHeader from "./components/common/DesktopHeader";
 import AppBar from "./components/common/AppBar";
 import Footer from "./components/common/Footer";
@@ -46,6 +47,7 @@ function App() {
         <Route path="/answerSheets" component={QuizAnswers} />
         <Route path="/comments" component={Comments} />
         <Route path="/answerSheet/:date" component={QuizAnswer} />
+        <Route path="/answerSheetSanganer" component={QuizAnswerSanganer} />
         <Route path="/examInstruction" component={ExamInstruction} />
         <Route path="/examScore" component={ExamScore} />
         <Route
