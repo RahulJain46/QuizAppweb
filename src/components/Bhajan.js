@@ -103,6 +103,22 @@ function Bhajan() {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    const questionsArray = [];
+    const date = props.match.params.date;
+    fetch(links.backendURL + "questions?date=" + `${date}`)
+      .then(answerJson => {
+        return answerJson.json();
+      })
+      .then(answers => {
+        answers.map(answer => {
+          questionsArray.push(answer.questions);
+        });
+        setAnswers(questionsArray);
+        setLoading(false);
+      });
+  }, []);
+
   return (
 <div className={classes.instruction}>
 <Paper className={classes.tableheading}>
