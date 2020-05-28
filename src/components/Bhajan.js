@@ -22,7 +22,8 @@ const useStyles = makeStyles(theme => ({
     position: "fixed",
     top: 151,
     left: "4%",
-    bottom: "9%"
+    bottom: "9%",
+    minHeight: 1000
   },
   backButton: {
     backgroundColor: "#1976d2"
