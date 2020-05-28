@@ -6,13 +6,14 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import { Link } from "react-router-dom";
+import Link from "@material-ui/core/Link";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import { links } from "../Config";
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -97,6 +98,7 @@ const useStyles = makeStyles(theme => ({
 
 function Bhajan() {
   const classes = useStyles();
+  const [answers, setAnswers] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -104,69 +106,80 @@ function Bhajan() {
 
   useEffect(() => {
     const questionsArray = [];
-    const date = props.match.params.date;
-    fetch(links.backendURL + "questions?date=" + `${date}`)
+    fetch(links.backendURL + "bhajan")
       .then(answerJson => {
         return answerJson.json();
       })
       .then(answers => {
         answers.map(answer => {
-          questionsArray.push(answer.questions);
+          questionsArray.push(answer);
         });
         setAnswers(questionsArray);
-        setLoading(false);
+        //setLoading(false);
       });
   }, []);
 
   return (
     <div className={classes.instruction}>
       <Paper className={classes.tableheading}>
-        <TableContainer className={classes.container}>
-          <Table
-            stickyHeader
-            aria-label="sticky table"
-            className={classes.tableHeader}
-          >
-            <TableHead className={classes.tablecolumns}>
-              <TableRow>
-                <TableCell key="name" className={classes.tableNumber}>
-                  भजन नाम
-                </TableCell>
-                <TableCell key="name" className={classes.tableQuestion}>
-                  गायक
-                </TableCell>
-                <TableCell key="code" className={classes.tableAnswer}>
-                  गीतकार
-                </TableCell>
-                <TableCell key="population" className={classes.tableRemarks}>
-                  Link
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {
+        {answers.length != 0 ? (
+          <TableContainer className={classes.container}>
+            <Table
+              stickyHeader
+              aria-label="sticky table"
+              className={classes.tableHeader}
+            >
+              <TableHead className={classes.tablecolumns}>
                 <TableRow>
-                  <TableCell className={classes.tableNumberCell}>
-                    मेरा जीवन आज भगवन धन्य हो गया..
+                  <TableCell key="name" className={classes.tableNumber}>
+                    भजन नाम
                   </TableCell>
-                  <TableCell
-                    component="th"
-                    scope="row"
-                    className={classes.tableQuestionCell}
-                  >
-                    अनिमेष जैन
+                  <TableCell key="name" className={classes.tableQuestion}>
+                    गायक
                   </TableCell>
-                  <TableCell className={classes.tableAnswerCell}>
-                    सुरेश चंद्र जैन
+                  <TableCell key="code" className={classes.tableAnswer}>
+                    गीतकार
                   </TableCell>
-                  <TableCell className={classes.tableRemarkCell}>
-                    link
+                  <TableCell key="population" className={classes.tableRemarks}>
+                    Link
                   </TableCell>
                 </TableRow>
-              }
-            </TableBody>
-          </Table>
-        </TableContainer>
+              </TableHead>
+              <TableBody>
+                {answers.map(answer => (
+                  <TableRow>
+                    <TableCell className={classes.tableNumberCell}>
+                      {answer.bhajanName}
+                    </TableCell>
+                    <TableCell
+                      component="th"
+                      scope="row"
+                      className={classes.tableQuestionCell}
+                    >
+                      {answer.singer}
+                    </TableCell>
+                    <TableCell className={classes.tableAnswerCell}>
+                      {answer.writer}
+                    </TableCell>
+                    <TableCell className={classes.tableRemarkCell}>
+                      <Link
+                        href={answer.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <label className={classes.helpLabel}>
+                          Click here to listen
+                        </label>
+                      </Link>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        ) : (
+          ""
+        )}
       </Paper>
     </div>
   );

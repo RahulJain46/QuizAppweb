@@ -295,7 +295,7 @@ function Home() {
           </Link>
         </Grid>
         <Grid item xs={12} className={classes.quizitems}>
-          <Link to="/answerSheets">
+          <Link to="/bhajan">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.button}>
                 Latest Jain Bhajan
