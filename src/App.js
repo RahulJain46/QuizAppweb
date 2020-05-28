@@ -9,6 +9,7 @@ import QuizResult from "./components/QuizResult";
 import Comments from "./components/Comments";
 import ExamInstruction from "./components/ExamInstruction";
 import ExamScore from "./components/ExamScore";
+import ExamLogin from "./components/ExamLogin";
 import ExamUserResponse from "./components/ExamUserResponse";
 import QuizResultAdmin from "./components/QuizResultAdmin";
 import QuizResultSanganer from "./components/QuizResultSanganer";
@@ -51,6 +52,7 @@ function App() {
         <Route path="/answerSheetSanganer" component={QuizAnswerSanganer} />
         <Route path="/examInstruction" component={ExamInstruction} />
         <Route path="/examScore" component={ExamScore} />
+        <Route path="/examlogin" component={ExamLogin} />
         <Route path="/examuserresponse/:userid" component={ExamUserResponse} />
         <Route
           path="/quizresultsanganer/:date"
