@@ -286,10 +286,10 @@ function Home() {
           </Link>
         </Grid>{" "}
         <Grid item xs={6} className={classes.quizitems}>
-          <Link to="/answerSheetSanganer">
+          <Link to="/examlogin">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.ishtopdeshButton}>
-                Ishtopdesh Sanganer Answer
+                Ishtopdesh Sanganer Answer and Result
               </Button>
             </Paper>
           </Link>
