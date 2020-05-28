@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "#303f9f"
     }
   },
-  topInstruction:{
+  topInstruction: {
     color: "#ac0b0b",
     marginBottom: 10,
     fontSize: 20

@@ -14,6 +14,7 @@ import ExamUserResponse from "./components/ExamUserResponse";
 import QuizResultAdmin from "./components/QuizResultAdmin";
 import QuizResultSanganer from "./components/QuizResultSanganer";
 import UserResponse from "./components/UserResponse";
+import Bhajan from "./components/Bhajan";
 import QuizAnswer from "./components/QuizAnswer";
 import QuizAnswerSanganer from "./components/QuizAnswerSanganer";
 import DesktopHeader from "./components/common/DesktopHeader";
@@ -48,6 +49,7 @@ function App() {
         <Route path="/datemonthresult" component={OldQuiz} />
         <Route path="/answerSheets" component={QuizAnswers} />
         <Route path="/comments" component={Comments} />
+        <Route path="/bhajan" component={Bhajan} />
         <Route path="/answerSheet/:date" component={QuizAnswer} />
         <Route path="/answerSheetSanganer" component={QuizAnswerSanganer} />
         <Route path="/examInstruction" component={ExamInstruction} />

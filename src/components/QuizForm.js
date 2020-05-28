@@ -562,11 +562,7 @@ function QuizForm(props) {
                         row.hint.length > 0 ? (
                           <fieldset className={classes.helpLink}>
                             <Link
-                              href={
-                                `https://jindarshan.s3.amazonaws.com/` +
-                                row.hint +
-                                `.jpg`
-                              }
+                              href={row.hint}
                               target="_blank"
                               rel="noopener noreferrer"
                             >

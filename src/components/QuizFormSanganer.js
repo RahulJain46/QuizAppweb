@@ -352,7 +352,7 @@ function QuizForm(props) {
         setuserScore(score);
         setSubmitBUtton(false);
         setScoreMessage(true);
-        history.push(`/examscore`,{score} );
+        history.push(`/examscore`, { score });
       })
       .catch(error => console.log("error is", error));
   };
@@ -406,7 +406,9 @@ function QuizForm(props) {
             })
             .then(userexists => {
               if (userexists) {
-                alert("आपके द्वारा आज का QUIZ पूर्व में SUBMIT किया जा चुका है।");
+                alert(
+                  "आपके द्वारा आज का QUIZ पूर्व में SUBMIT किया जा चुका है।"
+                );
                 setSubmitBUtton(true);
                 setToggleButton(false);
                 return;
