@@ -7,8 +7,13 @@ import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { Link } from "react-router-dom";
-import { links } from "../../Config";
+import { useHistory } from "react-router-dom";
+import Fade from "@material-ui/core/Fade";
+import { v5 as uuidv5 } from "uuid";
+import { links } from "../Config";
+import moment from "moment";
 import { useForm } from "react-hook-form";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -27,14 +32,6 @@ const useStyles = makeStyles(theme => ({
     width: 188,
     "&:hover": {
       backgroundColor: "#303f9f"
-    }
-  },
-  ishtopdeshButton: {
-    backgroundColor: "#1c008dbf",
-    color: "#fff",
-    width: 188,
-    "&:hover": {
-      backgroundColor: "#323dc1"
     }
   },
   form: {
@@ -204,29 +201,42 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Home() {
+function Login() {
   const classes = useStyles();
-  const date = new Date();
+  const history = useHistory();
+  const [loading, setLoading] = useState(true);
+
+  const [userResponse, setUserResponse] = useState(true);
+  const [userName, setUserNsme] = useState("");
   const [toggleButton, setToggleButton] = useState(false);
-  const day =
-    new Date().getDate() > 9
-      ? new Date().getDate()
-      : "0" + new Date().getDate();
-  const year = new Date().getFullYear();
-  const currentMonth = new Date().getMonth() + 1;
-  const month = date
-    .toLocaleString("default", { month: "short" })
-    .toUpperCase();
+
   const { register, handleSubmit, watch, errors } = useForm();
+
   const onSubmit = data => {
-    let userOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
+    let fullName = data.fullname;
+    setUserNsme(fullName);
+    let mobileNumber = data.mobilenumber;
+    let userdetail = {
+      fullName
     };
-    fetch(links.backendURL + "comments", userOptions).then(response => {
-      setToggleButton(true);
-    });
+    const uuid = uuidv5(
+      fullName.trim().toLowerCase() + mobileNumber.trim(),
+      uuidv5.DNS
+    );
+
+    fetch(links.backendURL + "examusers?login=true&userId=" + uuid)
+      .then(response => {
+        return response.json();
+      })
+      .then(dates => {
+        if (dates.loginResponse != undefined && dates.loginResponse == false) {
+          setUserResponse(false);
+        } else {
+          history.push(`/examuserresponse/${uuid}`, userdetail);
+        }
+        setLoading(false);
+        setToggleButton(true);
+      });
   };
 
   useEffect(() => {
@@ -235,74 +245,13 @@ function Home() {
 
   return (
     <div className={classes.home}>
-      <Grid container spacing={3} className={classes.quizbutton}>
-        <Grid item xs={6} className={classes.quizitems}>
-          <Link
-            to={`/datemonthquiz` + `/${day + "-0" + currentMonth + "-" + year}`}
-          >
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.button}>
-                QUIZ {day + "-" + month}
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>
-        <Grid item xs={6} className={classes.quizitems}>
-          <Link
-            to={`/quizresult` + `/${day + "-0" + currentMonth + "-" + year}`}
-          >
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.quizResultButton}>
-                QUIZ RESULT {day + "-" + month}
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>
-        <Grid item xs={6} className={classes.quizitems}>
-          <Link to="/oldquizresults">
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.button}>
-                OLD QUIZ & RESULTS
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>
-        <Grid item xs={6} className={classes.quizitems}>
-          <Link to="/answerSheets">
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.button}>
-                Answer Sheets
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>
-        <Grid item xs={6} className={classes.quizitems}>
-          <Link to="/examinstruction">
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.ishtopdeshButton}>
-                Ishtopdesh Sanganer Exam
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>{" "}
-        <Grid item xs={6} className={classes.quizitems}>
-          <Link to="/examlogin">
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.ishtopdeshButton}>
-                Ishtopdesh Sanganer Answer & Result
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>
-      </Grid>
       <Card className={classes.formContainer}>
-        <CardContent>
-          <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
-            <label className={classes.message}>
-              यदि आपको उक्त QUIZ भरने में कोई तकनीकी समस्या आ रही है तो कृपया
-              निम्न फार्म में समस्या का विवरण लिखें
-            </label>
-            {toggleButton === false ? (
+        {toggleButton === false && userResponse != false ? (
+          <CardContent>
+            <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
+              <label className={classes.message}>
+                Login and see your response
+              </label>
               <React.Fragment>
                 {" "}
                 <div>
@@ -323,16 +272,16 @@ function Home() {
                     </p>
                   )}
                 </div>
-                <label className={classes.comment}>Comment</label>
+                <label className={classes.comment}>Full Name</label>
                 <input
-                  name="comment"
+                  name="fullname"
                   ref={register({
                     required: true
                   })}
                   className={classes.feedbackInput}
                 />
                 {errors.comment && (
-                  <p className={classes.error}>Please enter your comment</p>
+                  <p className={classes.error}>Please enter your Name</p>
                 )}
                 <div className={classes.submitButton}>
                   <Button
@@ -344,16 +293,16 @@ function Home() {
                   </Button>
                 </div>
               </React.Fragment>
-            ) : (
-              <label className={classes.responseMessage}>
-                Thanks for your comment, we will contact you soon.
-              </label>
-            )}
-          </form>
-        </CardContent>
+            </form>
+          </CardContent>
+        ) : (
+          <Typography variant="h6" gutterBottom className={classes.headerDate}>
+            We don't have your reponse {userName}, Please attend the Quiz .
+          </Typography>
+        )}
       </Card>
     </div>
   );
 }
 
-export default Home;
+export default Login;

@@ -12,7 +12,6 @@ import TableHead from "@material-ui/core/TableHead";
 import Typography from "@material-ui/core/Typography";
 import Fade from "@material-ui/core/Fade";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import { links } from "../Config";
 
@@ -165,7 +164,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function QuizAnswer1(props) {
+export default function ExamUserResponse(props) {
   const classes = useStyles();
   const date = "26-05-2020";
   const [loading, setLoading] = useState(true);
@@ -195,7 +194,6 @@ export default function QuizAnswer1(props) {
   }, []);
 
   useEffect(() => {
-    const userReponseArray = [];
     const userid = props.match.params.userid;
     fetch(
       links.backendURL +
@@ -241,9 +239,8 @@ export default function QuizAnswer1(props) {
           </Button>
         </Link>
       </Typography>
-
       <Typography variant="h6" gutterBottom className={classes.headerDate}>
-        Date: {date}
+        Welcome : {props.location.state.fullName}
       </Typography>
       <Typography variant="h6" gutterBottom className={classes.headerDate}>
         Score: {score}
