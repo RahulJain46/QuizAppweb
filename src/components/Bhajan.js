@@ -73,7 +73,8 @@ const useStyles = makeStyles(theme => ({
     },
     container: {
       left: 0,
-      maxHeight: "70%"
+      maxHeight: "70%",
+      minHeight: 1000
     },
     tableNumber: {
       fontSize: 15,
