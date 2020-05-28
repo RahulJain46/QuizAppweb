@@ -83,14 +83,14 @@ const useStyles = makeStyles(theme => ({
       borderTop: "1px solid",
       paddingRight: 0,
       paddingLeft: 5,
-      minWidth: 200
+      minWidth: 100
     },
     tableQuestion: {
       fontSize: 15,
       borderRight: "1px solid",
       borderTop: "1px solid",
       paddingRight: 0,
-      minWidth: 80,
+      minWidth: 200,
       paddingLeft: 9
     },
     tableAnswer: {
@@ -103,7 +103,7 @@ const useStyles = makeStyles(theme => ({
     },
     tableRemarks: {
       fontSize: 15,
-      minWidth: 100,
+      minWidth: 80,
       borderRight: "4px solid",
       borderTop: "1px solid",
       paddingRight: 0,
@@ -207,16 +207,16 @@ export default function QuizAnswer1(props) {
             <TableHead className={classes.tablecolumns}>
               <TableRow>
                 <TableCell key="name" className={classes.tableNumber}>
-                  भजन नाम
+                  Link
                 </TableCell>
                 <TableCell key="name" className={classes.tableQuestion}>
-                  गायक
+                  भजन नाम
                 </TableCell>
                 <TableCell key="code" className={classes.tableAnswer}>
-                  गीतकार
+                  गायक
                 </TableCell>
                 <TableCell key="population" className={classes.tableRemarks}>
-                  Link
+                  गीतकार
                 </TableCell>
               </TableRow>
             </TableHead>
@@ -224,19 +224,6 @@ export default function QuizAnswer1(props) {
               {answers.map(answer => (
                 <TableRow>
                   <TableCell className={classes.tableNumberCell}>
-                    {answer.bhajanName}
-                  </TableCell>
-                  <TableCell
-                    component="th"
-                    scope="row"
-                    className={classes.tableQuestionCell}
-                  >
-                    {answer.singer}
-                  </TableCell>
-                  <TableCell className={classes.tableAnswerCell}>
-                    {answer.writer}
-                  </TableCell>
-                  <TableCell className={classes.tableRemarkCell}>
                     <Link
                       href={answer.link}
                       target="_blank"
@@ -246,6 +233,19 @@ export default function QuizAnswer1(props) {
                         Click here to listen
                       </label>
                     </Link>
+                  </TableCell>
+                  <TableCell
+                    component="th"
+                    scope="row"
+                    className={classes.tableQuestionCell}
+                  >
+                    {answer.bhajanName}
+                  </TableCell>
+                  <TableCell className={classes.tableAnswerCell}>
+                    {answer.singer}
+                  </TableCell>
+                  <TableCell className={classes.tableRemarkCell}>
+                    {answer.writer}
                   </TableCell>
                 </TableRow>
               ))}
