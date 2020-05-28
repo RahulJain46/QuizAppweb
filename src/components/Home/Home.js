@@ -289,7 +289,7 @@ function Home() {
           <Link to="/examlogin">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.ishtopdeshButton}>
-                Ishtopdesh Sanganer Answer and Result
+                Ishtopdesh Sanganer Answer & Result
               </Button>
             </Paper>
           </Link>
