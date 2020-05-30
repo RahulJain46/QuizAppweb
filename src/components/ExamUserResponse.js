@@ -198,7 +198,8 @@ export default function ExamUserResponse(props) {
     fetch(
       links.backendURL +
         "examusersresponse?userId=" +
-        `${userid}&userresponse=true`
+        `${userid}&userresponse=true` +
+        `&date=${date}`
     )
       .then(userResponse => {
         return userResponse.json();
@@ -206,13 +207,10 @@ export default function ExamUserResponse(props) {
       .then(userResponseJson => {
         let userResp = {};
         var myMap = new Map();
-        userResponseJson[0].userreponse.map(response => {
+        userResponseJson[0].usersResponse.map(response => {
           setScore(response.score);
-
           response.answers.map((answer, index) => {
             myMap.set(answer.question, answer.answer);
-            // userResp[`question${index + 1}`] = answer.question;
-            // userResp[`answer${index + 1}`] = answer.answer;
           });
         });
         debugger;
