@@ -45,6 +45,24 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "#303f9f"
     }
   },
+  topicButton:{
+    backgroundColor: "darkred",
+    color: "#fff",
+    width: 188,
+    "&:hover": {
+      backgroundColor: "#981212cf"
+    }
+  },
+  bhajanButton:{
+    
+    backgroundColor: "#b04512",
+    color: "#fff",
+    width: 188,
+    "&:hover": {
+      backgroundColor: "#8a0000f0"
+    }
+  },
+
   ishtopdeshButton: {
     backgroundColor: "#1c008dbf",
     color: "#fff",
@@ -274,7 +292,7 @@ function Home() {
       <Grid item xs={12} className={classes.quizitems}>
           <Link to="/quiztopic">
             <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.button}>
+              <Button variant="contained" className={classes.topicButton}>
                 Quiz Topics
               </Button>
             </Paper>
@@ -324,7 +342,7 @@ function Home() {
         <Grid item xs={12} className={classes.quizitems}>
           <Link to="/answerSheets">
             <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.button}>
+              <Button variant="contained" className={classes.bhajanButton}>
                 Latest Jain Bhajan
               </Button>
             </Paper>
