@@ -8,7 +8,8 @@ import QuizAnswers from "./components/QuizAnswers";
 import ResponseDates from "./components/ResponseDates";
 import Login from "./components/Login";
 import Comments from "./components/Comments";
-import ExamInstruction from "./components/ExamInstruction";
+// import ExamInstruction from "./components/ExamInstruction";
+import QuizTopic from "./components/QuizTopic";
 import ExamScore from "./components/ExamScore";
 import ExamLogin from "./components/ExamLogin";
 import ExamUserResponse from "./components/ExamUserResponse";
@@ -55,7 +56,8 @@ function App() {
         <Route path="/bhajan" component={Bhajan} />
         <Route path="/answerSheet/:date" component={QuizAnswer} />
         <Route path="/answerSheetSanganer" component={QuizAnswerSanganer} />
-        <Route path="/examInstruction" component={ExamInstruction} />
+        {/* <Route path="/examInstruction" component={ExamInstruction} /> */}
+        <Route path="/quiztopic" component={QuizTopic} />
         <Route path="/examScore" component={ExamScore} />
         <Route path="/examlogin" component={ExamLogin} />
         <Route

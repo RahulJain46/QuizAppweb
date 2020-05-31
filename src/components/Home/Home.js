@@ -21,6 +21,22 @@ const useStyles = makeStyles(theme => ({
       content: "'⚠ '"
     }
   },
+  notice:{
+    marginBottom: 5,
+    backgroundColor: "cornsilk"
+  },
+  topNotice:
+  {
+    textAlign: "center",
+    fontSize: 20,
+    color: "indigo",
+    fontWeight: 600
+  },
+  noticeText: {
+    textAlign: "center",
+    fontSize: 20
+  },
+
   button: {
     backgroundColor: "#1976d2",
     color: "#fff",
@@ -29,6 +45,24 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "#303f9f"
     }
   },
+  topicButton:{
+    backgroundColor: "darkred",
+    color: "#fff",
+    width: 188,
+    "&:hover": {
+      backgroundColor: "#981212cf"
+    }
+  },
+  bhajanButton:{
+    
+    backgroundColor: "#b04512",
+    color: "#fff",
+    width: 188,
+    "&:hover": {
+      backgroundColor: "#8a0000f0"
+    }
+  },
+
   ishtopdeshButton: {
     backgroundColor: "#1c008dbf",
     color: "#fff",
@@ -235,7 +269,35 @@ function Home() {
 
   return (
     <div className={classes.home}>
+      <Card className={classes.notice}> 
+        <CardContent>
+           
+               <Typography className={classes.topNotice} >"जय जिनेन्द्र" </Typography>   
+              <Typography className={classes.topNotice}>
+              "QUIZ को निरंतर सफलता पूर्वक चलते हुए दो माह पूर्ण हुए।"
+              </Typography>
+              <Typography className={classes.noticeText}> Notice: 										 </Typography>
+              <Typography className={classes.message}> 1. इस उल्लेखित दिनांकों को प्रश्नों का मुख्य विषय निम्नानुसार रहेगा:            </Typography>
+              <Typography className={classes.message}> दिनांक 28.5.20 को चौथा अध्याय;                            </Typography>
+              <Typography className={classes.message}> दिनांक 29.5.20 को पांचवा अध्याय;  </Typography>
+              <Typography className={classes.message}> दिनांक 30.5.20 को छठवा अध्याय;                          </Typography>
+              <Typography className={classes.message}> दिनांक 31.5.20 को भी  छठवा अध्याय;                        </Typography>
+              <Typography className={classes.message}> दिनांक 1.6.20 को  सातवाँ अध्याय;                           </Typography>
+              <Typography className={classes.message}> 2. नए आध्यात्मिक Original भजन नीचे दी गई लिंक पर उपलब्ध।   </Typography>
+              
+              </CardContent>
+         </Card>
+
       <Grid container spacing={3} className={classes.quizbutton}>
+      <Grid item xs={12} className={classes.quizitems}>
+          <Link to="/quiztopic">
+            <Paper className={classes.paper}>
+              <Button variant="contained" className={classes.topicButton}>
+                Quiz Topics
+              </Button>
+            </Paper>
+          </Link>
+        </Grid>
         <Grid item xs={6} className={classes.quizitems}>
           <Link
             to={`/datemonthquiz` + `/${day + "-0" + currentMonth + "-" + year}`}
@@ -280,7 +342,7 @@ function Home() {
         <Grid item xs={12} className={classes.quizitems}>
           <Link to="/answerSheets">
             <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.button}>
+              <Button variant="contained" className={classes.bhajanButton}>
                 Latest Jain Bhajan
               </Button>
             </Paper>
