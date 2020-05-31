@@ -166,7 +166,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function ExamUserResponse(props) {
   const classes = useStyles();
-  const date = "26-05-2020";
   const [loading, setLoading] = useState(true);
 
   const [answers, setAnswers] = useState([]);
@@ -179,44 +178,92 @@ export default function ExamUserResponse(props) {
 
   useEffect(() => {
     const questionsArray = [];
-    const date = "26-05-2020";
-    fetch(links.backendURL + "examquestions?date=" + `${date}`)
-      .then(answerJson => {
-        return answerJson.json();
-      })
-      .then(answers => {
-        answers.map(answer => {
-          questionsArray.push(answer.questions);
+    if (!props.match.params.date) {
+      const date = "26-05-2020";
+      fetch(links.backendURL + "examquestions?date=" + `${date}`)
+        .then(answerJson => {
+          return answerJson.json();
+        })
+        .then(answers => {
+          answers.map(answer => {
+            questionsArray.push(answer.questions);
+          });
+          setAnswers(questionsArray);
+          setLoading(false);
         });
-        setAnswers(questionsArray);
-        setLoading(false);
-      });
+    } else {
+      const date = props.match.params.date;
+      fetch(links.backendURL + "questions?date=" + `${date}`)
+        .then(answerJson => {
+          return answerJson.json();
+        })
+        .then(answers => {
+          answers.map(answer => {
+            questionsArray.push(answer.questions);
+          });
+          setAnswers(questionsArray);
+          setLoading(false);
+        });
+    }
   }, []);
 
   useEffect(() => {
     const userid = props.match.params.userid;
-    fetch(
-      links.backendURL +
-        "examusersresponse?userId=" +
-        `${userid}&userresponse=true` +
-        `&date=${date}`
-    )
-      .then(userResponse => {
-        return userResponse.json();
-      })
-      .then(userResponseJson => {
-        let userResp = {};
-        var myMap = new Map();
-        userResponseJson[0].usersResponse.map(response => {
-          setScore(response.score);
-          response.answers.map((answer, index) => {
-            myMap.set(answer.question, answer.answer);
+    if (!props.match.params.date) {
+      const date = "26-05-2020";
+      console.log(
+        links.backendURL +
+          "examusersresponse?userId=" +
+          `${userid}&userresponse=true` +
+          `&date=${date}`
+      );
+      fetch(
+        links.backendURL +
+          "examusersresponse?userId=" +
+          `${userid}&userresponse=true` +
+          `&date=${date}`
+      )
+        .then(userResponse => {
+          return userResponse.json();
+        })
+        .then(userResponseJson => {
+          let userResp = {};
+          var myMap = new Map();
+          userResponseJson[0].usersResponse.map(response => {
+            setScore(response.score);
+            response.answers.map((answer, index) => {
+              myMap.set(answer.question, answer.answer);
+            });
           });
+          debugger;
+          setUserResponse(myMap);
+          setLoading(false);
         });
-        debugger;
-        setUserResponse(myMap);
-        setLoading(false);
-      });
+    } else {
+      const date = props.match.params.date;
+      fetch(
+        links.backendURL +
+          "usersresponse?userId=" +
+          `${userid}&userresponse=true` +
+          `&date=${date}`
+      )
+        .then(userResponse => {
+          return userResponse.json();
+        })
+        .then(userResponseJson => {
+          let userResp = {};
+          var myMap = new Map();
+          userResponseJson[0].usersResponse.map(response => {
+            setScore(response.score);
+            response.answers.map((answer, index) => {
+              myMap.set(answer.question, answer.answer);
+            });
+          });
+          debugger;
+          setUserResponse(myMap);
+          setLoading(false);
+        });
+    }
   }, []);
 
   return (
@@ -238,7 +285,7 @@ export default function ExamUserResponse(props) {
         </Link>
       </Typography>
       <Typography variant="h6" gutterBottom className={classes.headerDate}>
-        Welcome : {props.location.state.fullName}
+        {/* Welcome : {props.location.state.fullName} */}
       </Typography>
       <Typography variant="h6" gutterBottom className={classes.headerDate}>
         Score: {score}
@@ -268,6 +315,7 @@ export default function ExamUserResponse(props) {
             </TableHead>
             <TableBody>
               {answers.map(answer => {
+                debugger;
                 return answer.map((row, index) => (
                   <TableRow>
                     <TableCell className={classes.tableNumberCell}>
@@ -281,10 +329,12 @@ export default function ExamUserResponse(props) {
                       {row.question}
                     </TableCell>
                     <TableCell className={classes.tableAnswerCell}>
-                      {row[userResponse.get(row.question)]}
+                      {!props.match.params.date
+                        ? row[userResponse.get(row.question)]
+                        : userResponse.get(row.question)}
                     </TableCell>
                     <TableCell className={classes.tableRemarkCell}>
-                      {row[row.answer]}
+                      {!props.match.params.date ? row[row.answer] : row.answer}
                     </TableCell>
                   </TableRow>
                 ));

@@ -5,7 +5,8 @@ import OldQuiz from "./components/OldQuiz";
 import QuizForm from "./components/QuizForm";
 import QuizFormSanganer from "./components/QuizFormSanganer";
 import QuizAnswers from "./components/QuizAnswers";
-import QuizResult from "./components/QuizResult";
+import ResponseDates from "./components/ResponseDates";
+import Login from "./components/Login";
 import Comments from "./components/Comments";
 import ExamInstruction from "./components/ExamInstruction";
 import ExamScore from "./components/ExamScore";
@@ -49,13 +50,18 @@ function App() {
         <Route path="/datemonthresult" component={OldQuiz} />
         <Route path="/answerSheets" component={QuizAnswers} />
         <Route path="/comments" component={Comments} />
+        <Route path="/responsedates/:userid" component={ResponseDates} />
+        <Route path="/login" component={Login} />
         <Route path="/bhajan" component={Bhajan} />
         <Route path="/answerSheet/:date" component={QuizAnswer} />
         <Route path="/answerSheetSanganer" component={QuizAnswerSanganer} />
         <Route path="/examInstruction" component={ExamInstruction} />
         <Route path="/examScore" component={ExamScore} />
         <Route path="/examlogin" component={ExamLogin} />
-        <Route path="/examuserresponse/:userid" component={ExamUserResponse} />
+        <Route
+          path="/examuserresponse/:userid/:date"
+          component={ExamUserResponse}
+        />
         <Route
           path="/quizresultsanganer/:date"
           component={QuizResultSanganer}
