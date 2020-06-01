@@ -123,7 +123,7 @@ function OldQuiz() {
       .then(questions => {
         questions.map(question => {
           let quesdate = question.date;
-          let preDate = presentDate.replace("APR", "04").replace("MAY", "05");
+          let preDate = presentDate.replace("APR", "04").replace("MAY", "05").replace("JUN", "06");
           moment(preDate);
           const today = moment(preDate, "DD-MM-YYYY");
           const someday = moment(quesdate, "DD-MM-YYYY");
