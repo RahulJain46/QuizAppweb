@@ -100,8 +100,8 @@ function OldQuiz() {
     .toLocaleString("default", { month: "short" })
     .toUpperCase();
 
-  const year = new Date().getFullYear();
-  const presentDate = `${day}-${month}-${year}`;
+  //const year = new Date().getFullYear();
+  const presentDate = `${day}-${month}`;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -123,9 +123,7 @@ function OldQuiz() {
       .then(questions => {
         questions.map(question => {
           let quesdate = question.date;
-          let preDate = presentDate.replace("APR", "04").replace("MAY", "05");
-          moment(preDate);
-          const today = moment(preDate, "DD-MM-YYYY");
+          const today = moment(presentDate, "DD-MM-YYYY");
           const someday = moment(quesdate, "DD-MM-YYYY");
           if (someday < today) {
             dateArray.push(quesdate);
