@@ -62,7 +62,13 @@ function App() {
         <Route path="/examlogin" component={ExamLogin} />
         <Route path="/examInstruction" component={ExamInstruction} />
         <Route
+          exact
           path="/examuserresponse/:userid/:date"
+          component={ExamUserResponse}
+        />
+        <Route
+          exact
+          path="/examuserresponse/:userid"
           component={ExamUserResponse}
         />
         <Route
