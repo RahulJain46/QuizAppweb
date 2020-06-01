@@ -109,9 +109,7 @@ function QuizAnswers() {
           } else {
             quesdate = question.date;
           }
-          let preDate = presentDate.replace("APR", "04").replace("MAY", "05");
-          moment(preDate);
-          const today = moment(preDate, "DD-MM-YYYY");
+          const today = moment(presentDate, "DD-MM-YYYY");
           const someday = moment(quesdate, "DD-MM-YYYY");
           if (someday < today) {
             dateArray.push(quesdate);
