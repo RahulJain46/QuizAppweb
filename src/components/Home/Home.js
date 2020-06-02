@@ -271,58 +271,37 @@ function Home() {
         <CardContent>
           <Typography className={classes.topNotice}>"जय जिनेन्द्र" </Typography>
           <Typography className={classes.topNotice}>
-            "QUIZ को निरंतर सफलता पूर्वक चलते हुए दो माह पूर्ण हुए।"
+          "QUIZ को निरंतर सफलता पूर्वक चलते हुए दो माह पूर्ण।"
           </Typography>
-          <Typography className={classes.noticeText}> Notice: </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            1. इस उल्लेखित दिनांकों को प्रश्नों का मुख्य विषय निम्नानुसार रहेगा:{" "}
+          <Typography className={classes.topNotice}>
+          "आपके द्वारा पूर्व में दिए गए प्रश्नो के उत्तर जानने हेतु ऊपर दिए गए Login Button पर click करे।"
           </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 2.6.20 को सातवाँ व् आठवां अध्याय ;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 3.6.20 को नवमा अध्याय ;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 4.6.20 को नवमा व् दशमा अध्याय ;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 5.6.20 को गुणस्थान अध्याय ;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 6.6.20 को मार्गणा अध्याय ;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 7.6.20 को समुदघात अध्याय ;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 8.6.20 को ध्यान अध्याय ;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            2. नए आध्यात्मिक Original भजन नीचे दी गई लिंक पर उपलब्ध।{" "}
-          </Typography>
+          <Typography className={classes.noticeText}> सूचना: </Typography>
+          <Typography className={classes.message}> निम्न उल्लेखित दिनांकों को प्रश्नों का मुख्य विषय निम्नानुसार रहेगा:  </Typography>
+          <Typography className={classes.message}> दिनांक 1.6.20 को तत्वार्थ सूत्र जी का सातवाँ अध्याय;			</Typography>
+          <Typography className={classes.message}> दिनांक 2.6.20 को तत्वार्थ सूत्र जी का सातवाँ व् आठवां अध्याय;    </Typography>
+          <Typography className={classes.message}> दिनांक 3.6.20 को तत्वार्थ सूत्र जी का नवमा अध्याय;         </Typography>
+          <Typography className={classes.message}> दिनांक 4.6.20 को तत्वार्थ सूत्र जी का नवमा व् दशमा अध्याय;     </Typography>
+          <Typography className={classes.message}> दिनांक 5.6.20 को “गुणस्थान”;                  </Typography>
+          <Typography className={classes.message}> दिनांक 6.6.20 को “मार्गणा”;                  </Typography>
+          <Typography className={classes.message}> दिनांक 7.6.20 को “समुदघात”;                  </Typography>
+          <Typography className={classes.message}> दिनांक 8.6.20 को “ध्यान”;                    </Typography>
+          <Typography className={classes.message}> दिनांक 9.6.20 को “बारह भावना”;                 </Typography>
+          <Typography className={classes.message}> दिनांक 10.6.20 को “कर्म”;                    </Typography>        
         </CardContent>
       </Card>
 
       <Grid container spacing={3} className={classes.quizbutton}>
-        <Grid item xs={12} className={classes.quizitems}>
-          <Link to="/quiztopic">
+      <Grid item xs={12} className={classes.quizitems}>
+          <Link to="/bhajan">
             <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.topicButton}>
-                Quiz Topics
+              <Button variant="contained" className={classes.bhajanButton}>
+                Latest Jain Bhajan
               </Button>
             </Paper>
           </Link>
         </Grid>
+
         <Grid item xs={6} className={classes.quizitems}>
           <Link
             to={`/datemonthquiz` + `/${day + "-0" + currentMonth + "-" + year}`}
@@ -363,16 +342,16 @@ function Home() {
             </Paper>
           </Link>
         </Grid>
-
         <Grid item xs={12} className={classes.quizitems}>
-          <Link to="/bhajan">
+          <Link to="/quiztopic">
             <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.bhajanButton}>
-                Latest Jain Bhajan
+              <Button variant="contained" className={classes.topicButton}>
+                Quiz Topics
               </Button>
             </Paper>
           </Link>
         </Grid>
+
         <Grid item xs={6} className={classes.quizitems}>
           <Link to="/examinstruction">
             <Paper className={classes.paper}>
