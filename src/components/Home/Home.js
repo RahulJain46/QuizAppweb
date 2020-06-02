@@ -280,23 +280,31 @@ function Home() {
           </Typography>
           <Typography className={classes.message}>
             {" "}
-            दिनांक 28.5.20 को चौथा अध्याय;{" "}
+            दिनांक 2.6.20 को सातवाँ व् आठवां अध्याय ;{" "}
           </Typography>
           <Typography className={classes.message}>
             {" "}
-            दिनांक 29.5.20 को पांचवा अध्याय;{" "}
+            दिनांक 3.6.20 को नवमा अध्याय ;{" "}
           </Typography>
           <Typography className={classes.message}>
             {" "}
-            दिनांक 30.5.20 को छठवा अध्याय;{" "}
+            दिनांक 4.6.20 को नवमा व् दशमा अध्याय ;{" "}
           </Typography>
           <Typography className={classes.message}>
             {" "}
-            दिनांक 31.5.20 को भी छठवा अध्याय;{" "}
+            दिनांक 5.6.20 को गुणस्थान अध्याय ;{" "}
           </Typography>
           <Typography className={classes.message}>
             {" "}
-            दिनांक 1.6.20 को सातवाँ अध्याय;{" "}
+            दिनांक 6.6.20 को मार्गणा अध्याय ;{" "}
+          </Typography>
+          <Typography className={classes.message}>
+            {" "}
+            दिनांक 7.6.20 को समुदघात अध्याय ;{" "}
+          </Typography>
+          <Typography className={classes.message}>
+            {" "}
+            दिनांक 8.6.20 को ध्यान अध्याय ;{" "}
           </Typography>
           <Typography className={classes.message}>
             {" "}
