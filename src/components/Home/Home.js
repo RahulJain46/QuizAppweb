@@ -31,6 +31,12 @@ const useStyles = makeStyles(theme => ({
     color: "indigo",
     fontWeight: 600
   },
+  loginNotice:{
+    color: "#9a1919",
+    textAlign: "center",
+    fontSize: 20,
+    fontWeight: 600
+  },
   noticeText: {
     textAlign: "center",
     fontSize: 20
@@ -273,8 +279,8 @@ function Home() {
           <Typography className={classes.topNotice}>
           "QUIZ को निरंतर सफलता पूर्वक चलते हुए दो माह पूर्ण।"
           </Typography>
-          <Typography className={classes.topNotice}>
-          "आपके द्वारा पूर्व में दिए गए प्रश्नो के उत्तर जानने हेतु ऊपर दिए गए Login Button पर click करे।"
+          <Typography className={classes.loginNotice}>
+          "आपके द्वारा पूर्व में दिए गए प्रश्नो के उत्तर जानने हेतु ऊपर दिए गए Login Button पर Click करे।"
           </Typography>
           <Typography className={classes.noticeText}> सूचना: </Typography>
           <Typography className={classes.message}> निम्न उल्लेखित दिनांकों को प्रश्नों का मुख्य विषय निम्नानुसार रहेगा:  </Typography>
