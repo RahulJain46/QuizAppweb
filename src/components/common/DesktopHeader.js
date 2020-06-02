@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
+import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 const useStyles = makeStyles(theme => ({
   navlinks: {
     top: 18,
@@ -38,6 +40,16 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center",
     background: "#234f64",
     color: "#fafafa"
+  },
+  login: {
+    position: "absolute",
+    right: 31,
+    top: 18
+  },
+  loginButton: {
+    padding: "8px 21px",
+    fontSize: 16,
+    fontWeight: 700
   },
   [theme.breakpoints.down("361")]: {
     paper: {
@@ -104,6 +116,11 @@ const DesktopHeader = () => {
           </Grid>
         </Grid>
       </div>
+      <Link className={classes.login} to={`/login`}>
+        <Paper>
+          <Button className={classes.loginButton}>Login</Button>
+        </Paper>
+      </Link>
     </div>
   );
 };
