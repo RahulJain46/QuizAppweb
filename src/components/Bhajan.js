@@ -5,7 +5,10 @@ import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
 import Link from "@material-ui/core/Link";
+import { useForm } from "react-hook-form";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
@@ -23,7 +26,58 @@ const useStyles = makeStyles(theme => ({
     top: 151,
     left: "4%",
     bottom: "9%",
-    minHeight: 1000
+    minHeight: 400
+  },
+  form: {
+    display: "none"
+  },
+  feedbackButton: {
+    backgroundColor: "#1976d2",
+    color: "#fff",
+    width: 188,
+    "&:hover": {
+      backgroundColor: "#303f9f"
+    }
+  },
+  mobileInput: {
+    display: "block",
+    left: 0,
+    right: 0,
+    margin: "0 auto",
+    marginBottom: 10,
+    boxShadow: "4px 4px #eeeeee"
+  },
+  feedbackInput: {
+    left: 0,
+    right: 0,
+    margin: "0 auto",
+    marginBottom: 17,
+    paddingBottom: 0,
+    marginBottom: 17,
+    boxShadow: "4px 4px #eeeeee"
+  },
+  formContainer: {
+    textAlign: "center",
+    marginTop: 18
+  },
+  message: {
+    marginBottom: 14,
+    fontSize: 16,
+    fontWeight: 500
+  },
+  responseMessage: {
+    color: "#d34242"
+  },
+  comment: {
+    display: "block",
+    textAlign: "center"
+  },
+  submitButton: {
+    textAlign: "center"
+  },
+  mobilenumber: {
+    textAlign: "center",
+    display: "block"
   },
   backButton: {
     backgroundColor: "#1976d2"
@@ -64,6 +118,57 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#e9ecef"
   },
   [theme.breakpoints.down("1124")]: {
+    feedbackButton: {
+      padding: "4px 6px",
+      width: 111
+    },
+    button: {
+      padding: "4px 6px",
+      width: 185
+    },
+    form: {
+      display: "inline-block"
+    },
+    mobileInput: {
+      display: "block",
+      left: 0,
+      right: 0,
+      margin: "0 auto",
+      marginBottom: 10,
+      boxShadow: "4px 4px #eeeeee"
+    },
+    feedbackInput: {
+      left: 0,
+      right: 0,
+      margin: "0 auto",
+      marginBottom: 17,
+      paddingBottom: 0,
+      marginBottom: 17,
+      boxShadow: "4px 4px #eeeeee"
+    },
+    formContainer: {
+      textAlign: "center",
+      marginTop: 18
+    },
+    message: {
+      marginBottom: 14,
+      fontSize: 16,
+      fontWeight: 500
+    },
+    responseMessage: {
+      color: "#d34242"
+    },
+    comment: {
+      display: "block",
+      textAlign: "center"
+    },
+    submitButton: {
+      textAlign: "center"
+    },
+    mobilenumber: {
+      textAlign: "center",
+      display: "block"
+    },
     tableheading: {
       top: 6,
       left: 0,
@@ -74,7 +179,7 @@ const useStyles = makeStyles(theme => ({
     container: {
       left: 0,
       maxHeight: "70%",
-      minHeight: 1000
+      minHeight: 400
     },
     tableNumber: {
       fontSize: 15,
@@ -163,6 +268,35 @@ const useStyles = makeStyles(theme => ({
   [theme.breakpoints.down("361")]: {
     container: {
       maxHeight: "70%"
+    },
+    form: {
+      display: "inline-block"
+    },
+    mobileInput: {
+      display: "block",
+      marginBottom: 10,
+      boxShadow: "4px 4px #eeeeee"
+    },
+    feedbackInput: {
+      paddingBottom: 0,
+      marginBottom: 17,
+      boxShadow: "4px 4px #eeeeee"
+    },
+    formContainer: {
+      textAlign: "center",
+      marginTop: 18
+    },
+    message: {
+      marginBottom: 14,
+      fontSize: 16,
+      fontWeight: 500
+    },
+    comment: {
+      display: "block",
+      marginLeft: -33
+    },
+    submitButton: {
+      textAlign: "center"
     }
   }
 }));
@@ -170,11 +304,23 @@ const useStyles = makeStyles(theme => ({
 export default function QuizAnswer1(props) {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
+  const [toggleButton, setToggleButton] = useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const date = props.match.params.date;
   const [loading, setLoading] = useState(true);
-
+  const { register, handleSubmit, watch, errors } = useForm();
   const [answers, setAnswers] = useState([]);
+
+  const onSubmit = data => {
+    let userOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    };
+    fetch(links.backendURL + "bhajanreactions", userOptions).then(response => {
+      setToggleButton(true);
+    });
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -196,75 +342,113 @@ export default function QuizAnswer1(props) {
   }, []);
 
   return (
-    <Paper className={classes.tableheading}>
-      {answers.length != 0 && !loading ? (
-        <TableContainer className={classes.container}>
-          <Table
-            stickyHeader
-            aria-label="sticky table"
-            className={classes.tableHeader}
-          >
-            <TableHead className={classes.tablecolumns}>
-              <TableRow>
-                <TableCell key="name" className={classes.tableNumber}>
-                  Link
-                </TableCell>
-                <TableCell key="name" className={classes.tableQuestion}>
-                  भजन नाम
-                </TableCell>
-                <TableCell key="code" className={classes.tableAnswer}>
-                  गायक
-                </TableCell>
-                <TableCell key="population" className={classes.tableRemarks}>
-                  गीतकार
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {answers.map(answer => (
+    <React.Fragment>
+      <Paper className={classes.tableheading}>
+        {answers.length != 0 && !loading ? (
+          <TableContainer className={classes.container}>
+            <Table
+              stickyHeader
+              aria-label="sticky table"
+              className={classes.tableHeader}
+            >
+              <TableHead className={classes.tablecolumns}>
                 <TableRow>
-                  <TableCell className={classes.tableNumberCell}>
-                    <Link
-                      href={answer.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <label className={classes.helpLabel}>
-                        Click here to listen
-                      </label>
-                    </Link>
+                  <TableCell key="name" className={classes.tableNumber}>
+                    Link
                   </TableCell>
-                  <TableCell
-                    component="th"
-                    scope="row"
-                    className={classes.tableQuestionCell}
-                  >
-                    {answer.bhajanName}
+                  <TableCell key="name" className={classes.tableQuestion}>
+                    भजन नाम
                   </TableCell>
-                  <TableCell className={classes.tableAnswerCell}>
-                    {answer.singer}
+                  <TableCell key="code" className={classes.tableAnswer}>
+                    गायक
                   </TableCell>
-                  <TableCell className={classes.tableRemarkCell}>
-                    {answer.writer}
+                  <TableCell key="population" className={classes.tableRemarks}>
+                    गीतकार
                   </TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      ) : (
-        <div className={classes.loading}>
-          <Fade
-            in={loading}
-            style={{
-              transitionDelay: loading ? "800ms" : "0ms"
-            }}
-            unmountOnExit
-          >
-            <CircularProgress />
-          </Fade>
-        </div>
-      )}
-    </Paper>
+              </TableHead>
+              <TableBody>
+                {answers.map(answer => (
+                  <TableRow>
+                    <TableCell className={classes.tableNumberCell}>
+                      <Link
+                        href={answer.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <label className={classes.helpLabel}>
+                          Click here to listen
+                        </label>
+                      </Link>
+                    </TableCell>
+                    <TableCell
+                      component="th"
+                      scope="row"
+                      className={classes.tableQuestionCell}
+                    >
+                      {answer.bhajanName}
+                    </TableCell>
+                    <TableCell className={classes.tableAnswerCell}>
+                      {answer.singer}
+                    </TableCell>
+                    <TableCell className={classes.tableRemarkCell}>
+                      {answer.writer}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        ) : (
+          <div className={classes.loading}>
+            <Fade
+              in={loading}
+              style={{
+                transitionDelay: loading ? "800ms" : "0ms"
+              }}
+              unmountOnExit
+            >
+              <CircularProgress />
+            </Fade>
+          </div>
+        )}
+      </Paper>
+      <Card className={classes.formContainer}>
+        <CardContent>
+          <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
+            <label className={classes.message}>आपको यह भजन कैसे लगे</label>
+            {toggleButton === false ? (
+              <React.Fragment>
+                {" "}
+                <label className={classes.comment}>Comment</label>
+                <input
+                  name="comment"
+                  ref={register({
+                    required: true
+                  })}
+                  className={classes.feedbackInput}
+                />
+                {errors.comment && (
+                  <p className={classes.error}>Please enter your comment</p>
+                )}
+                <div className={classes.submitButton}>
+                  <Button
+                    variant="contained"
+                    className={classes.feedbackButton}
+                    type="submit"
+                  >
+                    Submit
+                  </Button>
+                </div>
+              </React.Fragment>
+            ) : (
+              <label className={classes.responseMessage}>
+                Thanks for your comment, we will contact you soon.
+              </label>
+            )}
+          </form>
+        </CardContent>
+      </Card>
+    </React.Fragment>
   );
 }

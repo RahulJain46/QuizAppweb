@@ -171,6 +171,7 @@ export default function ExamUserResponse(props) {
   const [answers, setAnswers] = useState([]);
   const [score, setScore] = useState("");
   const [userResponse, setUserResponse] = useState(new Map());
+  const [userResponse1, setUserResponse1] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -211,12 +212,6 @@ export default function ExamUserResponse(props) {
     const userid = props.match.params.userid;
     if (!props.match.params.date) {
       const date = "26-05-2020";
-      console.log(
-        links.backendURL +
-          "examusersresponse?userId=" +
-          `${userid}&userresponse=true` +
-          `&date=${date}`
-      );
       fetch(
         links.backendURL +
           "examusersresponse?userId=" +
@@ -227,16 +222,21 @@ export default function ExamUserResponse(props) {
           return userResponse.json();
         })
         .then(userResponseJson => {
-          let userResp = {};
+          let respo = [];
           var myMap = new Map();
           userResponseJson[0].usersResponse.map(response => {
             setScore(response.score);
             response.answers.map((answer, index) => {
-              myMap.set(answer.question, answer.answer);
+              let userResp = {};
+              userResp["question"] = answer.question;
+              userResp["answer"] = answer.answer;
+              respo.push(userResp);
+              // myMap.set(answer.question, answer.answer);
             });
           });
           debugger;
-          setUserResponse(myMap);
+          setUserResponse1(respo);
+          //setUserResponse(myMap);
           setLoading(false);
         });
     } else {
@@ -252,15 +252,21 @@ export default function ExamUserResponse(props) {
         })
         .then(userResponseJson => {
           let userResp = {};
+          let respo = [];
           var myMap = new Map();
           userResponseJson[0].usersResponse.map(response => {
             setScore(response.score);
             response.answers.map((answer, index) => {
-              myMap.set(answer.question, answer.answer);
+              let userResp1 = {};
+              userResp1["question"] = answer.question;
+              userResp1["answer"] = answer.answer;
+              respo.push(userResp1);
+              // myMap.set(answer.question, answer.answer);
             });
           });
           debugger;
-          setUserResponse(myMap);
+          setUserResponse1(respo);
+          //setUserResponse(myMap);
           setLoading(false);
         });
     }
@@ -273,16 +279,14 @@ export default function ExamUserResponse(props) {
         gutterBottom
         className={classes.headerBackButton}
       >
-        <Link to={`/`}>
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.backButton}
-          >
-            <ArrowBackIosIcon className={classes.backArrow} />
-            Go back to Home
-          </Button>
-        </Link>
+        <Button
+          variant="contained"
+          color="primary"
+          className={classes.backButton}
+          onClick={() => props.history.goBack()}
+        >
+          <ArrowBackIosIcon className={classes.backArrow} />
+        </Button>
       </Typography>
       <Typography variant="h6" gutterBottom className={classes.headerDate}>
         {/* Welcome : {props.location.state.fullName} */}
@@ -290,7 +294,7 @@ export default function ExamUserResponse(props) {
       <Typography variant="h6" gutterBottom className={classes.headerDate}>
         Score: {score}
       </Typography>
-      {answers.length != 0 && !loading ? (
+      {userResponse1.length != 0 && answers.length != 0 && !loading ? (
         <TableContainer className={classes.container}>
           <Table
             stickyHeader
@@ -330,8 +334,8 @@ export default function ExamUserResponse(props) {
                     </TableCell>
                     <TableCell className={classes.tableAnswerCell}>
                       {!props.match.params.date
-                        ? row[userResponse.get(row.question)]
-                        : userResponse.get(row.question)}
+                        ? row[userResponse1[index].answer]
+                        : userResponse1[index].answer}
                     </TableCell>
                     <TableCell className={classes.tableRemarkCell}>
                       {!props.match.params.date ? row[row.answer] : row.answer}
