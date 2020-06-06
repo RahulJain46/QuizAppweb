@@ -25,6 +25,9 @@ const useStyles = makeStyles(theme => ({
       content: "'⚠ '"
     }
   },
+  headerDate: {
+    textAlign: "center"
+  },
   button: {
     backgroundColor: "#1976d2",
     color: "#fff",
@@ -212,6 +215,9 @@ function ResponseDates(props) {
 
   return (
     <div className={classes.home}>
+      <Typography variant="h6" gutterBottom className={classes.headerDate}>
+        Welcome : {props.location.state.userdetail.fullName}
+      </Typography>
       <Card className={classes.formContainer}>
         {props.location.state.length != 0 ? (
           props.location.state.map(date => (

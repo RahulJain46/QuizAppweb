@@ -232,7 +232,8 @@ function Login() {
         if (dates.loginResponse != undefined && dates.loginResponse == false) {
           setUserResponse(false);
         } else {
-          history.push(`/responsedates/${uuid}`, dates);
+          const userData = Object.assign(dates, { userdetail });
+          history.push(`/responsedates/${uuid}`, userData);
         }
         setLoading(false);
         setToggleButton(true);

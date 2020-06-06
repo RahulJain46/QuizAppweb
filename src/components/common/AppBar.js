@@ -9,6 +9,8 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Paper from "@material-ui/core/Paper";
 import DesktopHeader from "./DesktopHeader";
+import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
@@ -17,6 +19,17 @@ const useStyles = makeStyles(theme => ({
   },
   barheader: {
     backgroundColor: "#234f64"
+  },
+  loginButton: {
+    padding: "0px 0px",
+    minWidth: 54,
+    paddingBottom: 2,
+    paddingTop: 2
+  },
+  login: {
+    position: "absolute",
+    right: 15,
+    padding: 0
   },
   barheading: {
     position: "absolute",
@@ -40,8 +53,20 @@ const useStyles = makeStyles(theme => ({
   },
   [theme.breakpoints.between("345", "xs")]: {
     barheading: {
-      fontSize: 20,
-      left: 17
+      fontSize: 15,
+      left: -17
+    },
+    loginButton: {
+      padding: "0px 0px",
+      minWidth: 54,
+      paddingBottom: 2,
+      paddingTop: 2,
+      fontSize: 12
+    },
+    login: {
+      position: "absolute",
+      right: 15,
+      padding: 0
     },
     appbar: {
       marginRight: -9
@@ -49,8 +74,20 @@ const useStyles = makeStyles(theme => ({
   },
   [theme.breakpoints.down("345")]: {
     barheading: {
-      fontSize: 16,
-      left: 17
+      fontSize: 15,
+      left: -17
+    },
+    loginButton: {
+      padding: "0px 0px",
+      minWidth: 54,
+      paddingBottom: 2,
+      paddingTop: 2,
+      fontSize: 12
+    },
+    login: {
+      position: "absolute",
+      right: 15,
+      padding: 0
     },
     appbar: {
       marginRight: -14
@@ -149,6 +186,11 @@ export default function appBar() {
               >
                 UJJAIN JAIN QUIZ PORTAL
               </Typography>
+              <Link className={classes.login} to={`/login`}>
+                <Paper>
+                  <Button className={classes.loginButton}>Login</Button>
+                </Paper>
+              </Link>
             </Toolbar>
           </AppBar>
           <Paper className={classes.paper}>
