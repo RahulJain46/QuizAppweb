@@ -443,7 +443,7 @@ export default function QuizAnswer1(props) {
               </React.Fragment>
             ) : (
               <label className={classes.responseMessage}>
-                Thanks for your comment, we will contact you soon.
+                Thanks for your comment.
               </label>
             )}
           </form>
