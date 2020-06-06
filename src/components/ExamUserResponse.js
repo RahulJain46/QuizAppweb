@@ -286,9 +286,13 @@ export default function ExamUserResponse(props) {
           onClick={() => props.history.goBack()}
         >
           <ArrowBackIosIcon className={classes.backArrow} />
+          Go Back
         </Button>
       </Typography>
       <Typography variant="h6" gutterBottom className={classes.headerDate}>
+        {!props.match.params.date
+          ? "Welcome : " + props.location.state.fullName
+          : ""}
         {/* Welcome : {props.location.state.fullName} */}
       </Typography>
       <Typography variant="h6" gutterBottom className={classes.headerDate}>
@@ -334,11 +338,13 @@ export default function ExamUserResponse(props) {
                     </TableCell>
                     <TableCell className={classes.tableAnswerCell}>
                       {!props.match.params.date
-                        ? row[userResponse1[index].answer]
-                        : userResponse1[index].answer}
+                        ? row[userResponse1[index].answer].toUpperCase()
+                        : userResponse1[index].answer.toUpperCase()}
                     </TableCell>
                     <TableCell className={classes.tableRemarkCell}>
-                      {!props.match.params.date ? row[row.answer] : row.answer}
+                      {!props.match.params.date
+                        ? row[row.answer].toUpperCase()
+                        : row.answer.toUpperCase()}
                     </TableCell>
                   </TableRow>
                 ));
