@@ -10,36 +10,36 @@ import { Link } from "react-router-dom";
 import { links } from "../../Config";
 import { useForm } from "react-hook-form";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(2),
-    textAlign: "center",
+    textAlign: "center"
   },
   error: {
     color: "#bf1650",
     "&::before": {
-      content: "'⚠ '",
-    },
+      content: "'⚠ '"
+    }
   },
   notice: {
     marginBottom: 5,
-    backgroundColor: "cornsilk",
+    backgroundColor: "cornsilk"
   },
   topNotice: {
     textAlign: "center",
     fontSize: 20,
     color: "indigo",
-    fontWeight: 600,
+    fontWeight: 600
   },
   loginNotice: {
     color: "#9a1919",
     textAlign: "center",
     fontSize: 20,
-    fontWeight: 600,
+    fontWeight: 600
   },
   noticeText: {
     textAlign: "center",
-    fontSize: 20,
+    fontSize: 20
   },
 
   button: {
@@ -47,24 +47,24 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
     width: 188,
     "&:hover": {
-      backgroundColor: "#303f9f",
-    },
+      backgroundColor: "#303f9f"
+    }
   },
   topicButton: {
     backgroundColor: "darkred",
     color: "#fff",
     width: 188,
     "&:hover": {
-      backgroundColor: "#981212cf",
-    },
+      backgroundColor: "#981212cf"
+    }
   },
   bhajanButton: {
     backgroundColor: "#b04512",
     color: "#fff",
     width: 188,
     "&:hover": {
-      backgroundColor: "#8a0000f0",
-    },
+      backgroundColor: "#8a0000f0"
+    }
   },
 
   ishtopdeshButton: {
@@ -72,19 +72,19 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
     width: 188,
     "&:hover": {
-      backgroundColor: "#323dc1",
-    },
+      backgroundColor: "#323dc1"
+    }
   },
   form: {
-    display: "inline-block",
+    display: "inline-block"
   },
   feedbackButton: {
     backgroundColor: "#1976d2",
     color: "#fff",
     width: 188,
     "&:hover": {
-      backgroundColor: "#303f9f",
-    },
+      backgroundColor: "#303f9f"
+    }
   },
   mobileInput: {
     display: "block",
@@ -92,7 +92,7 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     margin: "0 auto",
     marginBottom: 10,
-    boxShadow: "4px 4px #eeeeee",
+    boxShadow: "4px 4px #eeeeee"
   },
   feedbackInput: {
     left: 0,
@@ -101,30 +101,30 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 17,
     paddingBottom: 0,
     marginBottom: 17,
-    boxShadow: "4px 4px #eeeeee",
+    boxShadow: "4px 4px #eeeeee"
   },
   formContainer: {
     textAlign: "center",
-    marginTop: 18,
+    marginTop: 18
   },
   message: {
     marginBottom: 14,
     fontSize: 16,
-    fontWeight: 500,
+    fontWeight: 500
   },
   responseMessage: {
-    color: "#d34242",
+    color: "#d34242"
   },
   comment: {
     display: "block",
-    textAlign: "center",
+    textAlign: "center"
   },
   submitButton: {
-    textAlign: "center",
+    textAlign: "center"
   },
   mobilenumber: {
     textAlign: "center",
-    display: "block",
+    display: "block"
   },
   home: {
     flexGrow: 1,
@@ -132,41 +132,41 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     marginBottom: 73,
     left: "25%",
-    right: "25%",
+    right: "25%"
   },
   quizResultButton: {
     backgroundColor: "#aa1050e3",
     color: "#fff",
     width: 188,
     "&:hover": {
-      backgroundColor: "#610c2b",
-    },
+      backgroundColor: "#610c2b"
+    }
   },
   [theme.breakpoints.down("1123")]: {
     home: {
       width: "100%",
       left: "0%",
       right: "0%",
-      top: "0%",
+      top: "0%"
     },
     quizbutton: {
-      display: "inline-block",
+      display: "inline-block"
     },
     quizitems: {
       maxWidth: "100%",
       padding: "0px ! important",
-      paddingTop: "10px ! important",
+      paddingTop: "10px ! important"
     },
     feedbackButton: {
       padding: "4px 6px",
-      width: 111,
+      width: 111
     },
     button: {
       padding: "4px 6px",
-      width: 185,
+      width: 185
     },
     form: {
-      display: "inline-block",
+      display: "inline-block"
     },
     mobileInput: {
       display: "block",
@@ -174,7 +174,7 @@ const useStyles = makeStyles((theme) => ({
       right: 0,
       margin: "0 auto",
       marginBottom: 10,
-      boxShadow: "4px 4px #eeeeee",
+      boxShadow: "4px 4px #eeeeee"
     },
     feedbackInput: {
       left: 0,
@@ -183,63 +183,63 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: 17,
       paddingBottom: 0,
       marginBottom: 17,
-      boxShadow: "4px 4px #eeeeee",
+      boxShadow: "4px 4px #eeeeee"
     },
     formContainer: {
       textAlign: "center",
-      marginTop: 18,
+      marginTop: 18
     },
     message: {
       marginBottom: 14,
       fontSize: 16,
-      fontWeight: 500,
+      fontWeight: 500
     },
     responseMessage: {
-      color: "#d34242",
+      color: "#d34242"
     },
     comment: {
       display: "block",
-      textAlign: "center",
+      textAlign: "center"
     },
     submitButton: {
-      textAlign: "center",
+      textAlign: "center"
     },
     mobilenumber: {
       textAlign: "center",
-      display: "block",
-    },
+      display: "block"
+    }
   },
   [theme.breakpoints.down("361")]: {
     form: {
-      display: "inline-block",
+      display: "inline-block"
     },
     mobileInput: {
       display: "block",
       marginBottom: 10,
-      boxShadow: "4px 4px #eeeeee",
+      boxShadow: "4px 4px #eeeeee"
     },
     feedbackInput: {
       paddingBottom: 0,
       marginBottom: 17,
-      boxShadow: "4px 4px #eeeeee",
+      boxShadow: "4px 4px #eeeeee"
     },
     formContainer: {
       textAlign: "center",
-      marginTop: 18,
+      marginTop: 18
     },
     message: {
       marginBottom: 14,
       fontSize: 16,
-      fontWeight: 500,
+      fontWeight: 500
     },
     comment: {
       display: "block",
-      marginLeft: -33,
+      marginLeft: -33
     },
     submitButton: {
-      textAlign: "center",
-    },
-  },
+      textAlign: "center"
+    }
+  }
 }));
 
 function Home() {
@@ -256,13 +256,13 @@ function Home() {
     .toLocaleString("default", { month: "short" })
     .toUpperCase();
   const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = data => {
     let userOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
+      body: JSON.stringify(data)
     };
-    fetch(links.backendURL + "comments", userOptions).then((response) => {
+    fetch(links.backendURL + "comments", userOptions).then(response => {
       setToggleButton(true);
     });
   };
@@ -279,38 +279,16 @@ function Home() {
           <Typography className={classes.topNotice}>
             "QUIZ को निरंतर सफलता पूर्वक चलते हुए दो माह पूर्ण।"
           </Typography>
-          <Typography className={classes.loginNotice}>
-            "आपके द्वारा पूर्व में दिए गए प्रश्नो के उत्तर जानने हेतु ऊपर दिए गए
-            Login Button पर Click करे।"
-          </Typography>
+          <Link to="/login">
+            <Typography className={classes.loginNotice}>
+              "आपके द्वारा पूर्व में दिए गए प्रश्नो के उत्तर जानने हेतु ऊपर दिए
+              गए Login Button पर Click करे।"
+            </Typography>
+          </Link>
           <Typography className={classes.noticeText}> सूचना: </Typography>
           <Typography className={classes.message}>
             {" "}
             निम्न उल्लेखित दिनांकों को प्रश्नों का मुख्य विषय निम्नानुसार रहेगा:{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 1.6.20 को तत्वार्थ सूत्र जी का सातवाँ अध्याय;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 2.6.20 को तत्वार्थ सूत्र जी का सातवाँ व् आठवां अध्याय;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 3.6.20 को तत्वार्थ सूत्र जी का नवमा अध्याय;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 4.6.20 को तत्वार्थ सूत्र जी का नवमा व् दशमा अध्याय;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 5.6.20 को “गुणस्थान”;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 6.6.20 को “मार्गणा”;{" "}
           </Typography>
           <Typography className={classes.message}>
             {" "}
@@ -429,7 +407,7 @@ function Home() {
                       required: true,
                       pattern: /^\d*$/,
                       minLength: 10,
-                      maxLength: 10,
+                      maxLength: 10
                     })}
                     className={classes.mobileInput}
                   />
@@ -443,7 +421,7 @@ function Home() {
                 <input
                   name="comment"
                   ref={register({
-                    required: true,
+                    required: true
                   })}
                   className={classes.feedbackInput}
                 />
