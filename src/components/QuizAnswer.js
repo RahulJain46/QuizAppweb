@@ -11,6 +11,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import Typography from "@material-ui/core/Typography";
 import Fade from "@material-ui/core/Fade";
+import { Link as DomLink } from "react-router-dom";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
@@ -210,7 +211,7 @@ export default function QuizAnswer1(props) {
         gutterBottom
         className={classes.headerBackButton}
       >
-        <Link to={`/answerSheets`}>
+        <DomLink to={`/answerSheets`}>
           <Button
             variant="contained"
             color="primary"
@@ -219,7 +220,7 @@ export default function QuizAnswer1(props) {
             <ArrowBackIosIcon className={classes.backArrow} />
             Go back to Answers
           </Button>
-        </Link>
+        </DomLink>
       </Typography>
 
       <Typography variant="h6" gutterBottom className={classes.headerDate}>
