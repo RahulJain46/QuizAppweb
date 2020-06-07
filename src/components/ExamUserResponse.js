@@ -5,7 +5,7 @@ import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
+import Link from "@material-ui/core/Link";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
