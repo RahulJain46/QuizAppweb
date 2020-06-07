@@ -208,9 +208,18 @@ function ResponseDates(props) {
   // const date = new Date();
   const userid = props.match.params.userid;
   const [loading, setLoading] = useState(true);
+  const [dates, setDates] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    let dateArray = [];
+    dateArray = props.location.state.sort(
+      (a, b) => moment(b.date, "DD-MM-YYYY") - moment(a.date, "DD-MM-YYYY")
+    );
+    setDates(dateArray);
   }, []);
 
   return (
@@ -219,8 +228,8 @@ function ResponseDates(props) {
         Welcome : {props.location.state.userdetail.fullName}
       </Typography>
       <Card className={classes.formContainer}>
-        {props.location.state.length != 0 ? (
-          props.location.state.map(date => (
+        {dates.length != 0 ? (
+          dates.map(date => (
             <Grid item xs={12} className={classes.answerButton}>
               <Link to={`/examuserresponse` + `/${userid}` + `/${date.date}`}>
                 <Paper className={classes.paper}>

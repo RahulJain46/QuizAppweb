@@ -5,7 +5,7 @@ import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
+import Link from "@material-ui/core/Link";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
@@ -61,6 +61,9 @@ const useStyles = makeStyles(theme => ({
     minWidth: 170,
     backgroundColor: "#e9ecef"
   },
+  highlight: {
+    backgroundColor: "#fb6790"
+  },
   [theme.breakpoints.down("1124")]: {
     tableheading: {
       top: 6,
@@ -88,23 +91,26 @@ const useStyles = makeStyles(theme => ({
       borderTop: "1px solid",
       paddingRight: 0,
       minWidth: 300,
-      paddingLeft: 9
+      paddingLeft: 9,
+      textAlign: "center"
     },
     tableAnswer: {
       fontSize: 15,
-      minWidth: 53,
+      minWidth: 73,
       borderRight: "1px solid",
       borderTop: "1px solid",
       paddingRight: 0,
-      paddingLeft: 4
+      paddingLeft: 4,
+      textAlign: "center"
     },
     tableRemarks: {
       fontSize: 15,
-      minWidth: 300,
+      minWidth: 100,
       borderRight: "4px solid",
       borderTop: "1px solid",
       paddingRight: 0,
-      paddingLeft: 4
+      paddingLeft: 4,
+      textAlign: "center"
     },
     tableQuestionCell: {
       fontSize: 15,
@@ -316,38 +322,114 @@ export default function ExamUserResponse(props) {
                 <TableCell key="code" className={classes.tableAnswer}>
                   Your Answer
                 </TableCell>
-                <TableCell key="population" className={classes.tableRemarks}>
+                <TableCell key="population" className={classes.tableAnswer}>
                   Correct Answer
+                </TableCell>
+                <TableCell key="population" className={classes.tableQuestion}>
+                  Remarks
+                </TableCell>
+                <TableCell key="population" className={classes.tableRemarks}>
+                  HelpLink
                 </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {answers.map(answer => {
                 debugger;
-                return answer.map((row, index) => (
-                  <TableRow>
-                    <TableCell className={classes.tableNumberCell}>
-                      {index + 1}
-                    </TableCell>
-                    <TableCell
-                      component="th"
-                      scope="row"
-                      className={classes.tableQuestionCell}
-                    >
-                      {row.question}
-                    </TableCell>
-                    <TableCell className={classes.tableAnswerCell}>
-                      {!props.match.params.date
-                        ? row[userResponse1[index].answer].toUpperCase()
-                        : userResponse1[index].answer.toUpperCase()}
-                    </TableCell>
-                    <TableCell className={classes.tableRemarkCell}>
-                      {!props.match.params.date
-                        ? row[row.answer].toUpperCase()
-                        : row.answer.toUpperCase()}
-                    </TableCell>
-                  </TableRow>
-                ));
+                return answer.map((row, index) =>
+                  row.answer.toUpperCase() ===
+                  userResponse1[index].answer.toUpperCase() ? (
+                    <TableRow>
+                      <TableCell className={classes.tableNumberCell}>
+                        {index + 1}
+                      </TableCell>
+                      <TableCell
+                        component="th"
+                        scope="row"
+                        className={classes.tableQuestionCell}
+                      >
+                        {row.question}
+                      </TableCell>
+                      <TableCell className={classes.tableAnswerCell}>
+                        {!props.match.params.date
+                          ? row[userResponse1[index].answer].toUpperCase()
+                          : userResponse1[index].answer.toUpperCase()}
+                      </TableCell>
+                      <TableCell className={classes.tableAnswerCell}>
+                        {!props.match.params.date
+                          ? row[row.answer].toUpperCase()
+                          : row.answer.toUpperCase()}
+                      </TableCell>
+                      <TableCell className={classes.tableAnswerCell}>
+                        {!props.match.params.date
+                          ? ""
+                          : row.remarks.toUpperCase()}
+                      </TableCell>
+                      <TableCell className={classes.tableRemarkCell}>
+                        {!props.match.params.date ? (
+                          ""
+                        ) : row.hint != undefined &&
+                          row.aws === undefined &&
+                          row.hint.length > 0 ? (
+                          <Link
+                            href={row.hint}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Help
+                          </Link>
+                        ) : (
+                          ""
+                        )}
+                      </TableCell>
+                    </TableRow>
+                  ) : (
+                    <TableRow className={classes.highlight}>
+                      <TableCell className={classes.tableNumberCell}>
+                        {index + 1}
+                      </TableCell>
+                      <TableCell
+                        component="th"
+                        scope="row"
+                        className={classes.tableQuestionCell}
+                      >
+                        {row.question}
+                      </TableCell>
+                      <TableCell className={classes.tableAnswerCell}>
+                        {!props.match.params.date
+                          ? row[userResponse1[index].answer].toUpperCase()
+                          : userResponse1[index].answer.toUpperCase()}
+                      </TableCell>
+                      <TableCell className={classes.tableAnswerCell}>
+                        {!props.match.params.date
+                          ? row[row.answer].toUpperCase()
+                          : row.answer.toUpperCase()}
+                      </TableCell>
+                      <TableCell className={classes.tableAnswerCell}>
+                        {!props.match.params.date
+                          ? ""
+                          : row.remarks.toUpperCase()}
+                      </TableCell>
+                      <TableCell className={classes.tableRemarkCell}>
+                        {!props.match.params.date ? (
+                          ""
+                        ) : row.hint != undefined &&
+                          row.aws === undefined &&
+                          row.hint.length > 0 ? (
+                          <Link
+                            href={row.hint}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Help
+                          </Link>
+                        ) : (
+                          ""
+                        )}
+                      </TableCell>
+                    </TableRow>
+                  )
+                );
               })}
             </TableBody>
           </Table>

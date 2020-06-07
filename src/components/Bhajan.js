@@ -416,10 +416,9 @@ export default function QuizAnswer1(props) {
       <Card className={classes.formContainer}>
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
-            <label className={classes.message}>आपको यह भजन कैसे लगे</label>
             {toggleButton === false ? (
               <React.Fragment>
-                {" "}
+                <label className={classes.message}>आपको यह भजन कैसे लगे</label>{" "}
                 <label className={classes.comment}>Comment</label>
                 <input
                   name="comment"
