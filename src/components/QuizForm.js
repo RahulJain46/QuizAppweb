@@ -34,6 +34,11 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center",
     fontSize: 23
   },
+  headerMessage: {
+    fontWeight: 400,
+    textAlign: "center",
+    fontSize: 23
+  },
   loading: {
     position: "relative",
     top: 227,
@@ -434,6 +439,19 @@ function QuizForm(props) {
                 onSubmit(data, questions, questionsId)
               )}
             >
+              {date === "09-06-2020" ? (
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  className={classes.headerMessage}
+                >
+                  सभी Question की हेल्प लिंक एक ही है | आप एक बार ही download कर
+                  के, सभी Question की help ले सकते है |
+                </Typography>
+              ) : (
+                ""
+              )}
+
               <Typography
                 variant="h6"
                 gutterBottom
