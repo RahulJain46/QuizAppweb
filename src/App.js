@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
+import ReactGA from "react-ga";
 import HomePage from "./components/Home/Home";
 import OldQuiz from "./components/OldQuiz";
 import QuizForm from "./components/QuizForm";
@@ -40,6 +41,10 @@ const useStyles = makeStyles(theme => ({
 
 function App() {
   const classes = useStyles();
+  useEffect(() => {
+    ReactGA.initialize("UA-165998646-2");
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
   return (
     <div className={classes.container}>
       <AppBar />
