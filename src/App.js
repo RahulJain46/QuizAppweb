@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
 function App() {
   const classes = useStyles();
   useEffect(() => {
-    ReactGA.initialize("UA-165466460-1");
+    ReactGA.initialize("UA-165998646-2");
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
   return (
