@@ -281,6 +281,7 @@ function QuizForm(props) {
   const [submitButton, setSubmitBUtton] = useState(false);
   const [scoreMessage, setScoreMessage] = useState("");
   const [userScore, setuserScore] = useState("");
+  const date = props.match.params.date;
   let message = "";
 
   useEffect(() => {
@@ -290,7 +291,7 @@ function QuizForm(props) {
   useEffect(() => {
     const questionsArray = [];
     const queastionsIdArray = [];
-    const date = props.match.params.date;
+    // const date = props.match.params.date;
     fetch(links.backendURL + "examquestions")
       .then(questionsJosn => {
         return questionsJosn.json();
@@ -378,7 +379,7 @@ function QuizForm(props) {
     userResponseJson["feedback"] = myMap.get("feedback");
     userResponseJson["suggestion"] = myMap.get("suggestion").trim();
     userResponseJson = calcaulateScore(ques, myMap, userResponseJson);
-    const date = "26-05-2020";
+    //  const date = "26-05-2020";
     let usersJson = {};
     usersJson["fullname"] = myMap.get("fullname").trim();
     usersJson["city"] = myMap.get("city").trim();
