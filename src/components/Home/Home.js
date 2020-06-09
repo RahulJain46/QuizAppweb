@@ -369,6 +369,15 @@ function Home() {
             </Paper>
           </Link>
         </Grid>
+        <Grid item xs={12} className={classes.quizitems}>
+          <Link to="/sanganer/09-06-2020">
+            <Paper className={classes.paper}>
+              <Button variant="contained" className={classes.ishtopdeshButton}>
+                Ratnakarand Shravakachar Exam
+              </Button>
+            </Paper>
+          </Link>
+        </Grid>
 
         <Grid item xs={6} className={classes.quizitems}>
           <Link to="/examinstruction">
