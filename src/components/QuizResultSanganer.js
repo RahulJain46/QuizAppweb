@@ -249,7 +249,7 @@ export default function QuizResultSanganer(props) {
   useEffect(() => {
     const questionsArray = [];
 
-    const date = "26-05-2020";
+    const date = props.match.params.date;
     fetch(
       links.backendURL + "examusersresponse?allresult=true&date=" + `${date}`
     )

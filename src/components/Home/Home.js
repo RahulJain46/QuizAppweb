@@ -276,6 +276,11 @@ function Home() {
       <Card className={classes.notice}>
         <CardContent>
           <Typography className={classes.topNotice}>"जय जिनेन्द्र" </Typography>
+          <Typography className={classes.loginNotice}>
+            "सांगानेर के सुमीत भैया द्वारा दिनांक 10-06-2020 को शाम 3 बजे रत्न
+            करंड श्रावकाचार की परीक्षा रखी गई है । इसमें सभी सधर्मी भाग ले सकते
+            है।"{" "}
+          </Typography>
           <Typography className={classes.topNotice}>
             "QUIZ को निरंतर सफलता पूर्वक चलते हुए दो माह पूर्ण।"
           </Typography>
@@ -369,6 +374,15 @@ function Home() {
             </Paper>
           </Link>
         </Grid>
+        {/* <Grid item xs={12} className={classes.quizitems}>
+          <Link to="/sanganer/09-06-2020">
+            <Paper className={classes.paper}>
+              <Button variant="contained" className={classes.ishtopdeshButton}>
+                रत्न करंड श्रावकाचार Exam
+              </Button>
+            </Paper>
+          </Link>
+        </Grid> */}
 
         <Grid item xs={6} className={classes.quizitems}>
           <Link to="/examinstruction">
