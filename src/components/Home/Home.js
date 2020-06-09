@@ -276,7 +276,7 @@ function Home() {
       <Card className={classes.notice}>
         <CardContent>
           <Typography className={classes.topNotice}>"जय जिनेन्द्र" </Typography>
-          <Typography className={classes.topNotice}>
+          <Typography className={classes.loginNotice}>
             "सांगानेर के सुमीत भैया द्वारा दिनांक 10-06-2020 को शाम 3 बजे रत्न
             करंड श्रावकाचार की परीक्षा रखी गई है । इसमें सभी सधर्मी भाग ले सकते
             है।"{" "}
