@@ -291,8 +291,8 @@ function QuizForm(props) {
   useEffect(() => {
     const questionsArray = [];
     const queastionsIdArray = [];
-    // const date = props.match.params.date;
-    fetch(links.backendURL + "examquestions")
+    const date = props.match.params.date;
+    fetch(links.backendURL + "examquestions?date=" + `${date}`)
       .then(questionsJosn => {
         return questionsJosn.json();
       })

@@ -124,7 +124,7 @@ function ExamInstruction() {
           </Typography>
 
           <Grid className={classes.quizitems}>
-            <Link to="/sanganer">
+            <Link to="/sanganer/26-05-2020">
               <Paper className={classes.paper}>
                 <Button variant="contained" className={classes.button}>
                   START QUIZ

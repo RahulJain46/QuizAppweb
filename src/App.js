@@ -47,7 +47,7 @@ function App() {
         <Route exact path="/" component={HomePage} />
         <Route path="/oldquizresults" component={OldQuiz} />
         <Route path="/datemonthquiz/:date" component={QuizForm} />
-        <Route path="/sanganer" component={QuizFormSanganer} />
+        <Route path="/sanganer/:date" component={QuizFormSanganer} />
         <Route path="/datemonthresult" component={OldQuiz} />
         <Route path="/answerSheets" component={QuizAnswers} />
         <Route path="/comments" component={Comments} />
