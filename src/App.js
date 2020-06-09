@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import ReactGA from "react-ga";
 import HomePage from "./components/Home/Home";
@@ -27,13 +27,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function initializeReactGA() {
-  ReactGA.initialize("UA-165998646-1");
-  ReactGA.pageview("/");
-}
-
 function App() {
   const classes = useStyles();
+  useEffect(() => {
+    ReactGA.initialize("UA-165466460-1");
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
   return (
     <div className={classes.container}>
       <AppBar />
