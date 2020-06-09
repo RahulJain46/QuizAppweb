@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import moment from "moment";
 
 function CountdownTimer() {
-  let [seconds, setSeconds] = useState(3000);
+  let [seconds, setSeconds] = useState(900);
   const calculateTimeLeft = seconds => {
     let timeLeft = {};
     const difference = +moment().add(seconds, "seconds") - +moment();
