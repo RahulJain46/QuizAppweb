@@ -295,46 +295,6 @@ function Home() {
           </Typography>
           <Typography className={classes.message}>
             {" "}
-            दिनांक 1.6.20 को तत्वार्थ सूत्र जी का सातवाँ अध्याय ;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 2.6.20 को तत्वार्थ सूत्र जी का सातवाँ व् आठवां अध्याय ;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 3.6.20 को तत्वार्थ सूत्र जी का नवमा अध्याय ;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 4.6.20 को तत्वार्थ सूत्र जी का नवमा व् दशमा अध्याय ;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 5.6.20 को “गुणस्थान”;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 6.6.20 को “मार्गणा”;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 7.6.20 को “समुदघात”;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 8.6.20 को “ध्यान”;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 9.6.20 को “बारह भावना”;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 10.6.20 को “कर्म”;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
             दिनांक 11.6.20 को “दर्शन स्तुति ”;{" "}
           </Typography>
           <Typography className={classes.message}>
@@ -463,7 +423,7 @@ function Home() {
                       required: true,
                       pattern: /^\d*$/,
                       minLength: 10,
-                      maxLength: 10,
+                      maxLength: 10
                     })}
                     className={classes.mobileInput}
                   />
@@ -477,7 +437,7 @@ function Home() {
                 <input
                   name="comment"
                   ref={register({
-                    required: true,
+                    required: true
                   })}
                   className={classes.feedbackInput}
                 />
