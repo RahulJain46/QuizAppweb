@@ -277,9 +277,7 @@ function Home() {
         <CardContent>
           <Typography className={classes.topNotice}>"जय जिनेन्द्र" </Typography>
           <Typography className={classes.loginNotice}>
-            "सांगानेर के सुमीत भैया द्वारा दिनांक 10-06-2020 को शाम 3 बजे रत्न
-            करंड श्रावकाचार की परीक्षा रखी गई है । इसमें सभी सधर्मी भाग ले सकते
-            है।"{" "}
+            "सांगानेर के सुमीत भैया जी द्वारा दिनांक 10-06-2020 को शाम 3 बजे रत्न करंड श्रावकाचार की परीक्षा रखी गई है । इसी web site पर नीचे दिए जाने वाले नवीन बटन से इसमें सभी साधर्मी भाग ले सकते है।"{" "}
           </Typography>
           <Typography className={classes.topNotice}>
             "QUIZ को निरंतर सफलता पूर्वक चलते हुए दो माह पूर्ण।"
