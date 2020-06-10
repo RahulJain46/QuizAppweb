@@ -372,7 +372,7 @@ function Home() {
             </Paper>
           </Link>
         </Grid>
-        {/* <Grid item xs={12} className={classes.quizitems}>
+        <Grid item xs={12} className={classes.quizitems}>
           <Link to="/sanganer/09-06-2020">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.ishtopdeshButton}>
@@ -380,7 +380,7 @@ function Home() {
               </Button>
             </Paper>
           </Link>
-        </Grid> */}
+        </Grid>
 
         <Grid item xs={6} className={classes.quizitems}>
           <Link to="/examinstruction">
