@@ -313,6 +313,10 @@ function Home() {
             {" "}
             दिनांक 15.6.20 को “भगवान पार्श्वनाथ”;
           </Typography>
+          <Typography className={classes.message}>
+            {" "}
+            दिनांक 16.6.20 को “सोलह कारण भावना”;
+          </Typography>
         </CardContent>
       </Card>
 
