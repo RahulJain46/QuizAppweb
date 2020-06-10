@@ -276,9 +276,6 @@ function Home() {
       <Card className={classes.notice}>
         <CardContent>
           <Typography className={classes.topNotice}>"जय जिनेन्द्र" </Typography>
-          <Typography className={classes.loginNotice}>
-            "सांगानेर के सुमीत भैया जी द्वारा दिनांक 10-06-2020 को शाम 3 बजे रत्न करंड श्रावकाचार की परीक्षा रखी गई है । इसी web site पर नीचे दिए जाने वाले नवीन बटन से इसमें सभी साधर्मी भाग ले सकते है।"{" "}
-          </Typography>
           <Typography className={classes.topNotice}>
             "QUIZ को निरंतर सफलता पूर्वक चलते हुए दो माह पूर्ण।"
           </Typography>
@@ -295,19 +292,27 @@ function Home() {
           </Typography>
           <Typography className={classes.message}>
             {" "}
-            दिनांक 7.6.20 को “समुदघात”;{" "}
+            दिनांक 11.6.20 को “दर्शन स्तुति ”;{" "}
           </Typography>
           <Typography className={classes.message}>
             {" "}
-            दिनांक 8.6.20 को “ध्यान”;{" "}
+            दिनांक 12.6.20 को “संहनन”;{" "}
           </Typography>
           <Typography className={classes.message}>
             {" "}
-            दिनांक 9.6.20 को “बारह भावना”;{" "}
+            दिनांक 13.6.20 को “संस्थान”;{" "}
           </Typography>
           <Typography className={classes.message}>
             {" "}
-            दिनांक 10.6.20 को “कर्म”;{" "}
+            दिनांक 14.6.20 को “श्रावक की प्रतिमाएं”;{" "}
+          </Typography>
+          <Typography className={classes.message}>
+            {" "}
+            दिनांक 15.6.20 को “भगवान पार्श्वनाथ”;
+          </Typography>
+          <Typography className={classes.message}>
+            {" "}
+            दिनांक 16.6.20 को “सोलह कारण भावना”;
           </Typography>
         </CardContent>
       </Card>
