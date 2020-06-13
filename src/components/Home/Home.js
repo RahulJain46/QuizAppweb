@@ -142,6 +142,11 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "#610c2b"
     }
   },
+  quizitems: {
+    maxWidth: "100%",
+    padding: "0px ! important",
+    paddingTop: "10px ! important",
+  },
   [theme.breakpoints.down("1123")]: {
     home: {
       width: "100%",
@@ -152,11 +157,7 @@ const useStyles = makeStyles(theme => ({
     quizbutton: {
       display: "inline-block"
     },
-    quizitems: {
-      maxWidth: "100%",
-      padding: "0px ! important",
-      paddingTop: "10px ! important"
-    },
+
     feedbackButton: {
       padding: "4px 6px",
       width: 111
@@ -377,30 +378,12 @@ function Home() {
             </Paper>
           </Link>
         </Grid>
-        <Grid item xs={12} className={classes.quizitems}>
-          <Link to="/sanganer/09-06-2020">
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.ishtopdeshButton}>
-                रत्न करंड श्रावकाचार Exam
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>
 
-        <Grid item xs={6} className={classes.quizitems}>
-          <Link to="/examinstruction">
+        <Grid item xs={12} className={classes.quizitems}>
+          <Link to="/exams">
             <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.ishtopdeshButton}>
-                Ishtopdesh Sanganer Exam
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>
-        <Grid item xs={6} className={classes.quizitems}>
-          <Link to="/examlogin">
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.ishtopdeshButton}>
-                Ishtopdesh Sanganer Answer & Result
+              <Button variant="contained" className={classes.topicButton}>
+                Exams
               </Button>
             </Paper>
           </Link>
