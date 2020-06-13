@@ -313,7 +313,11 @@ function Home() {
           </Typography>
           <Typography className={classes.message}>
             {" "}
-            दिनांक 16.6.20 को “सोलह कारण भावना”;
+            दिनांक 16.6.20 एवं 17.6.20 को “सोलह कारण भावना”;
+          </Typography>
+          <Typography className={classes.message}>
+            {" "}
+            दिनांक 18.6.20 को “दस लक्षण धर्म";
           </Typography>
         </CardContent>
       </Card>
