@@ -142,6 +142,11 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "#610c2b"
     }
   },
+  quizitems: {
+    maxWidth: "100%",
+    padding: "0px ! important",
+    paddingTop: "10px ! important",
+  },
   [theme.breakpoints.down("1123")]: {
     home: {
       width: "100%",
@@ -152,11 +157,7 @@ const useStyles = makeStyles(theme => ({
     quizbutton: {
       display: "inline-block"
     },
-    quizitems: {
-      maxWidth: "100%",
-      padding: "0px ! important",
-      paddingTop: "10px ! important"
-    },
+
     feedbackButton: {
       padding: "4px 6px",
       width: 111
@@ -292,18 +293,6 @@ function Home() {
           </Typography>
           <Typography className={classes.message}>
             {" "}
-            दिनांक 11.6.20 को “दर्शन स्तुति ”;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 12.6.20 को “संहनन”;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 13.6.20 को “संस्थान”;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
             दिनांक 14.6.20 को “श्रावक की प्रतिमाएं”;{" "}
           </Typography>
           <Typography className={classes.message}>
@@ -312,7 +301,11 @@ function Home() {
           </Typography>
           <Typography className={classes.message}>
             {" "}
-            दिनांक 16.6.20 को “सोलह कारण भावना”;
+            दिनांक 16.6.20 एवं 17.6.20 को “सोलह कारण भावना”;
+          </Typography>
+          <Typography className={classes.message}>
+            {" "}
+            दिनांक 18.6.20 को “दस लक्षण धर्म";
           </Typography>
         </CardContent>
       </Card>
@@ -377,30 +370,12 @@ function Home() {
             </Paper>
           </Link>
         </Grid>
-        <Grid item xs={12} className={classes.quizitems}>
-          <Link to="/sanganer/09-06-2020">
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.ishtopdeshButton}>
-                रत्न करंड श्रावकाचार Exam
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>
 
-        <Grid item xs={6} className={classes.quizitems}>
-          <Link to="/examinstruction">
+        <Grid item xs={12} className={classes.quizitems}>
+          <Link to="/exams">
             <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.ishtopdeshButton}>
-                Ishtopdesh Sanganer Exam
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>
-        <Grid item xs={6} className={classes.quizitems}>
-          <Link to="/examlogin">
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.ishtopdeshButton}>
-                Ishtopdesh Sanganer Answer & Result
+              <Button variant="contained" className={classes.topicButton}>
+                Exams
               </Button>
             </Paper>
           </Link>
