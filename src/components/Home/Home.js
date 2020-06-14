@@ -293,18 +293,6 @@ function Home() {
           </Typography>
           <Typography className={classes.message}>
             {" "}
-            दिनांक 11.6.20 को “दर्शन स्तुति ”;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 12.6.20 को “संहनन”;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 13.6.20 को “संस्थान”;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
             दिनांक 14.6.20 को “श्रावक की प्रतिमाएं”;{" "}
           </Typography>
           <Typography className={classes.message}>
