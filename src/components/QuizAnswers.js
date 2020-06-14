@@ -102,13 +102,7 @@ function QuizAnswers() {
       })
       .then(questions => {
         questions.map(question => {
-          let quesdate;
-          if (question.date.includes("APR") || question.date.includes("MAY")) {
-            quesdate =
-              question.date.replace("APR", "04").replace("MAY", "05") + "-2020";
-          } else {
-            quesdate = question.date;
-          }
+           let quesdate = question.date;
           const today = moment(presentDate, "DD-MM-YYYY");
           const someday = moment(quesdate, "DD-MM-YYYY");
           if (someday < today) {
