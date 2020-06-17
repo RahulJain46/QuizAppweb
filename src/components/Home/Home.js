@@ -293,19 +293,15 @@ function Home() {
           </Typography>
           <Typography className={classes.message}>
             {" "}
-            दिनांक 14.6.20 को “श्रावक की प्रतिमाएं”;{" "}
+            दिनांक 19.6.20 को “प्रथमानुयोग&quot;{" "}
           </Typography>
           <Typography className={classes.message}>
             {" "}
-            दिनांक 15.6.20 को “भगवान पार्श्वनाथ”;
+            दिनांक 20.6.20 को “प्रथमानुयोग व् चरणानुयोग&quot;
           </Typography>
           <Typography className={classes.message}>
             {" "}
-            दिनांक 16.6.20 एवं 17.6.20 को “सोलह कारण भावना”;
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 18.6.20 को “दस लक्षण धर्म";
+            दिनांक 21.6.20 को “प्रथमानुयोग व् चरणानुयोग&quot;
           </Typography>
         </CardContent>
       </Card>
