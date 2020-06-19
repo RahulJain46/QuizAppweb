@@ -15,7 +15,8 @@ function KbcResult(props) {
     >
       <div>
         <h2>
-          Your score is <strong>{props.quizResult}</strong>
+          Congratulations !! Your final score is{" "}
+          <strong>{props.quizResult}</strong>
         </h2>
       </div>
     </TransitionGroup>
