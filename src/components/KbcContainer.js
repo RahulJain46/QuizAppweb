@@ -94,7 +94,7 @@ function KbcContainer() {
     setUserAnswer(event.currentTarget.value);
     calculateScore(event.currentTarget.value, counter);
     counter++;
-    if (counter <= 5) {
+    if (counter <= 20) {
       setTimeout(
         () => setNextQuestion(counter, randomQuestions, randomQuestion),
         300
@@ -151,7 +151,7 @@ function KbcContainer() {
         answer={userAnswer}
         questionId={counter}
         question={question}
-        questionTotal="5"
+        questionTotal="20"
         answerOptions={answerOptions}
         onAnswerSelected={event =>
           submit(event, randomQuestionsIndex, randomQuestionIndex)
@@ -179,12 +179,24 @@ function KbcContainer() {
       )}
       <Grid item xs={12} className={classes.quizitems}>
         <Paper className={classes.paper}>
-          <Button variant="contained" className={classes.topicButton}>
+          <Button
+            variant="contained"
+            className={classes.topicButton}
+            disabled={clicked}
+            onClick={() =>
+              setNextQuestion(
+                counter,
+                randomQuestionsIndex,
+                randomQuestionIndex,
+                (clicked = true)
+              )
+            }
+          >
             Flip the Question
           </Button>
         </Paper>
       </Grid>
-      <button
+      {/* <button
         className={`flipquestion` + clicked}
         disabled={clicked}
         onClick={() =>
@@ -197,7 +209,7 @@ function KbcContainer() {
         }
       >
         Flip the question
-      </button>
+      </button> */}
     </div>
   );
 }
