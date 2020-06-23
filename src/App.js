@@ -10,6 +10,7 @@ import ResponseDates from "./components/ResponseDates";
 import Login from "./components/Login";
 import QuizResult from "./components/QuizResult";
 import KbcContainer from "./components/KbcContainer";
+import KbcLoginPage from "./components/KbcLoginPage";
 import Comments from "./components/Comments";
 import ExamInstruction from "./components/ExamInstruction";
 import QuizTopic from "./components/QuizTopic";
@@ -86,6 +87,7 @@ function App() {
         />
         <Route path="/quizresult/:date" component={QuizResultAdmin} />
         <Route path="/yourresponse/:id/:date" component={UserResponse} />
+        <Route path="/kbclogin" component={KbcLoginPage} />
         <Route path="/kbc" component={KbcContainer} />
         <Route component={PageNotFound} />
       </Switch>

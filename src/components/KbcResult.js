@@ -14,10 +14,13 @@ function KbcResult(props) {
       transitionAppearTimeout={500}
     >
       <div>
-        <h2>
-          Congratulations !! Your final score is{" "}
-          <strong>{props.quizResult}</strong>
-        </h2>
+        <h2>Congratulations !!</h2>
+        <h3>
+          Your final score is <strong>{props.quizResult}</strong>
+        </h3>
+        <h3>
+          Play Time <strong>{props.time}</strong>
+        </h3>
       </div>
     </TransitionGroup>
   );
