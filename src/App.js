@@ -12,7 +12,6 @@ import QuizResult from "./components/QuizResult";
 import KbcContainer from "./components/KbcContainer";
 import KbcLoginPage from "./components/KbcLoginPage";
 import Comments from "./components/Comments";
-import ExamInstruction from "./components/ExamInstruction";
 import QuizTopic from "./components/QuizTopic";
 import Exams from "./components/Exams";
 import ExamScore from "./components/ExamScore";
