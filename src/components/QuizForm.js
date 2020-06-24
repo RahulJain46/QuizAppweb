@@ -596,15 +596,7 @@ function QuizForm(props) {
                         row.aws === undefined &&
                         row.hint.length > 0 ? (
                           <fieldset className={classes.helpLink}>
-                            <Link
-                              href={
-                                `https://jindarshan.s3.amazonaws.com/` +
-                                row.hint +
-                                `.jpg`
-                              }
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
+                            <Link href={row.hint}>
                               <label className={classes.helpLabel}>
                                 Click here for help <WbIncandescentSharpIcon />
                               </label>
