@@ -145,7 +145,7 @@ const useStyles = makeStyles(theme => ({
   quizitems: {
     maxWidth: "100%",
     padding: "0px ! important",
-    paddingTop: "10px ! important",
+    paddingTop: "10px ! important"
   },
   [theme.breakpoints.down("1123")]: {
     home: {
@@ -286,23 +286,6 @@ function Home() {
               गए Login Button पर Click करे।"
             </Typography>
           </Link>
-          <Typography className={classes.noticeText}> सूचना: </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            निम्न उल्लेखित दिनांकों को प्रश्नों का मुख्य विषय निम्नानुसार रहेगा:{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 19.6.20 को “प्रथमानुयोग&quot;{" "}
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 20.6.20 को “प्रथमानुयोग व् चरणानुयोग&quot;
-          </Typography>
-          <Typography className={classes.message}>
-            {" "}
-            दिनांक 21.6.20 को “प्रथमानुयोग व् चरणानुयोग&quot;
-          </Typography>
         </CardContent>
       </Card>
 
