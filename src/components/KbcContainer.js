@@ -156,7 +156,7 @@ function KbcContainer(props) {
       const endTime = moment()
         .utc()
         .valueOf();
-      const duration = startTime - endTime;
+      const duration = endTime - startTime;
       if (duration > 0) {
         timeLeft = {
           days: Math.floor(duration / (1000 * 60 * 60 * 24)),
