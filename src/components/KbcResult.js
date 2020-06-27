@@ -29,6 +29,15 @@ const useStyles = makeStyles(theme => ({
     left: "30%",
     width: "100%"
   },
+  firstButton: {
+    padding: 1,
+    padding: "1px ! important",
+    paddingBottom: "13px ! important"
+  },
+  secondButton: {
+    padding: 1,
+    padding: "1px ! important"
+  },
   [theme.breakpoints.down("600")]: {
     lastButton: {
       width: 144,
@@ -37,6 +46,9 @@ const useStyles = makeStyles(theme => ({
       "&:hover": {
         backgroundColor: "#981212cf"
       }
+    },
+    resultButton: {
+      display: "inline-Block"
     },
     homeButton: {
       width: 144,
@@ -60,14 +72,23 @@ const useStyles = makeStyles(theme => ({
       marginBottom: "22%",
       left: "0%",
       display: "contents"
+    },
+    kbcResult: {
+      flexGrow: 1
+    },
+    paperButton: {
+      left: 0
+    },
+    homeGridButton: {
+      width: 144
     }
   },
   [theme.breakpoints.between("300", "340")]: {
     paperButton: {
       left: 0
     },
-    firstButton: {
-      maxWidth: 0
+    paperButton: {
+      left: 0
     }
   }
 }));
@@ -93,8 +114,8 @@ function KbcResult(props) {
       transitionAppear
       transitionAppearTimeout={500}
     >
-      <div>
-        <Grid container spacing={3}>
+      <div className={classes.kbcResult}>
+        <Grid container spacing={3} className={classes.resultButton}>
           <Grid item xs={6} className={classes.firstButton}>
             <Paper className={classes.paper}>
               <Button
@@ -106,7 +127,7 @@ function KbcResult(props) {
               </Button>
             </Paper>
           </Grid>
-          <Grid item xs={6} className={classes.firstButton}>
+          <Grid item xs={6} className={classes.secondButton}>
             <Paper className={classes.paper}>
               <Button
                 variant="contained"
@@ -128,7 +149,7 @@ function KbcResult(props) {
               </h3>
             </CardContent>
           </Card>
-          <Grid item xs={12}>
+          <Grid item xs={12} className={classes.homeGridButton}>
             <Link to={`/`}>
               <Paper className={classes.paperButton}>
                 <Button variant="contained" className={classes.homeButton}>

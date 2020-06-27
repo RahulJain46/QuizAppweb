@@ -32,7 +32,11 @@ const useStyles = makeStyles(theme => ({
     paddingTop: "10px ! important"
   },
   displayScore: {
-    textAlign: "center"
+    textAlign: "center",
+    color: "#ff0d00"
+  },
+  container: {
+    height: 127
   }
 }));
 
