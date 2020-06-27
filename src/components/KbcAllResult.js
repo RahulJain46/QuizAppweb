@@ -233,11 +233,7 @@ export default function KbcAllResult(props) {
       })
       .then(usersResponse => {
         debugger;
-        usersResponse.sort((a, b) => {
-          if (b.score > a.score && b.duration < a.score) {
-            return b.score - a.score;
-          }
-        });
+        usersResponse.sort((a, b) => b.score - a.score);
         setUsers(usersResponse);
 
         // setLoading(false);
