@@ -90,7 +90,7 @@ function KbcContainer(props) {
       if (counter == 1) {
         userScore = 5000;
       } else {
-        userScore = userScore * 2;
+        userScore = userScore + 5000;
       }
     } else {
       const endTime = moment()
@@ -147,7 +147,7 @@ function KbcContainer(props) {
     calculateScore(event.currentTarget.value, counter);
     counter++;
 
-    if (counter <= 3) {
+    if (counter <= 20) {
       setTimeout(
         () => setNextQuestion(counter, randomQuestions, randomQuestion),
         300
@@ -226,7 +226,7 @@ function KbcContainer(props) {
         answer={userAnswer}
         questionId={counter}
         question={question}
-        questionTotal="3"
+        questionTotal="20"
         answerOptions={answerOptions}
         onAnswerSelected={event =>
           submit(event, randomQuestionsIndex, randomQuestionIndex)
@@ -236,7 +236,7 @@ function KbcContainer(props) {
   };
 
   const renderResult = () => {
-    return <KbcResult quizResult={result} time={duration} />;
+    return <KbcResult quizResult={result} time={duration} userId={userId} />;
   };
   return (
     <div className="App">

@@ -321,7 +321,7 @@ function KbcLoginPage(props) {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom className={classes.headerDate}>
-        KBC
+        कौन बनेगा धर्मज्ञ
       </Typography>
       <Card className={classes.container}>
         <CardContent>

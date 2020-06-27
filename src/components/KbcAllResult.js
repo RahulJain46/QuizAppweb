@@ -233,7 +233,11 @@ export default function KbcAllResult(props) {
       })
       .then(usersResponse => {
         debugger;
-        usersResponse.sort((a, b) => b.score - a.score);
+        usersResponse.sort((a, b) => {
+          if (b.score > a.score && b.duration < a.score) {
+            return b.score - a.score;
+          }
+        });
         setUsers(usersResponse);
 
         // setLoading(false);
@@ -286,8 +290,30 @@ export default function KbcAllResult(props) {
           </TableHead>
           <TableBody>
             {users.length != 0
-              ? users.map(row => {
-                  return (
+              ? users.map(row =>
+                  props.location.state === row.userId ? (
+                    <TableRow className={classes.scoreHighlight}>
+                      <TableCell className={classes.tableTimeCell}>
+                        {row.name}
+                      </TableCell>
+                      <TableCell
+                        component="th"
+                        scope="row"
+                        className={classes.tableNameCell}
+                      >
+                        {row.city}
+                      </TableCell>
+                      <TableCell className={classes.tableCityCell}>
+                        {row.score}
+                      </TableCell>
+                      <TableCell className={classes.tableScoreCell}>
+                        {row.duration}
+                      </TableCell>
+                      <TableCell className={classes.tableScoreCell}>
+                        {row.startingTime}
+                      </TableCell>
+                    </TableRow>
+                  ) : (
                     <TableRow>
                       <TableCell className={classes.tableTimeCell}>
                         {row.name}
@@ -309,8 +335,8 @@ export default function KbcAllResult(props) {
                         {row.startingTime}
                       </TableCell>
                     </TableRow>
-                  );
-                })
+                  )
+                )
               : ""}
           </TableBody>
         </Table>

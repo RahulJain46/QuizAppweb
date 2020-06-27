@@ -291,10 +291,10 @@ function Home() {
 
       <Grid container spacing={3} className={classes.quizbutton}>
         <Grid item xs={12} className={classes.quizitems}>
-          <Link to="/kbclogin">
+          <Link to="/kbcinstruction">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.bhajanButton}>
-                KBC
+                कौन बनेगा धर्मज्ञ
               </Button>
             </Paper>
           </Link>

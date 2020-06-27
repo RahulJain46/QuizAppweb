@@ -3,6 +3,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
+import { useHistory } from "react-router-dom";
+import CardContent from "@material-ui/core/CardContent";
+import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import { TransitionGroup } from "react-transition-group";
@@ -16,8 +19,26 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "#981212cf"
     }
   },
-  [theme.breakpoints.down("361")]: {
+  container: {
+    border: "1px solid #cfd8dc",
+    boxShadow: "7px 5px #eeeeee",
+    top: 176,
+    position: "absolute",
+    maxWidth: "45%",
+    marginBottom: 75,
+    left: "30%",
+    width: "100%"
+  },
+  [theme.breakpoints.down("600")]: {
     lastButton: {
+      width: 144,
+      color: "#fff",
+      backgroundColor: "darkred",
+      "&:hover": {
+        backgroundColor: "#981212cf"
+      }
+    },
+    homeButton: {
       width: 144,
       color: "#fff",
       backgroundColor: "darkred",
@@ -27,14 +48,39 @@ const useStyles = makeStyles(theme => ({
     },
     paper: {
       width: 144
+    },
+    paperButton: {
+      width: 144,
+      left: "27%",
+      position: "relative"
+    },
+    container: {
+      maxWidth: "100%",
+      top: 176,
+      marginBottom: "22%",
+      left: "0%",
+      display: "contents"
+    }
+  },
+  [theme.breakpoints.between("300", "340")]: {
+    paperButton: {
+      left: 0
+    },
+    firstButton: {
+      maxWidth: 0
     }
   }
 }));
 
 function KbcResult(props) {
   const classes = new useStyles();
+  const history = useHistory();
   const referesh = () => {
     window.location.reload();
+  };
+
+  const viewRank = () => {
+    history.push(`/kbcallresult`, props.userId);
   };
 
   return (
@@ -49,7 +95,7 @@ function KbcResult(props) {
     >
       <div>
         <Grid container spacing={3}>
-          <Grid item xs={6}>
+          <Grid item xs={6} className={classes.firstButton}>
             <Paper className={classes.paper}>
               <Button
                 variant="contained"
@@ -60,31 +106,37 @@ function KbcResult(props) {
               </Button>
             </Paper>
           </Grid>
-          <Grid item xs={6}>
-            <Link to={`/kbcallresult`}>
-              <Paper className={classes.paper}>
-                <Button variant="contained" className={classes.lastButton}>
-                  Your Rank
+          <Grid item xs={6} className={classes.firstButton}>
+            <Paper className={classes.paper}>
+              <Button
+                variant="contained"
+                className={classes.lastButton}
+                onClick={() => viewRank()}
+              >
+                Your Rank
+              </Button>
+            </Paper>
+          </Grid>
+          <Card className={classes.container}>
+            <CardContent>
+              <h2>Congratulations !!</h2>
+              <h3>
+                Your final score is <strong>{props.quizResult}</strong>
+              </h3>
+              <h3>
+                Play Time <strong>{props.time}</strong>
+              </h3>
+            </CardContent>
+          </Card>
+          <Grid item xs={12}>
+            <Link to={`/`}>
+              <Paper className={classes.paperButton}>
+                <Button variant="contained" className={classes.homeButton}>
+                  Home
                 </Button>
               </Paper>
             </Link>
           </Grid>
-        </Grid>
-        <h2>Congratulations !!</h2>
-        <h3>
-          Your final score is <strong>{props.quizResult}</strong>
-        </h3>
-        <h3>
-          Play Time <strong>{props.time}</strong>
-        </h3>
-        <Grid item xs={12}>
-          <Link to={`/`}>
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.lastButton}>
-                Home
-              </Button>
-            </Paper>
-          </Link>
         </Grid>
       </div>
     </TransitionGroup>
