@@ -7,6 +7,8 @@ import "./KbcContainer.scss";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import moment from "moment";
+import CardContent from "@material-ui/core/CardContent";
+import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
 import logo from "../svg/logo.svg";
 import { links } from "../Config";
@@ -276,7 +278,11 @@ function KbcContainer(props) {
       {flag ? (
         ""
       ) : (
-        <h2 className={classes.displayScore}>Score : {userScore}</h2>
+        <Card className={classes.container}>
+          <CardContent>
+            <h2 className={classes.displayScore}>Score : {userScore}</h2>
+          </CardContent>
+        </Card>
       )}
     </div>
   );
