@@ -320,6 +320,9 @@ function KbcLoginPage(props) {
 
   return (
     <React.Fragment>
+      <Typography variant="h6" gutterBottom className={classes.headerDate}>
+        KBC
+      </Typography>
       <Card className={classes.container}>
         <CardContent>
           <form onSubmit={handleSubmit(data => onSubmit(data))}>

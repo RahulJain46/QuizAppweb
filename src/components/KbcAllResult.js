@@ -243,6 +243,22 @@ export default function KbcAllResult(props) {
 
   return (
     <Paper className={classes.tableheading}>
+      <Typography
+        variant="h6"
+        gutterBottom
+        className={classes.headerBackButton}
+      >
+        <Link to={`/`}>
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.backButton}
+          >
+            <ArrowBackIosIcon className={classes.backArrow} />
+            Go To Home
+          </Button>
+        </Link>
+      </Typography>
       <TableContainer className={classes.container}>
         <Table
           stickyHeader

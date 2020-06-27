@@ -291,15 +291,14 @@ function Home() {
 
       <Grid container spacing={3} className={classes.quizbutton}>
         <Grid item xs={12} className={classes.quizitems}>
-          <Link to="/bhajan">
+          <Link to="/kbclogin">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.bhajanButton}>
-                Latest Jain Bhajan
+                KBC
               </Button>
             </Paper>
           </Link>
         </Grid>
-
         <Grid item xs={6} className={classes.quizitems}>
           <Link
             to={`/datemonthquiz` + `/${day + "-0" + currentMonth + "-" + year}`}
@@ -336,6 +335,15 @@ function Home() {
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.button}>
                 Answer Sheets
+              </Button>
+            </Paper>
+          </Link>
+        </Grid>
+        <Grid item xs={12} className={classes.quizitems}>
+          <Link to="/bhajan">
+            <Paper className={classes.paper}>
+              <Button variant="contained" className={classes.bhajanButton}>
+                Latest Jain Bhajan
               </Button>
             </Paper>
           </Link>
