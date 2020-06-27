@@ -302,10 +302,7 @@ function KbcLoginPage(props) {
       })
       .then(count => {
         if (count > 0) {
-          alert("आपके द्वारा आज का QUIZ पूर्व में SUBMIT किया जा चुका है");
-          setSubmitBUtton(true);
-          setToggleButton(false);
-          return;
+          history.push(`/kbc`, userdetail);
         } else {
           let userOptions = {
             method: "POST",

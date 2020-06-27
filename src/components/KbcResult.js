@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 import { TransitionGroup } from "react-transition-group";
 
 const useStyles = makeStyles(theme => ({
@@ -35,6 +36,9 @@ function KbcResult(props) {
         <Button className={classes.topicButton} onClick={() => referesh()}>
           Play Again
         </Button>
+        <Link to="/kbcallresult">
+          <Button className={classes.topicButton}>Your Rank</Button>
+        </Link>
         <h2>Congratulations !!</h2>
         <h3>
           Your final score is <strong>{props.quizResult}</strong>
