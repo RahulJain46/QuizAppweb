@@ -31,6 +31,12 @@ const useStyles = makeStyles(theme => ({
     color: "indigo",
     fontWeight: 600
   },
+  kbcNotice: {
+    textAlign: "center",
+    fontSize: 20,
+    fontWeight: 600,
+    color: "#11757f"
+  },
   loginNotice: {
     color: "#9a1919",
     textAlign: "center",
@@ -277,8 +283,15 @@ function Home() {
       <Card className={classes.notice}>
         <CardContent>
           <Typography className={classes.topNotice}>"जय जिनेन्द्र" </Typography>
+          <Typography className={classes.kbcNotice}>
+            “आज से KBC की तर्ज पर नवीन आकर्षक "कौन बनेगा धर्मज्ञ" GAME नीचे दी
+            गई पहली लिंक पर उपलब्ध”
+          </Typography>
           <Typography className={classes.topNotice}>
-            "QUIZ को निरंतर सफलता पूर्वक चलते हुए दो माह पूर्ण।"
+            "QUIZ को निरंतर सफलता पूर्वक चलते हुए 70 दिन पूर्ण।"
+          </Typography>
+          <Typography className={classes.topNotice}>
+            "QUIZ में 1400 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
           </Typography>
           <Link to="/login">
             <Typography className={classes.loginNotice}>
@@ -286,20 +299,27 @@ function Home() {
               गए Login Button पर Click करे।"
             </Typography>
           </Link>
+          <Typography className={classes.message}>
+            {" "}
+            निम्न उल्लेखित दिनांकों को प्रश्नों का मुख्य विषय निम्नानुसार रहेगा:{" "}
+          </Typography>
+          <Typography className={classes.message}>
+            {" "}
+            दिनांक 28.6.20 को “जैन रामायण"{" "}
+          </Typography>
         </CardContent>
       </Card>
 
       <Grid container spacing={3} className={classes.quizbutton}>
         <Grid item xs={12} className={classes.quizitems}>
-          <Link to="/bhajan">
+          <Link to="/kbcinstruction">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.bhajanButton}>
-                Latest Jain Bhajan
+                कौन बनेगा धर्मज्ञ
               </Button>
             </Paper>
           </Link>
         </Grid>
-
         <Grid item xs={6} className={classes.quizitems}>
           <Link
             to={`/datemonthquiz` + `/${day + "-0" + currentMonth + "-" + year}`}
@@ -336,6 +356,15 @@ function Home() {
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.button}>
                 Answer Sheets
+              </Button>
+            </Paper>
+          </Link>
+        </Grid>
+        <Grid item xs={12} className={classes.quizitems}>
+          <Link to="/bhajan">
+            <Paper className={classes.paper}>
+              <Button variant="contained" className={classes.bhajanButton}>
+                Latest Jain Bhajan
               </Button>
             </Paper>
           </Link>

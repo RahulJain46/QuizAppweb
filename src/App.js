@@ -8,8 +8,12 @@ import QuizFormSanganer from "./components/QuizFormSanganer";
 import QuizAnswers from "./components/QuizAnswers";
 import ResponseDates from "./components/ResponseDates";
 import Login from "./components/Login";
+import QuizResult from "./components/QuizResult";
+import KbcContainer from "./components/KbcContainer";
+import KbcInstruction from "./components/KbcInstruction";
+import KbcLoginPage from "./components/KbcLoginPage";
+import KbcAllResult from "./components/KbcAllResult";
 import Comments from "./components/Comments";
-import ExamInstruction from "./components/ExamInstruction";
 import QuizTopic from "./components/QuizTopic";
 import Exams from "./components/Exams";
 import ExamScore from "./components/ExamScore";
@@ -25,6 +29,7 @@ import DesktopHeader from "./components/common/DesktopHeader";
 import AppBar from "./components/common/AppBar";
 import Footer from "./components/common/Footer";
 import PageNotFound from "./components/PageNotFound";
+import ExamInstruction from "./components/ExamInstruction";
 import { makeStyles } from "@material-ui/core/styles";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -62,7 +67,7 @@ function App() {
         <Route path="/bhajan" component={Bhajan} />
         <Route path="/answerSheet/:date" component={QuizAnswer} />
         <Route path="/answerSheetSanganer" component={QuizAnswerSanganer} />
-        <Route path="/exams" component={Exams} />        
+        <Route path="/exams" component={Exams} />
         <Route path="/quiztopic" component={QuizTopic} />
         <Route path="/examScore" component={ExamScore} />
         <Route path="/examlogin" component={ExamLogin} />
@@ -83,6 +88,10 @@ function App() {
         />
         <Route path="/quizresult/:date" component={QuizResultAdmin} />
         <Route path="/yourresponse/:id/:date" component={UserResponse} />
+        <Route path="/kbclogin" component={KbcLoginPage} />
+        <Route path="/kbc" component={KbcContainer} />
+        <Route path="/kbcallresult" component={KbcAllResult} />
+        <Route path="/kbcinstruction" component={KbcInstruction} />
         <Route component={PageNotFound} />
       </Switch>
       <Footer />
