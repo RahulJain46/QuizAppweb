@@ -85,6 +85,9 @@ const useStyles = makeStyles(theme => ({
   scoreHighlight: {
     backgroundColor: "#46d117"
   },
+  yourScoreHighlight:{
+    backgroundColor: "#ac7818"
+  },
   [theme.breakpoints.down("1124")]: {
     tableheading: {
       top: 6,
@@ -288,6 +291,28 @@ export default function KbcAllResult(props) {
             {users.length != 0
               ? users.map(row =>
                   props.location.state === row.userId ? (
+                    <TableRow className={classes.yourScoreHighlight}>
+                      <TableCell className={classes.tableTimeCell}>
+                        {row.name}
+                      </TableCell>
+                      <TableCell
+                        component="th"
+                        scope="row"
+                        className={classes.tableNameCell}
+                      >
+                        {row.city}
+                      </TableCell>
+                      <TableCell className={classes.tableCityCell}>
+                        {row.score}
+                      </TableCell>
+                      <TableCell className={classes.tableScoreCell}>
+                        {row.duration}
+                      </TableCell>
+                      <TableCell className={classes.tableScoreCell}>
+                        {row.startingTime}
+                      </TableCell>
+                    </TableRow>
+                  ) : row.score == "100000" ? (
                     <TableRow className={classes.scoreHighlight}>
                       <TableCell className={classes.tableTimeCell}>
                         {row.name}
