@@ -261,6 +261,9 @@ export default function KbcAllResult(props) {
           </Button>
         </Link>
       </Typography>
+      <Typography className={classes.totalCount} color="textSecondary">
+        Total No. of participants: {users.length}
+      </Typography>
       <TableContainer className={classes.container}>
         <Table
           stickyHeader
