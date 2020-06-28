@@ -115,6 +115,7 @@ function KbcContainer(props) {
         name,
         city,
         userScore,
+        duration,
         `${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`
       );
       setTimeout(() => {
@@ -129,14 +130,15 @@ function KbcContainer(props) {
     setUserScore(userScore);
   };
 
-  const submitResponse = (name, city, score, duration) => {
+  const submitResponse = (name, city, score, timeDuration, duration) => {
     const usersResponseJson = {
       name,
       city,
       score,
       duration,
       startingTime,
-      userId
+      userId,
+      timeDuration
     };
     let userOptions = {
       method: "POST",
@@ -175,6 +177,7 @@ function KbcContainer(props) {
         name,
         city,
         userScore,
+        duration,
         `${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`
       );
       setTimeout(() => {
