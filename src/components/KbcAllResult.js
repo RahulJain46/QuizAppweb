@@ -236,7 +236,9 @@ export default function KbcAllResult(props) {
       })
       .then(usersResponse => {
         debugger;
-        usersResponse.sort((a, b) => b.score - a.score);
+        usersResponse.sort((a, b) => {
+          return b.score - a.score || a.timeDuration - b.timeDuration;
+        });
         setUsers(usersResponse);
 
         // setLoading(false);
@@ -261,6 +263,9 @@ export default function KbcAllResult(props) {
             Go To Home
           </Button>
         </Link>
+      </Typography>
+      <Typography className={classes.totalCount} color="textSecondary">
+        Total No. of participants: {users.length}
       </Typography>
       <TableContainer className={classes.container}>
         <Table
