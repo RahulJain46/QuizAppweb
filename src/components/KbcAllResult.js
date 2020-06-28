@@ -85,7 +85,7 @@ const useStyles = makeStyles(theme => ({
   scoreHighlight: {
     backgroundColor: "#46d117"
   },
-  yourScoreHighlight:{
+  yourScoreHighlight: {
     backgroundColor: "#ac7818"
   },
   [theme.breakpoints.down("1124")]: {
@@ -224,22 +224,36 @@ export default function KbcAllResult(props) {
   const [loading, setLoading] = useState(true);
   const [users, setUsers] = useState([]);
 
+  const date = new Date();
+  const [toggleButton, setToggleButton] = useState(false);
+  const day =
+    new Date().getDate() > 9
+      ? new Date().getDate()
+      : "0" + new Date().getDate();
+  const year = new Date().getFullYear();
+  const currentMonth = new Date().getMonth() + 1;
+  const month = date
+    .toLocaleString("default", { month: "short" })
+    .toUpperCase();
+
+  const today = day + "-0" + currentMonth + "-" + year;
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
-    fetch(links.backendURL + `kbcusersresponse`)
+    fetch(links.backendURL + `kbcusersresponse?` + `date=${today}`)
       .then(response => {
         debugger;
         return response.json();
       })
       .then(usersResponse => {
         debugger;
-        usersResponse.sort((a, b) => {
+        usersResponse[0].usersAnswer.sort((a, b) => {
           return b.score - a.score || a.timeDuration - b.timeDuration;
         });
-        setUsers(usersResponse);
+        setUsers(usersResponse[0].usersAnswer);
 
         // setLoading(false);
       })

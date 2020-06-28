@@ -64,6 +64,20 @@ function KbcContainer(props) {
   let timeLeft = {};
   let startingTime = moment().format("DD:MM:YYYY HH:mm:ss");
 
+  const date = new Date();
+  const [toggleButton, setToggleButton] = useState(false);
+  const day =
+    new Date().getDate() > 9
+      ? new Date().getDate()
+      : "0" + new Date().getDate();
+  const year = new Date().getFullYear();
+  const currentMonth = new Date().getMonth() + 1;
+  const month = date
+    .toLocaleString("default", { month: "short" })
+    .toUpperCase();
+
+  const today = day + "-0" + currentMonth + "-" + year;
+
   useEffect(() => {
     const questionsArray = [];
     setStartTime(
@@ -141,11 +155,14 @@ function KbcContainer(props) {
       timeDuration
     };
     let userOptions = {
-      method: "POST",
+      method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(usersResponseJson)
     };
-    fetch(links.backendURL + "kbcusersresponse", userOptions).then(response => {
+    fetch(
+      links.backendURL + "kbcusersresponse?" + `date=${today}` + `&update=true`,
+      userOptions
+    ).then(response => {
       // setDuration(duration);
     });
   };
