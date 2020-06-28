@@ -72,7 +72,23 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "#8a0000f0"
     }
   },
-
+  kbcButton: {
+    backgroundColor: "#127c28",
+    color: "#fff",
+    width: 188,
+    fontSize: 18,
+    "&:hover": {
+      backgroundColor: "#8a0000f0"
+    }
+  },
+  kbcResultButton: {
+    backgroundColor: "#b04512",
+    color: "#fff",
+    width: 188,
+    "&:hover": {
+      backgroundColor: "#8a0000f0"
+    }
+  },
   ishtopdeshButton: {
     backgroundColor: "#1c008dbf",
     color: "#fff",
@@ -311,11 +327,20 @@ function Home() {
       </Card>
 
       <Grid container spacing={3} className={classes.quizbutton}>
-        <Grid item xs={12} className={classes.quizitems}>
+        <Grid item xs={6} className={classes.quizitems}>
           <Link to="/kbcinstruction">
             <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.bhajanButton}>
+              <Button variant="contained" className={classes.kbcButton}>
                 कौन बनेगा धर्मज्ञ
+              </Button>
+            </Paper>
+          </Link>
+        </Grid>
+        <Grid item xs={6} className={classes.quizitems}>
+          <Link to="/kbcallresult">
+            <Paper className={classes.paper}>
+              <Button variant="contained" className={classes.kbcResultButton}>
+                कौन बनेगा धर्मज्ञ Rank
               </Button>
             </Paper>
           </Link>
