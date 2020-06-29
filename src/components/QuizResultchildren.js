@@ -85,9 +85,6 @@ const useStyles = makeStyles(theme => ({
   scoreHighlight: {
     backgroundColor: "#46d117"
   },
-  yourScoreHighlight: {
-    backgroundColor: "#ac7818"
-  },
   [theme.breakpoints.down("1124")]: {
     tableheading: {
       top: 6,
@@ -219,43 +216,53 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function KbcAllResult(props) {
+export default function QuizResultchildren(props) {
   const classes = useStyles();
-  const [loading, setLoading] = useState(true);
-  const [users, setUsers] = useState([]);
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
-  const date = new Date();
-  const [toggleButton, setToggleButton] = useState(false);
+  const dates = new Date();
   const day =
     new Date().getDate() > 9
       ? new Date().getDate()
       : "0" + new Date().getDate();
   const year = new Date().getFullYear();
-  const currentMonth = new Date().getMonth() + 1;
-  const month = date
+  const currentMonth =
+    new Date().getMonth() > 9
+      ? new Date().getMonth() + 1
+      : "0" + (new Date().getMonth() + 1);
+  const month = dates
     .toLocaleString("default", { month: "short" })
     .toUpperCase();
+  const presentDate = `${day}-${currentMonth}-${year}`;
 
-  const today = day + "-0" + currentMonth + "-" + year;
+  const date = props.match.params.date;
+  const [loading, setLoading] = useState(true);
+
+  const [users, setUsers] = useState([]);
+  const [answers, setAnswers] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
-    fetch(links.backendURL + `kbcusersresponse?` + `date=${today}`)
+    const questionsArray = [];
+
+    const date = props.match.params.date;
+    fetch(links.backendURL + "childrenusersresponse?allresult=true&date=" + `${date}`)
       .then(response => {
-        debugger;
         return response.json();
       })
       .then(usersResponse => {
-        debugger;
-        usersResponse[0].usersAnswer.sort((a, b) => {
-          return b.score - a.score || a.timeDuration - b.timeDuration;
-        });
-        setUsers(usersResponse[0].usersAnswer);
+        usersResponse.sort(
+          (a, b) =>
+            moment(a.time, "DD:MM:YYYY HH:mm:ss") -
+            moment(b.time, "DD:MM:YYYY HH:mm:ss")
+        );
+        setUsers(usersResponse);
 
-        // setLoading(false);
+        setLoading(false);
       })
       .catch(error => console.log("error is", error));
   }, []);
@@ -267,120 +274,127 @@ export default function KbcAllResult(props) {
         gutterBottom
         className={classes.headerBackButton}
       >
-        <Link to={`/`}>
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.backButton}
-          >
-            <ArrowBackIosIcon className={classes.backArrow} />
-            Go To Home
-          </Button>
-        </Link>
+        {date != presentDate ? (
+          <Link to={`/childrenquiz`}>
+            <Button
+              variant="contained"
+              color="primary"
+              className={classes.backButton}
+            >
+              <ArrowBackIosIcon className={classes.backArrow} />
+              Go back
+            </Button>
+          </Link>
+        ) : (
+          <Link to={`/`}>
+            <Button
+              variant="contained"
+              color="primary"
+              className={classes.backButton}
+            >
+              <ArrowBackIosIcon className={classes.backArrow} />
+              Go To Home
+            </Button>
+          </Link>
+        )}
+      </Typography>
+      <Typography className={classes.showdate} color="textSecondary">
+        Date: {date}
       </Typography>
       <Typography className={classes.totalCount} color="textSecondary">
         Total No. of participants: {users.length}
       </Typography>
-      <TableContainer className={classes.container}>
-        <Table
-          stickyHeader
-          aria-label="sticky table"
-          className={classes.tableHeader}
-        >
-          <TableHead className={classes.tablecolumns}>
-            <TableRow>
-              <TableCell key="name" className={classes.tableTime}>
-                Name
-              </TableCell>
-              <TableCell key="name" className={classes.tablePName}>
-                City
-              </TableCell>
-              <TableCell key="code" className={classes.tableCity}>
-                Score
-              </TableCell>
-              <TableCell key="population" className={classes.tableScore}>
-                Time duration
-              </TableCell>
-              <TableCell key="population" className={classes.tableSuggestion}>
-                Time
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {users.length != 0
-              ? users.map(row =>
-                  props.location.state === row.userId ? (
-                    <TableRow className={classes.yourScoreHighlight}>
-                      <TableCell className={classes.tableTimeCell}>
-                        {row.name}
-                      </TableCell>
-                      <TableCell
-                        component="th"
-                        scope="row"
-                        className={classes.tableNameCell}
-                      >
-                        {row.city}
-                      </TableCell>
-                      <TableCell className={classes.tableCityCell}>
-                        {row.score}
-                      </TableCell>
-                      <TableCell className={classes.tableScoreCell}>
-                        {row.duration}
-                      </TableCell>
-                      <TableCell className={classes.tableScoreCell}>
-                        {row.startingTime}
-                      </TableCell>
-                    </TableRow>
-                  ) : row.score == "100000" ? (
-                    <TableRow className={classes.scoreHighlight}>
-                      <TableCell className={classes.tableTimeCell}>
-                        {row.name}
-                      </TableCell>
-                      <TableCell
-                        component="th"
-                        scope="row"
-                        className={classes.tableNameCell}
-                      >
-                        {row.city}
-                      </TableCell>
-                      <TableCell className={classes.tableCityCell}>
-                        {row.score}
-                      </TableCell>
-                      <TableCell className={classes.tableScoreCell}>
-                        {row.duration}
-                      </TableCell>
-                      <TableCell className={classes.tableScoreCell}>
-                        {row.startingTime}
-                      </TableCell>
-                    </TableRow>
-                  ) : (
-                    <TableRow>
-                      <TableCell className={classes.tableTimeCell}>
-                        {row.name}
-                      </TableCell>
-                      <TableCell
-                        component="th"
-                        scope="row"
-                        className={classes.tableNameCell}
-                      >
-                        {row.city}
-                      </TableCell>
-                      <TableCell className={classes.tableCityCell}>
-                        {row.score}
-                      </TableCell>
-                      <TableCell className={classes.tableScoreCell}>
-                        {row.duration}
-                      </TableCell>
-                      <TableCell className={classes.tableScoreCell}>
-                        {row.startingTime}
-                      </TableCell>
-                    </TableRow>
-                  )
+
+      {!loading ? (
+        <TableContainer className={classes.container}>
+          <Table
+            stickyHeader
+            aria-label="sticky table"
+            className={classes.tableHeader}
+          >
+            <TableHead className={classes.tablecolumns}>
+              <TableRow>
+                <TableCell key="name" className={classes.tableTime}>
+                  Time
+                </TableCell>
+                <TableCell key="name" className={classes.tablePName}>
+                  Name of participant
+                </TableCell>
+                <TableCell key="code" className={classes.tableCity}>
+                  City
+                </TableCell>
+                <TableCell key="population" className={classes.tableScore}>
+                  score
+                </TableCell>
+                <TableCell key="population" className={classes.tableSuggestion}>
+                  Suggestion
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {users.map((row, index) =>
+                row.score == 40 ? (
+                  <TableRow className={classes.scoreHighlight}>
+                    <TableCell className={classes.tableTimeCell}>
+                      {row.time}
+                    </TableCell>
+                    <TableCell
+                      component="th"
+                      scope="row"
+                      className={classes.tableNameCell}
+                    >
+                      {row.fullname}
+                    </TableCell>
+                    <TableCell className={classes.tableCityCell}>
+                      {row.city}
+                    </TableCell>
+                    <TableCell className={classes.tableScoreCell}>
+                      {row.score}
+                    </TableCell>
+                    <TableCell className={classes.tableScoreCell}>
+                      {row.suggestion}
+                    </TableCell>
+                  </TableRow>
+                ) : (
+                  <TableRow>
+                    <TableCell className={classes.tableTimeCell}>
+                      {row.time}
+                    </TableCell>
+                    <TableCell
+                      component="th"
+                      scope="row"
+                      className={classes.tableNameCell}
+                    >
+                      {row.fullname}
+                    </TableCell>
+                    <TableCell className={classes.tableCityCell}>
+                      {row.city}
+                    </TableCell>
+                    <TableCell className={classes.tableScoreCell}>
+                      {row.score}
+                    </TableCell>
+                    <TableCell className={classes.tableScoreCell}>
+                      {row.suggestion}
+                    </TableCell>
+                  </TableRow>
                 )
-              : ""}
-          </TableBody>
-        </Table>
-      </TableContainer>
+              )}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      ) : (
+        <div className={classes.loading}>
+          <Fade
+            in={loading}
+            style={{
+              transitionDelay: loading ? "800ms" : "0ms"
+            }}
+            unmountOnExit
+          >
+            <CircularProgress />
+          </Fade>
+        </div>
+      )}
     </Paper>
   );
 }

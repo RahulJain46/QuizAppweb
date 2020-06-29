@@ -3,6 +3,9 @@ import { Route, Switch } from "react-router-dom";
 import ReactGA from "react-ga";
 import HomePage from "./components/Home/Home";
 import OldQuiz from "./components/OldQuiz";
+import ChildrenQuiz from "./components/ChildrenQuiz";
+import QuizFormchildren from "./components/QuizFormchildren";
+import QuizResultchildren from "./components/QuizResultchildren";
 import QuizForm from "./components/QuizForm";
 import QuizFormSanganer from "./components/QuizFormSanganer";
 import QuizAnswers from "./components/QuizAnswers";
@@ -57,6 +60,9 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/oldquizresults" component={OldQuiz} />
+        <Route path="/childrenquiz" component={ChildrenQuiz} />
+        <Route path="/datemonthchildquiz/:date" component={QuizFormchildren} />
+        <Route path="/quizresultchildren/:date" component={QuizResultchildren} />
         <Route path="/datemonthquiz/:date" component={QuizForm} />
         <Route path="/sanganer/:date" component={QuizFormSanganer} />
         <Route path="/datemonthresult" component={OldQuiz} />
@@ -86,7 +92,7 @@ function App() {
           path="/quizresultsanganer/:date"
           component={QuizResultSanganer}
         />
-        <Route path="/quizresult/:date" component={QuizResultAdmin} />
+        <Route path="/quizresult/:date" component={QuizResultAdmin} />                
         <Route path="/yourresponse/:id/:date" component={UserResponse} />
         <Route path="/kbclogin" component={KbcLoginPage} />
         <Route path="/kbc" component={KbcContainer} />
