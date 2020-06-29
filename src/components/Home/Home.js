@@ -31,6 +31,14 @@ const useStyles = makeStyles(theme => ({
     color: "indigo",
     fontWeight: 600
   },
+  toploginNotice:
+  {
+      textAlign: "center",
+      fontSize: 20,
+      color: "indigo",
+      fontWeight: 600,
+      display: "inline-block"
+  },
   kbcNotice: {
     textAlign: "center",
     fontSize: 20,
@@ -38,10 +46,11 @@ const useStyles = makeStyles(theme => ({
     color: "#11757f"
   },
   loginNotice: {
-    color: "#9a1919",
+    color: "red",
     textAlign: "center",
     fontSize: 20,
-    fontWeight: 600
+    fontWeight: 600,
+    display: "inline-block"
   },
   noticeText: {
     textAlign: "center",
@@ -131,8 +140,8 @@ const useStyles = makeStyles(theme => ({
   },
   message: {
     marginBottom: 14,
-    fontSize: 16,
-    fontWeight: 500
+    fontSize: 18,
+    fontWeight: 600
   },
   responseMessage: {
     color: "#d34242"
@@ -214,8 +223,8 @@ const useStyles = makeStyles(theme => ({
     },
     message: {
       marginBottom: 14,
-      fontSize: 16,
-      fontWeight: 500
+      fontSize: 18,
+      fontWeight: 600
     },
     responseMessage: {
       color: "#d34242"
@@ -252,8 +261,8 @@ const useStyles = makeStyles(theme => ({
     },
     message: {
       marginBottom: 14,
-      fontSize: 16,
-      fontWeight: 500
+      fontSize: 18,
+      fontWeight: 600
     },
     comment: {
       display: "block",
@@ -309,19 +318,37 @@ function Home() {
           <Typography className={classes.topNotice}>
             "QUIZ में 1400 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
           </Typography>
-          <Link to="/login">
-            <Typography className={classes.loginNotice}>
-              "आपके द्वारा पूर्व में दिए गए प्रश्नो के उत्तर जानने हेतु ऊपर दिए
-              गए Login Button पर Click करे।"
-            </Typography>
-          </Link>
-          <Typography className={classes.message}>
-            {" "}
-            निम्न उल्लेखित दिनांकों को प्रश्नों का मुख्य विषय निम्नानुसार रहेगा:{" "}
+          <Typography className={classes.topNotice}>
+            दिनांक 28-06-2020 को प्रतियोगियों द्वारा KBD QUIZ को 1900 बार एवं
+            दिनांक 29-06-2020 को 1400 बार हल किया गया।
+          </Typography>
+          <Typography className={classes.toploginNotice}>
+            दिनांक 29-06-2020 के WINNER "
+          </Typography>
+          <Typography className={classes.loginNotice}>
+            श्रीमती रेखा जैन
+          </Typography>
+          <Typography className={classes.toploginNotice}>
+            " ,भोपाल रही है।
+          </Typography>
+
+          <Typography className={classes.topNotice}>विशेष :</Typography>
+          <Typography className={classes.topNotice}>
+            भोपाल के श्री कमल बाबू जैन व् उनकी धर्म पत्नी श्रीमती क्रांति जैन
+            द्वारा इस QUIZ के प्रचार प्रसार में वात्सप्प व् अन्य माध्यमों द्वारा
+            सक्रीय योगदान दिया जा रहा है । मंदिर जी में भी इसके पोस्टर लगाए जाकर
+            अपनी जिनवाणी के प्रति अनन्य भक्ति को प्रदर्शित किया है । जिसके लिए
+            वे सपरिवार साधुवाद के पात्र है ,उज्जैन जैन क्विज की टीम की तरफ से
+            उनको बहुत बहुत धन्यवाद् । निवेदन है की आप सभी साधर्मी भाई बहन इस
+            QUIZ के प्रचार प्रसार के लिए अपना योगदान देवे ताकि जिनवाणी अधिक से
+            अधिक व्यक्तियों तक पहुंच सके । कृपया आपके द्वारा किये गए सदप्रयासों
+            से हमें अवगत करने का कष्ट करें ।
           </Typography>
           <Typography className={classes.message}>
-            {" "}
-            दिनांक 28.6.20 को “जैन रामायण"{" "}
+            निम्न उल्लेखित दिनांकों को प्रश्नों का मुख्य विषय निम्नानुसार रहेगा:
+          </Typography>
+          <Typography className={classes.message}>
+            दिनांक 27-6-20 से 05-07-20 तक “जैन रामायण"
           </Typography>
         </CardContent>
       </Card>
@@ -413,6 +440,15 @@ function Home() {
             </Paper>
           </Link>
         </Grid>
+        {/* <Grid item xs={12} className={classes.quizitems}>
+          <Link to="/childrenquiz">
+            <Paper className={classes.paper}>
+              <Button variant="contained" className={classes.topicButton}>
+                Children Quiz
+              </Button>
+            </Paper>
+          </Link>
+        </Grid> */}
       </Grid>
       <Card className={classes.formContainer}>
         <CardContent>
@@ -432,7 +468,7 @@ function Home() {
                       required: true,
                       pattern: /^\d*$/,
                       minLength: 10,
-                      maxLength: 10
+                      maxLength: 10,
                     })}
                     className={classes.mobileInput}
                   />
@@ -446,7 +482,7 @@ function Home() {
                 <input
                   name="comment"
                   ref={register({
-                    required: true
+                    required: true,
                   })}
                   className={classes.feedbackInput}
                 />
