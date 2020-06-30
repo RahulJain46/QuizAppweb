@@ -31,13 +31,12 @@ const useStyles = makeStyles(theme => ({
     color: "indigo",
     fontWeight: 600
   },
-  toploginNotice:
-  {
-      textAlign: "center",
-      fontSize: 20,
-      color: "indigo",
-      fontWeight: 600,
-      display: "inline-block"
+  toploginNotice: {
+    textAlign: "center",
+    fontSize: 20,
+    color: "indigo",
+    fontWeight: 600,
+    display: "inline-block"
   },
   kbcNotice: {
     textAlign: "center",
@@ -239,6 +238,18 @@ const useStyles = makeStyles(theme => ({
     mobilenumber: {
       textAlign: "center",
       display: "block"
+    },
+    toploginNotice: {
+      paddingLeft: 17
+    },
+    loginNotice: {
+      paddingLeft: 17
+    },
+    toploginNotice: {
+      paddingLeft: 17
+    },
+    message: {
+      paddingLeft: 17
     }
   },
   [theme.breakpoints.down("361")]: {
@@ -270,6 +281,18 @@ const useStyles = makeStyles(theme => ({
     },
     submitButton: {
       textAlign: "center"
+    },
+    toploginNotice: {
+      paddingLeft: 17
+    },
+    loginNotice: {
+      paddingLeft: 17
+    },
+    toploginNotice: {
+      paddingLeft: 17
+    },
+    message: {
+      paddingLeft: 17
     }
   }
 }));
@@ -319,30 +342,17 @@ function Home() {
             "QUIZ में 1400 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
           </Typography>
           <Typography className={classes.topNotice}>
-            दिनांक 28-06-2020 को प्रतियोगियों द्वारा KBD QUIZ को 1900 बार एवं
-            दिनांक 29-06-2020 को 1400 बार हल किया गया।
+            प्रतियोगियों द्वारा दिनांक 28-06-2020,29-06-2020 व 30-06-2020 को
+            क्रमशः 1900, 1400 एंड 2500 बार KBD Quiz हल किया गया ।
           </Typography>
           <Typography className={classes.toploginNotice}>
-            दिनांक 29-06-2020 के WINNER "
+            दिनांक 30-06-2020 की WINNER "
           </Typography>
           <Typography className={classes.loginNotice}>
             श्रीमती रेखा जैन
           </Typography>
           <Typography className={classes.toploginNotice}>
             " ,भोपाल रही है।
-          </Typography>
-
-          <Typography className={classes.topNotice}>विशेष :</Typography>
-          <Typography className={classes.topNotice}>
-            भोपाल के श्री कमल बाबू जैन व् उनकी धर्म पत्नी श्रीमती क्रांति जैन
-            द्वारा इस QUIZ के प्रचार प्रसार में WhatsApp प व् अन्य माध्यमों द्वारा
-            सक्रीय योगदान दिया जा रहा है । मंदिर जी में भी इसके पोस्टर लगाए जाकर
-            अपनी जिनवाणी के प्रति अनन्य भक्ति को प्रदर्शित किया है । जिसके लिए
-            वे सपरिवार साधुवाद के पात्र है ,उज्जैन जैन क्विज की टीम की तरफ से
-            उनको बहुत बहुत धन्यवाद् । निवेदन है की आप सभी साधर्मी भाई बहन इस
-            QUIZ के प्रचार प्रसार के लिए अपना योगदान देवे ताकि जिनवाणी अधिक से
-            अधिक व्यक्तियों तक पहुंच सके । कृपया आपके द्वारा किये गए सदप्रयासों
-            से हमें अवगत करने का कष्ट करें ।
           </Typography>
           <Typography className={classes.message}>
             निम्न उल्लेखित दिनांकों को प्रश्नों का मुख्य विषय निम्नानुसार रहेगा:
@@ -468,7 +478,7 @@ function Home() {
                       required: true,
                       pattern: /^\d*$/,
                       minLength: 10,
-                      maxLength: 10,
+                      maxLength: 10
                     })}
                     className={classes.mobileInput}
                   />
@@ -482,7 +492,7 @@ function Home() {
                 <input
                   name="comment"
                   ref={register({
-                    required: true,
+                    required: true
                   })}
                   className={classes.feedbackInput}
                 />
