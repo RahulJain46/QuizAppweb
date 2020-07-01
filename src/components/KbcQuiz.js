@@ -4,8 +4,19 @@ import { TransitionGroup } from "react-transition-group";
 import KbcQuestion from "./KbcQuestion";
 import KbcQuestionCount from "./KbcQuestionCount";
 import KbcAnswerOption from "./KbcAnswerOption";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(theme => ({
+  answerOptions: {
+    backgroundColor: "antiquewhite",
+    margin: 0,
+    padding: 0,
+    listStyle: "none"
+  }
+}));
 
 function KbcQuiz(props) {
+  const classes = new useStyles();
   function renderAnswerOptions(key) {
     return (
       <KbcAnswerOption
@@ -34,7 +45,7 @@ function KbcQuiz(props) {
           total={props.questionTotal}
         />
         <KbcQuestion content={props.question} />
-        <ul className="answerOptions">
+        <ul className={classes.answerOptions}>
           {props.answerOptions.map(renderAnswerOptions)}
         </ul>
       </div>

@@ -12,9 +12,17 @@ import { TransitionGroup } from "react-transition-group";
 
 const useStyles = makeStyles(theme => ({
   topicButton: {
-    backgroundColor: "darkred",
+    backgroundColor: "#613c8b",
     color: "#fff",
     width: 188,
+    "&:hover": {
+      backgroundColor: "#981212cf"
+    }
+  },
+  playAgainButton: {
+    width: 144,
+    color: "#fff",
+    backgroundColor: "#6036b3",
     "&:hover": {
       backgroundColor: "#981212cf"
     }
@@ -31,12 +39,18 @@ const useStyles = makeStyles(theme => ({
   },
   firstButton: {
     padding: 1,
-    padding: "1px ! important",
-    paddingBottom: "13px ! important"
+    padding: "12px ! important",
+    paddingBottom: "24px ! important"
   },
   secondButton: {
     padding: 1,
-    padding: "1px ! important"
+    paddingBottom: "23px  !important"
+  },
+  question: {
+    color: "#ff0039"
+  },
+  correctAnswer: {
+    color: "#ff0039"
   },
   [theme.breakpoints.down("600")]: {
     lastButton: {
@@ -80,7 +94,8 @@ const useStyles = makeStyles(theme => ({
       left: 0
     },
     homeGridButton: {
-      width: 144
+      width: 144,
+      paddingBottom: "62px  !important"
     }
   },
   [theme.breakpoints.between("300", "340")]: {
@@ -94,6 +109,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function KbcResult(props) {
+  debugger;
   const classes = new useStyles();
   const history = useHistory();
   const referesh = () => {
@@ -120,21 +136,10 @@ function KbcResult(props) {
             <Paper className={classes.paper}>
               <Button
                 variant="contained"
-                className={classes.lastButton}
+                className={classes.playAgainButton}
                 onClick={() => referesh()}
               >
                 Play Again
-              </Button>
-            </Paper>
-          </Grid>
-          <Grid item xs={6} className={classes.secondButton}>
-            <Paper className={classes.paper}>
-              <Button
-                variant="contained"
-                className={classes.lastButton}
-                onClick={() => viewRank()}
-              >
-                Your Rank
               </Button>
             </Paper>
           </Grid>
@@ -147,9 +152,26 @@ function KbcResult(props) {
               <h3>
                 Play Time <strong>{props.time}</strong>
               </h3>
+              <h3 className={classes.question}>
+                Question <strong>{props.question}</strong>
+              </h3>
+              <h3 className={classes.correctAnswer}>
+                Your Answer <strong>{props.correctAnswer}</strong>
+              </h3>
             </CardContent>
           </Card>
-          <Grid item xs={12} className={classes.homeGridButton}>
+          <Grid item xs={6} className={classes.secondButton}>
+            <Paper className={classes.paper}>
+              <Button
+                variant="contained"
+                className={classes.lastButton}
+                onClick={() => viewRank()}
+              >
+                Your Rank
+              </Button>
+            </Paper>
+          </Grid>
+          <Grid item xs={6} className={classes.homeGridButton}>
             <Link to={`/`}>
               <Paper className={classes.paperButton}>
                 <Button variant="contained" className={classes.homeButton}>

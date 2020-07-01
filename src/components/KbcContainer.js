@@ -18,13 +18,22 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     textAlign: "center"
   },
+  welcomeMessage:{
+    color: "aquamarine"
+  },
+  helplineText:{
+    color: "aqua"
+  },
   topicButton: {
-    backgroundColor: "darkred",
+    backgroundColor: "#008b11",
     color: "#fff",
     width: 188,
     "&:hover": {
       backgroundColor: "#981212cf"
     }
+  },
+  container: {
+    backgroundColor: "beige"
   },
   quizitems: {
     maxWidth: "100%",
@@ -36,7 +45,8 @@ const useStyles = makeStyles(theme => ({
     color: "#ff0d00"
   },
   container: {
-    height: 127
+    height: 127,
+    backgroundColor: "beige"
   }
 }));
 
@@ -49,6 +59,7 @@ function KbcContainer(props) {
   const [correctAnswer, setCorrectAnswer] = useState("");
   const [userAnswer, setUserAnswer] = useState("");
   const [result, setResult] = useState(0);
+  const [message, setMessage] = useState("");
   let [counter, setCounter] = useState(1);
   const [duration, setDuration] = useState("");
   let [flag, setFlag] = useState(false);
@@ -105,8 +116,8 @@ function KbcContainer(props) {
       });
   }, []);
 
-  const calculateScore = (userAnwer, counter) => {
-    if (userAnwer.toUpperCase() === correctAnswer.toUpperCase()) {
+  const calculateScore = (userAnswer, counter) => {
+    if (userAnswer.toUpperCase() === correctAnswer.toUpperCase()) {
       if (counter == 1) {
         userScore = 5000;
       } else {
@@ -125,26 +136,33 @@ function KbcContainer(props) {
           seconds: Math.floor((duration / 1000) % 60)
         };
       }
+      debugger;
       submitResponse(
         name,
         city,
         userScore,
         duration,
-        `${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`
+        `${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`,
+        userAnswer,
+        correctAnswer
       );
-      setTimeout(() => {
-        setFlag(true);
-        setDuration(
-          `${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`
-        );
-        setResult(userScore);
-      }, 300);
+      setFlag(true);
+      setDuration(`${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`);
+      setResult(userScore);
       setStartTime("");
     }
     setUserScore(userScore);
   };
 
-  const submitResponse = (name, city, score, timeDuration, duration) => {
+  const submitResponse = (
+    name,
+    city,
+    score,
+    timeDuration,
+    duration,
+    userAnswer,
+    correctAnswer
+  ) => {
     const usersResponseJson = {
       name,
       city,
@@ -152,8 +170,12 @@ function KbcContainer(props) {
       duration,
       startingTime,
       userId,
-      timeDuration
+      timeDuration,
+      question,
+      userAnswer,
+      correctAnswer
     };
+    debugger;
     let userOptions = {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -173,6 +195,18 @@ function KbcContainer(props) {
     counter++;
 
     if (counter <= 20) {
+      if (counter == 2 || counter == 4 || counter == 6 || counter == 8) {
+        setMessage("Good 🙂");
+      } else if (
+        counter == 3 ||
+        counter == 9 ||
+        counter == 12 ||
+        counter == 14
+      ) {
+        setMessage("keep it up 😃!!");
+      } else if (counter == 15 || counter == 17 || counter == 19) {
+        setMessage("execellent 😍");
+      }
       setTimeout(
         () => setNextQuestion(counter, randomQuestions, randomQuestion),
         300
@@ -195,15 +229,13 @@ function KbcContainer(props) {
         city,
         userScore,
         duration,
-        `${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`
+        `${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`,
+        event.currentTarget.value,
+        correctAnswer
       );
-      setTimeout(() => {
-        setFlag(true);
-        setDuration(
-          `${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`
-        );
-        setResult(userScore);
-      }, 300);
+      setFlag(true);
+      setDuration(`${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`);
+      setResult(userScore);
       setStartTime("");
     }
   };
@@ -262,20 +294,29 @@ function KbcContainer(props) {
   };
 
   const renderResult = () => {
-    return <KbcResult quizResult={result} time={duration} userId={userId} />;
+    return (
+      <KbcResult
+        quizResult={result}
+        time={duration}
+        userId={userId}
+        question={question}
+        userAnswer={userAnswer}
+        correctAnswer={correctAnswer}
+      />
+    );
   };
   return (
     <div className="App">
       <div className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h2>Jain KBC</h2>
-        <h6>Welcome : {props.location.state.fullname}</h6>
+        <h6 className={classes.welcomeMessage}>Welcome : {props.location.state.fullname}</h6>
 
         {flag ? (
           ""
         ) : (
           <React.Fragment>
-            <h6>Help Line</h6>
+            <h6 className={classes.helplineText}>Help Line</h6>
             <Button
               variant="contained"
               className={classes.topicButton}
@@ -304,6 +345,7 @@ function KbcContainer(props) {
       ) : (
         <Card className={classes.container}>
           <CardContent>
+            <h3 className={classes.displayScore}>{message}</h3>
             <h2 className={classes.displayScore}>Score : {userScore}</h2>
           </CardContent>
         </Card>
