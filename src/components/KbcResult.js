@@ -152,12 +152,6 @@ function KbcResult(props) {
               <h3>
                 Play Time <strong>{props.time}</strong>
               </h3>
-              <h3 className={classes.question}>
-                Question <strong>{props.question}</strong>
-              </h3>
-              <h3 className={classes.correctAnswer}>
-                Your Answer <strong>{props.correctAnswer}</strong>
-              </h3>
             </CardContent>
           </Card>
           <Grid item xs={6} className={classes.secondButton}>
