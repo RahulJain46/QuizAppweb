@@ -8,6 +8,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { Link } from "react-router-dom";
 import { links } from "../../Config";
+import MaterialLink from "@material-ui/core/Link";
 import { useForm } from "react-hook-form";
 
 const useStyles = makeStyles(theme => ({
@@ -360,6 +361,16 @@ function Home() {
           <Typography className={classes.message}>
             दिनांक 27-6-20 से 05-07-20 तक “जैन रामायण"
           </Typography>
+          <MaterialLink
+            href="https://jindarshan.s3.amazonaws.com/Jain+Ramayan.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Typography className={classes.message}>
+              संक्षिप्त जैन रामायण( पद्म पुराण) Download करने हेतु यहां क्लिक
+              करें।
+            </Typography>
+          </MaterialLink>
         </CardContent>
       </Card>
 
