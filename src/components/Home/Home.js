@@ -344,7 +344,7 @@ function Home() {
           </Typography>
           <Typography className={classes.topNotice}>
             प्रतियोगियों द्वारा दिनांक 01-07-2020,02-07-2020 व 03-07-2020 को
-            क्रमशः 2500, 2200 एंड 2600 बार KBD Quiz हल किया गया ।
+            क्रमशः 2500, 2200 एंड 2950 बार KBD Quiz हल किया गया ।
           </Typography>
           <Typography className={classes.toploginNotice}>
             दिनांक 03-07-2020 की WINNER "
