@@ -343,14 +343,14 @@ function Home() {
             "QUIZ में 1400 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
           </Typography>
           <Typography className={classes.topNotice}>
-            प्रतियोगियों द्वारा दिनांक 29-06-2020,30-06-2020 व 01-07-2020 को
-            क्रमशः 1500, 2500 एंड 2200 बार KBD Quiz हल किया गया ।
+            प्रतियोगियों द्वारा दिनांक 01-07-2020,02-07-2020 व 03-07-2020 को
+            क्रमशः 2500, 2200 एंड 2400 बार KBD Quiz हल किया गया ।
           </Typography>
           <Typography className={classes.toploginNotice}>
-            दिनांक 01-07-2020 की WINNER "
+            दिनांक 03-07-2020 की WINNER "
           </Typography>
           <Typography className={classes.loginNotice}>
-            श्रीमती रेखा जैन
+            Swati
           </Typography>
           <Typography className={classes.toploginNotice}>
             " ,भोपाल रही है।
