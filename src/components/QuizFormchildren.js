@@ -353,7 +353,7 @@ function QuizFormchildren(props) {
       myMap
         .get("fullname")
         .trim()
-        .toLowerCase() + myMap.get("mobile").trim(),
+        .toLowerCase() + myMap.get("mobile").trim()+ "_child",
       uuidv5.DNS
     );
     let userResponseJson = {};
