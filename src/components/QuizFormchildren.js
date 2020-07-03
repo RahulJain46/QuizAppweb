@@ -328,10 +328,10 @@ function QuizFormchildren(props) {
       body: JSON.stringify(userresponse)
     };
     console.log(
-      links.backendURL + "usersresponse?" + `date=${date}` + `&update=true`
+      links.backendURL + "childrenusersresponse?" + `date=${date}` + `&update=true`
     );
     fetch(
-      links.backendURL + "usersresponse?" + `date=${date}` + `&update=true`,
+      links.backendURL + "childrenusersresponse?" + `date=${date}` + `&update=true`,
       userOptions
     )
       .then(response => {
