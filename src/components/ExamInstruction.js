@@ -122,10 +122,7 @@ function ExamInstruction() {
           <Typography className={classes.message}>
             5. समय 50 मिनट का होगा।
           </Typography>
-           <Typography className={classes.message}>
-            6. एक प्रतियोगी को एक बार ही प्रथम विजेता के रूप में नाम प्रकाशित किया जावेगा पुनरावृत्ति पर उसके बाद सेकंड प्रतियोगी का नाम प्रकाशित किया जावेगा
-          </Typography>
-
+          
           <Grid className={classes.quizitems}>
             <Link to="/sanganer/26-05-2020">
               <Paper className={classes.paper}>
