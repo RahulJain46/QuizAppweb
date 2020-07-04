@@ -337,7 +337,7 @@ function QuizFormchildren(props) {
       .then(response => {
         console.log(response.status);
         alert("your score is : " + score);
-        history.push(`/yourresponse/${uuid}/${date}`, detailedUserResponse);
+        history.push(`/childrenresponse/${uuid}/${date}`, detailedUserResponse);
       })
       .catch(error => console.log("error is", error));
   };
@@ -370,12 +370,13 @@ function QuizFormchildren(props) {
     usersJson["mobile"] = myMap.get("mobile").trim();
     usersJson["address"] = myMap.get("address").trim();
     usersJson["userId"] = uuid;
+    usersJson["child"] = "true";
     const userData = Object.assign(data, {
       id: uuid,
       score: userResponseJson["score"],
       time
     });
-    fetch(links.backendURL + "users?" + `&userId=${uuid}`)
+    fetch(links.backendURL + "users?" + `child=true` + `&userId=${uuid}` )
       .then(response => {
         return response.json();
       })
@@ -383,7 +384,7 @@ function QuizFormchildren(props) {
         if (count > 0) {
           fetch(
             links.backendURL +
-              "usersresponse?" +
+              "childrenusersresponse?" +
               `date=${date}` +
               `&userId=${uuid}`
           )
@@ -393,7 +394,7 @@ function QuizFormchildren(props) {
             .then(userexists => {
               if (userexists) {
                 alert(
-                  "आपके द्वारा आज का QUIZ पूर्व में SUBMIT किया जा चुका है"
+                  "आपके द्वारा आज का QUIZ पूर्व में SUBMIT किया जा चुका है You have already appeared for the Quiz"
                 );
                 setSubmitBUtton(true);
                 setToggleButton(false);
@@ -439,18 +440,7 @@ function QuizFormchildren(props) {
                 onSubmit(data, questions, questionsId)
               )}
             >
-              {date === "09-06-2020" ? (
-                <Typography
-                  variant="h6"
-                  gutterBottom
-                  className={classes.headerMessage}
-                >
-                  सभी Question की हेल्प लिंक एक ही है | आप एक बार ही download कर
-                  के, सभी Question की help ले सकते है |
-                </Typography>
-              ) : (
-                ""
-              )}
+          
 
               <Typography
                 variant="h6"
