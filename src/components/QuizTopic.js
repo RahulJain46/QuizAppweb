@@ -110,14 +110,14 @@ function QuizTopic() {
         gutterBottom
         className={classes.headerBackButton}
       >
-        <Link to={`/`}>
+        <Link to={`/oldquizresults`}>
           <Button
             variant="contained"
             color="primary"
             className={classes.backButton}
           >
             <ArrowBackIosIcon className={classes.backArrow} />
-            Go to Home
+            Go Back
           </Button>
         </Link>
       </Typography>
