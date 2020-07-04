@@ -370,6 +370,7 @@ function QuizFormchildren(props) {
     usersJson["mobile"] = myMap.get("mobile").trim();
     usersJson["address"] = myMap.get("address").trim();
     usersJson["userId"] = uuid;
+    usersJson["age"] = myMap.get("age").trim();
     usersJson["child"] = "true";
     const userData = Object.assign(data, {
       id: uuid,
@@ -436,12 +437,10 @@ function QuizFormchildren(props) {
         <Card className={classes.container}>
           <CardContent>
             <form
-              onSubmit={handleSubmit(data =>
+              onSubmit={handleSubmit((data) =>
                 onSubmit(data, questions, questionsId)
               )}
             >
-          
-
               <Typography
                 variant="h6"
                 gutterBottom
@@ -473,10 +472,10 @@ function QuizFormchildren(props) {
                 className={classes.input}
                 placeholder="Mobile Number"
                 name="mobile"
-                type='tel'
+                type="tel"
                 ref={register({
                   required: true,
-                  pattern:"^-?[0-9]\d*\.?\d*$"
+                  pattern: "^-?[0-9]d*.?d*$",
                 })}
               />
               {errors.mobile && (
@@ -502,6 +501,27 @@ function QuizFormchildren(props) {
               />
               {errors.fullname && (
                 <p className={classes.error}> This field is required</p>
+              )}
+              <label className={classes.label}>
+                {reactStringReplace("Age ", new RegExp(/(\*)/g), (match, i) => (
+                  <span key={i} style={{ color: error }}>
+                    {" "}
+                    {match}{" "}
+                  </span>
+                ))}
+              </label>
+              <input
+                className={classes.input}
+                placeholder="Age"
+                name="age"
+                type="tel"
+                ref={register({
+                  required: true,
+                  pattern: "^-?[0-9]d*.?d*$",
+                })}
+              />
+              {errors.age && (
+                <p className={classes.error}>Please enter number</p>
               )}
               <label className={classes.label}>
                 {reactStringReplace(
@@ -546,7 +566,7 @@ function QuizFormchildren(props) {
                 <p className={classes.error}>This field is required</p>
               )}
 
-              {questions.map(question => {
+              {questions.map((question) => {
                 return question.map((row, index) => (
                   <Card className={classes.questionfields}>
                     <CardContent>
@@ -744,7 +764,7 @@ function QuizFormchildren(props) {
           <Fade
             in={loading}
             style={{
-              transitionDelay: loading ? "0ms" : "0ms"
+              transitionDelay: loading ? "0ms" : "0ms",
             }}
             unmountOnExit
           >
