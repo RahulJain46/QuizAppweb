@@ -350,9 +350,10 @@ function KbcLoginPage(props) {
               className={classes.input}
               placeholder="Mobile Number"
               name="mobile"
+              type='tel'
               ref={register({
                 required: true,
-                pattern: /^\d*$/
+                pattern:"^-?[0-9]\d*\.?\d*$"
               })}
             />
             {errors.mobile && (
