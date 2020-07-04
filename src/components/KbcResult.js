@@ -148,7 +148,7 @@ function KbcResult(props) {
           </Grid>
           <Card className={classes.container}>
             <CardContent>
-              <h2>Congratulations !! आप धर्मज्ञ बन गए है </h2>
+              <h2>Congratulations !!</h2>
               <h3>
                 Your final score is <strong>{props.quizResult}</strong>
               </h3>
