@@ -8,6 +8,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { Link } from "react-router-dom";
 import { links } from "../../Config";
+import MaterialLink from "@material-ui/core/Link";
 import { useForm } from "react-hook-form";
 
 const useStyles = makeStyles(theme => ({
@@ -31,13 +32,26 @@ const useStyles = makeStyles(theme => ({
     color: "indigo",
     fontWeight: 600
   },
-  toploginNotice:
-  {
-      textAlign: "center",
-      fontSize: 20,
-      color: "indigo",
-      fontWeight: 600,
-      display: "inline-block"
+  toploginNotice: {
+    textAlign: "center",
+    fontSize: 20,
+    color: "indigo",
+    fontWeight: 600,
+    display: "inline-block"
+  },
+  quizNotice: {
+    textAlign: "center",
+    fontSize: 20,
+    color: "#11757f",
+    fontWeight: 600,
+    display: "inline-block"
+  },
+  quizNameNotice: {
+    textAlign: "center",
+    fontSize: 20,
+    color: "red",
+    fontWeight: 600,
+    display: "inline-block"
   },
   kbcNotice: {
     textAlign: "center",
@@ -239,6 +253,24 @@ const useStyles = makeStyles(theme => ({
     mobilenumber: {
       textAlign: "center",
       display: "block"
+    },
+    toploginNotice: {
+      paddingLeft: 17
+    },
+    quizNotice: {
+      paddingLeft: 17
+    },
+    quizNameNotice: {
+      paddingLeft: 17
+    },
+    loginNotice: {
+      paddingLeft: 17
+    },
+    toploginNotice: {
+      paddingLeft: 17
+    },
+    message: {
+      paddingLeft: 17
     }
   },
   [theme.breakpoints.down("361")]: {
@@ -270,6 +302,18 @@ const useStyles = makeStyles(theme => ({
     },
     submitButton: {
       textAlign: "center"
+    },
+    toploginNotice: {
+      paddingLeft: 17
+    },
+    loginNotice: {
+      paddingLeft: 17
+    },
+    toploginNotice: {
+      paddingLeft: 17
+    },
+    message: {
+      paddingLeft: 17
     }
   }
 }));
@@ -319,30 +363,31 @@ function Home() {
             "QUIZ में 1400 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
           </Typography>
           <Typography className={classes.topNotice}>
-            दिनांक 28-06-2020 को प्रतियोगियों द्वारा KBD QUIZ को 1900 बार एवं
-            दिनांक 29-06-2020 को 1400 बार हल किया गया।
+            प्रतियोगियों द्वारा दिनांक 01-07-2020,02-07-2020 व 03-07-2020 को
+            क्रमशः 2500, 2200 एंड 2950 बार KBD Quiz हल किया गया ।
           </Typography>
           <Typography className={classes.toploginNotice}>
-            दिनांक 29-06-2020 के WINNER "
+            दिनांक 03-07-2020 की WINNER "
           </Typography>
           <Typography className={classes.loginNotice}>
-            श्रीमती रेखा जैन
+            श्रीमती स्वाति
           </Typography>
           <Typography className={classes.toploginNotice}>
             " ,भोपाल रही है।
           </Typography>
-
-          <Typography className={classes.topNotice}>विशेष :</Typography>
-          <Typography className={classes.topNotice}>
-            भोपाल के श्री कमल बाबू जैन व् उनकी धर्म पत्नी श्रीमती क्रांति जैन
-            द्वारा इस QUIZ के प्रचार प्रसार में वात्सप्प व् अन्य माध्यमों द्वारा
-            सक्रीय योगदान दिया जा रहा है । मंदिर जी में भी इसके पोस्टर लगाए जाकर
-            अपनी जिनवाणी के प्रति अनन्य भक्ति को प्रदर्शित किया है । जिसके लिए
-            वे सपरिवार साधुवाद के पात्र है ,उज्जैन जैन क्विज की टीम की तरफ से
-            उनको बहुत बहुत धन्यवाद् । निवेदन है की आप सभी साधर्मी भाई बहन इस
-            QUIZ के प्रचार प्रसार के लिए अपना योगदान देवे ताकि जिनवाणी अधिक से
-            अधिक व्यक्तियों तक पहुंच सके । कृपया आपके द्वारा किये गए सदप्रयासों
-            से हमें अवगत करने का कष्ट करें ।
+          <Typography className={classes.quizNotice}>
+            "अभी तक नियमित रूप से सर्वाधिक 64 दिन तक quiz को हल करने वाले
+          </Typography>
+          <Typography className={classes.quizNameNotice}>
+            " श्री चंद्र प्रकाश जैन " ,
+          </Typography>
+          <Typography className={classes.quizNotice}>
+            जावरा है एवं इन्होंने अभी तक के सभी प्रतियोगियों की तुलना में कुल
+            सर्वाधिक
+          </Typography>
+          <Typography className={classes.quizNameNotice}>अंक 2314</Typography>
+          <Typography className={classes.quizNotice}>
+            प्राप्त किए हैं। बहुत बधाई"
           </Typography>
           <Typography className={classes.message}>
             निम्न उल्लेखित दिनांकों को प्रश्नों का मुख्य विषय निम्नानुसार रहेगा:
@@ -350,6 +395,16 @@ function Home() {
           <Typography className={classes.message}>
             दिनांक 27-6-20 से 05-07-20 तक “जैन रामायण"
           </Typography>
+          <MaterialLink
+            href="https://jindarshan.s3.amazonaws.com/Jain+Ramayan.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Typography className={classes.message}>
+              संक्षिप्त जैन रामायण( पद्म पुराण) Download करने हेतु यहां क्लिक
+              करें।
+            </Typography>
+          </MaterialLink>
         </CardContent>
       </Card>
 
@@ -358,7 +413,7 @@ function Home() {
           <Link to="/kbcinstruction">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.kbcButton}>
-                कौन बनेगा धर्मज्ञ
+                कौन बनेगा धर्मज्ञ (KBD)
               </Button>
             </Paper>
           </Link>
@@ -394,6 +449,15 @@ function Home() {
             </Paper>
           </Link>
         </Grid>
+        <Grid item xs={12} className={classes.quizitems}>
+          <Link to="/childrenquiz">
+            <Paper className={classes.paper}>
+              <Button variant="contained" className={classes.topicButton}>
+                Children Quiz
+              </Button>
+            </Paper>
+          </Link>
+        </Grid>
         <Grid item xs={6} className={classes.quizitems}>
           <Link to="/oldquizresults">
             <Paper className={classes.paper}>
@@ -421,15 +485,6 @@ function Home() {
             </Paper>
           </Link>
         </Grid>
-        <Grid item xs={12} className={classes.quizitems}>
-          <Link to="/quiztopic">
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.topicButton}>
-                Quiz Topics
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>
 
         <Grid item xs={12} className={classes.quizitems}>
           <Link to="/exams">
@@ -440,15 +495,7 @@ function Home() {
             </Paper>
           </Link>
         </Grid>
-        {/* <Grid item xs={12} className={classes.quizitems}>
-          <Link to="/childrenquiz">
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.topicButton}>
-                Children Quiz
-              </Button>
-            </Paper>
-          </Link>
-        </Grid> */}
+
       </Grid>
       <Card className={classes.formContainer}>
         <CardContent>
@@ -468,7 +515,7 @@ function Home() {
                       required: true,
                       pattern: /^\d*$/,
                       minLength: 10,
-                      maxLength: 10,
+                      maxLength: 10
                     })}
                     className={classes.mobileInput}
                   />
@@ -482,7 +529,7 @@ function Home() {
                 <input
                   name="comment"
                   ref={register({
-                    required: true,
+                    required: true
                   })}
                   className={classes.feedbackInput}
                 />

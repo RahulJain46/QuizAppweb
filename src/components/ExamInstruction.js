@@ -122,7 +122,7 @@ function ExamInstruction() {
           <Typography className={classes.message}>
             5. समय 50 मिनट का होगा।
           </Typography>
-
+          
           <Grid className={classes.quizitems}>
             <Link to="/sanganer/26-05-2020">
               <Paper className={classes.paper}>
