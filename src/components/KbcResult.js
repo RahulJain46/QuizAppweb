@@ -47,10 +47,13 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: "23px  !important"
   },
   question: {
-    color: "#ff0039"
+    color: "#e4409a"
   },
-  correctAnswer: {
-    color: "#ff0039"
+  correctanswer: {
+    color: "#1d84c2"
+  },
+  useranswer: {
+    color: "red"
   },
   [theme.breakpoints.down("600")]: {
     lastButton: {
@@ -145,12 +148,21 @@ function KbcResult(props) {
           </Grid>
           <Card className={classes.container}>
             <CardContent>
-              <h2>Congratulations !!</h2>
+              <h2>Congratulations !! आप धर्मज्ञ बन गए है </h2>
               <h3>
                 Your final score is <strong>{props.quizResult}</strong>
               </h3>
               <h3>
                 Play Time <strong>{props.time}</strong>
+              </h3>
+              <h3 className={classes.question}>
+                Question <strong>{props.question}</strong>
+              </h3>
+              <h3 className={classes.useranswer}>
+                Your Answer <strong>{props.userAnswer}</strong>
+              </h3>
+              <h3 className={classes.correctanswer}>
+                Correct Answer <strong>{props.correctAnswer}</strong>
               </h3>
             </CardContent>
           </Card>

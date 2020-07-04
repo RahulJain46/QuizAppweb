@@ -18,10 +18,10 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     textAlign: "center"
   },
-  welcomeMessage:{
+  welcomeMessage: {
     color: "aquamarine"
   },
-  helplineText:{
+  helplineText: {
     color: "aqua"
   },
   topicButton: {
@@ -65,7 +65,9 @@ function KbcContainer(props) {
   let [flag, setFlag] = useState(false);
   let [clicked, setClicked] = useState(false);
   let [userScore, setUserScore] = useState(0);
-
+  const [resultQuestion, setResultQuestion] = useState("");
+  const [resultUserAnswer, setResultUserAnswer] = useState("");
+  const [resultCorrectAnswer, setResultCorrectAnswer] = useState("");
   let [startTime, setStartTime] = useState("");
   let [randomQuestionsIndex, setRandomQuestionsIndex] = useState(0);
   let [randomQuestionIndex, setRandomQuestionIndex] = useState(0);
@@ -136,7 +138,6 @@ function KbcContainer(props) {
           seconds: Math.floor((duration / 1000) % 60)
         };
       }
-      debugger;
       submitResponse(
         name,
         city,
@@ -175,7 +176,9 @@ function KbcContainer(props) {
       userAnswer,
       correctAnswer
     };
-    debugger;
+    setResultQuestion(question);
+    setResultUserAnswer(userAnswer);
+    setResultCorrectAnswer(correctAnswer);
     let userOptions = {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -299,9 +302,9 @@ function KbcContainer(props) {
         quizResult={result}
         time={duration}
         userId={userId}
-        question={question}
-        userAnswer={userAnswer}
-        correctAnswer={correctAnswer}
+        question={resultQuestion}
+        userAnswer={resultUserAnswer}
+        correctAnswer={resultCorrectAnswer}
       />
     );
   };
@@ -310,7 +313,9 @@ function KbcContainer(props) {
       <div className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h2>Jain KBC</h2>
-        <h6 className={classes.welcomeMessage}>Welcome : {props.location.state.fullname}</h6>
+        <h6 className={classes.welcomeMessage}>
+          Welcome : {props.location.state.fullname}
+        </h6>
 
         {flag ? (
           ""

@@ -370,13 +370,13 @@ function Home() {
             दिनांक 03-07-2020 की WINNER "
           </Typography>
           <Typography className={classes.loginNotice}>
-            Swati
+            श्रीमती स्वाति
           </Typography>
           <Typography className={classes.toploginNotice}>
             " ,भोपाल रही है।
           </Typography>
           <Typography className={classes.quizNotice}>
-            "अभी तक नियमित रूप से सर्वाधिक 64 दिन तक quiz को हल करने वाले"
+            "अभी तक नियमित रूप से सर्वाधिक 64 दिन तक quiz को हल करने वाले
           </Typography>
           <Typography className={classes.quizNameNotice}>
             " श्री चंद्र प्रकाश जैन " ,
