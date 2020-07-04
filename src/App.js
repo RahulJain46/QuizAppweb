@@ -4,6 +4,7 @@ import ReactGA from "react-ga";
 import HomePage from "./components/Home/Home";
 import OldQuiz from "./components/OldQuiz";
 import ChildrenQuiz from "./components/ChildrenQuiz";
+import childrenUserResponse from "./components/childrenUserResponse";
 import QuizFormchildren from "./components/QuizFormchildren";
 import QuizResultchildren from "./components/QuizResultchildren";
 import QuizForm from "./components/QuizForm";
@@ -25,6 +26,8 @@ import ExamUserResponse from "./components/ExamUserResponse";
 import QuizResultAdmin from "./components/QuizResultAdmin";
 import QuizResultSanganer from "./components/QuizResultSanganer";
 import UserResponse from "./components/UserResponse";
+
+
 import Bhajan from "./components/Bhajan";
 import QuizAnswer from "./components/QuizAnswer";
 import QuizAnswerSanganer from "./components/QuizAnswerSanganer";
@@ -94,6 +97,8 @@ function App() {
         />
         <Route path="/quizresult/:date" component={QuizResultAdmin} />                
         <Route path="/yourresponse/:id/:date" component={UserResponse} />
+        <Route path="/childrenresponse/:id/:date" component={childrenUserResponse} />
+        
         <Route path="/kbclogin" component={KbcLoginPage} />
         <Route path="/kbc" component={KbcContainer} />
         <Route path="/kbcallresult" component={KbcAllResult} />
