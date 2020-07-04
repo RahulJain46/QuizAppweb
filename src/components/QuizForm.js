@@ -483,7 +483,7 @@ function QuizForm(props) {
                 className={classes.input}
                 placeholder="Mobile Number"
                 name="mobile"
-                input='tel'
+                type='tel'
                 ref={register({
                   required: true,
                   pattern:"^-?[0-9]\d*\.?\d*$"
