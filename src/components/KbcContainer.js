@@ -68,6 +68,7 @@ function KbcContainer(props) {
   const [resultQuestion, setResultQuestion] = useState("");
   const [resultUserAnswer, setResultUserAnswer] = useState("");
   const [resultCorrectAnswer, setResultCorrectAnswer] = useState("");
+  const [resultRemarks, setResultRemarks] = useState("");
   let [startTime, setStartTime] = useState("");
   let [randomQuestionsIndex, setRandomQuestionsIndex] = useState(0);
   let [randomQuestionIndex, setRandomQuestionIndex] = useState(0);
@@ -115,6 +116,7 @@ function KbcContainer(props) {
         setRandomQuestionIndex(questionIndex);
         setQuestion(questionsArray[questionsIndex][questionIndex].question);
         setCorrectAnswer(questionsArray[questionsIndex][questionIndex].answer);
+        setResultRemarks(questionsArray[questionsIndex][questionIndex].remarks);
       });
   }, []);
 
@@ -179,6 +181,7 @@ function KbcContainer(props) {
     setResultQuestion(question);
     setResultUserAnswer(userAnswer);
     setResultCorrectAnswer(correctAnswer);
+    setResultRemarks(resultRemarks);
     let userOptions = {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -277,6 +280,9 @@ function KbcContainer(props) {
       setCorrectAnswer(
         questions[randomQuestionsIndex][randomQuestionIndex].answer
       );
+      setResultRemarks(
+        questions[randomQuestionsIndex][randomQuestionIndex].remarks
+      );
     } else {
       setNextQuestion(counter);
     }
@@ -305,6 +311,7 @@ function KbcContainer(props) {
         question={resultQuestion}
         userAnswer={resultUserAnswer}
         correctAnswer={resultCorrectAnswer}
+        remark={resultRemarks}
       />
     );
   };
