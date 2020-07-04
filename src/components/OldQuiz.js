@@ -155,13 +155,7 @@ function OldQuiz() {
       <Grid container spacing={3} className={classes.quizbuttons}>
         <Grid item xs={12} className={classes.quizbuttonsItem}>
           <Paper className={classes.paper}>
-            <Typography
-              variant="h4"
-              gutterBottom
-              className={classes.oldQuizHeading}
-            >
-              OLD QUIZ & RESULTS
-            </Typography>
+
             <Link to={`/`}>
               <Button
                 variant="contained"
@@ -181,6 +175,14 @@ function OldQuiz() {
             
           </Link>
         </Grid>
+
+        <Typography
+              variant="h4"
+              gutterBottom
+              className={classes.oldQuizHeading}
+            >
+              OLD QUIZ & RESULTS
+            </Typography>
           </Paper>
         </Grid>
         {dates.length != 0 && !loading ? (
