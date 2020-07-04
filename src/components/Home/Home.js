@@ -363,17 +363,17 @@ function Home() {
             "QUIZ में 1400 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
           </Typography>
           <Typography className={classes.topNotice}>
-            प्रतियोगियों द्वारा दिनांक 01-07-2020,02-07-2020 व 03-07-2020 को
-            क्रमशः 2500, 2200 एंड 2950 बार KBD Quiz हल किया गया ।
+            प्रतियोगियों द्वारा दिनांक 03-07-2020 व 04-07-2020 को
+            क्रमशः 2950 एंड 3400 बार KBD Quiz हल किया गया ।
           </Typography>
           <Typography className={classes.toploginNotice}>
-            दिनांक 03-07-2020 की WINNER "
+            दिनांक 04-07-2020 की WINNER "
           </Typography>
           <Typography className={classes.loginNotice}>
-            श्रीमती स्वाति
+            Veena patni
           </Typography>
           <Typography className={classes.toploginNotice}>
-            " ,भोपाल रही है।
+            " Jaipur रही है।
           </Typography>
           <Typography className={classes.quizNotice}>
             "अभी तक नियमित रूप से सर्वाधिक 64 दिन तक quiz को हल करने वाले
