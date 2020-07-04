@@ -39,6 +39,20 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 600,
     display: "inline-block"
   },
+  quizNotice: {
+    textAlign: "center",
+    fontSize: 20,
+    color: "#11757f",
+    fontWeight: 600,
+    display: "inline-block"
+  },
+  quizNameNotice: {
+    textAlign: "center",
+    fontSize: 20,
+    color: "red",
+    fontWeight: 600,
+    display: "inline-block"
+  },
   kbcNotice: {
     textAlign: "center",
     fontSize: 20,
@@ -243,6 +257,12 @@ const useStyles = makeStyles(theme => ({
     toploginNotice: {
       paddingLeft: 17
     },
+    quizNotice: {
+      paddingLeft: 17
+    },
+    quizNameNotice: {
+      paddingLeft: 17
+    },
     loginNotice: {
       paddingLeft: 17
     },
@@ -354,6 +374,20 @@ function Home() {
           </Typography>
           <Typography className={classes.toploginNotice}>
             " ,भोपाल रही है।
+          </Typography>
+          <Typography className={classes.quizNotice}>
+            "अभी तक नियमित रूप से सर्वाधिक 64 दिन तक quiz को हल करने वाले"
+          </Typography>
+          <Typography className={classes.quizNameNotice}>
+            " श्री चंद्र प्रकाश जैन " ,
+          </Typography>
+          <Typography className={classes.quizNotice}>
+            जावरा है एवं इन्होंने अभी तक के सभी प्रतियोगियों की तुलना में कुल
+            सर्वाधिक
+          </Typography>
+          <Typography className={classes.quizNameNotice}>अंक 2314</Typography>
+          <Typography className={classes.quizNotice}>
+            प्राप्त किए हैं। बहुत बधाई"
           </Typography>
           <Typography className={classes.message}>
             निम्न उल्लेखित दिनांकों को प्रश्नों का मुख्य विषय निम्नानुसार रहेगा:
