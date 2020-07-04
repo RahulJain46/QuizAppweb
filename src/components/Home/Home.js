@@ -511,9 +511,10 @@ function Home() {
                   <label className={classes.mobilenumber}>Mobile Number</label>
                   <input
                     name="mobilenumber"
+                    type='tel'
                     ref={register({
                       required: true,
-                      pattern: /^\d*$/,
+                      pattern:"^-?[0-9]\d*\.?\d*$",
                       minLength: 10,
                       maxLength: 10
                     })}
