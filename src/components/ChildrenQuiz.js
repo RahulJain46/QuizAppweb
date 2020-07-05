@@ -62,7 +62,8 @@ const useStyles = makeStyles(theme => ({
       display: "inlineBlock"
     },
     oldQuizHeading: {
-      fontSize: 22
+      fontSize: 22,
+      paddingTop: 19
     },
     quizbuttonsItem: {
       padding: 1,
@@ -116,7 +117,10 @@ function ChildrenQuiz() {
         "Access-Control-Allow-Origin": "*"
       }
     };
-    fetch(links.backendURL + "childrenquestions?" + "date=1&date=all", userOptions)
+    fetch(
+      links.backendURL + "childrenquestions?" + "date=1&date=all",
+      userOptions
+    )
       .then(questionJson => {
         return questionJson.json();
       })
@@ -142,7 +146,6 @@ function ChildrenQuiz() {
       <Grid container spacing={3} className={classes.quizbuttons}>
         <Grid item xs={12} className={classes.quizbuttonsItem}>
           <Paper className={classes.paper}>
-
             <Link to={`/`}>
               <Button
                 variant="contained"

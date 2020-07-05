@@ -363,15 +363,13 @@ function Home() {
             "QUIZ में 1400 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
           </Typography>
           <Typography className={classes.topNotice}>
-            प्रतियोगियों द्वारा दिनांक 03-07-2020 व 04-07-2020 को
-            क्रमशः 2950 एंड 3400 बार KBD Quiz हल किया गया ।
+            प्रतियोगियों द्वारा दिनांक 03-07-2020 व 04-07-2020 को क्रमशः 2950
+            एंड 3400 बार KBD Quiz हल किया गया ।
           </Typography>
           <Typography className={classes.toploginNotice}>
             दिनांक 04-07-2020 की WINNER "
           </Typography>
-          <Typography className={classes.loginNotice}>
-            Veena patni
-          </Typography>
+          <Typography className={classes.loginNotice}>Veena patni</Typography>
           <Typography className={classes.toploginNotice}>
             " Jaipur रही है।
           </Typography>
@@ -449,7 +447,15 @@ function Home() {
             </Paper>
           </Link>
         </Grid>
-        
+        <Grid item xs={12} className={classes.quizitems}>
+          <Link to="/childrenquiz">
+            <Paper className={classes.paper}>
+              <Button variant="contained" className={classes.topicButton}>
+                Children Quiz
+              </Button>
+            </Paper>
+          </Link>
+        </Grid>
         <Grid item xs={6} className={classes.quizitems}>
           <Link to="/oldquizresults">
             <Paper className={classes.paper}>
@@ -487,7 +493,6 @@ function Home() {
             </Paper>
           </Link>
         </Grid>
-
       </Grid>
       <Card className={classes.formContainer}>
         <CardContent>
@@ -503,10 +508,10 @@ function Home() {
                   <label className={classes.mobilenumber}>Mobile Number</label>
                   <input
                     name="mobilenumber"
-                    type='tel'
+                    type="tel"
                     ref={register({
                       required: true,
-                      pattern:"^-?[0-9]\d*\.?\d*$",
+                      pattern: "^-?[0-9]d*.?d*$",
                       minLength: 10,
                       maxLength: 10
                     })}
