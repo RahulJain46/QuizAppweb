@@ -142,13 +142,7 @@ function ChildrenQuiz() {
       <Grid container spacing={3} className={classes.quizbuttons}>
         <Grid item xs={12} className={classes.quizbuttonsItem}>
           <Paper className={classes.paper}>
-            <Typography
-              variant="h4"
-              gutterBottom
-              className={classes.oldQuizHeading}
-            >
-              CHILDREN QUIZ & RESULTS
-            </Typography>
+
             <Link to={`/`}>
               <Button
                 variant="contained"
@@ -159,6 +153,13 @@ function ChildrenQuiz() {
                 Go to home
               </Button>
             </Link>
+            <Typography
+              variant="h4"
+              gutterBottom
+              className={classes.oldQuizHeading}
+            >
+              CHILDREN QUIZ & RESULTS
+            </Typography>
           </Paper>
         </Grid>
         {dates.length != 0 && !loading ? (

@@ -294,6 +294,8 @@ function childrenUserResponse(props) {
                   <label className={classes.label}>City</label>
                 ) : items === "address" ? (
                   <label className={classes.label}>Address</label>
+                ) : items === "age" ? (
+                  <label className={classes.label}>Age</label>
                 ) : items === "mobile" ? (
                   <label className={classes.label}>Mobile</label>
                 ) : items === "id" ||
@@ -304,7 +306,7 @@ function childrenUserResponse(props) {
                   ""
                 ) : (
                   <label className={classes.questionContent}>
-                    {index - 3}. {items}
+                    {index - 4}. {items}
                   </label>
                 )}
                 {items != "id" &&
@@ -326,6 +328,7 @@ function childrenUserResponse(props) {
                 items != "city" &&
                 items != "address" &&
                 items != "mobile" &&
+                items != "age" &&
                 items != "id" &&
                 items != "score" &&
                 items != "time" &&
