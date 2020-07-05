@@ -449,15 +449,7 @@ function Home() {
             </Paper>
           </Link>
         </Grid>
-        <Grid item xs={12} className={classes.quizitems}>
-          <Link to="/childrenquiz">
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.topicButton}>
-                Children Quiz
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>
+        
         <Grid item xs={6} className={classes.quizitems}>
           <Link to="/oldquizresults">
             <Paper className={classes.paper}>
