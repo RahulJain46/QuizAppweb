@@ -86,7 +86,18 @@ const useStyles = makeStyles(theme => ({
     }
   },
   kbdButton: {
-    backgroundColor: "#1976d2",
+    backgroundColor: "#077214",
+    color: "#fff",
+    marginLeft: 15,
+    width: 140,
+    marginTop: 13,
+    height: 44,
+    "&:hover": {
+      backgroundColor: "#303f9f"
+    }
+  },
+  kbdTop: {
+    backgroundColor: "#077214",
     color: "#fff",
     marginLeft: 15,
     width: 140,
@@ -97,6 +108,10 @@ const useStyles = makeStyles(theme => ({
     }
   },
   paper: {
+    textAlign: "center",
+    padding: 12
+  },
+  kbcpaper: {
     textAlign: "center",
     padding: 12
   },
@@ -184,9 +199,30 @@ const useStyles = makeStyles(theme => ({
       padding: 1,
       lineHeight: 1
     },
+    kbdTop: {
+      width: "105%",
+      marginTop: 0,
+      marginLeft: 0,
+      height: 45,
+      fontSize: 21,
+      padding: 1,
+      lineHeight: 1
+    },
+    kbdButtonTop: {
+      paddingLeft: "16%"
+    },
+    kbdContainerButton: {
+      maxWidth: "1000%",
+      flexBasis: "82%"
+    },
     paper: {
       padding: 1,
       marginBottom: 8
+    },
+    kbcpaper: {
+      padding: 1,
+      marginBottom: 8,
+      marginTop: 16
     }
   },
   [theme.breakpoints.between("361", "xs")]: {
@@ -198,6 +234,13 @@ const useStyles = makeStyles(theme => ({
     buttons: {
       paddingLeft: 9,
       paddingRight: 10
+    },
+    kbdButtonTop: {
+      paddingLeft: "16%"
+    },
+    kbdContainerButton: {
+      maxWidth: "1000%",
+      flexBasis: "80%"
     },
     timeCard: {
       fontSize: 24
@@ -256,7 +299,17 @@ const useStyles = makeStyles(theme => ({
       fontSize: 13,
       padding: 5,
       lineHeight: 1,
-      backgroundColor: "#aa7107"
+      backgroundColor: "#077214"
+    },
+    kbdTop: {
+      width: "105%",
+      marginTop: 0,
+      marginLeft: 0,
+      height: 55,
+      fontSize: 23,
+      padding: 5,
+      lineHeight: 1,
+      backgroundColor: "#077214"
     },
     paper: {
       padding: 1,
@@ -326,6 +379,19 @@ function UserResponse(props) {
 
   return (
     <Card className={classes.container}>
+      <Grid container spacing={3} className={classes.kbdButtonTop}>
+        <Grid item xs={4} className={classes.kbdContainerButton}>
+          <Paper className={classes.paper}>
+            <Button
+              variant="contained"
+              className={classes.kbdTop}
+              onClick={() => playKBD()}
+            >
+              Play KBD
+            </Button>
+          </Paper>
+        </Grid>
+      </Grid>
       <CardContent>
         <form>
           <div>
