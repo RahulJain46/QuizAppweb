@@ -31,6 +31,19 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "#303f9f"
     }
   },
+  topicButton: {
+    backgroundColor: "purple",
+    color: "#fff",
+    width: 160,
+    "&:hover": {
+      backgroundColor: "#820999cf"
+    }
+  },
+  quizitems: {
+    maxWidth: "100%",
+    padding: "0px ! important",
+    paddingTop: "10px ! important"
+  },
   resultbutton: {
     backgroundColor: "#aa1050e3",
     color: "#fff",
@@ -142,13 +155,7 @@ function OldQuiz() {
       <Grid container spacing={3} className={classes.quizbuttons}>
         <Grid item xs={12} className={classes.quizbuttonsItem}>
           <Paper className={classes.paper}>
-            <Typography
-              variant="h4"
-              gutterBottom
-              className={classes.oldQuizHeading}
-            >
-              OLD QUIZ & RESULTS
-            </Typography>
+
             <Link to={`/`}>
               <Button
                 variant="contained"
@@ -159,6 +166,23 @@ function OldQuiz() {
                 Go to home
               </Button>
             </Link>
+            <Grid item xs={12} className={classes.quizitems}>
+          <Link to="/quiztopic">
+            
+              <Button variant="contained" className={classes.topicButton}>
+                Old Quiz Topics
+              </Button>
+            
+          </Link>
+        </Grid>
+
+        <Typography
+              variant="h4"
+              gutterBottom
+              className={classes.oldQuizHeading}
+            >
+              OLD QUIZ & RESULTS
+            </Typography>
           </Paper>
         </Grid>
         {dates.length != 0 && !loading ? (

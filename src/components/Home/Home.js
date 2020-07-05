@@ -413,7 +413,7 @@ function Home() {
           <Link to="/kbcinstruction">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.kbcButton}>
-                कौन बनेगा धर्मज्ञ
+                कौन बनेगा धर्मज्ञ (KBD)
               </Button>
             </Paper>
           </Link>
@@ -449,6 +449,15 @@ function Home() {
             </Paper>
           </Link>
         </Grid>
+        <Grid item xs={12} className={classes.quizitems}>
+          <Link to="/childrenquiz">
+            <Paper className={classes.paper}>
+              <Button variant="contained" className={classes.topicButton}>
+                Children Quiz
+              </Button>
+            </Paper>
+          </Link>
+        </Grid>
         <Grid item xs={6} className={classes.quizitems}>
           <Link to="/oldquizresults">
             <Paper className={classes.paper}>
@@ -476,15 +485,6 @@ function Home() {
             </Paper>
           </Link>
         </Grid>
-        <Grid item xs={12} className={classes.quizitems}>
-          <Link to="/quiztopic">
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.topicButton}>
-                Quiz Topics
-              </Button>
-            </Paper>
-          </Link>
-        </Grid>
 
         <Grid item xs={12} className={classes.quizitems}>
           <Link to="/exams">
@@ -495,15 +495,7 @@ function Home() {
             </Paper>
           </Link>
         </Grid>
-        {/* <Grid item xs={12} className={classes.quizitems}>
-          <Link to="/childrenquiz">
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.topicButton}>
-                Children Quiz
-              </Button>
-            </Paper>
-          </Link>
-        </Grid> */}
+
       </Grid>
       <Card className={classes.formContainer}>
         <CardContent>
@@ -519,9 +511,10 @@ function Home() {
                   <label className={classes.mobilenumber}>Mobile Number</label>
                   <input
                     name="mobilenumber"
+                    type='tel'
                     ref={register({
                       required: true,
-                      pattern: /^\d*$/,
+                      pattern:"^-?[0-9]\d*\.?\d*$",
                       minLength: 10,
                       maxLength: 10
                     })}

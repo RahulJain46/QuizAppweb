@@ -320,6 +320,9 @@ export default function QuizResultchildren(props) {
                 <TableCell key="name" className={classes.tablePName}>
                   Name of participant
                 </TableCell>
+                <TableCell key="population" className={classes.tableScore}>
+                  Age
+                </TableCell>
                 <TableCell key="code" className={classes.tableCity}>
                   City
                 </TableCell>
@@ -345,6 +348,9 @@ export default function QuizResultchildren(props) {
                     >
                       {row.fullname}
                     </TableCell>
+                    <TableCell className={classes.tableScoreCell}>
+                      {row.age}
+                    </TableCell>
                     <TableCell className={classes.tableCityCell}>
                       {row.city}
                     </TableCell>
@@ -366,6 +372,9 @@ export default function QuizResultchildren(props) {
                       className={classes.tableNameCell}
                     >
                       {row.fullname}
+                    </TableCell>
+                    <TableCell className={classes.tableScoreCell}>
+                      {row.age}
                     </TableCell>
                     <TableCell className={classes.tableCityCell}>
                       {row.city}
