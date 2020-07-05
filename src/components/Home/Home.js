@@ -391,7 +391,7 @@ function Home() {
             निम्न उल्लेखित दिनांकों को प्रश्नों का मुख्य विषय निम्नानुसार रहेगा:
           </Typography>
           <Typography className={classes.message}>
-            दिनांक 27-6-20 से 05-07-20 तक “जैन रामायण"
+            दिनांक 27-6-20 से 10-07-20 तक “जैन रामायण"
           </Typography>
           <MaterialLink
             href="https://jindarshan.s3.amazonaws.com/Jain+Ramayan.pdf"
