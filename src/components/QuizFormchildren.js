@@ -476,6 +476,10 @@ function QuizFormchildren(props) {
                 ref={register({
                   required: true,
                   pattern: "^-?[0-9]d*.?d*$",
+                type='tel'
+                ref={register({
+                  required: true,
+                  pattern:"^-?[0-9]\d*\.?\d*$"
                 })}
               />
               {errors.mobile && (

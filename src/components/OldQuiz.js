@@ -175,8 +175,7 @@ function OldQuiz() {
             
           </Link>
         </Grid>
-
-        <Typography
+           <Typography
               variant="h4"
               gutterBottom
               className={classes.oldQuizHeading}
