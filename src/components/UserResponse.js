@@ -9,6 +9,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
 import Card from "@material-ui/core/Card";
+
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
@@ -84,6 +85,17 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "#303f9f"
     }
   },
+  kbdButton: {
+    backgroundColor: "#1976d2",
+    color: "#fff",
+    marginLeft: 15,
+    width: 140,
+    marginTop: 13,
+    height: 44,
+    "&:hover": {
+      backgroundColor: "#303f9f"
+    }
+  },
   paper: {
     textAlign: "center",
     padding: 12
@@ -109,6 +121,10 @@ const useStyles = makeStyles(theme => ({
       color: "#902024",
       fontWeight: 600,
       fontSize: 30
+    },
+    buttons: {
+      paddingLeft: 9,
+      paddingRight: 10
     },
     timeCard: {
       fontSize: 24
@@ -151,16 +167,25 @@ const useStyles = makeStyles(theme => ({
       fontWeight: "initial"
     },
     lastButton: {
-      width: "70%",
+      width: "105%",
       marginTop: 0,
       marginLeft: 0,
       height: 45,
-      fontSize: 17,
+      fontSize: 14,
+      padding: 1,
+      lineHeight: 1
+    },
+    kbdButton: {
+      width: "105%",
+      marginTop: 0,
+      marginLeft: 0,
+      height: 45,
+      fontSize: 14,
       padding: 1,
       lineHeight: 1
     },
     paper: {
-      padding: 8,
+      padding: 1,
       marginBottom: 8
     }
   },
@@ -169,6 +194,10 @@ const useStyles = makeStyles(theme => ({
       color: "#902024",
       fontWeight: 600,
       fontSize: 30
+    },
+    buttons: {
+      paddingLeft: 9,
+      paddingRight: 10
     },
     timeCard: {
       fontSize: 24
@@ -211,16 +240,26 @@ const useStyles = makeStyles(theme => ({
       fontWeight: "initial"
     },
     lastButton: {
-      width: "70%",
+      width: "105%",
       marginTop: 0,
       marginLeft: 0,
       height: 55,
-      fontSize: 19,
-      padding: 1,
+      fontSize: 13,
+      padding: 5,
       lineHeight: 1
     },
+    kbdButton: {
+      width: "105%",
+      marginTop: 0,
+      marginLeft: 0,
+      height: 55,
+      fontSize: 13,
+      padding: 5,
+      lineHeight: 1,
+      backgroundColor: "#aa7107"
+    },
     paper: {
-      padding: 8,
+      padding: 1,
       marginBottom: 8
     }
   }
@@ -236,7 +275,27 @@ function UserResponse(props) {
   const [allquestions, setAllQuestions] = useState([]);
   const [allquestionsMap, setAllQuestionsMap] = useState(new Map());
   const date = props.match.params.date;
-
+  const playKBD = () => {
+    const uuid = uuidv5(
+      props.location.state.fullname + props.location.state.mobile,
+      uuidv5.DNS
+    );
+    const usersJson = {
+      fullname: props.location.state.fullname,
+      city: props.location.state.city,
+      mobile: props.location.state.mobile,
+      address: props.location.state.address,
+      userId: uuid
+    };
+    let userOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(usersJson)
+    };
+    fetch(links.backendURL + "kbcusers", userOptions).then(response => {
+      history.push(`/kbc`, usersJson);
+    });
+  };
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -371,8 +430,8 @@ function UserResponse(props) {
             ))}
         </form>
       </CardContent>
-      <Grid container spacing={3}>
-        <Grid item xs={6}>
+      <Grid container spacing={3} className={classes.buttons}>
+        <Grid item xs={4}>
           <Link to={`/`}>
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.lastButton}>
@@ -381,7 +440,7 @@ function UserResponse(props) {
             </Paper>
           </Link>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={4}>
           <Link to={`/quizresult/${date}`}>
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.lastButton}>
@@ -389,6 +448,17 @@ function UserResponse(props) {
               </Button>
             </Paper>
           </Link>
+        </Grid>
+        <Grid item xs={4}>
+          <Paper className={classes.paper}>
+            <Button
+              variant="contained"
+              className={classes.kbdButton}
+              onClick={() => playKBD()}
+            >
+              Play KBD
+            </Button>
+          </Paper>
         </Grid>
       </Grid>
     </Card>
