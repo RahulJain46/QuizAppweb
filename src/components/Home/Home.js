@@ -362,22 +362,19 @@ function Home() {
           <Typography className={classes.topNotice}>
             "QUIZ में 1400 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
           </Typography>
-          <Typography className={classes.topNotice}>
-            प्रतियोगियों द्वारा दिनांक 04-07-2020 व 05-07-2020 को क्रमशः 3400
-            एंड 3700 बार KBD Quiz हल किया गया ।
-          </Typography>
+        
           <Typography className={classes.toploginNotice}>
-            दिनांक 07-07-2020 की WINNER "
+            दिनांक 08-07-2020 की WINNER "
           </Typography>
-          <Typography className={classes.loginNotice}>Pratibha bakliwal</Typography>
+          <Typography className={classes.loginNotice}>Priti jain</Typography>
           <Typography className={classes.toploginNotice}>
-            " Indore रही है।
+            " Gwalior रही है।
           </Typography>
           <Typography className={classes.message}>
             निम्न उल्लेखित दिनांकों को प्रश्नों का मुख्य विषय निम्नानुसार रहेगा:
           </Typography>
           <Typography className={classes.message}>
-            दिनांक 27-6-20 से 10-07-20 तक “जैन रामायण"
+            दिनांक 27-6-20 से 11-07-20 तक “जैन रामायण"
           </Typography>
           <MaterialLink
             href="https://jindarshan.s3.amazonaws.com/Jain+Ramayan.pdf"
