@@ -373,20 +373,6 @@ function Home() {
           <Typography className={classes.toploginNotice}>
             " Indore रही है।
           </Typography>
-          <Typography className={classes.quizNotice}>
-            "अभी तक नियमित रूप से सर्वाधिक 64 दिन तक quiz को हल करने वाले
-          </Typography>
-          <Typography className={classes.quizNameNotice}>
-            " श्री चंद्र प्रकाश जैन " ,
-          </Typography>
-          <Typography className={classes.quizNotice}>
-            जावरा है एवं इन्होंने अभी तक के सभी प्रतियोगियों की तुलना में कुल
-            सर्वाधिक
-          </Typography>
-          <Typography className={classes.quizNameNotice}>अंक 2314</Typography>
-          <Typography className={classes.quizNotice}>
-            प्राप्त किए हैं। बहुत बधाई"
-          </Typography>
           <Typography className={classes.message}>
             निम्न उल्लेखित दिनांकों को प्रश्नों का मुख्य विषय निम्नानुसार रहेगा:
           </Typography>
