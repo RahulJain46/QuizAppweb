@@ -367,11 +367,11 @@ function Home() {
             एंड 3700 बार KBD Quiz हल किया गया ।
           </Typography>
           <Typography className={classes.toploginNotice}>
-            दिनांक 05-07-2020 की WINNER "
+            दिनांक 07-07-2020 की WINNER "
           </Typography>
-          <Typography className={classes.loginNotice}>Priti jain</Typography>
+          <Typography className={classes.loginNotice}>Pratibha bakliwal</Typography>
           <Typography className={classes.toploginNotice}>
-            " Gwalior रही है।
+            " Indore रही है।
           </Typography>
           <Typography className={classes.quizNotice}>
             "अभी तक नियमित रूप से सर्वाधिक 64 दिन तक quiz को हल करने वाले
