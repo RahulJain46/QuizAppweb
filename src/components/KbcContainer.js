@@ -95,11 +95,7 @@ function KbcContainer(props) {
 
   useEffect(() => {
     const questionsArray = [];
-    setStartTime(
-      moment()
-        .utc()
-        .valueOf()
-    );
+
     fetch(links.backendURL + "questions")
       .then(questionsJosn => {
         return questionsJosn.json();
@@ -118,6 +114,11 @@ function KbcContainer(props) {
         setQuestion(questionsArray[questionsIndex][questionIndex].question);
         setCorrectAnswer(questionsArray[questionsIndex][questionIndex].answer);
         setRemarks(questionsArray[questionsIndex][questionIndex].remarks);
+        setStartTime(
+          moment()
+            .utc()
+            .valueOf()
+        );
       });
   }, []);
 
@@ -151,7 +152,17 @@ function KbcContainer(props) {
         correctAnswer,
         remarks
       );
+
       setFlag(true);
+      if (timeLeft.hours < 10) {
+        timeLeft.hours = ("0" + timeLeft.hours).slice(-2);
+      }
+      if (timeLeft.minutes < 10) {
+        timeLeft.minutes = ("0" + timeLeft.minutes).slice(-2);
+      }
+      if (timeLeft.seconds < 10) {
+        timeLeft.seconds = ("0" + timeLeft.seconds).slice(-2);
+      }
       setDuration(`${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`);
       setResult(userScore);
       setStartTime("");
