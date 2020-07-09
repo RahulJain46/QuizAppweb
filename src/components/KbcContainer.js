@@ -142,6 +142,15 @@ function KbcContainer(props) {
           seconds: Math.floor((duration / 1000) % 60)
         };
       }
+      if (timeLeft.hours < 10) {
+        timeLeft.hours = ("0" + timeLeft.hours).slice(-2);
+      }
+      if (timeLeft.minutes < 10) {
+        timeLeft.minutes = ("0" + timeLeft.minutes).slice(-2);
+      }
+      if (timeLeft.seconds < 10) {
+        timeLeft.seconds = ("0" + timeLeft.seconds).slice(-2);
+      }
       submitResponse(
         name,
         city,
@@ -154,15 +163,7 @@ function KbcContainer(props) {
       );
 
       setFlag(true);
-      if (timeLeft.hours < 10) {
-        timeLeft.hours = ("0" + timeLeft.hours).slice(-2);
-      }
-      if (timeLeft.minutes < 10) {
-        timeLeft.minutes = ("0" + timeLeft.minutes).slice(-2);
-      }
-      if (timeLeft.seconds < 10) {
-        timeLeft.seconds = ("0" + timeLeft.seconds).slice(-2);
-      }
+
       setDuration(`${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`);
       setResult(userScore);
       setStartTime("");
@@ -244,6 +245,15 @@ function KbcContainer(props) {
           minutes: Math.floor((duration / 1000 / 60) % 60),
           seconds: Math.floor((duration / 1000) % 60)
         };
+      }
+      if (timeLeft.hours < 10) {
+        timeLeft.hours = ("0" + timeLeft.hours).slice(-2);
+      }
+      if (timeLeft.minutes < 10) {
+        timeLeft.minutes = ("0" + timeLeft.minutes).slice(-2);
+      }
+      if (timeLeft.seconds < 10) {
+        timeLeft.seconds = ("0" + timeLeft.seconds).slice(-2);
       }
       submitResponse(
         name,
