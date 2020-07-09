@@ -58,6 +58,7 @@ function KbcContainer(props) {
   const [question, setQuestion] = useState("");
   const [correctAnswer, setCorrectAnswer] = useState("");
   const [userAnswer, setUserAnswer] = useState("");
+  const [remarks, setRemarks] = useState("");
   const [result, setResult] = useState(0);
   const [message, setMessage] = useState("");
   let [counter, setCounter] = useState(1);
@@ -116,7 +117,7 @@ function KbcContainer(props) {
         setRandomQuestionIndex(questionIndex);
         setQuestion(questionsArray[questionsIndex][questionIndex].question);
         setCorrectAnswer(questionsArray[questionsIndex][questionIndex].answer);
-        setResultRemarks(questionsArray[questionsIndex][questionIndex].remarks);
+        setRemarks(questionsArray[questionsIndex][questionIndex].remarks);
       });
   }, []);
 
@@ -147,7 +148,8 @@ function KbcContainer(props) {
         duration,
         `${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`,
         userAnswer,
-        correctAnswer
+        correctAnswer,
+        remarks
       );
       setFlag(true);
       setDuration(`${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`);
@@ -164,7 +166,8 @@ function KbcContainer(props) {
     timeDuration,
     duration,
     userAnswer,
-    correctAnswer
+    correctAnswer,
+    remarks
   ) => {
     const usersResponseJson = {
       name,
@@ -176,12 +179,13 @@ function KbcContainer(props) {
       timeDuration,
       question,
       userAnswer,
-      correctAnswer
+      correctAnswer,
+      remarks
     };
     setResultQuestion(question);
     setResultUserAnswer(userAnswer);
     setResultCorrectAnswer(correctAnswer);
-    setResultRemarks(resultRemarks);
+    setResultRemarks(remarks);
     let userOptions = {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -237,7 +241,8 @@ function KbcContainer(props) {
         duration,
         `${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`,
         event.currentTarget.value,
-        correctAnswer
+        correctAnswer,
+        remarks
       );
       setFlag(true);
       setDuration(`${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`);
@@ -280,9 +285,7 @@ function KbcContainer(props) {
       setCorrectAnswer(
         questions[randomQuestionsIndex][randomQuestionIndex].answer
       );
-      setResultRemarks(
-        questions[randomQuestionsIndex][randomQuestionIndex].remarks
-      );
+      setRemarks(questions[randomQuestionsIndex][randomQuestionIndex].remarks);
     } else {
       setNextQuestion(counter);
     }

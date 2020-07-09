@@ -164,6 +164,13 @@ function KbcResult(props) {
               <h3 className={classes.correctanswer}>
                 Correct Answer <strong>{props.correctAnswer}</strong>
               </h3>
+              {props.remark.length != 0 ? (
+                <h3 className={classes.correctanswer}>
+                  Remark <strong>{props.remark}</strong>
+                </h3>
+              ) : (
+                ""
+              )}
             </CardContent>
           </Card>
           <Grid item xs={6} className={classes.secondButton}>
