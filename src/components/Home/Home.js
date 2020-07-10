@@ -364,11 +364,11 @@ function Home() {
           </Typography>
         
           <Typography className={classes.toploginNotice}>
-            दिनांक 08-07-2020 की WINNER "
+            दिनांक 10-07-2020 की WINNER "
           </Typography>
-          <Typography className={classes.loginNotice}>Priti jain</Typography>
+          <Typography className={classes.loginNotice}>Sushma Jain</Typography>
           <Typography className={classes.toploginNotice}>
-            " Gwalior रही है।
+            " Bhopal रही है।
           </Typography>
           <Typography className={classes.message}>
             निम्न उल्लेखित दिनांकों को प्रश्नों का मुख्य विषय निम्नानुसार रहेगा:
