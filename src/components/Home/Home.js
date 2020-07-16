@@ -385,6 +385,7 @@ function Home() {
               संक्षिप्त जैन रामायण( पद्म पुराण) Download करने हेतु यहां क्लिक
               करें।
             </Typography>
+          </MaterialLink>
             <Typography className={classes.message}>
             दिनांक 12-07-20 से 17-07-20 तक “जैन रामायण"
           </Typography>
