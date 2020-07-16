@@ -387,7 +387,7 @@ function Home() {
             </Typography>
           </MaterialLink>
             <Typography className={classes.message}>
-            दिनांक 12-07-20 से 17-07-20 तक “जैन रामायण"
+            दिनांक 12-07-20 से 17-07-20 तक “धन्यकुमार चरित्"
           </Typography>
           <MaterialLink
             href="https://jindarshan.s3.amazonaws.com/Dhanyakumar_Charitra.pdf"
