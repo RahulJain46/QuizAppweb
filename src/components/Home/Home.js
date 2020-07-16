@@ -364,9 +364,9 @@ function Home() {
           </Typography>
         
           <Typography className={classes.toploginNotice}>
-            दिनांक 15-07-2020 की WINNER "
+            दिनांक 16-07-2020 की WINNER "
           </Typography>
-          <Typography className={classes.loginNotice}>Prabha jain</Typography>
+          <Typography className={classes.loginNotice}>Nidhi Jain</Typography>
           <Typography className={classes.toploginNotice}>
             " Bhopal रही है।
           </Typography>
@@ -383,6 +383,18 @@ function Home() {
           >
             <Typography className={classes.message}>
               संक्षिप्त जैन रामायण( पद्म पुराण) Download करने हेतु यहां क्लिक
+              करें।
+            </Typography>
+            <Typography className={classes.message}>
+            दिनांक 12-07-20 से 17-07-20 तक “जैन रामायण"
+          </Typography>
+          <MaterialLink
+            href="https://jindarshan.s3.amazonaws.com/Dhanyakumar_Charitra.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Typography className={classes.message}>
+              संक्षिप्त जैन Dhanyakumar Charitra(धन्यकुमार चरित्र ) Download करने हेतु यहां क्लिक
               करें।
             </Typography>
           </MaterialLink>
