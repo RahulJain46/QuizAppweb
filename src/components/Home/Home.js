@@ -399,6 +399,19 @@ function Home() {
               करें।
             </Typography>
           </MaterialLink>
+          <Typography className={classes.message}>
+            दिनांक 18-07-20 से 21-07-20 तक “धन्यकुमार चरित्"
+          </Typography>
+          <MaterialLink
+            href="https://jindarshan1.s3.ap-south-1.amazonaws.com/2015.538826.Shri-Mahaveer+(1)-rotated.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Typography className={classes.message}>
+              संक्षिप्त जैन महावीर पुराण  Download करने हेतु यहां क्लिक
+              करें।
+            </Typography>
+          </MaterialLink>
         </CardContent>
       </Card>
 
