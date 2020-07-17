@@ -366,9 +366,9 @@ function Home() {
           <Typography className={classes.toploginNotice}>
             दिनांक 16-07-2020 की WINNER "
           </Typography>
-          <Typography className={classes.loginNotice}>Nidhi Jain</Typography>
+          <Typography className={classes.loginNotice}>Priti jain</Typography>
           <Typography className={classes.toploginNotice}>
-            " Bhopal रही है।
+            " Gwalior रही है।
           </Typography>
           <Typography className={classes.message}>
             निम्न उल्लेखित दिनांकों को प्रश्नों का मुख्य विषय निम्नानुसार रहेगा:
