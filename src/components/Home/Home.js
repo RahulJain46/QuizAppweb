@@ -400,7 +400,7 @@ function Home() {
             </Typography>
           </MaterialLink>
           <Typography className={classes.message}>
-            दिनांक 18-07-20 से 21-07-20 तक “धन्यकुमार चरित्"
+            दिनांक 18-07-20 से 21-07-20 तक “महावीर पुराण"
           </Typography>
           <MaterialLink
             href="https://jindarshan1.s3.ap-south-1.amazonaws.com/2015.538826.Shri-Mahaveer+(1)-rotated.pdf"
