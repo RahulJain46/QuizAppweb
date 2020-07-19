@@ -368,7 +368,7 @@ function Home() {
           </Typography>
           <Typography className={classes.loginNotice}>Sunil Jain</Typography>
           <Typography className={classes.toploginNotice}>
-            " Aligarh(Raj) रही है।
+            " Aligarh(Raj) है।
           </Typography>
           <Typography className={classes.message}>
             निम्न उल्लेखित दिनांकों को प्रश्नों का मुख्य विषय निम्नानुसार रहेगा:
