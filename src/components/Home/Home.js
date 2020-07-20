@@ -364,7 +364,7 @@ function Home() {
           </Typography>
         
           <Typography className={classes.toploginNotice}>
-            दिनांक 18-07-2020 की WINNER "
+            दिनांक 18-07-2020 के WINNER "
           </Typography>
           <Typography className={classes.loginNotice}>Sunil Jain</Typography>
           <Typography className={classes.toploginNotice}>
