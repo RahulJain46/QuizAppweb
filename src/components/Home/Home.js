@@ -364,11 +364,11 @@ function Home() {
           </Typography>
         
           <Typography className={classes.toploginNotice}>
-            दिनांक 18-07-2020 के WINNER "
+            दिनांक 21-07-2020 के WINNER "
           </Typography>
-          <Typography className={classes.loginNotice}>Sunil Jain</Typography>
+          <Typography className={classes.loginNotice}>Manjula jain</Typography>
           <Typography className={classes.toploginNotice}>
-            " Aligarh(Raj) है।
+            " Ujjain है।
           </Typography>
           <Typography className={classes.message}>
             निम्न उल्लेखित दिनांकों को प्रश्नों का मुख्य विषय निम्नानुसार रहेगा:
@@ -400,7 +400,7 @@ function Home() {
             </Typography>
           </MaterialLink>
           <Typography className={classes.message}>
-            दिनांक 18-07-20 से 21-07-20 तक “महावीर पुराण"
+            दिनांक 18-07-20 से 23-07-20 तक “महावीर पुराण"
           </Typography>
           <MaterialLink
             href="https://jindarshan1.s3.ap-south-1.amazonaws.com/2015.538826.Shri-Mahaveer+(1)-rotated.pdf"
