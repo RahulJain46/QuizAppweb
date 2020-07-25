@@ -365,11 +365,11 @@ function Home() {
           </Typography>
         
           <Typography className={classes.toploginNotice}>
-            दिनांक 22-07-2020 के WINNER "
+            दिनांक 25-07-2020 के WINNER "
           </Typography>
-          <Typography className={classes.loginNotice}>Sunita jain</Typography>
+          <Typography className={classes.loginNotice}>Sunita Jain</Typography>
           <Typography className={classes.toploginNotice}>
-            " Aligarh (Tonk) है।
+            " Kaithoon है।
           </Typography>
           <Typography className={classes.message}>
             निम्न उल्लेखित दिनांकों को प्रश्नों का मुख्य विषय निम्नानुसार रहेगा:
