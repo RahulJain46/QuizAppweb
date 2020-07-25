@@ -413,6 +413,19 @@ function Home() {
               करें।
             </Typography>
           </MaterialLink>
+          <Typography className={classes.message}>
+            दिनांक 24-07-20 से 31-07-20 तक “महावीर पुराण"
+          </Typography>
+          <MaterialLink
+            href="https://www.scribd.com/embeds/213822054/content?start_page=1&amp;view_mode=scroll&amp;access_key=key-dx2vbaciur0r0djsb9y"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Typography className={classes.message}>
+              संक्षिप्त जैन आदिनाथ पुराण Download करने हेतु यहां क्लिक
+              करें।
+            </Typography>
+          </MaterialLink>
         </CardContent>
       </Card>
 
