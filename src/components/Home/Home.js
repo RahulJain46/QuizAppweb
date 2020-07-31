@@ -365,11 +365,11 @@ function Home() {
           </Typography>
         
           <Typography className={classes.toploginNotice}>
-            दिनांक 26-07-2020, 27-07-2020 and 28-07-2020  के WINNER "
+            दिनांक 29-07-2020, 30-07-2020 के WINNER "
           </Typography>
-          <Typography className={classes.loginNotice}>Nidhi , Bhopal</Typography>
-         <Typography className={classes.loginNotice}>Pray bakliwal , Indore</Typography>
-        <Typography className={classes.loginNotice}>Chitra Bodkhe , Bhopal"</Typography>
+          <Typography className={classes.loginNotice}>नेहा जैन , बरौट</Typography>
+         <Typography className={classes.loginNotice}>Neeta jain , Ghaziabad</Typography>
+     
           <Typography className={classes.toploginNotice}>
             है।
           </Typography>
