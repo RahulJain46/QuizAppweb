@@ -26,7 +26,7 @@ import ExamUserResponse from "./components/ExamUserResponse";
 import QuizResultAdmin from "./components/QuizResultAdmin";
 import QuizResultSanganer from "./components/QuizResultSanganer";
 import UserResponse from "./components/UserResponse";
-
+import FileUpload from "./components/FileUpload2";
 
 import Bhajan from "./components/Bhajan";
 import QuizAnswer from "./components/QuizAnswer";
@@ -65,7 +65,10 @@ function App() {
         <Route path="/oldquizresults" component={OldQuiz} />
         <Route path="/childrenquiz" component={ChildrenQuiz} />
         <Route path="/datemonthchildquiz/:date" component={QuizFormchildren} />
-        <Route path="/quizresultchildren/:date" component={QuizResultchildren} />
+        <Route
+          path="/quizresultchildren/:date"
+          component={QuizResultchildren}
+        />
         <Route path="/datemonthquiz/:date" component={QuizForm} />
         <Route path="/sanganer/:date" component={QuizFormSanganer} />
         <Route path="/datemonthresult" component={OldQuiz} />
@@ -95,14 +98,18 @@ function App() {
           path="/quizresultsanganer/:date"
           component={QuizResultSanganer}
         />
-        <Route path="/quizresult/:date" component={QuizResultAdmin} />                
+        <Route path="/quizresult/:date" component={QuizResultAdmin} />
         <Route path="/yourresponse/:id/:date" component={UserResponse} />
-        <Route path="/childrenresponse/:id/:date" component={childrenUserResponse} />
-        
+        <Route
+          path="/childrenresponse/:id/:date"
+          component={childrenUserResponse}
+        />
+
         <Route path="/kbclogin" component={KbcLoginPage} />
         <Route path="/kbc" component={KbcContainer} />
         <Route path="/kbcallresult" component={KbcAllResult} />
         <Route path="/kbcinstruction" component={KbcInstruction} />
+        <Route path="/fileupload" component={FileUpload} />
         <Route component={PageNotFound} />
       </Switch>
       <Footer />
