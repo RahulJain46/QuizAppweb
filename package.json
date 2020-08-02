@@ -29,7 +29,8 @@
     "redux-saga": "^0.16.2",
     "redux-thunk": "^2.3.0",
     "toastr": "^2.1.4",
-    "uuid": "^7.0.3"
+    "uuid": "^7.0.3",
+    "xlsx": "^0.16.4"
   },
   "scripts": {
     "start": "react-scripts start",

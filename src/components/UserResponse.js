@@ -347,7 +347,8 @@ function UserResponse(props) {
                         ? "आपका उत्तर सही है|"
                         : "आपका उत्तर गलत है|"}
                     </Typography>
-                    {allquestionsMap.get(items).remarks.length != 0 ? (
+                    {allquestionsMap.get(items).remarks != undefined &&
+                    allquestionsMap.get(items).remarks.length != 0 ? (
                       <Typography
                         variant="h6"
                         component="h6"
