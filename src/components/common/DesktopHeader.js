@@ -51,6 +51,11 @@ const useStyles = makeStyles(theme => ({
     fontSize: 16,
     fontWeight: 700
   },
+  admin: {
+    position: "absolute",
+    right: 150,
+    top: 18
+  },
   [theme.breakpoints.down("361")]: {
     paper: {
       fontSize: 9
@@ -119,6 +124,11 @@ const DesktopHeader = () => {
       <Link className={classes.login} to={`/login`}>
         <Paper>
           <Button className={classes.loginButton}>Login</Button>
+        </Paper>
+      </Link>
+      <Link className={classes.admin} to={`/fileupload`}>
+        <Paper>
+          <Button className={classes.loginButton}>Admin</Button>
         </Paper>
       </Link>
     </div>

@@ -6,13 +6,14 @@ import { Z_STREAM_ERROR } from "zlib";
 import { make_cols } from "./MakeColumns";
 import { SheetJSFT } from "./types";
 import { links } from "../Config";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles(theme => ({
   fileUpload: {
     position: "relative",
-    top: "200px",
-    left: "40%",
-    paddingBottom: 100
+    top: "80px",
+    paddingBottom: 100,
+    paddingLeft: 50
   },
   true: {
     backgroundColor: "#dc718f"
@@ -22,6 +23,11 @@ const useStyles = makeStyles(theme => ({
   },
   message: {
     backgroundColor: "#ffc107"
+  },
+  formCode: {
+    position: "relative",
+    top: 150,
+    left: "40%"
   }
 }));
 
@@ -32,6 +38,16 @@ function fileUpload(props) {
   const [cols, setCols] = useState([]);
   const [error, setError] = useState(false);
   const [message, setMessage] = useState("upload the file");
+  const [toggleButton, setToggleButton] = useState(false);
+  const { register, handleSubmit, watch, errors } = useForm();
+
+  const onSubmit = event => {
+    debugger;
+    console.log(event);
+    if (event.code === "252510") {
+      setToggleButton(true);
+    }
+  };
 
   const handleChange = e => {
     const files = e.target.files;
@@ -140,23 +156,61 @@ function fileUpload(props) {
   };
 
   return (
-    <div className={classes.fileUpload}>
-      <label className="btn btn-default">
-        <input type="file" accept={SheetJSFT} onChange={handleChange} />
-      </label>
+    <div className={classes.formCode}>
+      <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
+        {toggleButton === false ? (
+          <React.Fragment>
+            {" "}
+            <div>
+              <label className={classes.mobilenumber}>Code</label>
+              <input
+                name="code"
+                type="tel"
+                ref={register({
+                  required: true
+                })}
+                className={classes.mobileInput}
+              />
+            </div>
+            <div className={classes.submitButton}>
+              <Button
+                variant="contained"
+                className={classes.feedbackButton}
+                type="submit"
+              >
+                Submit
+              </Button>
+            </div>
+          </React.Fragment>
+        ) : (
+          <div className={classes.fileUpload}>
+            <label className="btn btn-default">
+              <input type="file" accept={SheetJSFT} onChange={handleChange} />
+            </label>
 
-      <button className="btn btn-success" disabled={!file} onClick={handleFile}>
-        Upload
-      </button>
+            <button
+              className="btn btn-success"
+              disabled={!file}
+              onClick={handleFile}
+            >
+              Upload
+            </button>
 
-      <div className={classes.message} role="alert">
-        {message}
-      </div>
-      {error ? (
-        <pre className={classes.true}>{JSON.stringify(data, null, 2)}</pre>
-      ) : (
-        <pre className={classes.false}>{JSON.stringify(data, null, 2)}</pre>
-      )}
+            <div className={classes.message} role="alert">
+              {message}
+            </div>
+            {error ? (
+              <pre className={classes.true}>
+                {JSON.stringify(data, null, 2)}
+              </pre>
+            ) : (
+              <pre className={classes.false}>
+                {JSON.stringify(data, null, 2)}
+              </pre>
+            )}
+          </div>
+        )}
+      </form>
     </div>
   );
 }
