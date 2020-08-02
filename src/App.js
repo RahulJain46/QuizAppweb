@@ -39,6 +39,7 @@ import ExamInstruction from "./components/ExamInstruction";
 import { makeStyles } from "@material-ui/core/styles";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import fileUpload from "./components/FileUpload2";
 
 const useStyles = makeStyles(theme => ({
   [theme.breakpoints.down("1124")]: {
