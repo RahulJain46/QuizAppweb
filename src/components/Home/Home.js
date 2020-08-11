@@ -322,7 +322,7 @@ function Home() {
   const classes = useStyles();
   const date = new Date();
   const [toggleButton, setToggleButton] = useState(false);
-  
+
   const day =
     new Date().getDate() > 9
       ? new Date().getDate()
@@ -363,71 +363,6 @@ function Home() {
           <Typography className={classes.topNotice}>
             "QUIZ में 2000 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
           </Typography>
-        
-          <Typography className={classes.toploginNotice}>
-            दिनांक 29-07-2020, 30-07-2020 के WINNER "
-          </Typography>
-          <Typography className={classes.loginNotice}>नेहा जैन , बरौट</Typography>
-         <Typography className={classes.loginNotice}>Neeta jain , Ghaziabad</Typography>
-     
-          <Typography className={classes.toploginNotice}>
-            है।
-          </Typography>
-          <Typography className={classes.message}>
-            निम्न उल्लेखित दिनांकों को प्रश्नों का मुख्य विषय निम्नानुसार रहेगा:
-          </Typography>
-          <Typography className={classes.message}>
-            दिनांक 27-6-20 से 11-07-20 तक “जैन रामायण"
-          </Typography>
-          <MaterialLink
-            href="https://jindarshan.s3.amazonaws.com/Jain+Ramayan.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Typography className={classes.message}>
-              संक्षिप्त जैन रामायण( पद्म पुराण) Download करने हेतु यहां क्लिक
-              करें।
-            </Typography>
-          </MaterialLink>
-            <Typography className={classes.message}>
-            दिनांक 12-07-20 से 17-07-20 तक “धन्यकुमार चरित्"
-          </Typography>
-          <MaterialLink
-            href="https://jindarshan.s3.amazonaws.com/Dhanyakumar_Charitra.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Typography className={classes.message}>
-              संक्षिप्त जैन Dhanyakumar Charitra(धन्यकुमार चरित्र ) Download करने हेतु यहां क्लिक
-              करें।
-            </Typography>
-          </MaterialLink>
-          <Typography className={classes.message}>
-            दिनांक 18-07-20 से 23-07-20 तक “महावीर पुराण"
-          </Typography>
-          <MaterialLink
-            href="https://jindarshan1.s3.ap-south-1.amazonaws.com/2015.538826.Shri-Mahaveer+(1)-rotated.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Typography className={classes.message}>
-              संक्षिप्त जैन महावीर पुराण  Download करने हेतु यहां क्लिक
-              करें।
-            </Typography>
-          </MaterialLink>
-          <Typography className={classes.message}>
-            दिनांक 24-07-20 से 31-07-20 तक “महावीर पुराण"
-          </Typography>
-          <MaterialLink
-            href="https://www.scribd.com/embeds/213822054/content?start_page=1&amp;view_mode=scroll&amp;access_key=key-dx2vbaciur0r0djsb9y"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Typography className={classes.message}>
-              संक्षिप्त जैन आदिनाथ पुराण Download करने हेतु यहां क्लिक
-              करें।
-            </Typography>
-          </MaterialLink>
         </CardContent>
       </Card>
 
