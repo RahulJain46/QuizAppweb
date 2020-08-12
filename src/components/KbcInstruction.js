@@ -118,7 +118,8 @@ function ExamInstruction() {
             1. प्रत्येक प्रश्न 5000 अंक का होगा।
           </Typography>
           <Typography className={classes.message}>
-            2. अधिकतम 20 प्रश्न होंगे व् अधिकतम एक लाख का स्कोर होगा।
+            2. अधिकतम 20 प्रश्न होंगे व् अधिकतम एक लाख का स्कोर होगा। सभी 20
+            प्रश्न का सही उतर देने पर आप धर्मज्ञ बनेगे ।
           </Typography>
           <Typography className={classes.message}>
             3. समय की कोई सीमा नहीं है।
@@ -136,6 +137,7 @@ function ExamInstruction() {
             6. एक ही प्रतियोगी चाहे जितनी बार यह गेम खेल सकता है, हर बार नए
             प्रश्न प्राप्त होंगे।
           </Typography>
+          <Typography className={classes.message}>7.</Typography>
           <Grid className={classes.quizitems}>
             <Link to="/kbclogin">
               <Paper className={classes.paper}>

@@ -55,6 +55,10 @@ const useStyles = makeStyles(theme => ({
   useranswer: {
     color: "red"
   },
+  winnerMessage: {
+    color: "#2bb430",
+    fontSize: 35
+  },
   [theme.breakpoints.down("600")]: {
     lastButton: {
       width: 144,
@@ -149,6 +153,13 @@ function KbcResult(props) {
           <Card className={classes.container}>
             <CardContent>
               <h2>Congratulations !!</h2>
+              {props.quizResult === 100000 ? (
+                <h3 className={classes.winnerMessage}>
+                  बधाई ! आप धर्मज्ञ बन गए है !! execellent 😍
+                </h3>
+              ) : (
+                ""
+              )}
               <h3>
                 Your final score is <strong>{props.quizResult}</strong>
               </h3>
