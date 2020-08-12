@@ -161,10 +161,12 @@ function KbcResult(props) {
               <h3 className={classes.useranswer}>
                 Your Answer <strong>{props.userAnswer}</strong>
               </h3>
+
               <h3 className={classes.correctanswer}>
                 Correct Answer <strong>{props.correctAnswer}</strong>
               </h3>
-              {props.remark.length != 0 ? (
+
+              {props.remark !== undefined && props.remark.length != 0 ? (
                 <h3 className={classes.correctanswer}>
                   Remark <strong>{props.remark}</strong>
                 </h3>
