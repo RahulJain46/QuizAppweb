@@ -303,42 +303,9 @@ const useStyles = makeStyles(theme => ({
 
 export default function QuizAnswer1(props) {
   const classes = useStyles();
-  const [page, setPage] = React.useState(0);
-  const [toggleButton, setToggleButton] = useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  const date = props.match.params.date;
-  const [loading, setLoading] = useState(true);
-  const { register, handleSubmit, watch, errors } = useForm();
-  const [answers, setAnswers] = useState([]);
-
-  const onSubmit = data => {
-    let userOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    };
-    fetch(links.backendURL + "bhajanreactions", userOptions).then(response => {
-      setToggleButton(true);
-    });
-  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
-
-  useEffect(() => {
-    const questionsArray = [];
-    fetch(links.backendURL + "bhajan")
-      .then(answerJson => {
-        return answerJson.json();
-      })
-      .then(answers => {
-        answers.map(answer => {
-          questionsArray.push(answer);
-        });
-        setAnswers(questionsArray);
-        setLoading(false);
-      });
   }, []);
 
   return (
