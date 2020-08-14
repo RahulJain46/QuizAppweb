@@ -364,10 +364,13 @@ function Home() {
             गई पहली लिंक पर उपलब्ध”
           </Typography>
           <Typography className={classes.topNotice}>
-            "QUIZ को निरंतर सफलता पूर्वक चलते हुए 100 दिन पूर्ण।"
+            "QUIZ को निरंतर सफलता पूर्वक चलते हुए 4 माह पूर्ण।"
           </Typography>
           <Typography className={classes.topNotice}>
-            "QUIZ में 2000 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
+            "QUIZ में 2500 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
+          </Typography>
+          <Typography className={classes.topNotice}>
+            “07-08-2020 से भक्तामर स्त्रोत्र पर प्रश्न निरंतर जारी"
           </Typography>
           <Link to="/books">
             <Typography className={classes.booksLink}>
