@@ -32,6 +32,12 @@ const useStyles = makeStyles(theme => ({
     color: "indigo",
     fontWeight: 600
   },
+  booksLink: {
+    textAlign: "center",
+    fontSize: 20,
+    color: "#920808",
+    fontWeight: 600
+  },
   toploginNotice: {
     textAlign: "center",
     fontSize: 20,
@@ -363,6 +369,11 @@ function Home() {
           <Typography className={classes.topNotice}>
             "QUIZ में 2000 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
           </Typography>
+          <Link to="/books">
+            <Typography className={classes.booksLink}>
+              "इस link को क्लिक क्रर के आप सभी Books पढ़ सकते है"
+            </Typography>
+          </Link>
         </CardContent>
       </Card>
 

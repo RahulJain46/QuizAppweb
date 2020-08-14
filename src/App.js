@@ -33,6 +33,7 @@ import QuizAnswer from "./components/QuizAnswer";
 import QuizAnswerSanganer from "./components/QuizAnswerSanganer";
 import DesktopHeader from "./components/common/DesktopHeader";
 import AppBar from "./components/common/AppBar";
+import Books from "./components/Books";
 import Footer from "./components/common/Footer";
 import PageNotFound from "./components/PageNotFound";
 import ExamInstruction from "./components/ExamInstruction";
@@ -111,6 +112,7 @@ function App() {
         <Route path="/kbcallresult" component={KbcAllResult} />
         <Route path="/kbcinstruction" component={KbcInstruction} />
         <Route path="/fileupload" component={FileUpload} />
+        <Route path="/books" component={Books} />
         <Route component={PageNotFound} />
       </Switch>
       <Footer />
