@@ -38,6 +38,12 @@ const useStyles = makeStyles(theme => ({
     color: "#920808",
     fontWeight: 600
   },
+  messageText: {
+    textAlign: "center",
+    fontSize: 20,
+    color: "#da2646",
+    fontWeight: 600
+  },
   toploginNotice: {
     textAlign: "center",
     fontSize: 20,
@@ -359,6 +365,10 @@ function Home() {
       <Card className={classes.notice}>
         <CardContent>
           <Typography className={classes.topNotice}>"जय जिनेन्द्र" </Typography>
+          <Typography className={classes.messageText}>“माँ जिनवानी के साधक ,आराधक आप सभी जनों को पावन पर्युषण
+            पर्व की बहुत बहुत शुभकामनायें. यह पावन पर्व आपके जीवन में नई
+            उज्जवलता लावे व् सम्यक्दर्शन के प्रकाश को करने में निमित्त बने” 
+            </Typography>
           <Typography className={classes.kbcNotice}>
             “आज से KBC की तर्ज पर नवीन आकर्षक "कौन बनेगा धर्मज्ञ" GAME नीचे दी
             गई पहली लिंक पर उपलब्ध”
@@ -370,11 +380,11 @@ function Home() {
             "QUIZ में 2500 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
           </Typography>
           <Typography className={classes.topNotice}>
-            “07-08-2020 से भक्तामर स्त्रोत्र पर प्रश्न निरंतर जारी"
+          “दिनांक 24-08-2020 से दशलक्षण पर्व पर प्रश्नों की श्रंखला जारी"
           </Typography>
           <Link to="/books">
             <Typography className={classes.booksLink}>
-              "इस link को क्लिक क्रर के आप सभी Books पढ़ सकते है"
+              "इस link को क्लिक क्रर के आप जिनवाणी की Books पढ़ सकते है"
             </Typography>
           </Link>
         </CardContent>
