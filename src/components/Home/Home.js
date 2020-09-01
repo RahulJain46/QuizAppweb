@@ -382,9 +382,12 @@ function Home() {
           <Typography className={classes.topNotice}>
           “दिनांक 24-08-2020 से दशलक्षण पर्व पर प्रश्नों की श्रंखला जारी"
           </Typography>
+           <Typography className={classes.topNotice}>
+          “पर्युषण पर्व के पश्चात् पुनः भक्तामर स्तोत्र पर प्रश्नों का क्रम जारी रहेगा"
+          </Typography>
           <Link to="/books">
             <Typography className={classes.booksLink}>
-              "इस link को क्लिक क्रर के आप जिनवाणी की Books पढ़ सकते है"
+              "इस link को क्लिक क्रर के आप जिनवाणी की Books पढ़ सकते है"
             </Typography>
           </Link>
         </CardContent>
