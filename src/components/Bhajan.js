@@ -9,13 +9,10 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Link from "@material-ui/core/Link";
 import { useForm } from "react-hook-form";
-import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
-import Typography from "@material-ui/core/Typography";
 import Fade from "@material-ui/core/Fade";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import { links } from "../Config";
 
@@ -303,23 +300,19 @@ const useStyles = makeStyles(theme => ({
 
 export default function QuizAnswer1(props) {
   const classes = useStyles();
-  const [page, setPage] = React.useState(0);
   const [toggleButton, setToggleButton] = useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  const date = props.match.params.date;
   const [loading, setLoading] = useState(true);
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm();
   const [answers, setAnswers] = useState([]);
 
-  const onSubmit = data => {
+  const onSubmit = async data => {
     let userOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
     };
-    fetch(links.backendURL + "bhajanreactions", userOptions).then(response => {
-      setToggleButton(true);
-    });
+    await fetch(links.backendURL + "bhajanreactions", userOptions);
+    setToggleButton(true);
   };
 
   useEffect(() => {
@@ -327,18 +320,17 @@ export default function QuizAnswer1(props) {
   }, []);
 
   useEffect(() => {
-    const questionsArray = [];
-    fetch(links.backendURL + "bhajan")
-      .then(answerJson => {
-        return answerJson.json();
-      })
-      .then(answers => {
-        answers.map(answer => {
-          questionsArray.push(answer);
-        });
-        setAnswers(questionsArray);
-        setLoading(false);
+    const bhajanArray = [];
+    async function fetchData() {
+      let bhajanJson = await fetch(links.backendURL + "bhajan");
+      let bhajans = await bhajanJson.json();
+      bhajans.map(bhajan => {
+        bhajanArray.push(bhajan);
       });
+      setAnswers(bhajanArray);
+      setLoading(false);
+    }
+    fetchData();
   }, []);
 
   return (
@@ -368,8 +360,8 @@ export default function QuizAnswer1(props) {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {answers.map(answer => (
-                  <TableRow>
+                {answers.map((answer, index) => (
+                  <TableRow key={index}>
                     <TableCell className={classes.tableNumberCell}>
                       <Link
                         href={answer.link}
