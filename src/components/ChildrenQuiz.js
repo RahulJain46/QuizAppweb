@@ -117,28 +117,27 @@ function ChildrenQuiz() {
         "Access-Control-Allow-Origin": "*"
       }
     };
-    fetch(
-      links.backendURL + "childrenquestions?" + "date=1&date=all",
-      userOptions
-    )
-      .then(questionJson => {
-        return questionJson.json();
-      })
-      .then(questions => {
-        questions.map(question => {
-          let quesdate = question.date;
-          const today = moment(presentDate, "DD-MM-YYYY");
-          const someday = moment(quesdate, "DD-MM-YYYY");
-          if (someday < today) {
-            dateArray.push(quesdate);
-          }
-        });
-        dateArray.sort(
-          (a, b) => moment(b, "DD-MM-YYYY") - moment(a, "DD-MM-YYYY")
-        );
-        setDates(dateArray);
-        setLoading(false);
+    async function fetchChilderQuiz() {
+      let getChildereQuiz = await fetch(
+        links.backendURL + "childrenquestions?" + "date=1&date=all",
+        userOptions
+      );
+      let childerQuizJson = await getChildereQuiz.json();
+      childerQuizJson.map(quiz => {
+        let quizDate = quiz.date;
+        const today = moment(presentDate, "DD-MM-YYYY");
+        const someday = moment(quizDate, "DD-MM-YYYY");
+        if (someday < today) {
+          dateArray.push(quizDate);
+        }
       });
+      dateArray.sort(
+        (a, b) => moment(b, "DD-MM-YYYY") - moment(a, "DD-MM-YYYY")
+      );
+      setDates(dateArray);
+      setLoading(false);
+    }
+    fetchChilderQuiz();
   }, []);
 
   return (

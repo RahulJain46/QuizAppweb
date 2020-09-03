@@ -245,24 +245,23 @@ function childrenUserResponse(props) {
     const questionsArray = [];
     const queastionsIdArray = [];
     const date = props.match.params.date;
-    fetch(links.backendURL + "childrenquestions?date=" + `${date}`)
-      .then(questionsJosn => {
-        return questionsJosn.json();
-      })
-      .then(questions => {
-        questions.map(question => {
-          queastionsIdArray.push(question.id);
-          questionsArray.push(question.questions);
-        });
-        var myMap = new Map();
-        questionsArray[0].map(el => {
-          myMap.set(el.question, { answer: el.answer, remarks: el.remarks });
-        });
-        setAllQuestionsMap(myMap);
-        setQuestionsId(queastionsIdArray);
-        setAllQuestions(questionsArray);
-        setLoading(false);
-      });
+    async function fetchChildrenResponse(){
+     let childerResponse = await fetch(links.backendURL + "childrenquestions?date=" + `${date}`)
+     let childerResponseJson = await childerResponse.json()
+     childerResponseJson.map(question => {
+      queastionsIdArray.push(question.id);
+      questionsArray.push(question.questions);
+    });
+    var myMap = new Map();
+    questionsArray[0].map(el => {
+      myMap.set(el.question, { answer: el.answer, remarks: el.remarks });
+    });
+    setAllQuestionsMap(myMap);
+    setQuestionsId(queastionsIdArray);
+    setAllQuestions(questionsArray);
+    setLoading(false);
+    }
+    fetchChildrenResponse()
   }, []);
 
   return (

@@ -14,18 +14,18 @@ const useStyles = makeStyles(theme => ({
     left: "0%",
     width: widthProportion
   },
-  BottomNavigationClass: {height: 30},
+  BottomNavigationClass: { height: 30 },
   [theme.breakpoints.down("400")]: {
     footerFont: {
       fontSize: 8
     },
-    BottomNavigationClass: {height: 19},
+    BottomNavigationClass: { height: 19 }
   },
   [theme.breakpoints.between("400", "xs")]: {
     footerFont: {
       fontSize: 10
     },
-    BottomNavigationClass: {height: 21},
+    BottomNavigationClass: { height: 21 }
   }
 }));
 
@@ -38,7 +38,7 @@ const Footer = () => {
           Developed by:
         </Typography>
         <Typography variant="h6" className={classes.footerFont} gutterBottom>
-          RAJESH JAIN & GAUTAM KOCHAR UJJAIN,
+          RAJESH ,RAHUL & ANUJ JAIN UJJAIN,
         </Typography>
         <Typography variant="h6" className={classes.footerFont} gutterBottom>
           MOB:8989984415

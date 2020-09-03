@@ -345,15 +345,15 @@ function Home() {
     .toLocaleString("default", { month: "short" })
     .toUpperCase();
   const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = data => {
+  const onSubmit = async data => {
     let userOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
     };
-    fetch(links.backendURL + "comments", userOptions).then(response => {
-      setToggleButton(true);
-    });
+
+    await fetch(links.backendURL + "comments", userOptions);
+    setToggleButton(true);
   };
 
   useEffect(() => {
@@ -376,8 +376,8 @@ function Home() {
           <Typography className={classes.topNotice}>
             "QUIZ में 2500 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
           </Typography>
-           <Typography className={classes.topNotice}>
-          “भक्तामर स्तोत्र पर प्रश्नों का क्रम जारी “
+          <Typography className={classes.topNotice}>
+            “भक्तामर स्तोत्र पर प्रश्नों का क्रम जारी “
           </Typography>
           <Link to="/books">
             <Typography className={classes.booksLink}>
