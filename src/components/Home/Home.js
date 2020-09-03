@@ -379,11 +379,8 @@ function Home() {
           <Typography className={classes.topNotice}>
             "QUIZ में 2500 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
           </Typography>
-          <Typography className={classes.topNotice}>
-          “दिनांक 24-08-2020 से दशलक्षण पर्व पर प्रश्नों की श्रंखला जारी"
-          </Typography>
            <Typography className={classes.topNotice}>
-          “पर्युषण पर्व के पश्चात् पुनः भक्तामर स्तोत्र पर प्रश्नों का क्रम जारी रहेगा"
+          “भक्तामर स्तोत्र पर प्रश्नों का क्रम जारी “
           </Typography>
           <Link to="/books">
             <Typography className={classes.booksLink}>
