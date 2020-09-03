@@ -364,11 +364,8 @@ function Home() {
     <div className={classes.home}>
       <Card className={classes.notice}>
         <CardContent>
-          <Typography className={classes.topNotice}>"जय जिनेन्द्र" उत्तम क्षमा </Typography>
-          <Typography className={classes.messageText}>“माँ जिनवानी के साधक ,आराधक आप सभी जनों को पावन पर्युषण
-            पर्व की बहुत बहुत शुभकामनायें. यह पावन पर्व आपके जीवन में नई
-            उज्जवलता लावे व् सम्यक्दर्शन के प्रकाश को करने में निमित्त बने” 
-            </Typography>
+          <Typography className={classes.topNotice}>"जय जिनेन्द्र" </Typography>
+          <Typography className={classes.topNotice}>"उत्तम क्षमा" </Typography>
           <Typography className={classes.kbcNotice}>
             “आज से KBC की तर्ज पर नवीन आकर्षक "कौन बनेगा धर्मज्ञ" GAME नीचे दी
             गई पहली लिंक पर उपलब्ध”
