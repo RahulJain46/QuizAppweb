@@ -6,12 +6,24 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import { Link } from "react-router-dom";
+import { Link as DomLink } from "react-router-dom";
+import Link from "@material-ui/core/Link";
 import { links } from "../../Config";
-import MaterialLink from "@material-ui/core/Link";
 import { useForm } from "react-hook-form";
 
 const useStyles = makeStyles(theme => ({
+    classNotice: {
+    color: "#ff0068",
+    textAlign: "center",
+    fontSize: 20,
+    fontWeight: 600
+  },
+  classLink: {
+    textAlign: "center",
+    fontSize: 20,
+    fontWeight: 600,
+    color: "#510c0c"
+  },
   paper: {
     padding: theme.spacing(2),
     textAlign: "center"
@@ -365,7 +377,22 @@ function Home() {
       <Card className={classes.notice}>
         <CardContent>
           <Typography className={classes.topNotice}>"जय जिनेन्द्र" </Typography>
-          <Typography className={classes.topNotice}>"उत्तम क्षमा" </Typography>
+          <Typography className={classes.classNotice}>
+            “दिनांक 15-09-2020 से ZOOM app पर प्रतिदिन सायं 8:15 बजे से 8:45 तक
+            ‘इष्टोपदेश’ ग्रन्थ का स्वाध्याय पंडित सुरेश जी जैन द्वारा ONLINE सरल
+            व् सुबोध शैली में करवाया जावेगा, कृपया अधिक से अधिक साधर्मी भाई बहन
+            सम्मिलित होकर धर्म लाभ लेवे"{" "}
+          </Typography>
+          <Link
+            href="https://us04web.zoom.us/j/79667730120?pwd=Q0tmVm1UREFZQXRHNWZmTTZzR1FhZz09"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Typography className={classes.classLink}>
+              "ZOOM app की ID: 79667730120 व् पास वार्ड की जरुरत नहीं है तथा इस
+              link पर click कर ज्वाइन कर सकते है ।"
+            </Typography>
+          </Link>
           <Typography className={classes.kbcNotice}>
             “आज से KBC की तर्ज पर नवीन आकर्षक "कौन बनेगा धर्मज्ञ" GAME नीचे दी
             गई पहली लिंक पर उपलब्ध”
