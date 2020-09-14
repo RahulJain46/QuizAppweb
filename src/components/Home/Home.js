@@ -398,19 +398,19 @@ function Home() {
             गई पहली लिंक पर उपलब्ध”
           </Typography>
           <Typography className={classes.topNotice}>
-            "QUIZ को निरंतर सफलता पूर्वक चलते हुए 4 माह पूर्ण।"
+            "QUIZ को निरंतर सफलता पूर्वक चलते हुए 5 माह पूर्ण।"
           </Typography>
           <Typography className={classes.topNotice}>
-            "QUIZ में 2500 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
+            "QUIZ में 3000 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
           </Typography>
           <Typography className={classes.topNotice}>
             “भक्तामर स्तोत्र पर प्रश्नों का क्रम जारी “
           </Typography>
-          <Link to="/books">
+          <DomLink to="/books">
             <Typography className={classes.booksLink}>
               "इस link को क्लिक क्रर के आप जिनवाणी की Books पढ़ सकते है"
             </Typography>
-          </Link>
+          </DomLink>
         </CardContent>
       </Card>
 
