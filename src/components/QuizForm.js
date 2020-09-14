@@ -278,19 +278,20 @@ function QuizForm(props) {
     const questionsArray = [];
     const queastionsIdArray = [];
     const date = props.match.params.date;
-    fetch(links.backendURL + "questions?date=" + `${date}`)
-      .then(questionsJosn => {
-        return questionsJosn.json();
-      })
-      .then(questions => {
-        questions.map(question => {
-          queastionsIdArray.push(question.id);
-          questionsArray.push(question.questions);
-        });
-        setQuestionsId(queastionsIdArray);
-        setQuestions(questionsArray);
-        setLoading(false);
+    async function fetchQuestions() {
+      let questions = await fetch(
+        links.backendURL + "questions?date=" + `${date}`
+      );
+      let questionJson = await questions.json();
+      questionJson.map(question => {
+        queastionsIdArray.push(question.id);
+        questionsArray.push(question.questions);
       });
+      setQuestionsId(queastionsIdArray);
+      setQuestions(questionsArray);
+      setLoading(false);
+    }
+    fetchQuestions();
   }, []);
 
   const calcaulateScore = (rightAns, userAns, usersResponse) => {
@@ -362,6 +363,9 @@ function QuizForm(props) {
     userResponseJson["userId"] = uuid;
     userResponseJson["feedback"] = myMap.get("feedback");
     userResponseJson["suggestion"] = myMap.get("suggestion").trim();
+    userResponseJson["classsuggestion"] = myMap.get("classsuggestion").trim();
+    userResponseJson["classcount"] = myMap.get("classcount").trim();
+    userResponseJson["classattendance"] = myMap.get("classattendance").trim();
     userResponseJson = calcaulateScore(ques, myMap, userResponseJson);
     const date = props.match.params.date;
     let usersJson = {};
@@ -483,10 +487,10 @@ function QuizForm(props) {
                 className={classes.input}
                 placeholder="Mobile Number"
                 name="mobile"
-                type='tel'
+                type="tel"
                 ref={register({
                   required: true,
-                  pattern:"^-?[0-9]\d*\.?\d*$"
+                  pattern: "^-?[0-9]d*.?d*$"
                 })}
               />
               {errors.mobile && (
@@ -720,6 +724,65 @@ function QuizForm(props) {
                   )}
                 </CardContent>
               </Card>
+              <Card className={classes.questionfields}>
+                <CardContent>
+                  <fieldset className={classes.questionContent}>
+                    <label className={classes.label}>
+                      {
+                        "प्रतिदिन शाम को 8:15 पर इष्टोपदेश ग्रन्थ का सरल व् सुबोध तरीके से पंडित सुरेश जी जैन द्वारा ज़ूम app पर जल्द ही निःशुल्क पढ़ाने हेतु क्लास चालू करने  की योजना है . क्या आप इस क्लास में भाग लेने के इच्छुक है ?"
+                      }
+                    </label>
+                  </fieldset>
+
+                  <fieldset className={classes.questionOption}>
+                    <label className={classes.optionLabel}>
+                      <input
+                        type="radio"
+                        className={classes.radioButton}
+                        value="YES"
+                        name="classattendance"
+                        ref={register({ required: false })}
+                        label="YES"
+                      />
+                      YES
+                    </label>
+                  </fieldset>
+
+                  <fieldset className={classes.questionOption}>
+                    <label className={classes.optionLabel}>
+                      <input
+                        type="radio"
+                        className={classes.radioButton}
+                        value="NO"
+                        name="classattendance"
+                        ref={register({ required: false })}
+                        label="NO"
+                      />
+                      NO
+                    </label>
+                  </fieldset>
+                  <label className={classes.label}>
+                    {" "}
+                    संभावित सदस्य संख्या :{" "}
+                  </label>
+                  <input
+                    className={classes.input}
+                    placeholder="Your answer"
+                    name="classcount"
+                    ref={register({ required: false })}
+                  />
+                  <label className={classes.label}>
+                    उक्त क्लास के बारे में आपका कोई सुझाव हो तो लिखे :
+                  </label>
+                  <input
+                    className={classes.input}
+                    placeholder="Your answer"
+                    name="classsuggestion"
+                    ref={register({ required: false })}
+                  />
+                </CardContent>
+              </Card>
+
               <label className={classes.label}>टिप / सुझाव</label>
               <input
                 className={classes.input}
