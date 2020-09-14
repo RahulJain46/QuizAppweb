@@ -425,7 +425,10 @@ function UserResponse(props) {
                   items === "score" ||
                   items === "time" ||
                   items === "feedback" ||
-                  items === "suggestion" ? (
+                  items === "suggestion" ||
+                  items === "classsuggestion" ||
+                  items === "classcount" ||
+                  items === "classattendance" ? (
                   ""
                 ) : (
                   <label className={classes.questionContent}>
@@ -436,7 +439,10 @@ function UserResponse(props) {
                 items != "score" &&
                 items != "time" &&
                 items != "feedback" &&
-                items != "suggestion" ? (
+                items != "suggestion" &&
+                items != "classsuggestion" &&
+                items != "classcount" &&
+                items != "classattendance" ? (
                   <input
                     className={classes.input}
                     placeholder={props.location.state[items]}
@@ -455,7 +461,10 @@ function UserResponse(props) {
                 items != "score" &&
                 items != "time" &&
                 items != "feedback" &&
-                items != "suggestion" ? (
+                items != "suggestion" &&
+                items != "classsuggestion" &&
+                items != "classcount" &&
+                items != "classattendance" ? (
                   <React.Fragment>
                     <Typography
                       variant="h6"
