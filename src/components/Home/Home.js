@@ -408,7 +408,8 @@ function Home() {
           </Typography>
           <DomLink to="/books">
             <Typography className={classes.booksLink}>
-              "इस link को क्लिक क्रर के आप जिनवाणी की Books पढ़ सकते है"
+              "इस link को क्लिक करके आप जिनवाणी की Books पढ़ सकते है/DOWNLOAD कर
+              सकते है "
             </Typography>
           </DomLink>
         </CardContent>
