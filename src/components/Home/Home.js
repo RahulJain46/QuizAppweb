@@ -417,25 +417,25 @@ function Home() {
 
       <Grid container spacing={3} className={classes.quizbutton}>
         <Grid item xs={6} className={classes.quizitems}>
-          <Link to="/kbcinstruction">
+          <DomLink to="/kbcinstruction">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.kbcButton}>
                 कौन बनेगा धर्मज्ञ (KBD)
               </Button>
             </Paper>
-          </Link>
+          </DomLink>
         </Grid>
         <Grid item xs={6} className={classes.quizitems}>
-          <Link to="/kbcallresult">
+          <DomLink to="/kbcallresult">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.kbcResultButton}>
                 कौन बनेगा धर्मज्ञ Rank
               </Button>
             </Paper>
-          </Link>
+          </DomLink>
         </Grid>
         <Grid item xs={6} className={classes.quizitems}>
-          <Link
+          <DomLink
             to={`/datemonthquiz` + `/${day + "-0" + currentMonth + "-" + year}`}
           >
             <Paper className={classes.paper}>
@@ -443,10 +443,10 @@ function Home() {
                 QUIZ {day + "-" + month}
               </Button>
             </Paper>
-          </Link>
+          </DomLink>
         </Grid>
         <Grid item xs={6} className={classes.quizitems}>
-          <Link
+          <DomLink
             to={`/quizresult` + `/${day + "-0" + currentMonth + "-" + year}`}
           >
             <Paper className={classes.paper}>
@@ -454,53 +454,53 @@ function Home() {
                 QUIZ RESULT {day + "-" + month}
               </Button>
             </Paper>
-          </Link>
+          </DomLink>
         </Grid>
         <Grid item xs={12} className={classes.quizitems}>
-          <Link to="/childrenquiz">
+          <DomLink to="/childrenquiz">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.topicButton}>
                 Children Quiz
               </Button>
             </Paper>
-          </Link>
+          </DomLink>
         </Grid>
         <Grid item xs={6} className={classes.quizitems}>
-          <Link to="/oldquizresults">
+          <DomLink to="/oldquizresults">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.button}>
                 OLD QUIZ & RESULTS
               </Button>
             </Paper>
-          </Link>
+          </DomLink>
         </Grid>
         <Grid item xs={6} className={classes.quizitems}>
-          <Link to="/answerSheets">
+          <DomLink to="/answerSheets">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.button}>
                 Answer Sheets
               </Button>
             </Paper>
-          </Link>
+          </DomLink>
         </Grid>
         <Grid item xs={12} className={classes.quizitems}>
-          <Link to="/bhajan">
+          <DomLink to="/bhajan">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.bhajanButton}>
                 Latest Jain Bhajan
               </Button>
             </Paper>
-          </Link>
+          </DomLink>
         </Grid>
 
         <Grid item xs={12} className={classes.quizitems}>
-          <Link to="/exams">
+          <DomLink to="/exams">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.topicButton}>
                 Exams
               </Button>
             </Paper>
-          </Link>
+          </DomLink>
         </Grid>
       </Grid>
       <Card className={classes.formContainer}>
