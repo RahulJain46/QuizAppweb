@@ -389,7 +389,7 @@ function Home() {
             rel="noopener noreferrer"
           >
             <Typography className={classes.classLink}>
-              "ZOOM app की ID: 79667730120 व् पास वार्ड की जरुरत नहीं है तथा इस
+              "ZOOM app की ID: 79667730120 व् पास वार्ड 12345 है तथा इस
               link पर click कर ज्वाइन कर सकते है ।"
             </Typography>
           </Link>
