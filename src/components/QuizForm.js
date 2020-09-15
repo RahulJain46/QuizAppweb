@@ -724,12 +724,19 @@ function QuizForm(props) {
                   )}
                 </CardContent>
               </Card>
+              <label className={classes.label}>टिप / सुझाव</label>
+              <input
+                className={classes.input}
+                placeholder="Your answer"
+                name="suggestion"
+                ref={register({ required: false })}
+              />
               <Card className={classes.questionfields}>
                 <CardContent>
                   <fieldset className={classes.questionContent}>
                     <label className={classes.label}>
                       {
-                        "प्रतिदिन शाम को 8:15 पर इष्टोपदेश ग्रन्थ का सरल व् सुबोध तरीके से पंडित सुरेश जी जैन द्वारा ज़ूम app पर जल्द ही निःशुल्क पढ़ाने हेतु क्लास चालू करने  की योजना है . क्या आप इस क्लास में भाग लेने के इच्छुक है ?"
+                        "प्रतिदिन शाम को 8:15 पर इष्टोपदेश ग्रन्थ का सरल व् सुबोध तरीके से पंडित सुरेश जी जैन द्वारा ज़ूम app पर निःशुल्क पढ़ाने हेतु क्लास चालू हो गयी है . क्या आप इस क्लास में भाग लेने के इच्छुक है ? ZOOM app की ID: 79667730120 व् पास वार्ड 12345 है"
                       }
                     </label>
                   </fieldset>
@@ -782,14 +789,6 @@ function QuizForm(props) {
                   />
                 </CardContent>
               </Card>
-
-              <label className={classes.label}>टिप / सुझाव</label>
-              <input
-                className={classes.input}
-                placeholder="Your answer"
-                name="suggestion"
-                ref={register({ required: false })}
-              />
               <Button
                 variant="contained"
                 className={classes.button}
