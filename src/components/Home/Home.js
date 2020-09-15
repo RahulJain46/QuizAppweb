@@ -379,7 +379,7 @@ function Home() {
           <Typography className={classes.topNotice}>"जय जिनेन्द्र" </Typography>
           <Typography className={classes.classNotice}>
             “दिनांक 15-09-2020 से ZOOM app पर प्रतिदिन सायं 8:15 बजे से 8:45 तक
-            ‘इष्टोपदेश’ ग्रन्थ का स्वाध्याय पंडित सुरेश जी जैन द्वारा ONLINE सरल
+            ‘इष्टोपदेश’ ग्रन्थ का स्वाध्याय सुरेश जी जैन द्वारा ONLINE सरल
             व् सुबोध शैली में करवाया जावेगा, कृपया अधिक से अधिक साधर्मी भाई बहन
             सम्मिलित होकर धर्म लाभ लेवे"{" "}
           </Typography>
@@ -389,8 +389,7 @@ function Home() {
             rel="noopener noreferrer"
           >
             <Typography className={classes.classLink}>
-              "ZOOM app की ID: 79667730120 व् पास वार्ड 12345 है तथा इस
-              link पर click कर ज्वाइन कर सकते है ।"
+              "ZOOM app की ID: 79667730120 व् पास वार्ड 12345 है अथवा इस Link पर Click कर के भी बिना पासवर्ड के सीधे meeting जॉइंन कर सकते है"
             </Typography>
           </Link>
           <Typography className={classes.kbcNotice}>
