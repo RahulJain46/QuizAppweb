@@ -435,7 +435,7 @@ function Home() {
         </Grid>
         <Grid item xs={6} className={classes.quizitems}>
           <DomLink
-            to={`/datemonthquiz` + `/${day + "-0" + currentMonth + "-" + year}`}
+            to={`/datemonthquiz` + `/${day + "-" + currentMonth + "-" + year}`}
           >
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.button}>
