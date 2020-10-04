@@ -377,21 +377,6 @@ function Home() {
       <Card className={classes.notice}>
         <CardContent>
           <Typography className={classes.topNotice}>"जय जिनेन्द्र" </Typography>
-          <Typography className={classes.classNotice}>
-            “दिनांक 15-09-2020 से ZOOM app पर प्रतिदिन सायं 8:15 बजे से 8:45 तक
-            ‘इष्टोपदेश’ ग्रन्थ का स्वाध्याय सुरेश जी जैन द्वारा ONLINE सरल
-            व् सुबोध शैली में करवाया जावेगा, कृपया अधिक से अधिक साधर्मी भाई बहन
-            सम्मिलित होकर धर्म लाभ लेवे"{" "}
-          </Typography>
-          <Link
-            href="https://us04web.zoom.us/j/79667730120?pwd=Q0tmVm1UREFZQXRHNWZmTTZzR1FhZz09"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Typography className={classes.classLink}>
-              "ZOOM app की ID: 79667730120 व् पास वार्ड 12345 है अथवा इस Link पर Click कर के भी बिना पासवर्ड के सीधे meeting जॉइंन कर सकते है"
-            </Typography>
-          </Link>
           <Typography className={classes.kbcNotice}>
             “आज से KBC की तर्ज पर नवीन आकर्षक "कौन बनेगा धर्मज्ञ" GAME नीचे दी
             गई पहली लिंक पर उपलब्ध”
@@ -403,7 +388,7 @@ function Home() {
             "QUIZ में 3000 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
           </Typography>
           <Typography className={classes.topNotice}>
-            “भक्तामर स्तोत्र पर प्रश्नों का क्रम जारी “
+            “Ishtopdesh पर प्रश्नों का क्रम जारी “
           </Typography>
           <DomLink to="/books">
             <Typography className={classes.booksLink}>
