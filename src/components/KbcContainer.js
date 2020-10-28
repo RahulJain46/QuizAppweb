@@ -102,10 +102,10 @@ function KbcContainer(props) {
       .then(questionsJson => {
         filterArray = questionsJson.filter(question => {
           let pre = moment(question.date, "DD-MM-YYYY");
-          let lessRange1 = moment("07-08-2020", "DD-MM-YYYY");
-          let greaterRange1 = moment("23-08-2020", "DD-MM-YYYY");
-          let lessRange2 = moment("03-10-2020", "DD-MM-YYYY");
-          let greaterRange2 = moment("23-10-2020", "DD-MM-YYYY");
+          let lessRange1 = moment("06-08-2020", "DD-MM-YYYY");
+          let greaterRange1 = moment("24-08-2020", "DD-MM-YYYY");
+          let lessRange2 = moment("02-09-2020", "DD-MM-YYYY");
+          let greaterRange2 = moment("29-10-2020", "DD-MM-YYYY");
           let lessRange3 = moment("24-06-2020", "DD-MM-YYYY");
           let greaterRange3 = moment("27-06-2020", "DD-MM-YYYY");
 
