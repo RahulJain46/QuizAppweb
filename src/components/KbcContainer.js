@@ -4,8 +4,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import KbcResult from "./KbcResult";
 import KbcQuiz from "./KbcQuiz";
 import "./KbcContainer.scss";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import moment from "moment";
 import CardContent from "@material-ui/core/CardContent";
 import Card from "@material-ui/core/Card";
@@ -95,15 +93,39 @@ function KbcContainer(props) {
 
   useEffect(() => {
     const questionsArray = [];
+    let filterArray = [];
 
     fetch(links.backendURL + "questions")
       .then(questionsJosn => {
         return questionsJosn.json();
       })
       .then(questionsJson => {
-        questionsJson.map(question => {
+        filterArray = questionsJson.filter(question => {
+          let pre = moment(question.date, "DD-MM-YYYY");
+          let lessRange1 = moment("07-08-2020", "DD-MM-YYYY");
+          let greaterRange1 = moment("23-08-2020", "DD-MM-YYYY");
+          let lessRange2 = moment("03-10-2020", "DD-MM-YYYY");
+          let greaterRange2 = moment("23-10-2020", "DD-MM-YYYY");
+          let lessRange3 = moment("24-06-2020", "DD-MM-YYYY");
+          let greaterRange3 = moment("27-06-2020", "DD-MM-YYYY");
+
+          let range1 = pre.isBetween(lessRange1, greaterRange1);
+          let range2 = pre.isBetween(lessRange2, greaterRange2);
+          let range3 = pre.isBetween(lessRange3, greaterRange3);
+
+          if (
+            !range1 &&
+            !range2 &&
+            !range3 &&
+            question.questions !== undefined
+          ) {
+            return question;
+          }
+        });
+        filterArray.map(question => {
           questionsArray.push(question.questions);
         });
+
         setQuestions(questionsArray);
         setTemQuestions(questionsArray);
         setAnswerOptions([{ answerOption: "YES" }, { answerOption: "NO" }]);
