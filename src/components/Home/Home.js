@@ -382,10 +382,10 @@ function Home() {
             गई पहली लिंक पर उपलब्ध”
           </Typography>
           <Typography className={classes.topNotice}>
-            "QUIZ को निरंतर सफलता पूर्वक चलते हुए 5 माह पूर्ण।"
+            "QUIZ को निरंतर सफलता पूर्वक चलते हुए 6 माह पूर्ण।"
           </Typography>
           <Typography className={classes.topNotice}>
-            "QUIZ में 3000 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
+            "QUIZ में 3600 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
           </Typography>
           <Typography className={classes.topNotice}>
             “Ishtopdesh पर प्रश्नों का क्रम जारी “
