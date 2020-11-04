@@ -387,9 +387,7 @@ function Home() {
           <Typography className={classes.topNotice}>
             "QUIZ में 3600 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
           </Typography>
-          <Typography className={classes.topNotice}>
-            “Ishtopdesh पर प्रश्नों का क्रम जारी “
-          </Typography>
+      
           <DomLink to="/books">
             <Typography className={classes.booksLink}>
               "इस link को क्लिक करके आप जिनवाणी की Books पढ़ सकते है/DOWNLOAD कर
