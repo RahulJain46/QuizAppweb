@@ -15,7 +15,7 @@ import Collapse from "@material-ui/core/Collapse";
 import Typography from "@material-ui/core/Typography";
 import { links } from "../Config";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     minWidth: 275
   },
@@ -45,8 +45,14 @@ const useStyles = makeStyles({
     position: "relative",
     top: 5,
     left: "47%"
+  },
+  [theme.breakpoints.up("1124")]: {
+    root: {
+      position: "relative",
+      top: 144
+    }
   }
-});
+}));
 
 const Search = props => {
   const classes = new useStyles();
