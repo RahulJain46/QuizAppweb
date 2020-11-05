@@ -29,6 +29,22 @@ const useStyles = makeStyles({
   },
   pos: {
     marginBottom: 12
+  },
+  question: {
+    paddingBottom: 17
+  },
+  option: {
+    color: "currentcolor",
+    backgroundColor: "antiquewhite"
+  },
+  optionAnswer: {
+    color: "currentcolor",
+    backgroundColor: "ivory"
+  },
+  loading: {
+    position: "relative",
+    top: 5,
+    left: "47%"
   }
 });
 
@@ -89,32 +105,6 @@ const Search = props => {
     // setIsFetching(true);
   }
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
-
-  // useEffect(() => {
-  //   let questionsArray = [];
-  //   fetch(links.backendURL + "questions")
-  //     .then(questionsJosn => {
-  //       return questionsJosn.json();
-  //     })
-  //     .then(questionsJson => {
-  //       questionsJson.map(question => {
-  //         if (question.questions != undefined) {
-  //           questionsArray.push(question.questions);
-  //         }
-  //       });
-
-  //       setQuestions(questionsArray);
-  //       setLoading(false);
-  //     });
-  // }, []);
-
   return (
     <div>
       <Card className={classes.root}>
@@ -129,7 +119,11 @@ const Search = props => {
                   <Typography className={classes.pos} color="textSecondary">
                     {datequestions.date}
                   </Typography>
-                  <Typography variant="h5" component="h2">
+                  <Typography
+                    variant="h5"
+                    component="h2"
+                    className={classes.question}
+                  >
                     {question.question}
                   </Typography>
                   <Accordion>
@@ -137,19 +131,32 @@ const Search = props => {
                       expandIcon={<ExpandMoreIcon />}
                       aria-controls="panel1a-content"
                       id="panel1a-header"
+                      className={classes.option}
                     >
                       <Typography className={classes.heading}>
                         {'"Yes       Or        No"'}
                       </Typography>
                     </AccordionSummary>
-                    <CardContent>
+                    <CardContent className={classes.optionAnswer}>
                       <Typography paragraph>
                         Answer : {question.answer}{" "}
                       </Typography>
-                      <Typography paragraph>
-                        Remark : {question.remarks}
-                      </Typography>
-                      <Typography paragraph>Link : {question.hint}</Typography>
+                      {question.remarks != undefined &&
+                      question.remarks.length > 0 ? (
+                        <Typography paragraph>
+                          Remark : {question.remarks}
+                        </Typography>
+                      ) : (
+                        ""
+                      )}
+                      {question.hint != undefined &&
+                      question.hint.length > 0 ? (
+                        <Typography paragraph>
+                          Link : {question.hint}
+                        </Typography>
+                      ) : (
+                        ""
+                      )}
                     </CardContent>
                   </Accordion>
                 </CardContent>
