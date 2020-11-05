@@ -40,7 +40,7 @@ import ExamInstruction from "./components/ExamInstruction";
 import { makeStyles } from "@material-ui/core/styles";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import fileUpload from "./components/FileUpload2";
+import Search from "./components/Search";
 
 const useStyles = makeStyles(theme => ({
   [theme.breakpoints.down("1124")]: {
@@ -113,6 +113,7 @@ function App() {
         <Route path="/kbcinstruction" component={KbcInstruction} />
         <Route path="/fileupload" component={FileUpload} />
         <Route path="/books" component={Books} />
+        <Route path="/search" component={Search} />
         <Route component={PageNotFound} />
       </Switch>
       <Footer />
