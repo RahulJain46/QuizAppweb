@@ -52,7 +52,7 @@ const Search = props => {
     const questionsArray = [];
     // Make sure you send 'limit' and 'skip' as query parameters to your node.js server
     setLoading(true);
-    fetch(`http://localhost:3001/questions?pageNo=${limit}&size=${skip}`)
+    fetch(links.backendURL + `questions?pageNo=${limit}&size=${skip}`)
       .then(questionsJosn => {
         return questionsJosn.json();
       })
