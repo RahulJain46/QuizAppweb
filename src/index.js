@@ -1,13 +1,14 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { render } from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Provider as ReduxProvider } from "react-redux";
+const App = lazy(() => import("./App"));
 
 render(
   <Router>
-    <App />
+    <Suspense fallback={<div />}>
+      <App />
+    </Suspense>
   </Router>,
   document.getElementById("root")
 );
