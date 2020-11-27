@@ -1,6 +1,5 @@
 import React, { useEffect, Suspense, lazy } from "react";
 import { Route, Switch } from "react-router-dom";
-import ReactGA from "react-ga";
 import { makeStyles } from "@material-ui/core/styles";
 import { ToastContainer } from "react-toastify";
 //import "react-toastify/dist/ReactToastify.css";
