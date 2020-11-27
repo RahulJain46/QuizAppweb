@@ -1,7 +1,8 @@
 {
-  "name": "shivneri.net",
+  "name": "jindarshan",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jindarshan.now.sh/",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
