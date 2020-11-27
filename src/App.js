@@ -66,10 +66,10 @@ const useStyles = makeStyles(theme => ({
 
 function App() {
   const classes = useStyles();
-  useEffect(() => {
-    ReactGA.initialize("UA-165998646-2");
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, []);
+  // useEffect(() => {
+  //   ReactGA.initialize("UA-165998646-2");
+  //   ReactGA.pageview(window.location.pathname + window.location.search);
+  // }, []);
   return (
     <div className={classes.container}>
       <Suspense fallback={<div>Loading...</div>}>
