@@ -418,7 +418,7 @@ function Home() {
         </Grid>
         <Grid item xs={6} className={classes.quizitems}>
           <DomLink
-            to={`/datemonthquiz` + `/${day + "-" + currentMonth + "-" + year}`}
+            to={`/datemonthquiz` + `/${day + "-" + "0" + currentMonth + "-" + year}`}
           >
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.button}>
@@ -429,7 +429,7 @@ function Home() {
         </Grid>
         <Grid item xs={6} className={classes.quizitems}>
           <DomLink
-            to={`/quizresult` + `/${day + "-" + currentMonth + "-" + year}`}
+            to={`/quizresult` + `/${day + "-" + "0" + currentMonth + "-" + year}`}
           >
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.quizResultButton}>
