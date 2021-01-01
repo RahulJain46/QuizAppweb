@@ -89,7 +89,7 @@ function KbcContainer(props) {
     .toLocaleString("default", { month: "short" })
     .toUpperCase();
 
-  const today = day + "-" + currentMonth + "-" + year;
+  const today = day + "-" + "0"+currentMonth + "-" + year;
 
   useEffect(() => {
     const questionsArray = [];
