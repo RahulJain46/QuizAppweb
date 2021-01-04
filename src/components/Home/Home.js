@@ -382,7 +382,7 @@ function Home() {
             गई पहली लिंक पर उपलब्ध”
           </Typography>
           <Typography className={classes.topNotice}>
-            "QUIZ को निरंतर सफलता पूर्वक चलते हुए 6 माह पूर्ण।"
+            "QUIZ को निरंतर सफलता पूर्वक चलते हुए 8 माह पूर्ण।"
           </Typography>
           <Typography className={classes.topNotice}>
             "QUIZ में 3600 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
