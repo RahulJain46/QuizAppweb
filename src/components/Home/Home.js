@@ -378,11 +378,11 @@ function Home() {
         <CardContent>
           <Typography className={classes.topNotice}>"जय जिनेन्द्र" </Typography>
           <Typography className={classes.kbcNotice}>
-            “आज से KBC की तर्ज पर नवीन आकर्षक "कौन बनेगा धर्मज्ञ" GAME नीचे दी
+            “KBC की तर्ज पर नवीन आकर्षक "कौन बनेगा धर्मज्ञ" GAME नीचे दी
             गई पहली लिंक पर उपलब्ध”
           </Typography>
           <Typography className={classes.topNotice}>
-            "QUIZ को निरंतर सफलता पूर्वक चलते हुए 8 माह पूर्ण।"
+            "QUIZ को निरंतर सफलता पूर्वक चलते हुए 1 वर्ष पूर्ण।"
           </Typography>
           <Typography className={classes.topNotice}>
             "QUIZ में 3600 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
