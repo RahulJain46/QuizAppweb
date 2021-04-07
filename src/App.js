@@ -51,6 +51,7 @@ const PageNotFound = lazy(() => import("./components/PageNotFound"));
 const ExamInstruction = lazy(() => import("./components/ExamInstruction"));
 const Search = lazy(() => import("./components/Search"));
 const Bhajan = lazy(() => import("./components/Bhajan"));
+const QuizLogin = lazy(() => import("./components/QuizLogin"));
 
 const useStyles = makeStyles(theme => ({
   [theme.breakpoints.down("1124")]: {
@@ -129,6 +130,7 @@ function App() {
           <Route path="/fileupload" component={FileUpload} />
           <Route path="/books" component={Books} />
           <Route path="/search" component={Search} />
+          <Route path="/quizlogin/:date" component={QuizLogin} />
           <Route component={PageNotFound} />
         </Switch>
 

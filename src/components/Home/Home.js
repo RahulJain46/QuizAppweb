@@ -12,7 +12,7 @@ import { links } from "../../Config";
 import { useForm } from "react-hook-form";
 
 const useStyles = makeStyles(theme => ({
-    classNotice: {
+  classNotice: {
     color: "#ff0068",
     textAlign: "center",
     fontSize: 20,
@@ -352,7 +352,7 @@ function Home() {
       ? new Date().getDate()
       : "0" + new Date().getDate();
   const year = new Date().getFullYear();
-  const currentMonth =  new Date().getMonth() + 1;
+  const currentMonth = new Date().getMonth() + 1;
   const month = date
     .toLocaleString("default", { month: "short" })
     .toUpperCase();
@@ -378,8 +378,8 @@ function Home() {
         <CardContent>
           <Typography className={classes.topNotice}>"जय जिनेन्द्र" </Typography>
           <Typography className={classes.kbcNotice}>
-            “KBC की तर्ज पर नवीन आकर्षक "कौन बनेगा धर्मज्ञ" GAME नीचे दी
-            गई पहली लिंक पर उपलब्ध”
+            “KBC की तर्ज पर नवीन आकर्षक "कौन बनेगा धर्मज्ञ" GAME नीचे दी गई पहली
+            लिंक पर उपलब्ध”
           </Typography>
           <Typography className={classes.topNotice}>
             "QUIZ को निरंतर सफलता पूर्वक चलते हुए 1 वर्ष पूर्ण।"
@@ -387,7 +387,7 @@ function Home() {
           <Typography className={classes.topNotice}>
             "QUIZ में 3600 से अधिक ज्ञानवर्धक प्रश्न उपलब्ध ।"
           </Typography>
-      
+
           <DomLink to="/books">
             <Typography className={classes.booksLink}>
               "इस link को क्लिक करके आप जिनवाणी की Books पढ़ सकते है/DOWNLOAD कर
@@ -418,7 +418,9 @@ function Home() {
         </Grid>
         <Grid item xs={6} className={classes.quizitems}>
           <DomLink
-            to={`/datemonthquiz` + `/${day + "-" + "0" + currentMonth + "-" + year}`}
+            to={
+              `/quizlogin` + `/${day + "-" + "0" + currentMonth + "-" + year}`
+            }
           >
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.button}>
@@ -429,7 +431,9 @@ function Home() {
         </Grid>
         <Grid item xs={6} className={classes.quizitems}>
           <DomLink
-            to={`/quizresult` + `/${day + "-" + "0" + currentMonth + "-" + year}`}
+            to={
+              `/quizresult` + `/${day + "-" + "0" + currentMonth + "-" + year}`
+            }
           >
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.quizResultButton}>

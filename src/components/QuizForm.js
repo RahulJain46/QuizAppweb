@@ -482,7 +482,13 @@ function QuizForm(props) {
               </label>
               <input
                 className={classes.input}
-                placeholder="Mobile Number"
+                defaultValue={
+                  props.location.state != undefined &&
+                  props.location.state["mobile"].length > 0
+                    ? props.location.state["mobile"]
+                    : ""
+                }
+                placeholder={"Mobile Number"}
                 name="mobile"
                 type="tel"
                 ref={register({
@@ -507,6 +513,12 @@ function QuizForm(props) {
               </label>
               <input
                 className={classes.input}
+                defaultValue={
+                  props.location.state != undefined &&
+                  props.location.state["fullname"].length > 0
+                    ? props.location.state["fullname"]
+                    : ""
+                }
                 placeholder="Full Name"
                 name="fullname"
                 ref={register({ required: true, maxLength: 22 })}
@@ -528,6 +540,12 @@ function QuizForm(props) {
               </label>
               <input
                 className={classes.input}
+                defaultValue={
+                  props.location.state != undefined &&
+                  props.location.state["city"].length > 0
+                    ? props.location.state["city"]
+                    : ""
+                }
                 placeholder="City"
                 name="city"
                 ref={register({ required: true, maxLength: 22 })}
@@ -549,6 +567,12 @@ function QuizForm(props) {
               </label>
               <input
                 className={classes.input}
+                defaultValue={
+                  props.location.state != undefined &&
+                  props.location.state["address"].length > 0
+                    ? props.location.state["address"]
+                    : ""
+                }
                 placeholder="Address"
                 name="address"
                 ref={register({ required: true })}
