@@ -484,6 +484,7 @@ function QuizForm(props) {
                 className={classes.input}
                 defaultValue={
                   props.location.state != undefined &&
+                  props.location.state["mobile"] != undefined &&
                   props.location.state["mobile"].length > 0
                     ? props.location.state["mobile"]
                     : ""
@@ -515,6 +516,7 @@ function QuizForm(props) {
                 className={classes.input}
                 defaultValue={
                   props.location.state != undefined &&
+                  props.location.state["fullname"] != undefined &&
                   props.location.state["fullname"].length > 0
                     ? props.location.state["fullname"]
                     : ""
@@ -542,6 +544,7 @@ function QuizForm(props) {
                 className={classes.input}
                 defaultValue={
                   props.location.state != undefined &&
+                  props.location.state["city"] != undefined &&
                   props.location.state["city"].length > 0
                     ? props.location.state["city"]
                     : ""
@@ -569,6 +572,7 @@ function QuizForm(props) {
                 className={classes.input}
                 defaultValue={
                   props.location.state != undefined &&
+                  props.location.state["address"] != undefined &&
                   props.location.state["address"].length > 0
                     ? props.location.state["address"]
                     : ""

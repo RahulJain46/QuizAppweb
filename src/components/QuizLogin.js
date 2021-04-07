@@ -204,10 +204,12 @@ const useStyles = makeStyles(theme => ({
 function QuizLogin(props) {
   const classes = useStyles();
   const history = useHistory();
+  const [toggleButton, setToggleButton] = useState(false);
 
   const { register, handleSubmit, watch, errors } = useForm();
 
   const onSubmit = data => {
+    setToggleButton(true);
     let mobileNumber = data.mobilenumber.trim();
     const date = props.match.params.date;
     fetch(links.backendURL + "users?mobile=" + mobileNumber)
@@ -216,9 +218,20 @@ function QuizLogin(props) {
       })
       .then(userList => {
         if (userList.mobile != undefined || userList.length === 0) {
-          history.push(`/datemonthquiz/${date}`);
+          if (props.match.params.date === undefined) {
+            history.push(`/kbclogin`, mobileNumber);
+          } else {
+            history.push(`/datemonthquiz/${date}`, { mobile: mobileNumber });
+          }
         } else {
-          history.push(`/datemonthquiz/${date}`, userList[userList.length - 1]);
+          if (props.match.params.date === undefined) {
+            history.push(`/kbc`, userList[userList.length - 1]);
+          } else {
+            history.push(
+              `/datemonthquiz/${date}`,
+              userList[userList.length - 1]
+            );
+          }
         }
       });
   };
@@ -256,8 +269,10 @@ function QuizLogin(props) {
                   variant="contained"
                   className={classes.feedbackButton}
                   type="submit"
+                  disabled={toggleButton}
                 >
-                  Submit
+                  {" "}
+                  {toggleButton === true ? "Processing" : "Submit"}
                 </Button>
               </div>
             </React.Fragment>

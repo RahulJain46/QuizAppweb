@@ -348,12 +348,15 @@ function KbcLoginPage(props) {
             </label>
             <input
               className={classes.input}
+              defaultValue={
+                props.location.state != undefined ? props.location.state : ""
+              }
               placeholder="Mobile Number"
               name="mobile"
-              type='tel'
+              type="tel"
               ref={register({
                 required: true,
-                pattern:"^-?[0-9]\d*\.?\d*$"
+                pattern: "^-?[0-9]d*.?d*$"
               })}
             />
             {errors.mobile && (

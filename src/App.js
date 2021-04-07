@@ -130,7 +130,7 @@ function App() {
           <Route path="/fileupload" component={FileUpload} />
           <Route path="/books" component={Books} />
           <Route path="/search" component={Search} />
-          <Route path="/quizlogin/:date" component={QuizLogin} />
+          <Route path="/quizlogin/:date?/:kbc?" component={QuizLogin} />
           <Route component={PageNotFound} />
         </Switch>
 

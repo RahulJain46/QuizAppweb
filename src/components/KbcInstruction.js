@@ -137,9 +137,9 @@ function ExamInstruction() {
             6. एक ही प्रतियोगी चाहे जितनी बार यह गेम खेल सकता है, हर बार नए
             प्रश्न प्राप्त होंगे।
           </Typography>
-          
+
           <Grid className={classes.quizitems}>
-            <Link to="/kbclogin">
+            <Link to="/quizlogin">
               <Paper className={classes.paper}>
                 <Button variant="contained" className={classes.button}>
                   START
