@@ -386,7 +386,7 @@ function Home() {
         <CardContent>
           <Typography className={classes.topNotice}>"जय जिनेन्द्र" </Typography>
           <Typography className={classes.booksLink}>
-            “दिनांक 18-04-21 से बच्चों के लिए भी प्रतिदिन प्रथक से क्विज जारी की
+            “दिनांक 17-04-21 से बच्चों के लिए भी प्रतिदिन प्रथक से क्विज जारी की
             जावेगी । कृपया अधिक से अधिक बच्चों को क्विज भरने हेतु प्रेरित करें
             ताकि उनके धार्मिक ज्ञान में वृद्धि हो सके ।"
           </Typography>
