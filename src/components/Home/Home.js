@@ -203,6 +203,14 @@ const useStyles = makeStyles(theme => ({
     left: "25%",
     right: "25%"
   },
+  childrenquizButton: {
+    backgroundColor: "#0F758E",
+    color: "#fff",
+    width: 188,
+    "&:hover": {
+      backgroundColor: "#610c2b"
+    }
+  },
   quizResultButton: {
     backgroundColor: "#aa1050e3",
     color: "#fff",
@@ -411,7 +419,10 @@ function Home() {
             }
           >
             <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.quizResultButton}>
+              <Button
+                variant="contained"
+                className={classes.childrenquizButton}
+              >
                 Children Quiz {day + "-" + month}
               </Button>
             </Paper>
@@ -425,7 +436,10 @@ function Home() {
             }
           >
             <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.quizResultButton}>
+              <Button
+                variant="contained"
+                className={classes.childrenquizButton}
+              >
                 Children Quiz RESULT {day + "-" + month}
               </Button>
             </Paper>
