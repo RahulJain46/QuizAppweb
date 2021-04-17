@@ -378,7 +378,9 @@ function Home() {
         <CardContent>
           <Typography className={classes.topNotice}>"जय जिनेन्द्र" </Typography>
           <Typography className={classes.booksLink}>
-            “दिनांक 18-04-21 से बच्चों के लिए भी प्रतिदिन प्रथक से क्विज जारी की जावेगी । कृपया अधिक से अधिक बच्चों को क्विज भरने हेतु प्रेरित करें ताकि उनके धार्मिक ज्ञान में वृद्धि हो सके ।" 
+            “दिनांक 18-04-21 से बच्चों के लिए भी प्रतिदिन प्रथक से क्विज जारी की
+            जावेगी । कृपया अधिक से अधिक बच्चों को क्विज भरने हेतु प्रेरित करें
+            ताकि उनके धार्मिक ज्ञान में वृद्धि हो सके ।"
           </Typography>
           <Typography className={classes.kbcNotice}>
             “KBC की तर्ज पर नवीन आकर्षक "कौन बनेगा धर्मज्ञ" GAME नीचे दी गई पहली
@@ -401,6 +403,34 @@ function Home() {
       </Card>
 
       <Grid container spacing={3} className={classes.quizbutton}>
+        <Grid item xs={6} className={classes.quizitems}>
+          <DomLink
+            to={
+              `/datemonthchildquiz` +
+              `/${day + "-" + "0" + currentMonth + "-" + year}`
+            }
+          >
+            <Paper className={classes.paper}>
+              <Button variant="contained" className={classes.quizResultButton}>
+                Children Quiz {day + "-" + month}
+              </Button>
+            </Paper>
+          </DomLink>
+        </Grid>
+        <Grid item xs={6} className={classes.quizitems}>
+          <DomLink
+            to={
+              `/quizresultchildren` +
+              `/${day + "-" + "0" + currentMonth + "-" + year}`
+            }
+          >
+            <Paper className={classes.paper}>
+              <Button variant="contained" className={classes.quizResultButton}>
+                Children Quiz RESULT {day + "-" + month}
+              </Button>
+            </Paper>
+          </DomLink>
+        </Grid>
         <Grid item xs={6} className={classes.quizitems}>
           <DomLink to="/kbcinstruction">
             <Paper className={classes.paper}>
@@ -449,7 +479,7 @@ function Home() {
           <DomLink to="/childrenquiz">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.topicButton}>
-                Children Quiz
+                OLD Children Quiz & RESULTS
               </Button>
             </Paper>
           </DomLink>
