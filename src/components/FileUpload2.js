@@ -58,7 +58,7 @@ function fileUpload(props) {
   };
 
   const postQuestions = data => {
-    fetch(links.backendURL + "childrenquestions?date=" + `${data.date}`)
+    fetch(links.backendURL + "questions?date=" + `${data.date}`)
       .then(questionsJosn => {
         return questionsJosn.json();
       })
@@ -72,7 +72,7 @@ function fileUpload(props) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
           };
-          fetch(links.backendURL + "childrenquestions", userOptions)
+          fetch(links.backendURL + "questions", userOptions)
             .then(response => {
               return response.json();
             })
