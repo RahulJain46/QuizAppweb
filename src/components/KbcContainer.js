@@ -108,13 +108,15 @@ function KbcContainer(props) {
           let greaterRange2 = moment("29-10-2020", "DD-MM-YYYY");
           let lessRange3 = moment("24-06-2020", "DD-MM-YYYY");
           let greaterRange3 = moment("27-06-2020", "DD-MM-YYYY");
-          let greaterRange4 = moment("28-10-2020", "DD-MM-YYYY");
+          let lessRange4 = moment("28-10-2020", "DD-MM-YYYY");
+           let greaterRange4 = moment("22-04-2021", "DD-MM-YYYY");
           let todayRange = moment(today, "DD-MM-YYYY");
 
           let range1 = pre.isBetween(lessRange1, greaterRange1);
           let range2 = pre.isBetween(lessRange2, greaterRange2);
           let range3 = pre.isBetween(lessRange3, greaterRange3);
-          let range4 = pre.isBetween(greaterRange4, todayRange);
+          let range4 = pre.isBetween(lessRange4, greaterRange4);
+         // let range4 = pre.isBetween(greaterRange4, todayRange);
 
           if (
             !range1 &&
