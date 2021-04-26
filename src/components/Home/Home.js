@@ -461,27 +461,6 @@ function Home() {
           </DomLink>
         </Grid>
         <Grid item xs={6} className={classes.quizitems}>
-          <DomLink to="/kbclogin/child=true">
-            <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.kbcChildrenButton}>
-                Children कौन बनेगा धर्मज्ञ (KBD)
-              </Button>
-            </Paper>
-          </DomLink>
-        </Grid>
-        <Grid item xs={6} className={classes.quizitems}>
-          <DomLink to="/kbcallresult/true">
-            <Paper className={classes.paper}>
-              <Button
-                variant="contained"
-                className={classes.kbcChildrenResultButton}
-              >
-                Children कौन बनेगा धर्मज्ञ Rank
-              </Button>
-            </Paper>
-          </DomLink>
-        </Grid>
-        <Grid item xs={6} className={classes.quizitems}>
           <DomLink to="/kbcinstruction">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.kbcButton}>
