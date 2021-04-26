@@ -74,6 +74,7 @@ function KbcContainer(props) {
   const name = props.location.state.fullname;
   const city = props.location.state.city;
   const userId = props.location.state.userId;
+  const child = props.location.state.child;
   let timeLeft = {};
   let startingTime = moment().format("DD:MM:YYYY HH:mm:ss");
 
@@ -89,13 +90,13 @@ function KbcContainer(props) {
     .toLocaleString("default", { month: "short" })
     .toUpperCase();
 
-  const today = day + "-" + "0"+currentMonth + "-" + year;
+  const today = day + "-" + "0" + currentMonth + "-" + year;
 
   useEffect(() => {
     const questionsArray = [];
     let filterArray = [];
-
-    fetch(links.backendURL + "questions")
+    let endpoint = child === true ? "childrenquestions" : "questions";
+    fetch(links.backendURL + endpoint)
       .then(questionsJosn => {
         return questionsJosn.json();
       })
@@ -231,8 +232,10 @@ function KbcContainer(props) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(usersResponseJson)
     };
+    let endpoint =
+      child === true ? "kbcchildrenusersresponse?" : "kbcusersresponse?";
     fetch(
-      links.backendURL + "kbcusersresponse?" + `date=${today}` + `&update=true`,
+      links.backendURL + endpoint + `date=${today}` + `&update=true`,
       userOptions
     ).then(response => {
       // setDuration(duration);
@@ -364,6 +367,7 @@ function KbcContainer(props) {
         userAnswer={resultUserAnswer}
         correctAnswer={resultCorrectAnswer}
         remark={resultRemarks}
+        child={child}
       />
     );
   };

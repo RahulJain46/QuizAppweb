@@ -302,7 +302,14 @@ function KbcLoginPage(props) {
       })
       .then(count => {
         if (count > 0) {
-          history.push(`/kbc`, userdetail);
+          if (props.match.params.child) {
+            const userdetailWithChild = Object.assign(userdetail, {
+              child: true
+            });
+            history.push(`/kbc`, userdetailWithChild);
+          } else {
+            history.push(`/kbc`, userdetail);
+          }
         } else {
           let userOptions = {
             method: "POST",
@@ -310,7 +317,14 @@ function KbcLoginPage(props) {
             body: JSON.stringify(usersJson)
           };
           fetch(links.backendURL + "kbcusers", userOptions).then(response => {
-            history.push(`/kbc`, userdetail);
+            if (props.match.params.child) {
+              const userdetailWithChild = Object.assign(userdetail, {
+                child: true
+              });
+              history.push(`/kbc`, userdetailWithChild);
+            } else {
+              history.push(`/kbc`, userdetail);
+            }
           });
         }
       })

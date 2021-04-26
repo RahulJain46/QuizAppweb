@@ -128,8 +128,25 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "#8a0000f0"
     }
   },
+  kbcChildrenButton: {
+    backgroundColor: "#0d5384",
+    color: "#fff",
+    width: 188,
+    fontSize: 18,
+    "&:hover": {
+      backgroundColor: "#8a0000f0"
+    }
+  },
   kbcResultButton: {
     backgroundColor: "#b04512",
+    color: "#fff",
+    width: 188,
+    "&:hover": {
+      backgroundColor: "#8a0000f0"
+    }
+  },
+  kbcChildrenResultButton: {
+    backgroundColor: "#0d5384",
     color: "#fff",
     width: 188,
     "&:hover": {
@@ -439,6 +456,27 @@ function Home() {
                 className={classes.childrenquizButton}
               >
                 Children Quiz RESULT {day + "-" + month}
+              </Button>
+            </Paper>
+          </DomLink>
+        </Grid>
+        <Grid item xs={6} className={classes.quizitems}>
+          <DomLink to="/kbclogin/child=true">
+            <Paper className={classes.paper}>
+              <Button variant="contained" className={classes.kbcChildrenButton}>
+                Children कौन बनेगा धर्मज्ञ (KBD)
+              </Button>
+            </Paper>
+          </DomLink>
+        </Grid>
+        <Grid item xs={6} className={classes.quizitems}>
+          <DomLink to="/kbcallresult/true">
+            <Paper className={classes.paper}>
+              <Button
+                variant="contained"
+                className={classes.kbcChildrenResultButton}
+              >
+                Children कौन बनेगा धर्मज्ञ Rank
               </Button>
             </Paper>
           </DomLink>

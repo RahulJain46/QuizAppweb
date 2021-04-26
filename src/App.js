@@ -123,9 +123,9 @@ function App() {
             component={childrenUserResponse}
           />
 
-          <Route path="/kbclogin" component={KbcLoginPage} />
+          <Route path="/kbclogin/:child?" component={KbcLoginPage} />
           <Route path="/kbc" component={KbcContainer} />
-          <Route path="/kbcallresult" component={KbcAllResult} />
+          <Route path="/kbcallresult/:child?" component={KbcAllResult} />
           <Route path="/kbcinstruction" component={KbcInstruction} />
           <Route path="/fileupload" component={FileUpload} />
           <Route path="/books" component={Books} />

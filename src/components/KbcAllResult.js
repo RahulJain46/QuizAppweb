@@ -236,14 +236,21 @@ export default function KbcAllResult(props) {
     .toLocaleString("default", { month: "short" })
     .toUpperCase();
 
-  const today = day + "-" + "0"+currentMonth + "-" + year;
-
+  const today = day + "-" + "0" + currentMonth + "-" + year;
+  let child = "";
+  if (props.match.params.child) {
+    child = props.match.params.child;
+  } else if (props.location.state) {
+    child = props.location.state.child;
+  }
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
-    fetch(links.backendURL + `kbcusersresponse?` + `date=${today}`)
+    let endpoint =
+      child === "true" ? `kbcchildrenusersresponse?` : `kbcusersresponse?`;
+    fetch(links.backendURL + endpoint + `date=${today}`)
       .then(response => {
         debugger;
         return response.json();

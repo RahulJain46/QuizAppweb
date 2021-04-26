@@ -119,12 +119,14 @@ function KbcResult(props) {
   debugger;
   const classes = new useStyles();
   const history = useHistory();
+  const child = props.child;
   const referesh = () => {
     window.location.reload();
   };
 
   const viewRank = () => {
-    history.push(`/kbcallresult`, props.userId);
+    let endpoint = child === true ? props : props.userId;
+    history.push(`/kbcallresult`, endpoint);
   };
 
   return (
