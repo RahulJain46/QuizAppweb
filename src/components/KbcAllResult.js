@@ -249,7 +249,7 @@ export default function KbcAllResult(props) {
 
   useEffect(() => {
     let endpoint =
-      child === "true" ? `kbcchildrenusersresponse?` : `kbcusersresponse?`;
+      child === "true" || child === true ? `kbcchildrenusersresponse?` : `kbcusersresponse?`;
     fetch(links.backendURL + endpoint + `date=${today}`)
       .then(response => {
         debugger;
