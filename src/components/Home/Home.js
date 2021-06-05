@@ -402,9 +402,6 @@ function Home() {
       <Card className={classes.notice}>
         <CardContent>
           <Typography className={classes.topNotice}>"जय जिनेन्द्र" </Typography>
-          <Typography className={classes.booksLink}>
-            “बच्चों के लिए भी प्रतिदिन प्रथक से क्विज जारी । कृपया अधिक से अधिक बच्चों को क्विज भरने हेतु प्रेरित करें ताकि उनके धार्मिक ज्ञान में वृद्धि हो सके ।"
-          </Typography>
           <Typography className={classes.kbcNotice}>
             “KBC की तर्ज पर नवीन आकर्षक "कौन बनेगा धर्मज्ञ" GAME नीचे दी गई लिंक पर उपलब्ध”
           </Typography>
