@@ -423,40 +423,6 @@ function Home() {
 
       <Grid container spacing={3} className={classes.quizbutton}>
         <Grid item xs={6} className={classes.quizitems}>
-          <DomLink
-            to={
-              `/datemonthchildquiz` +
-              `/${day + "-" + "0" + currentMonth + "-" + year}`
-            }
-          >
-            <Paper className={classes.paper}>
-              <Button
-                variant="contained"
-                className={classes.childrenquizButton}
-              >
-                Children Quiz {day + "-" + month}
-              </Button>
-            </Paper>
-          </DomLink>
-        </Grid>
-        <Grid item xs={6} className={classes.quizitems}>
-          <DomLink
-            to={
-              `/quizresultchildren` +
-              `/${day + "-" + "0" + currentMonth + "-" + year}`
-            }
-          >
-            <Paper className={classes.paper}>
-              <Button
-                variant="contained"
-                className={classes.childrenquizButton}
-              >
-                Children Quiz RESULT {day + "-" + month}
-              </Button>
-            </Paper>
-          </DomLink>
-        </Grid>
-        <Grid item xs={6} className={classes.quizitems}>
           <DomLink to="/kbcinstruction">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.kbcButton}>
