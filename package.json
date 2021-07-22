@@ -33,7 +33,7 @@
     "redux-thunk": "^2.3.0",
     "toastr": "^2.1.4",
     "uuid": "^7.0.3",
-    "xlsx": "^0.16.8"
+    "xlsx": "^0.17.0"
   },
   "scripts": {
     "start": "react-scripts start",
