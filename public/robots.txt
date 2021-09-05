@@ -1,4 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
-Sitemap: https://jindarshan.now.sh/sitemap.xml
+Sitemap: https://jindarshan.vercel.app/sitemap.xml
 User-agent: *
 Disallow:
