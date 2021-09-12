@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
       animation: "$blinker 1s linear infinite",
      textAlign: "center",
     fontSize: 20,
-    color: "indigo",
+    color: "red",
     fontWeight: 600
   },
   "@keyframes blinker": {  
