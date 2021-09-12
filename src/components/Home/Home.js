@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 600
   },
   topNoticeBlink:{
-      animation: "blinker 1s linear infinite",
+      animation: "$blinker 1s linear infinite",
      textAlign: "center",
     fontSize: 20,
     color: "indigo",
