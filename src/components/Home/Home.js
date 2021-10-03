@@ -467,7 +467,7 @@ function Home() {
         <Grid item xs={6} className={classes.quizitems}>
           <DomLink
             to={
-              `/quizresult` + `/${day + "-" + "0" + currentMonth + "-" + year}`
+              `/quizresult` + `/${day + "-"  + currentMonth + "-" + year}`
             }
           >
             <Paper className={classes.paper}>
