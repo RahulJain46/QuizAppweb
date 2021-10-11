@@ -117,13 +117,14 @@ function KbcContainer(props) {
           let range2 = pre.isBetween(lessRange2, greaterRange2);
           let range3 = pre.isBetween(lessRange3, greaterRange3);
           let range4 = pre.isBetween(lessRange4, greaterRange4);
-         // let range4 = pre.isBetween(greaterRange4, todayRange);
+          let range5 = pre.isBetween(greaterRange4, todayRange);
 
           if (
             !range1 &&
             !range2 &&
             !range3 &&
             !range4 &&
+            !range5 &&
             question.questions !== undefined
           ) {
             return question;
