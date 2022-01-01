@@ -412,7 +412,7 @@ function Home() {
       <Card className={classes.notice}>
         <CardContent>
           <Typography className={classes.topNotice}>"जय जिनेन्द्र" </Typography>
-         <Typography className={classes.booksLink}>"महावीर निर्वाण दिवस की बहुत बहुत शुभकामनाये"</Typography>
+         <Typography className={classes.booksLink}>"नये वर्ष की बहुत बहुत शुभकामनाये"</Typography>
           <Typography className={classes.kbcNotice}>
             “KBC की तर्ज पर नवीन आकर्षक "कौन बनेगा धर्मज्ञ" GAME नीचे दी गई लिंक पर उपलब्ध”
           </Typography>
