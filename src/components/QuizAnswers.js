@@ -96,7 +96,7 @@ function QuizAnswers() {
 
   useEffect(() => {
     const dateArray = [];
-    fetch(links.backendURL + "questions/")
+    fetch(links.backendURL + "questions?" + "date=1&date=all")
       .then(questionJson => {
         return questionJson.json();
       })
