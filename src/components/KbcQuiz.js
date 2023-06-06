@@ -11,7 +11,9 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "antiquewhite",
     margin: 0,
     padding: 0,
-    listStyle: "none"
+    listStyle: "none",
+    display: "flex",
+    justifyContent:"space-around"
   }
 }));
 
