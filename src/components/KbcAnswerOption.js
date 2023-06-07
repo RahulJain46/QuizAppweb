@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 function KbcAnswerOption(props) {
   const classes = new useStyles();
   return (
-    <button className={classes.buttonAnswer} disabled={props.answer} onChange={props.onAnswerSelected}>
+    <button className={classes.buttonAnswer}>
     <li className={classes.answerOption}>
       <input
         type="radio"
@@ -32,6 +32,8 @@ function KbcAnswerOption(props) {
         checked={props.answerContent === props.answer}
         id={props.answerContent}
         value={props.answerContent}
+        onChange={props.onAnswerSelected}
+        disabled={props.answer}
       />
       <label className={classes.radioCustomLabel} htmlFor={props.answerContent}>
         {props.answerContent}
