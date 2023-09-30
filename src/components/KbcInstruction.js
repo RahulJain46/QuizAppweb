@@ -65,7 +65,7 @@ const useStyles = makeStyles(theme => ({
     },
     formContainer: {
       textAlign: "center",
-      marginTop: 18
+      marginTop: -90
     },
     message: {
       marginBottom: 14,
@@ -86,7 +86,7 @@ const useStyles = makeStyles(theme => ({
   [theme.breakpoints.down("361")]: {
     formContainer: {
       textAlign: "center",
-      marginTop: 18
+      marginTop: -90
     },
     message: {
       marginBottom: 14,

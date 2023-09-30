@@ -8,6 +8,16 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#89eddf59",
     width: "20%"
   },
+  yesButton: {
+   
+    backgroundColor: "#78aadf",
+    width: "20%"
+  },
+  noButton: {
+   
+    backgroundColor: "#89eddf59",
+    width: "20%"
+  },
   answerOption:{
     display: "flex",
     justifyContent: "space-around"
@@ -15,15 +25,16 @@ const useStyles = makeStyles(theme => ({
   radioCustomLabel:{
     paddingTop:"7px"
   },
-  radioCustomButton:{
-    width: "40%"
-  }
+  // radioCustomButton:{
+  //   width: "40%"
+  // }
 }));
 
 function KbcAnswerOption(props) {
   const classes = new useStyles();
+  const option = props.answerContent === "YES"  ?  classes.yesButton : classes.noButton
   return (
-    <button className={classes.buttonAnswer}>
+    <button className={option}>
     <li className={classes.answerOption}>
       <input
         type="radio"
