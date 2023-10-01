@@ -121,6 +121,7 @@ function KbcResult(props) {
   const history = useHistory();
   const child = props.child;
   const referesh = () => {
+    props.isPlayingState(true)
     window.location.reload();
   };
 
