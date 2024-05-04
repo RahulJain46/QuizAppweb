@@ -11,98 +11,98 @@ import Link from "@material-ui/core/Link";
 import { links } from "../../Config";
 import { useForm } from "react-hook-form";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   classNotice: {
     color: "#ff0068",
     textAlign: "center",
     fontSize: 20,
-    fontWeight: 600
+    fontWeight: 600,
   },
   classLink: {
     textAlign: "center",
     fontSize: 20,
     fontWeight: 600,
-    color: "#510c0c"
+    color: "#510c0c",
   },
   paper: {
     padding: theme.spacing(2),
-    textAlign: "center"
+    textAlign: "center",
   },
   error: {
     color: "#bf1650",
     "&::before": {
-      content: "'⚠ '"
-    }
+      content: "'⚠ '",
+    },
   },
   notice: {
     marginBottom: 5,
-    backgroundColor: "cornsilk"
+    backgroundColor: "cornsilk",
   },
   topNotice: {
     textAlign: "center",
     fontSize: 20,
     color: "indigo",
-    fontWeight: 600
+    fontWeight: 600,
   },
-  topNoticeBlink:{
-      animation: "$blinker 1s linear infinite",
-     textAlign: "center",
+  topNoticeBlink: {
+    animation: "$blinker 1s linear infinite",
+    textAlign: "center",
     fontSize: 20,
     color: "red",
-    fontWeight: 600
+    fontWeight: 600,
   },
-  "@keyframes blinker": {  
-  "50%": { opacity: 0 }
+  "@keyframes blinker": {
+    "50%": { opacity: 0 },
   },
   booksLink: {
     textAlign: "center",
     fontSize: 20,
     color: "#920808",
-    fontWeight: 600
+    fontWeight: 600,
   },
   messageText: {
     textAlign: "center",
     fontSize: 20,
     color: "#da2646",
-    fontWeight: 600
+    fontWeight: 600,
   },
   toploginNotice: {
     textAlign: "center",
     fontSize: 20,
     color: "indigo",
     fontWeight: 600,
-    display: "inline-block"
+    display: "inline-block",
   },
   quizNotice: {
     textAlign: "center",
     fontSize: 20,
     color: "#11757f",
     fontWeight: 600,
-    display: "inline-block"
+    display: "inline-block",
   },
   quizNameNotice: {
     textAlign: "center",
     fontSize: 20,
     color: "red",
     fontWeight: 600,
-    display: "inline-block"
+    display: "inline-block",
   },
   kbcNotice: {
     textAlign: "center",
     fontSize: 20,
     fontWeight: 600,
-    color: "#11757f"
+    color: "#11757f",
   },
   loginNotice: {
     color: "red",
     textAlign: "center",
     fontSize: 20,
     fontWeight: 600,
-    display: "inline-block"
+    display: "inline-block",
   },
   noticeText: {
     textAlign: "center",
-    fontSize: 20
+    fontSize: 20,
   },
 
   button: {
@@ -110,24 +110,24 @@ const useStyles = makeStyles(theme => ({
     color: "#fff",
     width: 188,
     "&:hover": {
-      backgroundColor: "#303f9f"
-    }
+      backgroundColor: "#303f9f",
+    },
   },
   topicButton: {
     backgroundColor: "darkred",
     color: "#fff",
     width: 188,
     "&:hover": {
-      backgroundColor: "#981212cf"
-    }
+      backgroundColor: "#981212cf",
+    },
   },
   bhajanButton: {
     backgroundColor: "#b04512",
     color: "#fff",
     width: 188,
     "&:hover": {
-      backgroundColor: "#8a0000f0"
-    }
+      backgroundColor: "#8a0000f0",
+    },
   },
   kbcButton: {
     backgroundColor: "#127c28",
@@ -135,8 +135,8 @@ const useStyles = makeStyles(theme => ({
     width: 188,
     fontSize: 18,
     "&:hover": {
-      backgroundColor: "#8a0000f0"
-    }
+      backgroundColor: "#8a0000f0",
+    },
   },
   kbcChildrenButton: {
     backgroundColor: "#0d5384",
@@ -144,43 +144,43 @@ const useStyles = makeStyles(theme => ({
     width: 188,
     fontSize: 18,
     "&:hover": {
-      backgroundColor: "#8a0000f0"
-    }
+      backgroundColor: "#8a0000f0",
+    },
   },
   kbcResultButton: {
     backgroundColor: "#b04512",
     color: "#fff",
     width: 188,
     "&:hover": {
-      backgroundColor: "#8a0000f0"
-    }
+      backgroundColor: "#8a0000f0",
+    },
   },
   kbcChildrenResultButton: {
     backgroundColor: "#0d5384",
     color: "#fff",
     width: 188,
     "&:hover": {
-      backgroundColor: "#8a0000f0"
-    }
+      backgroundColor: "#8a0000f0",
+    },
   },
   ishtopdeshButton: {
     backgroundColor: "#1c008dbf",
     color: "#fff",
     width: 188,
     "&:hover": {
-      backgroundColor: "#323dc1"
-    }
+      backgroundColor: "#323dc1",
+    },
   },
   form: {
-    display: "inline-block"
+    display: "inline-block",
   },
   feedbackButton: {
     backgroundColor: "#1976d2",
     color: "#fff",
     width: 188,
     "&:hover": {
-      backgroundColor: "#303f9f"
-    }
+      backgroundColor: "#303f9f",
+    },
   },
   mobileInput: {
     display: "block",
@@ -188,7 +188,7 @@ const useStyles = makeStyles(theme => ({
     right: 0,
     margin: "0 auto",
     marginBottom: 10,
-    boxShadow: "4px 4px #eeeeee"
+    boxShadow: "4px 4px #eeeeee",
   },
   feedbackInput: {
     left: 0,
@@ -197,30 +197,30 @@ const useStyles = makeStyles(theme => ({
     marginBottom: 17,
     paddingBottom: 0,
     marginBottom: 17,
-    boxShadow: "4px 4px #eeeeee"
+    boxShadow: "4px 4px #eeeeee",
   },
   formContainer: {
     textAlign: "center",
-    marginTop: 18
+    marginTop: 18,
   },
   message: {
     marginBottom: 14,
     fontSize: 18,
-    fontWeight: 600
+    fontWeight: 600,
   },
   responseMessage: {
-    color: "#d34242"
+    color: "#d34242",
   },
   comment: {
     display: "block",
-    textAlign: "center"
+    textAlign: "center",
   },
   submitButton: {
-    textAlign: "center"
+    textAlign: "center",
   },
   mobilenumber: {
     textAlign: "center",
-    display: "block"
+    display: "block",
   },
   home: {
     flexGrow: 1,
@@ -228,50 +228,50 @@ const useStyles = makeStyles(theme => ({
     position: "absolute",
     marginBottom: 73,
     left: "25%",
-    right: "25%"
+    right: "25%",
   },
   childrenquizButton: {
     backgroundColor: "#0F758E",
     color: "#fff",
     width: 188,
     "&:hover": {
-      backgroundColor: "#610c2b"
-    }
+      backgroundColor: "#610c2b",
+    },
   },
   quizResultButton: {
     backgroundColor: "#aa1050e3",
     color: "#fff",
     width: 188,
     "&:hover": {
-      backgroundColor: "#610c2b"
-    }
+      backgroundColor: "#610c2b",
+    },
   },
   quizitems: {
     maxWidth: "100%",
     padding: "0px ! important",
-    paddingTop: "10px ! important"
+    paddingTop: "10px ! important",
   },
   [theme.breakpoints.down("1123")]: {
     home: {
       width: "100%",
       left: "0%",
       right: "0%",
-      top: "0%"
+      top: "0%",
     },
     quizbutton: {
-      display: "inline-block"
+      display: "inline-block",
     },
 
     feedbackButton: {
       padding: "4px 6px",
-      width: 111
+      width: 111,
     },
     button: {
       padding: "4px 6px",
-      width: 185
+      width: 185,
     },
     form: {
-      display: "inline-block"
+      display: "inline-block",
     },
     mobileInput: {
       display: "block",
@@ -279,7 +279,7 @@ const useStyles = makeStyles(theme => ({
       right: 0,
       margin: "0 auto",
       marginBottom: 10,
-      boxShadow: "4px 4px #eeeeee"
+      boxShadow: "4px 4px #eeeeee",
     },
     feedbackInput: {
       left: 0,
@@ -288,93 +288,93 @@ const useStyles = makeStyles(theme => ({
       marginBottom: 17,
       paddingBottom: 0,
       marginBottom: 17,
-      boxShadow: "4px 4px #eeeeee"
+      boxShadow: "4px 4px #eeeeee",
     },
     formContainer: {
       textAlign: "center",
-      marginTop: 18
+      marginTop: 18,
     },
     message: {
       marginBottom: 14,
       fontSize: 18,
-      fontWeight: 600
+      fontWeight: 600,
     },
     responseMessage: {
-      color: "#d34242"
+      color: "#d34242",
     },
     comment: {
       display: "block",
-      textAlign: "center"
+      textAlign: "center",
     },
     submitButton: {
-      textAlign: "center"
+      textAlign: "center",
     },
     mobilenumber: {
       textAlign: "center",
-      display: "block"
+      display: "block",
     },
     toploginNotice: {
-      paddingLeft: 17
+      paddingLeft: 17,
     },
     quizNotice: {
-      paddingLeft: 17
+      paddingLeft: 17,
     },
     quizNameNotice: {
-      paddingLeft: 17
+      paddingLeft: 17,
     },
     loginNotice: {
-      paddingLeft: 17
+      paddingLeft: 17,
     },
     toploginNotice: {
-      paddingLeft: 17
+      paddingLeft: 17,
     },
     message: {
-      paddingLeft: 17
-    }
+      paddingLeft: 17,
+    },
   },
   [theme.breakpoints.down("361")]: {
     form: {
-      display: "inline-block"
+      display: "inline-block",
     },
     mobileInput: {
       display: "block",
       marginBottom: 10,
-      boxShadow: "4px 4px #eeeeee"
+      boxShadow: "4px 4px #eeeeee",
     },
     feedbackInput: {
       paddingBottom: 0,
       marginBottom: 17,
-      boxShadow: "4px 4px #eeeeee"
+      boxShadow: "4px 4px #eeeeee",
     },
     formContainer: {
       textAlign: "center",
-      marginTop: 18
+      marginTop: 18,
     },
     message: {
       marginBottom: 14,
       fontSize: 18,
-      fontWeight: 600
+      fontWeight: 600,
     },
     comment: {
       display: "block",
-      marginLeft: -33
+      marginLeft: -33,
     },
     submitButton: {
-      textAlign: "center"
+      textAlign: "center",
     },
     toploginNotice: {
-      paddingLeft: 17
+      paddingLeft: 17,
     },
     loginNotice: {
-      paddingLeft: 17
+      paddingLeft: 17,
     },
     toploginNotice: {
-      paddingLeft: 17
+      paddingLeft: 17,
     },
     message: {
-      paddingLeft: 17
-    }
-  }
+      paddingLeft: 17,
+    },
+  },
 }));
 
 function Home() {
@@ -387,16 +387,19 @@ function Home() {
       ? new Date().getDate()
       : "0" + new Date().getDate();
   const year = new Date().getFullYear();
-  const currentMonth = new Date().getMonth() + 1;
+  const currentMonth =
+    new Date().getMonth() < 9
+      ? "0" + (new Date().getMonth() + 1)
+      : new Date().getMonth() + 1;
   const month = date
     .toLocaleString("default", { month: "short" })
     .toUpperCase();
   const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = async data => {
+  const onSubmit = async (data) => {
     let userOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     };
 
     await fetch(links.backendURL + "comments", userOptions);
@@ -413,7 +416,8 @@ function Home() {
         <CardContent>
           <Typography className={classes.topNotice}>"जय जिनेन्द्र" </Typography>
           <Typography className={classes.kbcNotice}>
-            “KBC की तर्ज पर नवीन आकर्षक "कौन बनेगा धर्मज्ञ" GAME नीचे दी गई लिंक पर उपलब्ध”
+            “KBC की तर्ज पर नवीन आकर्षक "कौन बनेगा धर्मज्ञ" GAME नीचे दी गई लिंक
+            पर उपलब्ध”
           </Typography>
           <Typography className={classes.topNotice}>
             "QUIZ को निरंतर सफलता पूर्वक चलते हुए 2 वर्ष पूर्ण।"
@@ -452,9 +456,7 @@ function Home() {
         </Grid>
         <Grid item xs={6} className={classes.quizitems}>
           <DomLink
-            to={
-              `/quizlogin` + `/${day + "-"  + currentMonth + "-" + year}`
-            }
+            to={`/quizlogin` + `/${day + "-" + currentMonth + "-" + year}`}
           >
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.button}>
@@ -465,9 +467,7 @@ function Home() {
         </Grid>
         <Grid item xs={6} className={classes.quizitems}>
           <DomLink
-            to={
-              `/quizresult` + `/${day + "-"  + currentMonth + "-" + year}`
-            }
+            to={`/quizresult` + `/${day + "-" + currentMonth + "-" + year}`}
           >
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.quizResultButton}>
@@ -542,7 +542,7 @@ function Home() {
                       required: true,
                       pattern: "^-?[0-9]d*.?d*$",
                       minLength: 10,
-                      maxLength: 10
+                      maxLength: 10,
                     })}
                     className={classes.mobileInput}
                   />
@@ -556,7 +556,7 @@ function Home() {
                 <input
                   name="comment"
                   ref={register({
-                    required: true
+                    required: true,
                   })}
                   className={classes.feedbackInput}
                 />

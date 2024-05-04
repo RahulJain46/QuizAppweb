@@ -11,93 +11,93 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import { links } from "../Config";
 import moment from "moment";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   oldQuiz: {
     flexGrow: 1,
     marginTop: 150,
     position: "absolute",
     marginBottom: 73,
     left: "25%",
-    right: "25%"
+    right: "25%",
   },
   paper: {
     padding: theme.spacing(2),
-    textAlign: "center"
+    textAlign: "center",
   },
   button: {
     backgroundColor: "#1976d2",
     color: "#fff",
     "&:hover": {
-      backgroundColor: "#303f9f"
-    }
+      backgroundColor: "#303f9f",
+    },
   },
   topicButton: {
     backgroundColor: "purple",
     color: "#fff",
     width: 160,
     "&:hover": {
-      backgroundColor: "#820999cf"
-    }
+      backgroundColor: "#820999cf",
+    },
   },
   quizitems: {
     maxWidth: "100%",
     padding: "0px ! important",
-    paddingTop: "10px ! important"
+    paddingTop: "10px ! important",
   },
   resultbutton: {
     backgroundColor: "#aa1050e3",
     color: "#fff",
     "&:hover": {
-      backgroundColor: "#610c2b"
-    }
+      backgroundColor: "#610c2b",
+    },
   },
   loading: {
     position: "relative",
     top: 77,
-    left: "38%"
+    left: "38%",
   },
   backButton: {
-    backgroundColor: "#1976d2"
+    backgroundColor: "#1976d2",
   },
   [theme.breakpoints.down("1105")]: {
     oldQuiz: {
       width: "100%",
       left: "0%",
       right: "0%",
-      top: "0%"
+      top: "0%",
     },
     oldQuizButton: {
       minWidth: "100%",
       maxWidth: "100%",
-      padding: "1px ! important"
+      padding: "1px ! important",
     },
     quizbuttons: {
-      display: "inlineBlock"
+      display: "inlineBlock",
     },
     oldQuizHeading: {
-      fontSize: 22
+      fontSize: 22,
     },
     quizbuttonsItem: {
       padding: 1,
-      padding: "1px ! important"
+      padding: "1px ! important",
     },
     button: {
       padding: "4px 6px",
-      width: 185
+      width: 185,
     },
     resultbutton: {
       padding: "4px 6px",
-      width: 185
+      width: 185,
     },
     backButton: {
       backgroundColor: "#1976d2",
       padding: "3px 10px",
-      fontSize: 11
+      fontSize: 11,
     },
     backArrow: {
-      fontSize: 15
-    }
-  }
+      fontSize: 15,
+    },
+  },
 }));
 
 function OldQuiz() {
@@ -126,15 +126,18 @@ function OldQuiz() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*"
-      }
+        "Access-Control-Allow-Origin": "*",
+      },
     };
-    fetch(links.backendURL + "questions?" + "date=1&date=all", userOptions)
-      .then(questionJson => {
+    fetch(
+      links.backendURL + "questions?" + "date=1&date=all&date=allDates",
+      userOptions
+    )
+      .then((questionJson) => {
         return questionJson.json();
       })
-      .then(questions => {
-        questions.map(question => {
+      .then((questions) => {
+        questions.map((question) => {
           let quesdate = question.date;
           const today = moment(presentDate, "DD-MM-YYYY");
           const someday = moment(quesdate, "DD-MM-YYYY");
@@ -155,7 +158,6 @@ function OldQuiz() {
       <Grid container spacing={3} className={classes.quizbuttons}>
         <Grid item xs={12} className={classes.quizbuttonsItem}>
           <Paper className={classes.paper}>
-
             <Link to={`/`}>
               <Button
                 variant="contained"
@@ -167,16 +169,14 @@ function OldQuiz() {
               </Button>
             </Link>
             <Grid item xs={12} className={classes.quizitems}>
-          <Link to="/quiztopic">
-            
-              <Button variant="contained" className={classes.topicButton}>
-                Old Quiz Topics
-              </Button>
-            
-          </Link>
-        </Grid>
+              <Link to="/quiztopic">
+                <Button variant="contained" className={classes.topicButton}>
+                  Old Quiz Topics
+                </Button>
+              </Link>
+            </Grid>
 
-        <Typography
+            <Typography
               variant="h4"
               gutterBottom
               className={classes.oldQuizHeading}
@@ -186,7 +186,7 @@ function OldQuiz() {
           </Paper>
         </Grid>
         {dates.length != 0 && !loading ? (
-          dates.map(date => (
+          dates.map((date) => (
             <React.Fragment>
               <Grid item xs={6} className={classes.oldQuizButton}>
                 <Link to={`/datemonthquiz` + `/${date}`}>
@@ -216,7 +216,7 @@ function OldQuiz() {
             <Fade
               in={loading}
               style={{
-                transitionDelay: loading ? "800ms" : "0ms"
+                transitionDelay: loading ? "800ms" : "0ms",
               }}
               unmountOnExit
             >

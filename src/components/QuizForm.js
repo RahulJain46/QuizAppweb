@@ -18,7 +18,7 @@ import moment from "moment";
 import red from "@material-ui/core/colors/red";
 const error = red[700];
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   container: {
     border: "1px solid #cfd8dc",
     boxShadow: "7px 5px #eeeeee",
@@ -27,31 +27,31 @@ const useStyles = makeStyles(theme => ({
     maxWidth: "45%",
     marginBottom: 75,
     left: "30%",
-    width: "100%"
+    width: "100%",
   },
   headerDate: {
     fontWeight: 600,
     textAlign: "center",
-    fontSize: 23
+    fontSize: 23,
   },
   headerMessage: {
     fontWeight: 400,
     textAlign: "center",
-    fontSize: 23
+    fontSize: 23,
   },
   loading: {
     position: "relative",
     top: 227,
-    left: "47%"
+    left: "47%",
   },
   helpLink: {
     marginLeft: "2%",
     fontSize: 17,
     textAlign: "right",
-    paddingBottom: 24
+    paddingBottom: 24,
   },
   helpLabel: {
-    fontSize: 17
+    fontSize: 17,
   },
   questionfields: {
     border: "1px solid #cfd8dc",
@@ -59,14 +59,14 @@ const useStyles = makeStyles(theme => ({
     margin: 11,
     display: "block",
     "&:hover": {
-      backgroundColor: "#fafafa"
-    }
+      backgroundColor: "#fafafa",
+    },
   },
   questionContent: {
-    marginLeft: "-1%"
+    marginLeft: "-1%",
   },
   questionOption: {
-    marginLeft: "3%"
+    marginLeft: "3%",
   },
   input: {
     boxShadow: "7px 5px #eeeeee",
@@ -77,7 +77,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#e9ecef40",
     padding: "10px 15px",
     margin: 10,
-    fontSize: 14
+    fontSize: 14,
   },
   label: {
     lineHeight: 2,
@@ -89,7 +89,7 @@ const useStyles = makeStyles(theme => ({
     color: "black",
     fontWeight: 500,
     marginLeft: 14,
-    fontFamily: "sans-serif"
+    fontFamily: "sans-serif",
   },
   button: {
     backgroundColor: "#1976d2",
@@ -99,67 +99,67 @@ const useStyles = makeStyles(theme => ({
     marginTop: 13,
     height: 44,
     "&:hover": {
-      backgroundColor: "#303f9f"
-    }
+      backgroundColor: "#303f9f",
+    },
   },
   error: {
     color: "#bf1650",
     "&::before": {
-      content: "'⚠ '"
-    }
+      content: "'⚠ '",
+    },
   },
   asteriskField: {
     marginLeft: 24,
-    color: error
+    color: error,
   },
   radioButton: {
     height: 12,
-    marginRight: 13
+    marginRight: 13,
   },
   optionLabel: {
-    width: "100%"
+    width: "100%",
   },
   [theme.breakpoints.down("361")]: {
     container: {
       maxWidth: "100%",
       top: 176,
       marginBottom: "22%",
-      left: "0%"
+      left: "0%",
     },
     input: {
       width: "100%",
       margin: 0,
       fontSize: 17,
       padding: "8px 8px",
-      boxShadow: "3px 3px #eeeeee"
+      boxShadow: "3px 3px #eeeeee",
     },
     label: {
       marginBottom: 2,
       marginTop: 4,
       fontSize: 19,
-      marginLeft: 8
+      marginLeft: 8,
     },
     asteriskField: {
       fontSize: 19,
-      marginLeft: "4%"
+      marginLeft: "4%",
     },
     questionfields: {
       boxShadow: "3px 3px #eeeeee",
-      margin: 6
+      margin: 6,
     },
     questionContent: {
       marginLeft: "0%",
-      maxWidth: "100%"
+      maxWidth: "100%",
     },
     questionOption: {
       marginLeft: "3%",
-      fontSize: 18
+      fontSize: 18,
     },
     radioButton: {
-      height: 16
+      height: 16,
     },
     questionLabel: {
-      fontSize: 19
+      fontSize: 19,
     },
 
     button: {
@@ -167,22 +167,22 @@ const useStyles = makeStyles(theme => ({
       marginTop: 8,
       marginLeft: 7,
       height: 44,
-      fontSize: 19
+      fontSize: 19,
     },
     error: {
-      fontSize: 9
+      fontSize: 9,
     },
     optionLabel: {
-      paddingLeft: 8
+      paddingLeft: 8,
     },
     helpLabel: {
-      fontSize: 19
+      fontSize: 19,
     },
     helpLink: {
       marginLeft: "6%",
       fontSize: 19,
-      paddingBottom: 24
-    }
+      paddingBottom: 24,
+    },
   },
 
   [theme.breakpoints.between("361", "xs")]: {
@@ -190,65 +190,65 @@ const useStyles = makeStyles(theme => ({
       maxWidth: "100%",
       top: 176,
       marginBottom: "22%",
-      left: "0%"
+      left: "0%",
     },
     helpLink: {
       marginLeft: "6%",
       fontSize: 19,
-      paddingBottom: 24
+      paddingBottom: 24,
     },
     input: {
       width: "100%",
       margin: 0,
       fontSize: 21,
       padding: "5px 8px",
-      boxShadow: "4px 4px #eeeeee"
+      boxShadow: "4px 4px #eeeeee",
     },
     label: {
       marginBottom: 3,
       marginTop: 3,
       fontSize: 22,
-      marginLeft: 8
+      marginLeft: 8,
     },
     asteriskField: {
       fontSize: 21,
-      marginLeft: "4%"
+      marginLeft: "4%",
     },
     questionfields: {
       boxShadow: "4px 3px #eeeeee",
-      margin: 7
+      margin: 7,
     },
     questionContent: {
       marginLeft: "0%",
-      maxWidth: "100%"
+      maxWidth: "100%",
     },
     questionOption: {
       marginLeft: "3%",
-      fontSize: 21
+      fontSize: 21,
     },
     radioButton: {
-      height: 18
+      height: 18,
     },
     questionLabel: {
-      fontSize: 22
+      fontSize: 22,
     },
     button: {
       width: 107,
       marginTop: 7,
       marginLeft: 8,
       height: 46,
-      fontSize: 21
+      fontSize: 21,
     },
     error: {
-      fontSize: 20
+      fontSize: 20,
     },
     optionLabel: {
-      paddingLeft: 8
+      paddingLeft: 8,
     },
     helpLabel: {
-      fontSize: 19
-    }
-  }
+      fontSize: 19,
+    },
+  },
 }));
 
 function QuizForm(props) {
@@ -260,7 +260,7 @@ function QuizForm(props) {
     watch,
     errors,
     control,
-    setError
+    setError,
   } = useForm();
   const [questions, setQuestions] = useState([]);
   const [questionsId, setQuestionsId] = useState([]);
@@ -282,12 +282,9 @@ function QuizForm(props) {
       let questions = await fetch(
         links.backendURL + "questions?date=" + `${date}`
       );
+      console.log(questions, "questions");
       let questionJson = await questions.json();
-      questionJson.map(question => {
-        queastionsIdArray.push(question.id);
-        questionsArray.push(question.questions);
-      });
-      setQuestionsId(queastionsIdArray);
+      questionsArray.push(questionJson.questions);
       setQuestions(questionsArray);
       setLoading(false);
     }
@@ -297,8 +294,8 @@ function QuizForm(props) {
   const calcaulateScore = (rightAns, userAns, usersResponse) => {
     let score = 0;
     let usersArray = [];
-    rightAns.map(answers => {
-      answers.map(answer => {
+    rightAns.map((answers) => {
+      answers.map((answer) => {
         let usersJson = {};
         usersJson["question"] = answer.question;
         usersJson["answer"] = userAns.get(answer.question);
@@ -326,7 +323,7 @@ function QuizForm(props) {
     let userOptions = {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(userresponse)
+      body: JSON.stringify(userresponse),
     };
     console.log(
       links.backendURL + "usersresponse?" + `date=${date}` + `&update=true`
@@ -335,12 +332,12 @@ function QuizForm(props) {
       links.backendURL + "usersresponse?" + `date=${date}` + `&update=true`,
       userOptions
     )
-      .then(response => {
+      .then((response) => {
         console.log(response.status);
         alert("your score is : " + score);
         history.push(`/yourresponse/${uuid}/${date}`, detailedUserResponse);
       })
-      .catch(error => console.log("error is", error));
+      .catch((error) => console.log("error is", error));
   };
 
   const onSubmit = (data, ques, quesId) => {
@@ -374,13 +371,13 @@ function QuizForm(props) {
     const userData = Object.assign(data, {
       id: uuid,
       score: userResponseJson["score"],
-      time
+      time,
     });
     fetch(links.backendURL + "users?" + `&userId=${uuid}`)
-      .then(response => {
+      .then((response) => {
         return response.json();
       })
-      .then(count => {
+      .then((count) => {
         if (count > 0) {
           fetch(
             links.backendURL +
@@ -388,10 +385,10 @@ function QuizForm(props) {
               `date=${date}` +
               `&userId=${uuid}`
           )
-            .then(response => {
+            .then((response) => {
               return response.json();
             })
-            .then(userexists => {
+            .then((userexists) => {
               if (userexists) {
                 alert(
                   "आपके द्वारा आज का QUIZ पूर्व में SUBMIT किया जा चुका है"
@@ -413,9 +410,9 @@ function QuizForm(props) {
           let userOptions = {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(usersJson)
+            body: JSON.stringify(usersJson),
           };
-          fetch(links.backendURL + "users", userOptions).then(response => {
+          fetch(links.backendURL + "users", userOptions).then((response) => {
             patchUserResponse(
               userResponseJson,
               userData,
@@ -426,7 +423,7 @@ function QuizForm(props) {
           });
         }
       })
-      .catch(error => console.log("error is", error));
+      .catch((error) => console.log("error is", error));
   };
   const reactStringReplace = require("react-string-replace");
 
@@ -435,11 +432,7 @@ function QuizForm(props) {
       {questions.length != 0 && !loading ? (
         <Card className={classes.container}>
           <CardContent>
-            <form
-              onSubmit={handleSubmit(data =>
-                onSubmit(data, questions, questionsId)
-              )}
-            >
+            <form onSubmit={handleSubmit((data) => onSubmit(data, questions))}>
               {date === "09-06-2020" ? (
                 <Typography
                   variant="h6"
@@ -494,7 +487,7 @@ function QuizForm(props) {
                 type="tel"
                 ref={register({
                   required: true,
-                  pattern: "^-?[0-9]d*.?d*$"
+                  pattern: "^-?[0-9]d*.?d*$",
                 })}
               />
               {errors.mobile && (
@@ -585,7 +578,7 @@ function QuizForm(props) {
                 <p className={classes.error}>This field is required</p>
               )}
 
-              {questions.map(question => {
+              {questions.map((question) => {
                 return question.map((row, index) => (
                   <Card className={classes.questionfields}>
                     <CardContent>
@@ -783,7 +776,7 @@ function QuizForm(props) {
           <Fade
             in={loading}
             style={{
-              transitionDelay: loading ? "0ms" : "0ms"
+              transitionDelay: loading ? "0ms" : "0ms",
             }}
             unmountOnExit
           >

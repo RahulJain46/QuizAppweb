@@ -20,7 +20,7 @@ import { links } from "../Config";
 const error = red[700];
 const success = green[700];
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   container: {
     border: "1px solid #cfd8dc",
     boxShadow: "7px 5px #eeeeee",
@@ -29,13 +29,13 @@ const useStyles = makeStyles(theme => ({
     maxWidth: "45%",
     marginBottom: 75,
     left: "30%",
-    width: "100%"
+    width: "100%",
   },
   questionfields: {
     border: "1px solid #cfd8dc",
     boxShadow: "7px 5px #eeeeee",
     margin: 11,
-    display: "block"
+    display: "block",
   },
   input: {
     boxShadow: "3px 5px #eeeeee",
@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
     padding: "10px 15px",
     margin: 10,
     fontSize: 14,
-    fontWeight: "500"
+    fontWeight: "500",
   },
   label: {
     lineHeight: 2,
@@ -60,7 +60,7 @@ const useStyles = makeStyles(theme => ({
     color: "black",
     fontWeight: 500,
     marginLeft: 14,
-    fontFamily: "sans-serif"
+    fontFamily: "sans-serif",
   },
   questionContent: {
     lineHeight: 2,
@@ -72,7 +72,7 @@ const useStyles = makeStyles(theme => ({
     color: "black",
     fontWeight: 500,
     marginLeft: 14,
-    fontFamily: "sans-serif"
+    fontFamily: "sans-serif",
   },
   lastButton: {
     backgroundColor: "#1976d2",
@@ -82,8 +82,8 @@ const useStyles = makeStyles(theme => ({
     marginTop: 13,
     height: 44,
     "&:hover": {
-      backgroundColor: "#303f9f"
-    }
+      backgroundColor: "#303f9f",
+    },
   },
   kbdButton: {
     backgroundColor: "#077214",
@@ -93,8 +93,8 @@ const useStyles = makeStyles(theme => ({
     marginTop: 13,
     height: 44,
     "&:hover": {
-      backgroundColor: "#303f9f"
-    }
+      backgroundColor: "#303f9f",
+    },
   },
   kbdTop: {
     backgroundColor: "#077214",
@@ -104,57 +104,57 @@ const useStyles = makeStyles(theme => ({
     marginTop: 13,
     height: 44,
     "&:hover": {
-      backgroundColor: "#303f9f"
-    }
+      backgroundColor: "#303f9f",
+    },
   },
   paper: {
     textAlign: "center",
-    padding: 12
+    padding: 12,
   },
   kbcpaper: {
     textAlign: "center",
-    padding: 12
+    padding: 12,
   },
   correct: {
     marginLeft: 24,
-    color: success
+    color: success,
   },
   incorrect: {
     marginLeft: 24,
-    color: error
+    color: error,
   },
   scoreCard: {
     color: "#902024",
     fontWeight: 600,
-    fontSize: 34
+    fontSize: 34,
   },
   timeCard: {
-    fontSize: 24
+    fontSize: 24,
   },
   [theme.breakpoints.down("361")]: {
     scoreCard: {
       color: "#902024",
       fontWeight: 600,
-      fontSize: 30
+      fontSize: 30,
     },
     buttons: {
       paddingLeft: 9,
-      paddingRight: 10
+      paddingRight: 10,
     },
     timeCard: {
-      fontSize: 24
+      fontSize: 24,
     },
     container: {
       maxWidth: "100%",
       top: 176,
       marginBottom: "22%",
-      left: "0%"
+      left: "0%",
     },
     label: {
       marginBottom: 2,
       marginTop: 4,
       fontSize: 19,
-      marginLeft: 8
+      marginLeft: 8,
     },
     input: {
       width: "100%",
@@ -163,23 +163,23 @@ const useStyles = makeStyles(theme => ({
       padding: "8px 8px",
       boxShadow: "3px 3px #eeeeee",
       fontWeight: "500",
-      opacity: 1
+      opacity: 1,
     },
     correct: {
       color: success,
       fontSize: 17,
-      margin: 8
+      margin: 8,
     },
     incorrect: {
       color: error,
       fontSize: 17,
-      margin: 8
+      margin: 8,
     },
     questionContent: {
       marginBottom: 5,
       fontSize: 19,
       marginLeft: 8,
-      fontWeight: "initial"
+      fontWeight: "initial",
     },
     lastButton: {
       width: "105%",
@@ -188,7 +188,7 @@ const useStyles = makeStyles(theme => ({
       height: 45,
       fontSize: 14,
       padding: 1,
-      lineHeight: 1
+      lineHeight: 1,
     },
     kbdButton: {
       width: "105%",
@@ -197,7 +197,7 @@ const useStyles = makeStyles(theme => ({
       height: 45,
       fontSize: 14,
       padding: 1,
-      lineHeight: 1
+      lineHeight: 1,
     },
     kbdTop: {
       width: "105%",
@@ -206,56 +206,56 @@ const useStyles = makeStyles(theme => ({
       height: 45,
       fontSize: 21,
       padding: 1,
-      lineHeight: 1
+      lineHeight: 1,
     },
     kbdButtonTop: {
-      paddingLeft: "16%"
+      paddingLeft: "16%",
     },
     kbdContainerButton: {
       maxWidth: "1000%",
-      flexBasis: "82%"
+      flexBasis: "82%",
     },
     paper: {
       padding: 1,
-      marginBottom: 8
+      marginBottom: 8,
     },
     kbcpaper: {
       padding: 1,
       marginBottom: 8,
-      marginTop: 16
-    }
+      marginTop: 16,
+    },
   },
   [theme.breakpoints.between("361", "xs")]: {
     scoreCard: {
       color: "#902024",
       fontWeight: 600,
-      fontSize: 30
+      fontSize: 30,
     },
     buttons: {
       paddingLeft: 9,
-      paddingRight: 10
+      paddingRight: 10,
     },
     kbdButtonTop: {
-      paddingLeft: "16%"
+      paddingLeft: "16%",
     },
     kbdContainerButton: {
       maxWidth: "1000%",
-      flexBasis: "80%"
+      flexBasis: "80%",
     },
     timeCard: {
-      fontSize: 24
+      fontSize: 24,
     },
     container: {
       maxWidth: "100%",
       top: 176,
       marginBottom: "22%",
-      left: "0%"
+      left: "0%",
     },
     label: {
       marginBottom: 2,
       marginTop: 4,
       fontSize: 22,
-      marginLeft: 8
+      marginLeft: 8,
     },
     input: {
       width: "100%",
@@ -264,23 +264,23 @@ const useStyles = makeStyles(theme => ({
       padding: "8px 8px",
       boxShadow: "3px 3px #eeeeee",
       fontWeight: "500",
-      opacity: 1
+      opacity: 1,
     },
     correct: {
       color: success,
       fontSize: 19,
-      margin: 8
+      margin: 8,
     },
     incorrect: {
       color: error,
       fontSize: 19,
-      margin: 8
+      margin: 8,
     },
     questionContent: {
       marginBottom: 5,
       fontSize: 22,
       marginLeft: 8,
-      fontWeight: "initial"
+      fontWeight: "initial",
     },
     lastButton: {
       width: "105%",
@@ -289,7 +289,7 @@ const useStyles = makeStyles(theme => ({
       height: 55,
       fontSize: 13,
       padding: 5,
-      lineHeight: 1
+      lineHeight: 1,
     },
     kbdButton: {
       width: "105%",
@@ -299,7 +299,7 @@ const useStyles = makeStyles(theme => ({
       fontSize: 13,
       padding: 5,
       lineHeight: 1,
-      backgroundColor: "#077214"
+      backgroundColor: "#077214",
     },
     kbdTop: {
       width: "105%",
@@ -309,13 +309,13 @@ const useStyles = makeStyles(theme => ({
       fontSize: 23,
       padding: 5,
       lineHeight: 1,
-      backgroundColor: "#077214"
+      backgroundColor: "#077214",
     },
     paper: {
       padding: 1,
-      marginBottom: 8
-    }
-  }
+      marginBottom: 8,
+    },
+  },
 }));
 
 function UserResponse(props) {
@@ -338,14 +338,14 @@ function UserResponse(props) {
       city: props.location.state.city,
       mobile: props.location.state.mobile,
       address: props.location.state.address,
-      userId: uuid
+      userId: uuid,
     };
     let userOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(usersJson)
+      body: JSON.stringify(usersJson),
     };
-    fetch(links.backendURL + "kbcusers", userOptions).then(response => {
+    fetch(links.backendURL + "kbcusers", userOptions).then((response) => {
       history.push(`/kbc`, usersJson);
     });
   };
@@ -358,20 +358,21 @@ function UserResponse(props) {
     const queastionsIdArray = [];
     const date = props.match.params.date;
     fetch(links.backendURL + "questions?date=" + `${date}`)
-      .then(questionsJosn => {
+      .then((questionsJosn) => {
         return questionsJosn.json();
       })
-      .then(questions => {
-        questions.map(question => {
-          queastionsIdArray.push(question.id);
-          questionsArray.push(question.questions);
-        });
+      .then((questions) => {
+        // questions.map(question => {
+        //   queastionsIdArray.push(question.id);
+        //   questionsArray.push(question.questions);
+        // });
+        questionsArray.push(questions.questions);
         var myMap = new Map();
-        questionsArray[0].map(el => {
+        questionsArray[0].map((el) => {
           myMap.set(el.question, { answer: el.answer, remarks: el.remarks });
         });
         setAllQuestionsMap(myMap);
-        setQuestionsId(queastionsIdArray);
+        // setQuestionsId(queastionsIdArray);
         setAllQuestions(questionsArray);
         setLoading(false);
       });
