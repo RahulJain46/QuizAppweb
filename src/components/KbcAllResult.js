@@ -16,17 +16,17 @@ import TableRow from "@material-ui/core/TableRow";
 import { links } from "../Config";
 import moment from "moment";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   tableheading: {
     // width: "%",
     position: "fixed",
     top: 148,
     left: "17%",
     bottom: "6%",
-    right: "17%"
+    right: "17%",
   },
   backButton: {
-    backgroundColor: "#1976d2"
+    backgroundColor: "#1976d2",
   },
   totalCount: {
     position: "relative",
@@ -34,59 +34,59 @@ const useStyles = makeStyles(theme => ({
     marginLeft: "0%",
     fontSize: 28,
     fontWeight: 600,
-    color: "#902024"
+    color: "#902024",
   },
   showdate: {
     position: "relative",
     top: 0,
     marginLeft: "0%",
     fontSize: 24,
-    fontWeight: 600
+    fontWeight: 600,
   },
   headerDate: {
     fontWeight: 600,
     textAlign: "center",
-    fontSize: 23
+    fontSize: 23,
   },
   headerBackButton: {
     textAlign: "left",
     fontWeight: 600,
     textAlign: "center",
-    fontSize: 23
+    fontSize: 23,
   },
   container: {
     maxHeight: "78%",
     // position: "fixed",
-    left: "19%"
+    left: "19%",
   },
   tablecolumns: {
-    background: "blue"
+    background: "blue",
   },
   tableTime: {
     minWidth: 27,
-    backgroundColor: "#c1d4d9"
+    backgroundColor: "#c1d4d9",
   },
   tablePName: {
     minWidth: 200,
-    backgroundColor: "#c1d4d9"
+    backgroundColor: "#c1d4d9",
   },
   tableCity: {
     minWidth: 60,
-    backgroundColor: "#c1d4d9"
+    backgroundColor: "#c1d4d9",
   },
   tableScore: {
     minWidth: 101,
-    backgroundColor: "#c1d4d9"
+    backgroundColor: "#c1d4d9",
   },
   tableSuggestion: {
     minWidth: 170,
-    backgroundColor: "#c1d4d9"
+    backgroundColor: "#c1d4d9",
   },
   scoreHighlight: {
-    backgroundColor: "#46d117"
+    backgroundColor: "#46d117",
   },
   yourScoreHighlight: {
-    backgroundColor: "#ac7818"
+    backgroundColor: "#ac7818",
   },
   [theme.breakpoints.down("1124")]: {
     tableheading: {
@@ -95,24 +95,24 @@ const useStyles = makeStyles(theme => ({
       right: 0,
       paddingRight: 0,
       position: "relative",
-      paddingBottom: "9%"
+      paddingBottom: "9%",
     },
     container: {
       left: 0,
-      maxHeight: "70%"
+      maxHeight: "70%",
     },
     showdate: {
       top: 0,
       marginLeft: "1%",
       fontSize: 19,
-      fontWeight: 600
+      fontWeight: 600,
     },
     totalCount: {
       top: 0,
       marginLeft: "1%",
       fontSize: 26,
       fontWeight: 600,
-      color: "#902024"
+      color: "#902024",
     },
     tableTime: {
       fontSize: 15,
@@ -121,7 +121,7 @@ const useStyles = makeStyles(theme => ({
       borderTop: "1px solid",
       paddingRight: 0,
       paddingLeft: 5,
-      minWidth: 30
+      minWidth: 30,
     },
     tablePName: {
       fontSize: 15,
@@ -129,7 +129,7 @@ const useStyles = makeStyles(theme => ({
       borderTop: "1px solid",
       paddingRight: 0,
       minWidth: 180,
-      paddingLeft: 9
+      paddingLeft: 9,
     },
     tableCity: {
       fontSize: 15,
@@ -138,7 +138,7 @@ const useStyles = makeStyles(theme => ({
       borderTop: "1px solid",
       paddingRight: 0,
       paddingLeft: 4,
-      textAlign: "center"
+      textAlign: "center",
     },
     tableScore: {
       fontSize: 15,
@@ -146,7 +146,7 @@ const useStyles = makeStyles(theme => ({
       borderRight: "1px solid",
       borderTop: "1px solid",
       paddingRight: 0,
-      paddingLeft: 4
+      paddingLeft: 4,
     },
     tableNameCell: {
       fontSize: 15,
@@ -155,7 +155,7 @@ const useStyles = makeStyles(theme => ({
       paddingRight: 5,
       paddingTop: 10,
       paddingBottom: 10,
-      lineHeight: "21px"
+      lineHeight: "21px",
     },
     tableCityCell: {
       fontSize: 15,
@@ -165,7 +165,7 @@ const useStyles = makeStyles(theme => ({
       paddingTop: 10,
       paddingBottom: 10,
       lineHeight: "21px",
-      textAlign: "-webkit-center"
+      textAlign: "-webkit-center",
     },
     tableScoreCell: {
       fontSize: 15,
@@ -175,7 +175,7 @@ const useStyles = makeStyles(theme => ({
       paddingTop: 10,
       paddingBottom: 10,
       lineHeight: "21px",
-      borderRight: "1px solid"
+      borderRight: "1px solid",
     },
     tableTimeCell: {
       fontSize: 15,
@@ -185,38 +185,38 @@ const useStyles = makeStyles(theme => ({
       paddingTop: 10,
       paddingBottom: 10,
       lineHeight: "27px",
-      borderLeft: "1px solid"
+      borderLeft: "1px solid",
     },
     tableHeader: {
-      marginLeft: 3
+      marginLeft: 3,
     },
     backButton: {
       backgroundColor: "#1976d2",
       padding: "3px 10px",
-      fontSize: 11
+      fontSize: 11,
     },
     backArrow: {
-      fontSize: 15
-    }
+      fontSize: 15,
+    },
   },
   [theme.breakpoints.down("361")]: {
     container: {
-      maxHeight: "70%"
+      maxHeight: "70%",
     },
     showdate: {
       top: 0,
       marginLeft: "1%",
       fontSize: 16,
-      fontWeight: 600
+      fontWeight: 600,
     },
     totalCount: {
       top: 0,
       marginLeft: "1%",
       fontSize: 21,
       color: "#902024",
-      fontWeight: 600
-    }
-  }
+      fontWeight: 600,
+    },
+  },
 }));
 
 export default function KbcAllResult(props) {
@@ -231,12 +231,16 @@ export default function KbcAllResult(props) {
       ? new Date().getDate()
       : "0" + new Date().getDate();
   const year = new Date().getFullYear();
-  const currentMonth = new Date().getMonth() + 1;
+  //const currentMonth = new Date().getMonth() + 1;
+  const currentMonth =
+    new Date().getMonth() < 9
+      ? "0" + (new Date().getMonth() + 1)
+      : new Date().getMonth() + 1;
   const month = date
     .toLocaleString("default", { month: "short" })
     .toUpperCase();
 
-  const today = day + "-"  + currentMonth + "-" + year;
+  const today = day + "-" + currentMonth + "-" + year;
   let child = "";
   if (props.match.params.child) {
     child = props.match.params.child;
@@ -249,13 +253,15 @@ export default function KbcAllResult(props) {
 
   useEffect(() => {
     let endpoint =
-      child === "true" || child === true ? `kbcchildrenusersresponse?` : `kbcusersresponse?`;
+      child === "true" || child === true
+        ? `kbcchildrenusersresponse?`
+        : `kbcusersresponse?`;
     fetch(links.backendURL + endpoint + `date=${today}`)
-      .then(response => {
+      .then((response) => {
         debugger;
         return response.json();
       })
-      .then(usersResponse => {
+      .then((usersResponse) => {
         debugger;
         usersResponse[0].usersAnswer.sort((a, b) => {
           return b.score - a.score || a.timeDuration - b.timeDuration;
@@ -264,7 +270,7 @@ export default function KbcAllResult(props) {
 
         // setLoading(false);
       })
-      .catch(error => console.log("error is", error));
+      .catch((error) => console.log("error is", error));
   }, []);
 
   return (
@@ -315,7 +321,7 @@ export default function KbcAllResult(props) {
           </TableHead>
           <TableBody>
             {users.length != 0
-              ? users.map(row =>
+              ? users.map((row) =>
                   props.location.state === row.userId ? (
                     <TableRow className={classes.yourScoreHighlight}>
                       <TableCell className={classes.tableTimeCell}>
