@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
 
 const SplashScreen = () => {
   return (
-    <div style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    <div>
       <img src="/splash.png" alt="Loading..." />
     </div>
   );
