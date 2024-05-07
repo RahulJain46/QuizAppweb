@@ -53,16 +53,24 @@ const Search = lazy(() => import("./components/Search"));
 const Bhajan = lazy(() => import("./components/Bhajan"));
 const QuizLogin = lazy(() => import("./components/QuizLogin"));
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   [theme.breakpoints.down("1124")]: {
     container: {
       width: "100%",
       left: "0%",
       right: "0%",
-      top: "0%"
-    }
-  }
+      top: "0%",
+    },
+  },
 }));
+
+const SplashScreen = () => {
+  return (
+    <div style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <img src="/splash.png" alt="Loading..." />
+    </div>
+  );
+};
 
 function App() {
   const classes = useStyles();
@@ -72,7 +80,7 @@ function App() {
   // }, []);
   return (
     <div className={classes.container}>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<SplashScreen />}>
         <AppBar />
         <Switch>
           <Route exact path="/" component={HomePage} />
