@@ -2,6 +2,7 @@ import React, { useEffect, Suspense, lazy } from "react";
 import { Route, Switch } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { ToastContainer } from "react-toastify";
+import AppBar from "./components/common/AppBar";
 //import "react-toastify/dist/ReactToastify.css";
 //import HomePage from "./components/Home/Home";
 const HomePage = lazy(() => import("./components/Home/Home"));
@@ -43,7 +44,7 @@ const QuizAnswer = lazy(() => import("./components/QuizAnswer"));
 const QuizAnswerSanganer = lazy(() =>
   import("./components/QuizAnswerSanganer")
 );
-const AppBar = lazy(() => import("./components/common/AppBar"));
+
 const Books = lazy(() => import("./components/Books"));
 const Footer = lazy(() => import("./components/common/Footer"));
 
