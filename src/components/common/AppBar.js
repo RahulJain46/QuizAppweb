@@ -184,7 +184,7 @@ export default function appBar() {
                 className={classes.barheading}
                 gutterBottom
               >
-                UJJAIN JAIN QUIZ PORTAL
+                JINDARSHAN
               </Typography>
               <Link className={classes.login} to={`/login`}>
                 <Paper>
