@@ -18,7 +18,7 @@ import moment from "moment";
 import red from "@material-ui/core/colors/red";
 const error = red[700];
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   container: {
     border: "1px solid #cfd8dc",
     boxShadow: "7px 5px #eeeeee",
@@ -27,31 +27,31 @@ const useStyles = makeStyles(theme => ({
     maxWidth: "45%",
     marginBottom: 75,
     left: "30%",
-    width: "100%"
+    width: "100%",
   },
   headerDate: {
     fontWeight: 600,
     textAlign: "center",
-    fontSize: 23
+    fontSize: 23,
   },
   headerMessage: {
     fontWeight: 400,
     textAlign: "center",
-    fontSize: 23
+    fontSize: 23,
   },
   loading: {
     position: "relative",
     top: 227,
-    left: "47%"
+    left: "47%",
   },
   helpLink: {
     marginLeft: "2%",
     fontSize: 17,
     textAlign: "right",
-    paddingBottom: 24
+    paddingBottom: 24,
   },
   helpLabel: {
-    fontSize: 17
+    fontSize: 17,
   },
   questionfields: {
     border: "1px solid #cfd8dc",
@@ -59,14 +59,14 @@ const useStyles = makeStyles(theme => ({
     margin: 11,
     display: "block",
     "&:hover": {
-      backgroundColor: "#fafafa"
-    }
+      backgroundColor: "#fafafa",
+    },
   },
   questionContent: {
-    marginLeft: "-1%"
+    marginLeft: "-1%",
   },
   questionOption: {
-    marginLeft: "3%"
+    marginLeft: "3%",
   },
   input: {
     boxShadow: "7px 5px #eeeeee",
@@ -77,7 +77,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#e9ecef40",
     padding: "10px 15px",
     margin: 10,
-    fontSize: 14
+    fontSize: 14,
   },
   label: {
     lineHeight: 2,
@@ -89,7 +89,7 @@ const useStyles = makeStyles(theme => ({
     color: "black",
     fontWeight: 500,
     marginLeft: 14,
-    fontFamily: "sans-serif"
+    fontFamily: "sans-serif",
   },
   button: {
     backgroundColor: "#1976d2",
@@ -99,67 +99,67 @@ const useStyles = makeStyles(theme => ({
     marginTop: 13,
     height: 44,
     "&:hover": {
-      backgroundColor: "#303f9f"
-    }
+      backgroundColor: "#303f9f",
+    },
   },
   error: {
     color: "#bf1650",
     "&::before": {
-      content: "'⚠ '"
-    }
+      content: "'⚠ '",
+    },
   },
   asteriskField: {
     marginLeft: 24,
-    color: error
+    color: error,
   },
   radioButton: {
     height: 12,
-    marginRight: 13
+    marginRight: 13,
   },
   optionLabel: {
-    width: "100%"
+    width: "100%",
   },
   [theme.breakpoints.down("361")]: {
     container: {
       maxWidth: "100%",
       top: 176,
       marginBottom: "22%",
-      left: "0%"
+      left: "0%",
     },
     input: {
       width: "100%",
       margin: 0,
       fontSize: 17,
       padding: "8px 8px",
-      boxShadow: "3px 3px #eeeeee"
+      boxShadow: "3px 3px #eeeeee",
     },
     label: {
       marginBottom: 2,
       marginTop: 4,
       fontSize: 19,
-      marginLeft: 8
+      marginLeft: 8,
     },
     asteriskField: {
       fontSize: 19,
-      marginLeft: "4%"
+      marginLeft: "4%",
     },
     questionfields: {
       boxShadow: "3px 3px #eeeeee",
-      margin: 6
+      margin: 6,
     },
     questionContent: {
       marginLeft: "0%",
-      maxWidth: "100%"
+      maxWidth: "100%",
     },
     questionOption: {
       marginLeft: "3%",
-      fontSize: 18
+      fontSize: 18,
     },
     radioButton: {
-      height: 16
+      height: 16,
     },
     questionLabel: {
-      fontSize: 19
+      fontSize: 19,
     },
 
     button: {
@@ -167,22 +167,22 @@ const useStyles = makeStyles(theme => ({
       marginTop: 8,
       marginLeft: 7,
       height: 44,
-      fontSize: 19
+      fontSize: 19,
     },
     error: {
-      fontSize: 9
+      fontSize: 9,
     },
     optionLabel: {
-      paddingLeft: 8
+      paddingLeft: 8,
     },
     helpLabel: {
-      fontSize: 19
+      fontSize: 19,
     },
     helpLink: {
       marginLeft: "6%",
       fontSize: 19,
-      paddingBottom: 24
-    }
+      paddingBottom: 24,
+    },
   },
 
   [theme.breakpoints.between("361", "xs")]: {
@@ -190,65 +190,65 @@ const useStyles = makeStyles(theme => ({
       maxWidth: "100%",
       top: 176,
       marginBottom: "22%",
-      left: "0%"
+      left: "0%",
     },
     helpLink: {
       marginLeft: "6%",
       fontSize: 19,
-      paddingBottom: 24
+      paddingBottom: 24,
     },
     input: {
       width: "100%",
       margin: 0,
       fontSize: 21,
       padding: "5px 8px",
-      boxShadow: "4px 4px #eeeeee"
+      boxShadow: "4px 4px #eeeeee",
     },
     label: {
       marginBottom: 3,
       marginTop: 3,
       fontSize: 22,
-      marginLeft: 8
+      marginLeft: 8,
     },
     asteriskField: {
       fontSize: 21,
-      marginLeft: "4%"
+      marginLeft: "4%",
     },
     questionfields: {
       boxShadow: "4px 3px #eeeeee",
-      margin: 7
+      margin: 7,
     },
     questionContent: {
       marginLeft: "0%",
-      maxWidth: "100%"
+      maxWidth: "100%",
     },
     questionOption: {
       marginLeft: "3%",
-      fontSize: 21
+      fontSize: 21,
     },
     radioButton: {
-      height: 18
+      height: 18,
     },
     questionLabel: {
-      fontSize: 22
+      fontSize: 22,
     },
     button: {
       width: 107,
       marginTop: 7,
       marginLeft: 8,
       height: 46,
-      fontSize: 21
+      fontSize: 21,
     },
     error: {
-      fontSize: 20
+      fontSize: 20,
     },
     optionLabel: {
-      paddingLeft: 8
+      paddingLeft: 8,
     },
     helpLabel: {
-      fontSize: 19
-    }
-  }
+      fontSize: 19,
+    },
+  },
 }));
 
 function KbcLoginPage(props) {
@@ -264,7 +264,7 @@ function KbcLoginPage(props) {
     window.scrollTo(0, 0);
   }, []);
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     setToggleButton(true);
     var myMap = new Map();
     for (const key in data) {
@@ -294,41 +294,61 @@ function KbcLoginPage(props) {
       city: usersJson["city"],
       mobile: usersJson["mobile"],
       startTime: time,
-      userId: uuid
+      userId: uuid,
     };
-    fetch(links.backendURL + "kbcusers?" + `&userId=${uuid}`)
-      .then(response => {
-        return response.json();
-      })
-      .then(count => {
-        if (count > 0) {
-          if (props.match.params.child) {
-            const userdetailWithChild = Object.assign(userdetail, {
-              child: true
-            });
-            history.push(`/kbc`, userdetailWithChild);
-          } else {
-            history.push(`/kbc`, userdetail);
-          }
-        } else {
-          let userOptions = {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(usersJson)
-          };
-          fetch(links.backendURL + "kbcusers", userOptions).then(response => {
-            if (props.match.params.child) {
-              const userdetailWithChild = Object.assign(userdetail, {
-                child: true
-              });
-              history.push(`/kbc`, userdetailWithChild);
-            } else {
-              history.push(`/kbc`, userdetail);
-            }
+    let userOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(userdetail),
+    };
+    fetch(links.backendURL + "users", userOptions)
+      .then((response) => {
+        if (props.match.params.child) {
+          const userdetailWithChild = Object.assign(userdetail, {
+            child: true,
           });
+          history.push(`/kbc`, userdetailWithChild);
+        } else {
+          history.push(`/kbc`, userdetail);
         }
       })
-      .catch(error => console.log("error is", error));
+      // .then((count) => {
+      //   if (props.match.params.child) {
+      //     const userdetailWithChild = Object.assign(userdetail, {
+      //       child: true,
+      //     });
+      //     history.push(`/kbc`, userdetailWithChild);
+      //   } else {
+      //     history.push(`/kbc`, userdetail);
+      //   }
+      //   // if (count > 0) {
+      //   //   if (props.match.params.child) {
+      //   //     const userdetailWithChild = Object.assign(userdetail, {
+      //   //       child: true,
+      //   //     });
+      //   //     history.push(`/kbc`, userdetailWithChild);
+      //   //   } else {
+      //   //     history.push(`/kbc`, userdetail);
+      //   //   }
+      //   // } else {
+      //   //   let userOptions = {
+      //   //     method: "POST",
+      //   //     headers: { "Content-Type": "application/json" },
+      //   //     body: JSON.stringify(usersJson),
+      //   //   };
+      //   //   fetch(links.backendURL + "users", userOptions).then((response) => {
+      //   //     if (props.match.params.child) {
+      //   //       const userdetailWithChild = Object.assign(userdetail, {
+      //   //         child: true,
+      //   //       });
+      //   //       history.push(`/kbc`, userdetailWithChild);
+      //   //     } else {
+      //   //       history.push(`/kbc`, userdetail);
+      //   //     }
+      //   //   });
+      //   // }
+      // })
+      .catch((error) => console.log("error is", error));
   };
   const reactStringReplace = require("react-string-replace");
 
@@ -339,7 +359,7 @@ function KbcLoginPage(props) {
       </Typography>
       <Card className={classes.container}>
         <CardContent>
-          <form onSubmit={handleSubmit(data => onSubmit(data))}>
+          <form onSubmit={handleSubmit((data) => onSubmit(data))}>
             <Typography
               variant="h9"
               component="h9"
@@ -370,7 +390,7 @@ function KbcLoginPage(props) {
               type="tel"
               ref={register({
                 required: true,
-                pattern: "^-?[0-9]d*.?d*$"
+                pattern: "^-?[0-9]d*.?d*$",
               })}
             />
             {errors.mobile && (

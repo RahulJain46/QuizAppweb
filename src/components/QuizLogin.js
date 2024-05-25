@@ -15,35 +15,35 @@ import moment from "moment";
 import { useForm } from "react-hook-form";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
-    textAlign: "center"
+    textAlign: "center",
   },
   error: {
     color: "#bf1650",
     "&::before": {
-      content: "'⚠ '"
-    }
+      content: "'⚠ '",
+    },
   },
   button: {
     backgroundColor: "#1976d2",
     color: "#fff",
     width: 188,
     "&:hover": {
-      backgroundColor: "#303f9f"
-    }
+      backgroundColor: "#303f9f",
+    },
   },
   form: {
-    display: "inline-block"
+    display: "inline-block",
   },
   feedbackButton: {
     backgroundColor: "#1976d2",
     color: "#fff",
     width: 188,
     "&:hover": {
-      backgroundColor: "#303f9f"
-    }
+      backgroundColor: "#303f9f",
+    },
   },
   mobileInput: {
     display: "block",
@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
     right: 0,
     margin: "0 auto",
     marginBottom: 10,
-    boxShadow: "4px 4px #eeeeee"
+    boxShadow: "4px 4px #eeeeee",
   },
   feedbackInput: {
     left: 0,
@@ -60,30 +60,30 @@ const useStyles = makeStyles(theme => ({
     marginBottom: 17,
     paddingBottom: 0,
     marginBottom: 17,
-    boxShadow: "4px 4px #eeeeee"
+    boxShadow: "4px 4px #eeeeee",
   },
   formContainer: {
     textAlign: "center",
-    marginTop: 18
+    marginTop: 18,
   },
   message: {
     marginBottom: 14,
     fontSize: 16,
-    fontWeight: 500
+    fontWeight: 500,
   },
   responseMessage: {
-    color: "#d34242"
+    color: "#d34242",
   },
   comment: {
     display: "block",
-    textAlign: "center"
+    textAlign: "center",
   },
   submitButton: {
-    textAlign: "center"
+    textAlign: "center",
   },
   mobilenumber: {
     textAlign: "center",
-    display: "block"
+    display: "block",
   },
   home: {
     flexGrow: 1,
@@ -91,41 +91,41 @@ const useStyles = makeStyles(theme => ({
     position: "absolute",
     marginBottom: 73,
     left: "25%",
-    right: "25%"
+    right: "25%",
   },
   quizResultButton: {
     backgroundColor: "#aa1050e3",
     color: "#fff",
     width: 188,
     "&:hover": {
-      backgroundColor: "#610c2b"
-    }
+      backgroundColor: "#610c2b",
+    },
   },
   [theme.breakpoints.down("1123")]: {
     home: {
       width: "100%",
       left: "0%",
       right: "0%",
-      top: "0%"
+      top: "0%",
     },
     quizbutton: {
-      display: "inline-block"
+      display: "inline-block",
     },
     quizitems: {
       maxWidth: "100%",
       padding: "0px ! important",
-      paddingTop: "10px ! important"
+      paddingTop: "10px ! important",
     },
     feedbackButton: {
       padding: "4px 6px",
-      width: 111
+      width: 111,
     },
     button: {
       padding: "4px 6px",
-      width: 185
+      width: 185,
     },
     form: {
-      display: "inline-block"
+      display: "inline-block",
     },
     mobileInput: {
       display: "block",
@@ -133,7 +133,7 @@ const useStyles = makeStyles(theme => ({
       right: 0,
       margin: "0 auto",
       marginBottom: 10,
-      boxShadow: "4px 4px #eeeeee"
+      boxShadow: "4px 4px #eeeeee",
     },
     feedbackInput: {
       left: 0,
@@ -142,63 +142,63 @@ const useStyles = makeStyles(theme => ({
       marginBottom: 17,
       paddingBottom: 0,
       marginBottom: 17,
-      boxShadow: "4px 4px #eeeeee"
+      boxShadow: "4px 4px #eeeeee",
     },
     formContainer: {
       textAlign: "center",
-      marginTop: 18
+      marginTop: 18,
     },
     message: {
       marginBottom: 14,
       fontSize: 16,
-      fontWeight: 500
+      fontWeight: 500,
     },
     responseMessage: {
-      color: "#d34242"
+      color: "#d34242",
     },
     comment: {
       display: "block",
-      textAlign: "center"
+      textAlign: "center",
     },
     submitButton: {
-      textAlign: "center"
+      textAlign: "center",
     },
     mobilenumber: {
       textAlign: "center",
-      display: "block"
-    }
+      display: "block",
+    },
   },
   [theme.breakpoints.down("361")]: {
     form: {
-      display: "inline-block"
+      display: "inline-block",
     },
     mobileInput: {
       display: "block",
       marginBottom: 10,
-      boxShadow: "4px 4px #eeeeee"
+      boxShadow: "4px 4px #eeeeee",
     },
     feedbackInput: {
       paddingBottom: 0,
       marginBottom: 17,
-      boxShadow: "4px 4px #eeeeee"
+      boxShadow: "4px 4px #eeeeee",
     },
     formContainer: {
       textAlign: "center",
-      marginTop: 18
+      marginTop: 18,
     },
     message: {
       marginBottom: 14,
       fontSize: 16,
-      fontWeight: 500
+      fontWeight: 500,
     },
     comment: {
       display: "block",
-      marginLeft: -33
+      marginLeft: -33,
     },
     submitButton: {
-      textAlign: "center"
-    }
-  }
+      textAlign: "center",
+    },
+  },
 }));
 
 function QuizLogin(props) {
@@ -208,16 +208,20 @@ function QuizLogin(props) {
 
   const { register, handleSubmit, watch, errors } = useForm();
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     setToggleButton(true);
     let mobileNumber = data.mobilenumber.trim();
     const date = props.match.params.date;
     fetch(links.backendURL + "users?mobile=" + mobileNumber)
-      .then(response => {
+      .then((response) => {
         return response.json();
       })
-      .then(userList => {
-        if (userList.mobile != undefined || userList.length === 0) {
+      .then((userList) => {
+        if (
+          userList.mobile != undefined ||
+          userList[0] === null ||
+          userList.length === 0
+        ) {
           if (props.match.params.date === undefined) {
             history.push(`/kbclogin`, mobileNumber);
           } else {
@@ -257,7 +261,7 @@ function QuizLogin(props) {
                     required: true,
                     pattern: /^\d*$/,
                     minLength: 10,
-                    maxLength: 10
+                    maxLength: 10,
                   })}
                   className={classes.mobileInput}
                 />
