@@ -46,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   mobileInput: {
+    height: 48,
     display: "block",
     left: 0,
     right: 0,
@@ -271,6 +272,7 @@ function QuizLogin(props) {
               </div>
               <div className={classes.submitButton}>
                 <Button
+                  style={{ height: 48 }}
                   variant="contained"
                   className={classes.feedbackButton}
                   type="submit"

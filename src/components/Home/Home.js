@@ -412,7 +412,7 @@ function Home() {
 
   return (
     <div className={classes.home}>
-      <Card className={classes.notice}>
+      {/* <Card className={classes.notice}>
         <CardContent>
           <Typography className={classes.topNotice}>"जय जिनेन्द्र" </Typography>
           <Typography className={classes.kbcNotice}>
@@ -433,13 +433,17 @@ function Home() {
             </Typography>
           </DomLink>
         </CardContent>
-      </Card>
+      </Card> */}
 
       <Grid container spacing={3} className={classes.quizbutton}>
         <Grid item xs={6} className={classes.quizitems}>
           <DomLink to="/kbcinstruction">
             <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.kbcButton}>
+              <Button
+                style={{ width: 200 }}
+                variant="contained"
+                className={classes.kbcButton}
+              >
                 कौन बनेगा धर्मज्ञ (KBD)
               </Button>
             </Paper>
@@ -448,7 +452,11 @@ function Home() {
         <Grid item xs={6} className={classes.quizitems}>
           <DomLink to="/kbcallresult">
             <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.kbcResultButton}>
+              <Button
+                style={{ width: 200, height: 60 }}
+                variant="contained"
+                className={classes.kbcResultButton}
+              >
                 कौन बनेगा धर्मज्ञ Rank
               </Button>
             </Paper>
@@ -459,7 +467,11 @@ function Home() {
             to={`/quizlogin` + `/${day + "-" + currentMonth + "-" + year}`}
           >
             <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.button}>
+              <Button
+                style={{ width: 200, height: 60 }}
+                variant="contained"
+                className={classes.button}
+              >
                 QUIZ {day + "-" + month}
               </Button>
             </Paper>
@@ -470,13 +482,17 @@ function Home() {
             to={`/quizresult` + `/${day + "-" + currentMonth + "-" + year}`}
           >
             <Paper className={classes.paper}>
-              <Button variant="contained" className={classes.quizResultButton}>
+              <Button
+                style={{ width: 200, height: 60 }}
+                variant="contained"
+                className={classes.quizResultButton}
+              >
                 QUIZ RESULT {day + "-" + month}
               </Button>
             </Paper>
           </DomLink>
         </Grid>
-        <Grid item xs={12} className={classes.quizitems}>
+        {/* <Grid item xs={12} className={classes.quizitems}>
           <DomLink to="/childrenquiz">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.topicButton}>
@@ -484,8 +500,8 @@ function Home() {
               </Button>
             </Paper>
           </DomLink>
-        </Grid>
-        <Grid item xs={6} className={classes.quizitems}>
+        </Grid> */}
+        {/* <Grid item xs={6} className={classes.quizitems}>
           <DomLink to="/oldquizresults">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.button}>
@@ -521,9 +537,9 @@ function Home() {
               </Button>
             </Paper>
           </DomLink>
-        </Grid>
+        </Grid> */}
       </Grid>
-      <Card className={classes.formContainer}>
+      {/* <Card className={classes.formContainer}>
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
             <label className={classes.message}>
@@ -580,7 +596,7 @@ function Home() {
             )}
           </form>
         </CardContent>
-      </Card>
+      </Card> */}
     </div>
   );
 }

@@ -13,86 +13,86 @@ import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { useHistory } from "react-router-dom";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   appbar: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   barheader: {
-    backgroundColor: "#234f64"
+    backgroundColor: "#234f64",
   },
   loginButton: {
     padding: "0px 0px",
     minWidth: 54,
     paddingBottom: 2,
-    paddingTop: 2
+    paddingTop: 2,
   },
   login: {
     position: "absolute",
     right: 15,
-    padding: 0
+    padding: 0,
   },
   barheading: {
     position: "absolute",
     right: 0,
     left: 0,
     textAlign: "center",
-    width: "100%"
+    width: "100%",
   },
   paper: {
     padding: theme.spacing(2),
     textAlign: "center",
     backgroundColor: "#ac7818",
-    color: "#e9ecef"
+    color: "#e9ecef",
   },
   menuButton: {
     marginRight: theme.spacing(2),
-    zIndex: 1
+    zIndex: 1,
   },
   title: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   [theme.breakpoints.between("345", "xs")]: {
     barheading: {
       fontSize: 15,
-      left: -17
+      left: -17,
     },
     loginButton: {
       padding: "0px 0px",
       minWidth: 54,
       paddingBottom: 2,
       paddingTop: 2,
-      fontSize: 12
+      fontSize: 12,
     },
     login: {
       position: "absolute",
       right: 15,
-      padding: 0
+      padding: 0,
     },
     appbar: {
-      marginRight: -9
-    }
+      marginRight: -9,
+    },
   },
   [theme.breakpoints.down("345")]: {
     barheading: {
       fontSize: 15,
-      left: -17
+      left: -17,
     },
     loginButton: {
       padding: "0px 0px",
       minWidth: 54,
       paddingBottom: 2,
       paddingTop: 2,
-      fontSize: 12
+      fontSize: 12,
     },
     login: {
       position: "absolute",
       right: 15,
-      padding: 0
+      padding: 0,
     },
     appbar: {
-      marginRight: -14
-    }
-  }
+      marginRight: -14,
+    },
+  },
 }));
 
 export default function appBar() {
@@ -112,7 +112,7 @@ export default function appBar() {
     };
   }, []);
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -186,11 +186,11 @@ export default function appBar() {
               >
                 JINDARSHAN
               </Typography>
-              <Link className={classes.login} to={`/login`}>
+              {/* <Link className={classes.login} to={`/login`}>
                 <Paper>
                   <Button className={classes.loginButton}>Login</Button>
                 </Paper>
-              </Link>
+              </Link> */}
             </Toolbar>
           </AppBar>
           <Paper className={classes.paper}>
