@@ -157,7 +157,7 @@ export default function appBar() {
                 >
                   Home
                 </MenuItem>
-                <MenuItem
+                {/* <MenuItem
                   onClick={() => {
                     handleNavClose("/oldquizresults");
                   }}
@@ -177,7 +177,7 @@ export default function appBar() {
                   }}
                 >
                   Ishtopdesh Sanganer Exam
-                </MenuItem>
+                </MenuItem> */}
               </Menu>
               <Typography
                 variant="h4"
