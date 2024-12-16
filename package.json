@@ -34,7 +34,7 @@
     "toastr": "^2.1.4",
     "use-sound": "^4.0.1",
     "uuid": "^7.0.3",
-    "xlsx": "^0.16.8"
+    "xlsx": "^0.17.0"
   },
   "scripts": {
     "start": "react-scripts start",
