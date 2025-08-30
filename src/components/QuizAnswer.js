@@ -253,8 +253,7 @@ export default function QuizAnswer1(props) {
               </TableRow>
             </TableHead>
             <TableBody>
-              {answers.map(answer => {
-                return answer.map((row, index) => (
+              {answers.map((row, index) => (
                   <TableRow>
                     <TableCell className={classes.tableNumberCell}>
                       {index + 1}
@@ -290,8 +289,7 @@ export default function QuizAnswer1(props) {
                       {row.remarks}
                     </TableCell>
                   </TableRow>
-                ));
-              })}
+                ))}
             </TableBody>
           </Table>
         </TableContainer>
