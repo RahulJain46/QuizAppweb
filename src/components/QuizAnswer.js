@@ -187,8 +187,8 @@ export default function QuizAnswer1(props) {
         return answerJson.json();
       })
       .then(answers => {
-        answers.map(answer => {
-          questionsArray.push(answer.questions);
+        answers.questions.map(answer => {
+          questionsArray.push(answer);
         });
         setAnswers(questionsArray);
         setLoading(false);
