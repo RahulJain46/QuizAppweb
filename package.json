@@ -13,7 +13,7 @@
     "formik-material-ui": "^2.0.1",
     "moment": "^2.29.1",
     "node-fetch": "^1.7.3",
-    "node-sass": "6.0.0",
+    "sass": "^1.62.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -37,8 +37,8 @@
     "xlsx": "^0.16.8"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "node_modules/.bin/react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
