@@ -379,21 +379,33 @@ const useStyles = makeStyles((theme) => ({
 
 function Home() {
   const classes = useStyles();
-  const date = new Date();
   const [toggleButton, setToggleButton] = useState(false);
+  const [currentDate, setCurrentDate] = useState({
+    day: "",
+    year: "",
+    currentMonth: "",
+    month: ""
+  });
 
-  const day =
-    new Date().getDate() > 9
-      ? new Date().getDate()
-      : "0" + new Date().getDate();
-  const year = new Date().getFullYear();
-  const currentMonth =
-    new Date().getMonth() < 9
-      ? "0" + (new Date().getMonth() + 1)
-      : new Date().getMonth() + 1;
-  const month = date
-    .toLocaleString("default", { month: "short" })
-    .toUpperCase();
+  // Function to get current date values
+  const getCurrentDateValues = () => {
+    const date = new Date();
+    const day = date.getDate() > 9 ? date.getDate() : "0" + date.getDate();
+    const year = date.getFullYear();
+    const currentMonth = date.getMonth() < 9 
+      ? "0" + (date.getMonth() + 1) 
+      : date.getMonth() + 1;
+    const month = date.toLocaleString("default", { month: "short" }).toUpperCase();
+    
+    return { day, year, currentMonth, month };
+  };
+
+  // Update current date
+  const updateCurrentDate = () => {
+    const newDate = getCurrentDateValues();
+    console.log("Updating date:", newDate);
+    setCurrentDate(newDate);
+  };
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = async (data) => {
     let userOptions = {
@@ -408,6 +420,62 @@ function Home() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Set initial date
+    updateCurrentDate();
+  }, []);
+
+  // Effect for handling visibility changes and date updates
+  useEffect(() => {
+    // Update date when component mounts
+    updateCurrentDate();
+
+    // Handle visibility change (when webview regains focus)
+    const handleVisibilityChange = () => {
+      console.log("Visibility changed, hidden:", document.hidden);
+      if (!document.hidden) {
+        // App became visible, update the date
+        console.log("App became visible, updating date");
+        updateCurrentDate();
+      }
+    };
+
+    // Handle focus events (for webview)
+    const handleFocus = () => {
+      console.log("App gained focus, updating date");
+      updateCurrentDate();
+    };
+
+    // Note: Removed minute-by-minute checking as it's redundant
+    // We already check on focus, visibility change, and at midnight
+
+    // Check for date change at midnight
+    const now = new Date();
+    const midnight = new Date();
+    midnight.setHours(24, 0, 0, 0); // Next midnight
+    const msUntilMidnight = midnight.getTime() - now.getTime();
+
+    const midnightTimer = setTimeout(() => {
+      updateCurrentDate();
+      // Set up daily timer after first midnight
+      const dailyTimer = setInterval(() => {
+        updateCurrentDate();
+      }, 24 * 60 * 60 * 1000); // Every 24 hours
+
+      return () => clearInterval(dailyTimer);
+    }, msUntilMidnight);
+
+    // Add event listeners
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('focus', handleFocus);
+    window.addEventListener('pageshow', handleFocus); // For when page is restored from cache
+
+    // Cleanup
+    return () => {
+      clearTimeout(midnightTimer);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('focus', handleFocus);
+      window.removeEventListener('pageshow', handleFocus);
+    };
   }, []);
 
   return (
@@ -464,7 +532,7 @@ function Home() {
         </Grid>
         <Grid item xs={6} className={classes.quizitems}>
           <DomLink
-            to={`/quizlogin` + `/${day + "-" + currentMonth + "-" + year}`}
+            to={`/quizlogin` + `/${currentDate.day + "-" + currentDate.currentMonth + "-" + currentDate.year}`}
           >
             <Paper className={classes.paper}>
               <Button
@@ -472,14 +540,14 @@ function Home() {
                 variant="contained"
                 className={classes.button}
               >
-                QUIZ {day + "-" + month}
+                QUIZ {currentDate.day + "-" + currentDate.month}
               </Button>
             </Paper>
           </DomLink>
         </Grid>
         <Grid item xs={6} className={classes.quizitems}>
           <DomLink
-            to={`/quizresult` + `/${day + "-" + currentMonth + "-" + year}`}
+            to={`/quizresult` + `/${currentDate.day + "-" + currentDate.currentMonth + "-" + currentDate.year}`}
           >
             <Paper className={classes.paper}>
               <Button
@@ -487,7 +555,7 @@ function Home() {
                 variant="contained"
                 className={classes.quizResultButton}
               >
-                QUIZ RESULT {day + "-" + month}
+                QUIZ RESULT {currentDate.day + "-" + currentDate.month}
               </Button>
             </Paper>
           </DomLink>
@@ -501,7 +569,7 @@ function Home() {
             </Paper>
           </DomLink>
         </Grid> */}
-        {/* <Grid item xs={6} className={classes.quizitems}>
+        <Grid item xs={6} className={classes.quizitems}>
           <DomLink to="/oldquizresults">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.button}>
@@ -519,7 +587,7 @@ function Home() {
             </Paper>
           </DomLink>
         </Grid>
-        <Grid item xs={12} className={classes.quizitems}>
+        {/* <Grid item xs={12} className={classes.quizitems}>
           <DomLink to="/bhajan">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.bhajanButton}>
@@ -527,9 +595,9 @@ function Home() {
               </Button>
             </Paper>
           </DomLink>
-        </Grid>
+        </Grid> */}
 
-        <Grid item xs={12} className={classes.quizitems}>
+        {/* <Grid item xs={12} className={classes.quizitems}>
           <DomLink to="/exams">
             <Paper className={classes.paper}>
               <Button variant="contained" className={classes.topicButton}>

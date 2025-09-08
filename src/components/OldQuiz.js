@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
@@ -104,6 +104,10 @@ function OldQuiz() {
   const classes = useStyles();
   const [dates, setDates] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [page, setPage] = useState(0);
+  const [hasMore, setHasMore] = useState(true);
+  const [allDates, setAllDates] = useState([]);
   const date = new Date();
   const day =
     new Date().getDate() > 9
@@ -120,37 +124,110 @@ function OldQuiz() {
     window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
-    const dateArray = [];
-    let userOptions = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-    };
-    fetch(
-      links.backendURL + "questions?" + "date=1&date=all&date=allDates",
-      userOptions
-    )
-      .then((questionJson) => {
-        return questionJson.json();
-      })
-      .then((questions) => {
-        questions.map((question) => {
-          let quesdate = question.date;
-          const today = moment(presentDate, "DD-MM-YYYY");
-          const someday = moment(quesdate, "DD-MM-YYYY");
-          if (someday < today) {
-            dateArray.push(quesdate);
-          }
-        });
-        dateArray.sort(
-          (a, b) => moment(b, "DD-MM-YYYY") - moment(a, "DD-MM-YYYY")
-        );
-        setDates(dateArray);
-        setLoading(false);
+  // Function to fetch all dates initially
+  const fetchAllDates = async () => {
+    try {
+      let userOptions = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      };
+      
+      const response = await fetch(
+        links.backendURL + "questions?" + "date=1&date=all&date=allDates",
+        userOptions
+      );
+      const questions = await response.json();
+      
+      const dateArray = [];
+      questions.forEach((question) => {
+        let quesdate = question.date;
+        const today = moment(presentDate, "DD-MM-YYYY");
+        const someday = moment(quesdate, "DD-MM-YYYY");
+        if (someday < today) {
+          dateArray.push(quesdate);
+        }
       });
+      
+      // Sort dates in descending order (newest first)
+      dateArray.sort(
+        (a, b) => moment(b, "DD-MM-YYYY") - moment(a, "DD-MM-YYYY")
+      );
+      
+      setAllDates(dateArray);
+      // Initially load first 10 dates
+      const initialDates = dateArray.slice(0, 10);
+      setDates(initialDates);
+      setHasMore(dateArray.length > 10);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching dates:", error);
+      setLoading(false);
+    }
+  };
+
+  // Function to load more dates
+  const loadMoreDates = useCallback(() => {
+    if (loadingMore || !hasMore) return;
+    
+    console.log("Loading more dates... Current page:", page, "Has more:", hasMore, "All dates length:", allDates.length);
+    setLoadingMore(true);
+    
+    // Simulate loading delay (you can remove this if not needed)
+    setTimeout(() => {
+      const nextPage = page + 1;
+      const startIndex = nextPage * 10;
+      const endIndex = startIndex + 10;
+      const moreDates = allDates.slice(startIndex, endIndex);
+      
+      console.log("Next page:", nextPage, "Start index:", startIndex, "End index:", endIndex, "More dates:", moreDates.length);
+      
+      if (moreDates.length > 0) {
+        setDates(prevDates => [...prevDates, ...moreDates]);
+        setPage(nextPage);
+        setHasMore(endIndex < allDates.length);
+      } else {
+        setHasMore(false);
+      }
+      
+      setLoadingMore(false);
+    }, 500);
+  }, [loadingMore, hasMore, page, allDates]);
+
+  // Infinite scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      // Check if user has scrolled near the bottom (within 100px)
+      const threshold = 100;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.offsetHeight;
+      
+      console.log("Scroll event:", {
+        scrollTop,
+        windowHeight,
+        documentHeight,
+        isNearBottom: scrollTop + windowHeight >= documentHeight - threshold,
+        loadingMore,
+        hasMore
+      });
+      
+      if (scrollTop + windowHeight >= documentHeight - threshold) {
+        if (!loadingMore && hasMore) {
+          console.log("Triggering loadMoreDates");
+          loadMoreDates();
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [loadMoreDates, loadingMore, hasMore]);
+
+  useEffect(() => {
+    fetchAllDates();
   }, []);
 
   return (
@@ -185,14 +262,14 @@ function OldQuiz() {
             </Typography>
           </Paper>
         </Grid>
-        {dates.length != 0 && !loading ? (
-          dates.map((date) => (
-            <React.Fragment>
+        {dates.length !== 0 && !loading ? (
+          dates.map((date, index) => (
+            <React.Fragment key={`${date}-${index}`}>
               <Grid item xs={6} className={classes.oldQuizButton}>
                 <Link to={`/datemonthquiz` + `/${date}`}>
                   <Paper className={classes.paper}>
                     <Button variant="contained" className={classes.button}>
-                      QUIZ {moment(date, "DD-MM-YYYY").format("DD-MMM")}
+                      QUIZ {moment(date, "DD-MM-YYYY").format("DD-MMM-YYYY")}
                     </Button>
                   </Paper>
                 </Link>
@@ -204,7 +281,7 @@ function OldQuiz() {
                       variant="contained"
                       className={classes.resultbutton}
                     >
-                      QUIZ RESULT {moment(date, "DD-MM-YYYY").format("DD-MMM")}
+                      QUIZ RESULT {moment(date, "DD-MM-YYYY").format("DD-MMM-YYYY")}
                     </Button>
                   </Paper>
                 </Link>
@@ -223,6 +300,25 @@ function OldQuiz() {
               <CircularProgress />
             </Fade>
           </div>
+        )}
+        
+        {/* Loading indicator for pagination */}
+        {loadingMore && (
+          <Grid item xs={12} style={{ textAlign: 'center', padding: '20px' }}>
+            <CircularProgress size={30} />
+            <Typography variant="body2" style={{ marginTop: '10px', color: '#666' }}>
+              Loading more quizzes...
+            </Typography>
+          </Grid>
+        )}
+        
+        {/* End of data indicator */}
+        {!hasMore && dates.length > 0 && !loading && (
+          <Grid item xs={12} style={{ textAlign: 'center', padding: '20px' }}>
+            <Typography variant="body2" style={{ color: '#666' }}>
+              No more quizzes to load
+            </Typography>
+          </Grid>
         )}
       </Grid>
     </div>
