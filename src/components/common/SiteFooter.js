@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { useLocation } from "react-router-dom";
 import { useLanguage } from "../../contexts/LanguageContext";
 
 const useStyles = makeStyles((theme) => ({
@@ -16,12 +15,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#3F2E27",
     boxShadow: "0 -3px 14px rgba(56, 36, 27, 0.10)",
     textAlign: "center",
-  },
-  fixedFooter: {
-    position: "fixed",
-    bottom: 0,
-    left: 0,
-    zIndex: theme.zIndex.appBar,
   },
   footerText: {
     fontSize: 13,
@@ -47,15 +40,10 @@ const useStyles = makeStyles((theme) => ({
 
 function SiteFooter() {
   const classes = useStyles();
-  const location = useLocation();
   const { t } = useLanguage();
-  const footerClassName =
-    location.pathname === "/"
-      ? classes.footer
-      : `${classes.footer} ${classes.fixedFooter}`;
 
   return (
-    <footer className={footerClassName}>
+    <footer className={classes.footer}>
       <Typography className={classes.footerText}>
         {t("जिनदर्शन सेवा", "Jindarshan Service")}
         <span className={classes.separator} aria-hidden="true">

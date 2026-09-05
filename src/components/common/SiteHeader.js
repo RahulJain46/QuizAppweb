@@ -118,17 +118,30 @@ const useStyles = makeStyles((theme) => ({
   },
   mobileToolbar: {
     minHeight: 64,
-    justifyContent: "center",
+    display: "flex",
+    alignItems: "center",
+    gap: theme.spacing(1),
   },
   menuButton: {
-    position: "absolute",
-    left: theme.spacing(1),
+    flex: "0 0 auto",
     color: "#FFFFFF",
   },
   mobileBrand: {
+    flex: "1 1 auto",
+    minWidth: 0,
     color: "#FFFFFF",
     fontSize: 25,
     fontWeight: 800,
+    textAlign: "center",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap",
+  },
+  mobileLangToggle: {
+    flex: "0 0 auto",
+    minWidth: 56,
+    color: "#FFFFFF",
+    fontWeight: 700,
   },
   menuPaper: {
     minWidth: 235,
@@ -221,8 +234,11 @@ function SiteHeader() {
             <Typography component="div" className={classes.mobileBrand}>
               {t("जिनदर्शन", "Jindarshan")}
             </Typography>
-            <Button onClick={toggleLanguage} className={classes.langToggle} style={{marginLeft: 'auto'}}>
-              {lang === 'hi' ? 'EN' : 'हिन्दी'}
+            <Button
+              onClick={toggleLanguage}
+              className={classes.mobileLangToggle}
+            >
+              {lang === "hi" ? "EN" : "हिन्दी"}
             </Button>
           </Toolbar>
         </AppBar>

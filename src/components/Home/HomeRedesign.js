@@ -126,16 +126,17 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 17,
     fontWeight: 600,
   },
-  [theme.breakpoints.down("sm")]: {
+  [theme.breakpoints.down("md")]: {
     home: {
       paddingTop: 28,
+      paddingBottom: 40,
     },
   },
   [theme.breakpoints.down("xs")]: {
     home: {
       width: "calc(100% - 24px)",
       paddingTop: 20,
-      paddingBottom: 76,
+      paddingBottom: 32,
     },
     actionCard: {
       padding: theme.spacing(3, 2),
