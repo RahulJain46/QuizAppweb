@@ -58,6 +58,8 @@ const Footer = lazy(() => import("./components/common/Footer"));
 const PageNotFound = lazy(() => import("./components/PageNotFound"));
 const ExamInstruction = lazy(() => import("./components/ExamInstruction"));
 const Search = lazy(() => import("./components/Search"));
+const PracticeLibrary = lazy(() => import("./components/Library/PracticeLibrary"));
+const ArchiveChat = lazy(() => import("./components/Chat/ArchiveChat"));
 const Bhajan = lazy(() => import("./components/Bhajan"));
 const QuizLogin = lazy(() => import("./components/QuizLogin"));
 
@@ -97,6 +99,8 @@ function App() {
           <DemoSwitcher />
           <Switch>
             <Route exact path="/" component={HomePage} />
+            <Route path="/v2/library" component={PracticeLibrary} />
+            <Route path="/v2/chat" component={ArchiveChat} />
             <Route path="/v2" component={Design1} />
             <Route path="/design1" component={Design1} />
             <Route path="/design2" component={Design2} />

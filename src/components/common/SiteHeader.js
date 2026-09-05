@@ -162,7 +162,9 @@ function SiteHeader() {
   const { lang, toggleLanguage, t } = useLanguage();
 
   const navigation = [
-    { label: t("मुख्य पृष्ठ", "Home"), to: "/v2" },
+    { label: t("मुख्य पृष्ठ", "Home"), to: "/v2", exact: true },
+    { label: t("स्वाध्याय संग्रह", "Library"), to: "/v2/library" },
+    { label: t("पूछें", "Ask"), to: "/v2/chat" },
     { label: t("पुरानी प्रश्नोत्तरी", "Old Quizzes"), to: "/oldquizresults" },
     { label: t("उत्तर पुस्तिकाएँ", "Answer Sheets"), to: "/answerSheets" },
   ];
@@ -190,7 +192,7 @@ function SiteHeader() {
               <nav className={classes.nav} aria-label="मुख्य नेविगेशन">
                 {navigation.map((item) => (
                   <NavLink
-                    exact={item.to === "/"}
+                    exact={Boolean(item.exact) || item.to === "/"}
                     key={item.to}
                     to={item.to}
                     className={classes.navLink}

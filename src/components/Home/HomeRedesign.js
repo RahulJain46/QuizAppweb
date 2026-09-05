@@ -5,6 +5,8 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import AssignmentTurnedInIcon from "@material-ui/icons/AssignmentTurnedIn";
+import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
+import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 import EmojiEventsOutlinedIcon from "@material-ui/icons/EmojiEventsOutlined";
 import EventAvailableOutlinedIcon from "@material-ui/icons/EventAvailableOutlined";
 import HistoryOutlinedIcon from "@material-ui/icons/HistoryOutlined";
@@ -229,6 +231,18 @@ function HomeRedesign() {
       to: "/answerSheets",
       icon: <MenuBookOutlinedIcon />,
       iconClass: classes.iconBrown,
+    },
+    {
+      title: t("स्वाध्याय संग्रह", "Practice Library"),
+      to: "/v2/library",
+      icon: <SearchOutlinedIcon />,
+      iconClass: classes.iconMaroon,
+    },
+    {
+      title: t("प्रश्न संग्रह से पूछें", "Ask the Archive"),
+      to: "/v2/chat",
+      icon: <ChatBubbleOutlineIcon />,
+      iconClass: classes.iconGreen,
     },
   ];
 

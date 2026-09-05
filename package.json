@@ -41,6 +41,7 @@
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
+    "build:archive": "node scripts/build-archive-index.js",
     "build": "node_modules/.bin/react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
