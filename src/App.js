@@ -1,10 +1,17 @@
-import React, { useEffect, Suspense, lazy } from "react";
-import { Route, Switch } from "react-router-dom";
+import React, { Suspense, lazy } from "react";
+import { Route, Switch, useLocation } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { ToastContainer } from "react-toastify";
 import AppBar from "./components/common/AppBar";
-//import "react-toastify/dist/ReactToastify.css";
-//import HomePage from "./components/Home/Home";
+import { LanguageProvider } from "./contexts/LanguageContext";
+import DemoSwitcher from "./components/Home/DemoSwitcher";
+import Design1 from "./components/Home/Design1";
+import Design2 from "./components/Home/Design2";
+import Design3 from "./components/Home/Design3";
+import Design4 from "./components/Home/Design4";
+import Design5 from "./components/Home/Design5";
+import Design6 from "./components/Home/Design6";
+
 const HomePage = lazy(() => import("./components/Home/Home"));
 const OldQuiz = lazy(() => import("./components/OldQuiz"));
 const ChildrenQuiz = lazy(() => import("./components/ChildrenQuiz"));
@@ -75,16 +82,28 @@ const SplashScreen = () => {
 
 function App() {
   const classes = useStyles();
-  // useEffect(() => {
-  //   ReactGA.initialize("UA-165998646-2");
-  //   ReactGA.pageview(window.location.pathname + window.location.search);
-  // }, []);
+  const location = useLocation();
+  const isPreview =
+    location.pathname.startsWith("/v2") ||
+    location.pathname.startsWith("/design");
   return (
-    <div className={classes.container}>
-      <Suspense fallback={<SplashScreen />}>
-        <AppBar />
-        <Switch>
-          <Route exact path="/" component={HomePage} />
+    <LanguageProvider>
+      <div
+        className={classes.container}
+        style={isPreview ? { maxWidth: "100%", margin: 0, padding: 0 } : {}}
+      >
+        <Suspense fallback={<SplashScreen />}>
+          {!isPreview && <AppBar />}
+          <DemoSwitcher />
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/v2" component={Design1} />
+            <Route path="/design1" component={Design1} />
+            <Route path="/design2" component={Design2} />
+            <Route path="/design3" component={Design3} />
+            <Route path="/design4" component={Design4} />
+            <Route path="/design5" component={Design5} />
+            <Route path="/design6" component={Design6} />
 
           <Route path="/oldquizresults" component={OldQuiz} />
           <Route path="/childrenquiz" component={ChildrenQuiz} />
@@ -141,12 +160,13 @@ function App() {
           <Route path="/search" component={Search} />
           <Route path="/quizlogin/:date?/:kbc?" component={QuizLogin} />
           <Route component={PageNotFound} />
-        </Switch>
+            </Switch>
 
-        <Footer />
-        <ToastContainer autoClose={3000} hideProgressBar />
-      </Suspense>
-    </div>
+            {!isPreview && <Footer />}
+            <ToastContainer autoClose={3000} hideProgressBar />
+          </Suspense>
+        </div>
+      </LanguageProvider>
   );
 }
 
