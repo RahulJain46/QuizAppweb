@@ -7,6 +7,7 @@ import { make_cols } from "./MakeColumns";
 import { SheetJSFT } from "./types";
 import { links } from "../Config";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   fileUpload: {
@@ -45,6 +46,9 @@ function fileUpload(props) {
     debugger;
     console.log(event);
     if (event.code === "252510") {
+      if (typeof sessionStorage !== "undefined") {
+        sessionStorage.setItem("ujq_admin", "1");
+      }
       setToggleButton(true);
     }
   };
@@ -184,6 +188,9 @@ function fileUpload(props) {
           </React.Fragment>
         ) : (
           <div className={classes.fileUpload}>
+            <p>
+              <Link to="/editquestions">Edit a quiz question</Link>
+            </p>
             <label className="btn btn-default">
               <input type="file" accept={SheetJSFT} onChange={handleChange} />
             </label>

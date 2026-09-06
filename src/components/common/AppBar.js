@@ -37,6 +37,11 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     textAlign: "center",
     width: "100%",
+    padding: "0 56px",
+    boxSizing: "border-box",
+    fontSize: 20,
+    lineHeight: 1.2,
+    fontWeight: 700,
   },
   paper: {
     padding: theme.spacing(2),
@@ -54,7 +59,8 @@ const useStyles = makeStyles((theme) => ({
   [theme.breakpoints.between("345", "xs")]: {
     barheading: {
       fontSize: 15,
-      left: -17,
+      left: 0,
+      padding: "0 48px",
     },
     loginButton: {
       padding: "0px 0px",
@@ -75,7 +81,8 @@ const useStyles = makeStyles((theme) => ({
   [theme.breakpoints.down("345")]: {
     barheading: {
       fontSize: 15,
-      left: -17,
+      left: 0,
+      padding: "0 48px",
     },
     loginButton: {
       padding: "0px 0px",
@@ -184,7 +191,7 @@ export default function appBar() {
                 className={classes.barheading}
                 gutterBottom
               >
-                JINDARSHAN
+                UJJAIN JAIN QUIZ
               </Typography>
               {/* <Link className={classes.login} to={`/login`}>
                 <Paper>

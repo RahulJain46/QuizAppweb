@@ -19,6 +19,7 @@ import useSpeech from "./useSpeech";
 import { useLanguage } from "../../contexts/LanguageContext";
 import {
   MIN_CONFIDENT_SCORE,
+  levelLabel,
   loadArchive,
   pickRandom,
   searchArchive,
@@ -277,7 +278,7 @@ function ArchiveQna() {
     const parts = [];
     if (item.book) parts.push(lang === "hi" ? item.book.hi : item.book.en);
     if (item.page !== undefined) parts.push(t(`पृष्ठ ${item.page}`, `page ${item.page}`));
-    if (item.level !== undefined) parts.push(t(`स्तर ${item.level}`, `level ${item.level}`));
+    if (item.level !== undefined) parts.push(levelLabel(item.level, lang));
     parts.push(t(`प्रश्नोत्तरी ${item.date}`, `quiz ${item.date}`));
     return parts.join(" · ");
   };

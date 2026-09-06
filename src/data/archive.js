@@ -12,6 +12,21 @@ const INDEX_URL = "/archive-index.json";
 
 export const ANY = "all";
 
+/** Daily-quiz levels 1–3. Other numbers (4–20) exist on a handful of rows. */
+export const LEVEL_LABELS = {
+  1: { hi: "सरल", en: "Easy" },
+  2: { hi: "मध्यम", en: "Medium" },
+  3: { hi: "कठिन", en: "Tough" },
+};
+
+/** Hindi/English difficulty name, or "स्तर N" when the mapping does not apply. */
+export function levelLabel(level, lang = "hi") {
+  const named = LEVEL_LABELS[Number(level)];
+  if (named) return lang === "en" ? named.en : named.hi;
+  if (level === undefined || level === null || level === "") return "";
+  return lang === "en" ? `Level ${level}` : `स्तर ${level}`;
+}
+
 let archivePromise = null;
 
 /** Today as a YYYYMMDD number, matching the stamps in the index. */
@@ -153,7 +168,7 @@ export const sortOptions = [
   { value: "recent", hi: "नवीनतम पहले", en: "Newest first" },
   { value: "oldest", hi: "पुराने पहले", en: "Oldest first" },
   { value: "book", hi: "ग्रंथ व पृष्ठ क्रम", en: "Book & page order" },
-  { value: "level", hi: "स्तर अनुसार", en: "By level" },
+  { value: "level", hi: "कठिनाई अनुसार", en: "By difficulty" },
   { value: "asked", hi: "सर्वाधिक पूछे गए", en: "Most asked" },
 ];
 

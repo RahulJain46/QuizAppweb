@@ -22,6 +22,7 @@ import {
   ANY,
   defaultFilters,
   filterItems,
+  levelLabel,
   loadArchive,
   sortItems,
   sortOptions,
@@ -87,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
   },
   filterButton: {
-    minWidth: 56,
+    minWidth: 72,
     minHeight: 34,
     marginRight: 8,
     marginBottom: 6,
@@ -391,13 +392,13 @@ function ArchiveLibrary() {
         <Collapse in={!isNarrow || filtersOpen}>
         <div className={classes.filterRow}>
           <Typography component="span" className={classes.rowLabel}>
-            {t("स्तर", "Level")}
+            {t("कठिनाई", "Difficulty")}
           </Typography>
           {filterButton(filters.level === ANY, t("सभी", "All"), () => setFilter("level", ANY), "lvl-all")}
           {PRIMARY_LEVELS.map((level) =>
             filterButton(
               String(filters.level) === String(level),
-              level,
+              levelLabel(level, lang),
               () => setFilter("level", level),
               `lvl-${level}`
             )

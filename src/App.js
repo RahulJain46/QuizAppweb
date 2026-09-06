@@ -40,6 +40,7 @@ const QuizResultSanganer = lazy(() =>
 const UserResponse = lazy(() => import("./components/UserResponse"));
 
 const FileUpload = lazy(() => import("./components/FileUpload2"));
+const QuestionEditor = lazy(() => import("./components/QuestionEditor"));
 const QuizAnswer = lazy(() => import("./components/QuizAnswer"));
 const QuizAnswerSanganer = lazy(() =>
   import("./components/QuizAnswerSanganer")
@@ -137,6 +138,7 @@ function App() {
           <Route path="/kbcallresult/:child?" component={KbcAllResult} />
           <Route path="/kbcinstruction" component={KbcInstruction} />
           <Route path="/fileupload" component={FileUpload} />
+          <Route path="/editquestions" component={QuestionEditor} />
           <Route path="/books" component={Books} />
           <Route path="/search" component={Search} />
           <Route path="/quizlogin/:date?/:kbc?" component={QuizLogin} />

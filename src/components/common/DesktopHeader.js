@@ -112,7 +112,7 @@ const DesktopHeader = () => {
           <Grid item xs={12}>
             <Paper className={classes.upperheader}>
               <Typography variant="h4" gutterBottom>
-                JINDARSHAN
+                UJJAIN JAIN QUIZ
               </Typography>
             </Paper>
             <Paper className={classes.paper}>

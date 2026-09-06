@@ -9,6 +9,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import { useLanguage } from "../../contexts/LanguageContext";
+import { levelLabel } from "../../data/archive";
 
 /** Question card in the original site theme: white paper, blue actions. */
 const useStyles = makeStyles((theme) => ({
@@ -126,7 +127,7 @@ function ArchiveCard({ item, startRevealed = false }) {
     <Paper className={classes.card} component="article">
       <Typography component="div" className={classes.meta}>
         {item.level !== undefined && (
-          <span className={classes.metaTag}>{t(`स्तर ${item.level}`, `Level ${item.level}`)}</span>
+          <span className={classes.metaTag}>{levelLabel(item.level, lang)}</span>
         )}
         {item.book && <span className={classes.metaTag}>{label(item.book)}</span>}
         {item.page !== undefined && (

@@ -41,7 +41,7 @@ const Footer = () => {
           RAJESH ,RAHUL & ANUJ JAIN UJJAIN,
         </Typography>
         <Typography variant="h6" className={classes.footerFont} gutterBottom>
-          MOB:8989984415
+          MOB:8770152146
         </Typography>
       </BottomNavigation>
     </div>
