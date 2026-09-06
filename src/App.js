@@ -1,16 +1,9 @@
 import React, { Suspense, lazy } from "react";
-import { Route, Switch, useLocation } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { ToastContainer } from "react-toastify";
 import AppBar from "./components/common/AppBar";
 import { LanguageProvider } from "./contexts/LanguageContext";
-import DemoSwitcher from "./components/Home/DemoSwitcher";
-import Design1 from "./components/Home/Design1";
-import Design2 from "./components/Home/Design2";
-import Design3 from "./components/Home/Design3";
-import Design4 from "./components/Home/Design4";
-import Design5 from "./components/Home/Design5";
-import Design6 from "./components/Home/Design6";
 
 const HomePage = lazy(() => import("./components/Home/Home"));
 const OldQuiz = lazy(() => import("./components/OldQuiz"));
@@ -59,12 +52,7 @@ const PageNotFound = lazy(() => import("./components/PageNotFound"));
 const ExamInstruction = lazy(() => import("./components/ExamInstruction"));
 const Search = lazy(() => import("./components/Search"));
 const ArchiveLibrary = lazy(() => import("./components/Library/ArchiveLibrary"));
-const PracticeLibrary = lazy(() => import("./components/Library/PracticeLibrary"));
-const ArchiveChat = lazy(() => import("./components/Chat/ArchiveChat"));
-const ClassicQuizLogin = lazy(() => import("./components/Quiz/ClassicQuizLogin"));
-const ClassicQuizForm = lazy(() => import("./components/Quiz/ClassicQuizForm"));
-const ClassicQuizResult = lazy(() => import("./components/Quiz/ClassicQuizResult"));
-const ClassicUpload = lazy(() => import("./components/Admin/ClassicUpload"));
+const ArchiveQna = lazy(() => import("./components/Chat/ArchiveQna"));
 const Bhajan = lazy(() => import("./components/Bhajan"));
 const QuizLogin = lazy(() => import("./components/QuizLogin"));
 
@@ -89,36 +77,15 @@ const SplashScreen = () => {
 
 function App() {
   const classes = useStyles();
-  const location = useLocation();
-  const isPreview =
-    location.pathname.startsWith("/v2") ||
-    location.pathname.startsWith("/design");
   return (
     <LanguageProvider>
-      <div
-        className={classes.container}
-        style={isPreview ? { maxWidth: "100%", margin: 0, padding: 0 } : {}}
-      >
+      <div className={classes.container}>
         <Suspense fallback={<SplashScreen />}>
-          {!isPreview && <AppBar />}
-          <DemoSwitcher />
+          <AppBar />
           <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/v2/library" component={PracticeLibrary} />
-            <Route path="/v2/chat" component={ArchiveChat} />
-            <Route path="/v2/quizlogin/:date" component={ClassicQuizLogin} />
-            <Route path="/v2/quiz/:date" component={ClassicQuizForm} />
-            <Route path="/v2/result/:date" component={ClassicQuizResult} />
-            <Route path="/v2/upload" component={ClassicUpload} />
-            <Route path="/v2" component={Design1} />
-            <Route path="/design1" component={Design1} />
-            <Route path="/design2" component={Design2} />
-            <Route path="/design3" component={Design3} />
-            <Route path="/design4" component={Design4} />
-            <Route path="/design5" component={Design5} />
-            <Route path="/design6" component={Design6} />
-
+          <Route exact path="/" component={HomePage} />
           <Route path="/library" component={ArchiveLibrary} />
+          <Route path="/chat" component={ArchiveQna} />
           <Route path="/oldquizresults" component={OldQuiz} />
           <Route path="/childrenquiz" component={ChildrenQuiz} />
           <Route
@@ -176,7 +143,7 @@ function App() {
           <Route component={PageNotFound} />
             </Switch>
 
-            {!isPreview && <Footer />}
+            <Footer />
             <ToastContainer autoClose={3000} hideProgressBar />
           </Suspense>
         </div>

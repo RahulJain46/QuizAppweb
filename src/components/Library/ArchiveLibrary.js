@@ -57,10 +57,19 @@ const useStyles = makeStyles((theme) => ({
   },
   subheading: {
     marginTop: 4,
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(1.5),
     color: "#546e7a",
     fontSize: 17,
     textAlign: "center",
+  },
+  headerBar: {
+    marginBottom: theme.spacing(2),
+    textAlign: "center",
+  },
+  chatLink: {
+    color: "#1976d2",
+    borderColor: "#1976d2",
+    fontWeight: 700,
   },
   filters: {
     padding: theme.spacing(2),
@@ -334,6 +343,17 @@ function ArchiveLibrary() {
               "Every past quiz question in one place."
             )}
       </Typography>
+
+      <div className={classes.headerBar}>
+        <Button
+          component={DomLink}
+          to="/chat"
+          variant="outlined"
+          className={classes.chatLink}
+        >
+          {t("प्रश्न संग्रह से पूछें", "Ask the archive")}
+        </Button>
+      </div>
 
       <Paper className={classes.filters}>
         <TextField
