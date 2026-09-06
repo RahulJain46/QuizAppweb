@@ -58,6 +58,7 @@ const Footer = lazy(() => import("./components/common/Footer"));
 const PageNotFound = lazy(() => import("./components/PageNotFound"));
 const ExamInstruction = lazy(() => import("./components/ExamInstruction"));
 const Search = lazy(() => import("./components/Search"));
+const ArchiveLibrary = lazy(() => import("./components/Library/ArchiveLibrary"));
 const PracticeLibrary = lazy(() => import("./components/Library/PracticeLibrary"));
 const ArchiveChat = lazy(() => import("./components/Chat/ArchiveChat"));
 const ClassicQuizLogin = lazy(() => import("./components/Quiz/ClassicQuizLogin"));
@@ -117,6 +118,7 @@ function App() {
             <Route path="/design5" component={Design5} />
             <Route path="/design6" component={Design6} />
 
+          <Route path="/library" component={ArchiveLibrary} />
           <Route path="/oldquizresults" component={OldQuiz} />
           <Route path="/childrenquiz" component={ChildrenQuiz} />
           <Route

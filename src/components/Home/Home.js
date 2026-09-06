@@ -587,6 +587,19 @@ function Home() {
             </Paper>
           </DomLink>
         </Grid>
+        <Grid item xs={12} className={classes.quizitems}>
+          <DomLink to="/library">
+            <Paper className={classes.paper}>
+              <Button
+                style={{ width: 200, height: 60 }}
+                variant="contained"
+                className={classes.childrenquizButton}
+              >
+                स्वाध्याय संग्रह
+              </Button>
+            </Paper>
+          </DomLink>
+        </Grid>
         {/* <Grid item xs={12} className={classes.quizitems}>
           <DomLink to="/bhajan">
             <Paper className={classes.paper}>
