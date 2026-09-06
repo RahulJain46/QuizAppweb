@@ -366,8 +366,8 @@ function PracticeLibrary() {
               "शब्द या विषय खोजें, जैसे: सुमेरु",
               "Search a word or topic, e.g. Sumeru"
             )}
-            inputProps={{ "aria-label": t("प्रश्न खोजें", "Search questions") }}
             InputProps={{
+              inputProps: { "aria-label": t("प्रश्न खोजें", "Search questions") },
               startAdornment: (
                 <InputAdornment position="start">
                   <SearchIcon style={{ color: "#A08C6A" }} />

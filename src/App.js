@@ -60,6 +60,10 @@ const ExamInstruction = lazy(() => import("./components/ExamInstruction"));
 const Search = lazy(() => import("./components/Search"));
 const PracticeLibrary = lazy(() => import("./components/Library/PracticeLibrary"));
 const ArchiveChat = lazy(() => import("./components/Chat/ArchiveChat"));
+const ClassicQuizLogin = lazy(() => import("./components/Quiz/ClassicQuizLogin"));
+const ClassicQuizForm = lazy(() => import("./components/Quiz/ClassicQuizForm"));
+const ClassicQuizResult = lazy(() => import("./components/Quiz/ClassicQuizResult"));
+const ClassicUpload = lazy(() => import("./components/Admin/ClassicUpload"));
 const Bhajan = lazy(() => import("./components/Bhajan"));
 const QuizLogin = lazy(() => import("./components/QuizLogin"));
 
@@ -101,6 +105,10 @@ function App() {
             <Route exact path="/" component={HomePage} />
             <Route path="/v2/library" component={PracticeLibrary} />
             <Route path="/v2/chat" component={ArchiveChat} />
+            <Route path="/v2/quizlogin/:date" component={ClassicQuizLogin} />
+            <Route path="/v2/quiz/:date" component={ClassicQuizForm} />
+            <Route path="/v2/result/:date" component={ClassicQuizResult} />
+            <Route path="/v2/upload" component={ClassicUpload} />
             <Route path="/v2" component={Design1} />
             <Route path="/design1" component={Design1} />
             <Route path="/design2" component={Design2} />

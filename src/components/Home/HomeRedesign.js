@@ -10,6 +10,8 @@ import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 import EmojiEventsOutlinedIcon from "@material-ui/icons/EmojiEventsOutlined";
 import EventAvailableOutlinedIcon from "@material-ui/icons/EventAvailableOutlined";
 import HistoryOutlinedIcon from "@material-ui/icons/HistoryOutlined";
+import ImportContactsOutlinedIcon from "@material-ui/icons/ImportContactsOutlined";
+import MusicNoteOutlinedIcon from "@material-ui/icons/MusicNoteOutlined";
 import MenuBookOutlinedIcon from "@material-ui/icons/MenuBookOutlined";
 import SchoolOutlinedIcon from "@material-ui/icons/SchoolOutlined";
 import { Link } from "react-router-dom";
@@ -209,14 +211,14 @@ function HomeRedesign() {
     {
       title: t("आज की प्रश्नोत्तरी", "Today's Quiz"),
       dateLabel: currentDate.displayDate,
-      to: `/quizlogin/${currentDate.routeDate}`,
+      to: `/v2/quizlogin/${currentDate.routeDate}`,
       icon: <EventAvailableOutlinedIcon />,
       iconClass: classes.iconMaroon,
     },
     {
       title: t("आज का परिणाम", "Today's Result"),
       dateLabel: currentDate.displayDate,
-      to: `/quizresult/${currentDate.routeDate}`,
+      to: `/v2/result/${currentDate.routeDate}`,
       icon: <AssignmentTurnedInIcon />,
       iconClass: classes.iconGreen,
     },
@@ -242,6 +244,18 @@ function HomeRedesign() {
       title: t("प्रश्न संग्रह से पूछें", "Ask the Archive"),
       to: "/v2/chat",
       icon: <ChatBubbleOutlineIcon />,
+      iconClass: classes.iconGreen,
+    },
+    {
+      title: t("ग्रंथ / पुस्तकें", "Books"),
+      to: "/books",
+      icon: <ImportContactsOutlinedIcon />,
+      iconClass: classes.iconGold,
+    },
+    {
+      title: t("भजन", "Bhajan"),
+      to: "/bhajan",
+      icon: <MusicNoteOutlinedIcon />,
       iconClass: classes.iconGreen,
     },
   ];
